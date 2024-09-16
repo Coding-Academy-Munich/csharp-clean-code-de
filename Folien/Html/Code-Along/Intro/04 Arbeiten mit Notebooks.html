@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=89846703a807d027"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=601afa97721cda63"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13366,7 +13366,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 " style="display:block;margin:auto;width:5%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Was ist Clean Code?</b>
+<b>Arbeiten mit Notebooks</b>
 </div>
 <br>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
@@ -13376,88 +13376,230 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=8444c8d22a704da0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5eb10b69d781cd4a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Was-ist-Clean-Code?">Was ist Clean Code?<a class="anchor-link" href="#Was-ist-Clean-Code?">¶</a></h1><ul>
-<li>Clean Code (Robert C. Martin / Object Mentor)</li>
-<li>Guter Code</li>
+<h1 id="Starten-der-Notebooks">Starten der Notebooks<a class="anchor-link" href="#Starten-der-Notebooks">¶</a></h1><ul>
+<li>Video "Docker für Notebooks", wenn Sie Notebooks in Docker verwenden wollen</li>
+<li><a href="https://github.com/dotnet/interactive/blob/main/docs/NotebookswithJupyter.md">.Net
+Interactive</a>
+für die Installation auf Ihrem Rechner</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=49799db73ed330e5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=14259f2f878899a2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Grady-Booch-(OODA)">Grady Booch (OODA)<a class="anchor-link" href="#Grady-Booch-(OODA)">¶</a></h3><ul>
-<li>Clean Code ist einfach und direkt.</li>
-<li>Clean Code liest sich wie gut geschriebene Prosa.</li>
-<li>Clean Code verdeckt nie die Absicht des Designers, sondern ist voller
-klarer Abstraktionen und geradliniger Kontrollflüsse.</li>
+<h1 id="Notebooks">Notebooks<a class="anchor-link" href="#Notebooks">¶</a></h1><ul>
+<li>Notebooks erlauben interaktives Arbeiten mit Code und Text</li>
+<li>Diese Art zu Arbeiten ist bei C# nicht so verbreitet</li>
+<li>Für Schulungen ist sie aber hervorragend geeignet</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b1eda3313fdb23ce"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9c64f7fd1ee060f5"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bjarne-Stroustrup-(C++)">Bjarne Stroustrup (C++)<a class="anchor-link" href="#Bjarne-Stroustrup-(C++)">¶</a></h3><ul>
-<li>Ich mag es, wenn mein Code elegant und effizient ist.</li>
-<li>Die Logik sollte einfach sein, um es Bugs schwer zu machen, sich zu
-verstecken, die Abhängigkeiten minimal, um die Wartung zu erleichtern, die
-Fehlerbehandlung vollständig nach einer artikulierten Strategie und die
-Leistung nahezu optimal, um die Leute nicht zu verleiten, den Code mit
-ad-hoc Optimierungen unordentlich zu machen.</li>
-<li>Clean Code macht eine Sache gut.</li>
+<h2 id="Arbeiten-mit-Notebooks">Arbeiten mit Notebooks<a class="anchor-link" href="#Arbeiten-mit-Notebooks">¶</a></h2><ul>
+<li>Der Notebook-Server zeigt uns eine Liste der Dateien im aktuellen
+Verzeichnis</li>
+<li>Durch Anklicken einer Notebook-Datei können wir sie öffnen</li>
+<li>Notebooks sind in Zellen aufgeteilt</li>
+<li>Zellen können entweder Text oder C# Code enthalten</li>
+<li>Im Gegensatz zu C# Programmen, können Zellen auch Ausdrücke enthalten</li>
+<li>Wenn die Zelle ausgeführt wird, werden die Ausdrücke ausgewertet und das
+Ergebnis angezeigt</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8f78759275cee578"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=602bdc204140db01">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=79a590bd4f92d6e4">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0d87f1d201f629c8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Ward-Cunningham-(Wiki)">Ward Cunningham (Wiki)<a class="anchor-link" href="#Ward-Cunningham-(Wiki)">¶</a></h3><ul>
-<li>Du weißt, dass du sauberen Code liest, wenn jede Routine, die du liest,
-ziemlich genau das ist, was du erwartet hast.</li>
-<li>Du kannst es schönen Code nennen, wenn der Code auch so aussieht, als wäre
-die Sprache für das Problem gemacht worden.</li>
+<ul>
+<li>Zellen können auch Anweisungen enthalten, z.B. Funktionsdefinitionen</li>
+<li>Beim Ausführen einer Zelle, in der eine Funktion definiert wird, wird die
+Funktion für den Rest des Notebooks verfügbar gemacht</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=88b0fbc1ee3c0b87"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5fa5704e1a5c8bd6">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">void</span><span class="w"> </span><span class="nf">SayHello</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Hello {name}!"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=582c6e1805eab08d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=418e9150a2d7133a">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5185da79646fe491"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Michael-Feathers-(Legacy-Code-Buch)">Michael Feathers (Legacy Code Buch)<a class="anchor-link" href="#Michael-Feathers-(Legacy-Code-Buch)">¶</a></h3><ul>
-<li>Clean Code scheint von jemandem geschrieben worden zu sein, dem der Code
-etwas bedeutet ("someone who cares").</li>
+<ul>
+<li>Das gleiche gilt für Structs und Klassen:</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c973a65bce7e8c89"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=884b676c3384f0b3">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=5431a386f7b7b291">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=74b48ea1a65f8d5f">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ba4ae3303cb2b9e3">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4eeaaa51cd686d77"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Ziele">Ziele<a class="anchor-link" href="#Ziele">¶</a></h2><ul>
-<li>Wenige Bugs</li>
-<li>Konstante Entwicklungsgeschwindigkeit</li>
-<li>Eine Codebasis, mit der es Spaß macht zu arbeiten</li>
+<ul>
+<li>Es gibt zwei Modi: Kommando- und Edit-Modus (<code>Esc</code> / <code>Enter</code>)</li>
+<li>Einige Tastaturkürzel:<ul>
+<li><code>Strg</code>-<code>Enter</code></li>
+<li><code>Shift</code>-<code>Enter</code></li>
+<li>(<code>Tab</code>)</li>
+<li>(<code>Shift-Tab</code>)</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=90b1ec9d54bb9eaf"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Wie-erreichen-wir-das?">Wie erreichen wir das?<a class="anchor-link" href="#Wie-erreichen-wir-das?">¶</a></h2><p>In vielen kleinen Schritten!</p>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=72a31edfb7ab7f05">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cddc74441df6a6f3"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Die-Boy-Scout-Rule-(f%C3%BCr-Code)">Die Boy Scout Rule (für Code)<a class="anchor-link" href="#Die-Boy-Scout-Rule-(f%C3%BCr-Code)">¶</a></h2><p><em>Hinterlasse den Code besser als du ihn vorgefunden hast.</em></p>
-<p>(Robert C. Martin)</p>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=8559820a8d8c0b41">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=56b7d79a4ce3293c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=0bca999ae82148ee">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
