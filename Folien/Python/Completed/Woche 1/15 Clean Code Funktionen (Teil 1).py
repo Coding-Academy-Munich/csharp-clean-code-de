@@ -82,13 +82,10 @@ List<int> allResults = new List<int> { 12, 43 };
 int newResult = DoStuff(2, 4, allResults);
 
 // %%
-Console.WriteLine(newResult);
+newResult
 
 // %%
-foreach (int result in allResults)
-{
-    Console.WriteLine(result);
-}
+allResults
 
 // %% [markdown]
 //
@@ -158,13 +155,10 @@ allResults = new List<int> { 12, 43 };
 int newResult = PerformMeasurementAndProcessResult(2, 4, allResults);
 
 // %%
-Console.WriteLine(newResult);
+newResult
 
 // %%
-foreach (int result in allResults)
-{
-    Console.WriteLine(result);
-}
+allResults
 
 // %% [markdown]
 //
@@ -251,9 +245,6 @@ foreach (int result in allResults)
 // - Meistens wird jeder Kommentar zu einer Funktion
 
 // %%
-using System;
-
-// %%
 public class OrderProcessor
 {
     public void ProcessOrder(string orderID)
@@ -322,3 +313,5 @@ public class OrderProcessor
 //
 // *Tipp:* Beginnen Sie damit, die Variablen gemäß den Kommentaren umzubenennen,
 // um den Rest der Arbeit zu vereinfachen.
+
+// %%
