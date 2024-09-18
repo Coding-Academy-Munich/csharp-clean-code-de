@@ -14,12 +14,12 @@
 //
 // ## Ein einfacher Test mit xUnit im IDE
 //
-// - Starter-Kit: `code/starter-kits/xunit-basics-sk/`
-// - Vollständige Implementierung: `code/complete/xunit-basics/`
+// - Starter-Kit: `Code/StarterKits/XunitBasicsSk/`
+// - Vollständige Implementierung: `Code/Complete/XunitBasics/`
 
 // %% [markdown]
 // - Let's look at the process in a development environment
 // - That's how you're likely to work with xUnit in your daily practice
-// - If you want to code along with me, you find the starter kit in `code/starter-kits/xunit-basics-sk`
+// - If you want to code along with me, you find the starter kit in `Code/StarterKits/XunitBasicsSk`
 
 // %%
