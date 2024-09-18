@@ -190,7 +190,7 @@ AnalyzeReview("Some review text")
 //
 // ## Workshop: Rezepte
 //
-// In `Code/StarterKits/RecipesSk` ist ein Programm, mit denen sich ein
+// In `Code/StarterKits/RecipesSk` ist ein Programm, mit dem sich ein
 // Kochbuch verwalten lässt. Leider hat der Programmierer sehr schlechte Namen
 // verwendet, dadurch ist das Programm schwer zu verstehen.
 //
