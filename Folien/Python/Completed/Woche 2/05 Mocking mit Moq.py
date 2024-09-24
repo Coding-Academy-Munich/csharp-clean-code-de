@@ -1,6 +1,14 @@
 // -*- coding: utf-8 -*-
 // %% [markdown]
-// **Mocking mit Moq**
+//
+// <div style="text-align:center; font-size:200%;">
+//  <b>Mocking mit Moq</b>
+// </div>
+// <br/>
+// <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
+// <br/>
+// <div style="text-align:center;">Coding-Akademie München</div>
+// <br/>
 
 // %% [markdown]
 //
