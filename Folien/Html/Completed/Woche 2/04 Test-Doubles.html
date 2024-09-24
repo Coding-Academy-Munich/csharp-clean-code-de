@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=75cda673d23fdea0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=6e50d9799cd0fd94"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13366,7 +13366,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 " style="display:block;margin:auto;width:5%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Clean Code: Funktionen (Teil 1)</b>
+<b>Test-Doubles</b>
 </div>
 <br>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
@@ -13376,68 +13376,120 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f3767273ac64982b"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d5f194736e9b8ff4"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-package">Fasse Operationen, die logisch zusammengehören, als sorgfältig benannte
-Funktionen zusammen (CG,
-F.1)</a></p>
-<ul>
-<li>Besser lesbar</li>
-<li>Einfacher zu testen</li>
-<li>Fehler sind weniger wahrscheinlich</li>
-<li>Wird eher wiederverwendet</li>
+<h2 id="Test-Doubles">Test Doubles<a class="anchor-link" href="#Test-Doubles">¶</a></h2><ul>
+<li>Test Double: Vereinfachte Version einer Abhängigkeit im System<ul>
+<li>z.B. Ersetzen einer Datenbankabfrage durch einen fixen Wert</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=434fea343edae7d1"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Die-1.-Clean-Code-Regel-f%C3%BCr-Funktionen">Die 1. Clean Code Regel für Funktionen<a class="anchor-link" href="#Die-1.-Clean-Code-Regel-f%C3%BCr-Funktionen">¶</a></h2><ul>
-<li>Funktionen sollten kurz sein</li>
-<li>Kürzer als man meint!</li>
-<li>Maximal 4 Zeilen!</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b064afa340823770"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="C++-Core-Guidelines">C++ Core Guidelines<a class="anchor-link" href="#C++-Core-Guidelines">¶</a></h2><ul>
-<li><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f3-keep-functions-short-and-simple">Halte Funktionen kurz und einfach (CG
-F.3)</a><ul>
-<li>Funktionen sollten auf einen Bildschirm passen</li>
-<li>Große Funktionen sollten in kleinere, zusammenhängende und benannte
-Funktionen aufgeteilt werden</li>
-<li>Funktionen mit einer bis fünf Zeilen sollten als normal angesehen werden</li>
+</li>
+<li>Test Doubles sind wichtig zum Vereinfachen von Tests</li>
+<li>Sie benötigen typischerweise ein Interface, das sie implementieren</li>
+<li>Aber: zu viele oder komplexe Test Doubles machen Tests unübersichtlich<ul>
+<li>Was wird von einem Test eigentlich getestet?</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=57f8cc70c4ca19da"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ce9a91d894b8af2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Konzentration-auf-eine-Aufgabe">Konzentration auf eine Aufgabe<a class="anchor-link" href="#Konzentration-auf-eine-Aufgabe">¶</a></h2><ul>
-<li>Funktionen sollten eine Aufgabe erfüllen ("do one thing")</li>
-<li>Sie sollten diese Aufgabe gut erfüllen</li>
-<li>Sie sollten nur diese Aufgabe erfüllen</li>
-<li><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-logical">Eine Funktion sollte eine einzige logische Aufgabe erfüllen (CG
-F.2)</a></li>
+<h2 id="Arten-von-Test-Doubles">Arten von Test Doubles<a class="anchor-link" href="#Arten-von-Test-Doubles">¶</a></h2><ul>
+<li>Ausgehende Abhängigkeiten ("Mocks")<ul>
+<li>Mocks</li>
+<li>Spies</li>
+</ul>
+</li>
+<li>Eingehende Abhängigkeiten ("Stubs")<ul>
+<li>Dummies</li>
+<li>Stubs</li>
+<li>Fakes</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=42945fb3c75b8f36">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4d4ed1c0dd5aabe5"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dummy">Dummy<a class="anchor-link" href="#Dummy">¶</a></h2><ul>
+<li>Objekt, das nur als Platzhalter dient</li>
+<li>Wird übergeben, aber nicht verwendet</li>
+<li>In C# manchmal <code>null</code></li>
+<li>Auch für ausgehende Abhängigkeiten</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8c368fe353d5215d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Stub">Stub<a class="anchor-link" href="#Stub">¶</a></h2><ul>
+<li>Objekt, das eine minimale Implementierung einer Abhängigkeit bereitstellt</li>
+<li>Gibt typischerweise immer den gleichen Wert zurück</li>
+<li>Wird verwendet um</li>
+<li>komplexe Abhängigkeiten zu ersetzen</li>
+<li>Tests deterministisch zu machen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8377a04e228048ac"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Fake">Fake<a class="anchor-link" href="#Fake">¶</a></h2><ul>
+<li>Objekt, das eine einfachere Implementierung einer Abhängigkeit bereitstellt</li>
+<li>Kann z.B. eine In-Memory-Datenbank sein</li>
+<li>Wird verwendet um<ul>
+<li>Tests zu beschleunigen</li>
+<li>Konfiguration von Tests zu vereinfachen</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0b683ec83c76569c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Spy">Spy<a class="anchor-link" href="#Spy">¶</a></h2><ul>
+<li>Objekt, das Informationen über die Interaktion mit ihm speichert</li>
+<li>Wird verwendet um<ul>
+<li>zu überprüfen, ob eine Abhängigkeit korrekt verwendet wird</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e9ec6b5fe0648bcd"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mock">Mock<a class="anchor-link" href="#Mock">¶</a></h2><ul>
+<li>Objekt, das Information über die erwartete Interaktion speichert</li>
+<li>Typischerweise deklarativ konfigurierbar</li>
+<li>Automatisierte Implementierung von Spies</li>
+<li>Wird verwendet um<ul>
+<li>zu überprüfen, ob eine Abhängigkeit korrekt verwendet wird</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=4c3eef2145b58024">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IDataSource</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -13448,7 +13500,7 @@ F.2)</a></li>
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-16765.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-28260.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13493,12 +13545,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.20:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.14:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '16765.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '28260.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13557,277 +13609,214 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=6ee4044e8d34e5ef">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=dd6f67484960fc06">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">DoStuff</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IDataSink</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="c1">// Get measurement from sensors based on config data...</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// ... and perform a complex computation</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">newResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurement</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// ... save the result to the list of results</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">newResult</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">results</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newResult</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// ... print all results</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// ... and return the result</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">newResult</span><span class="p">;</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">SetValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=c97803031f72fe88">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=f171a8029931094a">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">43</span><span class="w"> </span><span class="p">};</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Processor</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IDataSource</span><span class="w"> </span><span class="n">source</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IDataSink</span><span class="w"> </span><span class="n">sink</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Processor</span><span class="p">(</span><span class="n">IDataSource</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">IDataSink</span><span class="w"> </span><span class="n">sink</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">sink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sink</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Process</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
+<span class="w">        </span><span class="n">sink</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=175b76afc3aa31d5">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=c34c732f13cf1647">
 <div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">newResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoStuff</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">allResults</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DataSourceStub</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDataSource</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">42</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>12
-</pre>
 </div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>43
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>7
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=20e1085c71055ea5">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ee1b732d80270513">
 <div class="input">
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">newResult</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DataSinkSpy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDataSink</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Values</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>7</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=5105deb0b236742e">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=7ace7bd34ce077a7">
 <div class="input">
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">allResults</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">Check</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">condition</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Test failed!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Success!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>[ 12, 43, 7 ]</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=215c412bffd34117"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Messung, Auswertung und Validierung der Ergebnisse</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=75a516b30be47612">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=375f55a2239187e6">
 <div class="input">
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">GetMeasurement</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">TestProcessor</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataSourceStub</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">sink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataSinkSpy</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">processor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Processor</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">sink</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">processor</span><span class="p">.</span><span class="n">Process</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">Check</span><span class="p">(</span><span class="n">sink</span><span class="p">.</span><span class="n">Values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Check</span><span class="p">(</span><span class="n">sink</span><span class="p">.</span><span class="n">Values</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">42</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e16ede1fc00e50d8">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=af3408914dcd9976">
 <div class="input">
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ComputeDataForNextTimestep</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">measurement</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">measurement</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">TestProcessor</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success!
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e36fc63fdb6bf5d3">
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=605e07a6925357cd"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Typischer-Einsatz-von-Test-Doubles">Typischer Einsatz von Test Doubles<a class="anchor-link" href="#Typischer-Einsatz-von-Test-Doubles">¶</a></h2><ul>
+<li>Zugriff auf Datenbank, Dateisystem</li>
+<li>Zeit, Zufallswerte</li>
+<li>Nichtdeterminismus</li>
+<li>Verborgener Zustand</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=854d789cae2437fd"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Test-Doubles">Workshop: Test Doubles<a class="anchor-link" href="#Workshop:-Test-Doubles">¶</a></h2><p>Wir haben die folgenden Interfaces, die von der Funktion <code>TestMe()</code>
+verwendet werden:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=98d607946e192f19">
 <div class="input">
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsValidResult</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IService1</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cf76867982712550"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Speichern und Drucken der Ergebnisse:</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=66db926f68b613a9">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=8b9a9a0c079fe6b8">
 <div class="input">
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IService2</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">SetValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=545509cf887b8996">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=3d28f422af60c4ac">
 <div class="input">
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">SaveResult</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">newResult</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestMe</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">IService1</span><span class="w"> </span><span class="n">service1</span><span class="p">,</span><span class="w"> </span><span class="n">IService2</span><span class="w"> </span><span class="n">service2</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">results</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newResult</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=090ef83f6e0221b4">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">PrintResults</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service1</span><span class="p">.</span><span class="n">GetValue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">service2</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -13835,416 +13824,269 @@ table th {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8c37c75b84aa3a6f"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a6cf68f194704d68"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Zusammenführung der Funktionen:</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2bc3ed3a56c80282">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">PerformMeasurementAndProcessResult</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetMeasurement</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">newResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ComputeDataForNextTimestep</span><span class="p">(</span><span class="n">measurement</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValidResult</span><span class="p">(</span><span class="n">newResult</span><span class="p">))</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">SaveResult</span><span class="p">(</span><span class="n">newResult</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">PrintResults</span><span class="p">(</span><span class="n">results</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">newResult</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=455dc0b3b58c270e">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">allResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">43</span><span class="w"> </span><span class="p">};</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=eef159b517fd544f">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">newResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PerformMeasurementAndProcessResult</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">allResults</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>12
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>43
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>7
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=a68ca706fb266b18">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">newResult</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[16]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>7</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e814b20f3028bf11">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">allResults</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>[ 12, 43, 7 ]</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0aa228e5c129826b"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fragen">Fragen<a class="anchor-link" href="#Fragen">¶</a></h3><ul>
-<li>Macht <code>performMeasurementAndProcessResult()</code> das Gleiche wie <code>doStuff()</code>?</li>
-<li>Ist die Funktion <code>performMeasurementAndProcessResult()</code> wirklich besser?</li>
-<li>Konzentriert sie sich auf eine Aufgabe?</li>
-<li>Unterscheiden sich Ihre Aufgaben von <code>doStuff()</code>?</li>
-<li>Warum (nicht)?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b8284cdf9e7fc77d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hilfsmittel:-%C3%84nderungsgr%C3%BCnde">Hilfsmittel: Änderungsgründe<a class="anchor-link" href="#Hilfsmittel:-%C3%84nderungsgr%C3%BCnde">¶</a></h2><ul>
-<li>Welche möglichen Änderungsgründe gibt es?</li>
-<li>Wie viele davon betreffen die jeweilige Funktion?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=11dfa972c8bbce45"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p>Welche Arten von Test-Doubles brauchen Sie um die Funktion <code>TestMe()</code> für
+die angegebenen Werte von <code>i</code> und <code>j</code> zu testen?</p>
 <table>
 <thead>
 <tr>
-<th>Änderungsgrund</th>
-<th style="text-align:left"><code>doStuff()</code></th>
-<th style="text-align:left"><code>performMeasurementAndProcessResult()</code></th>
+<th>i</th>
+<th>j</th>
+<th>Service1</th>
+<th>Service2</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Messung</td>
-<td style="text-align:left">✓</td>
-<td style="text-align:left">❌ <code>getMeasurement()</code></td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>Berechnung</td>
-<td style="text-align:left">✓</td>
-<td style="text-align:left">❌ <code>computeDataForNextTimestep()</code></td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>Validierung</td>
-<td style="text-align:left">✓</td>
-<td style="text-align:left">❌ <code>isValidResult()</code></td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>Speichern</td>
-<td style="text-align:left">✓</td>
-<td style="text-align:left">❌ <code>saveResult()</code></td>
-</tr>
-<tr>
-<td>Drucken</td>
-<td style="text-align:left">✓</td>
-<td style="text-align:left">❌ <code>printResults()</code></td>
-</tr>
-<tr>
-<td>Neue/andere Tätigkeit</td>
-<td style="text-align:left">✓</td>
-<td style="text-align:left">✓</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=2ef7237b8ced31aa"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=fc0dea94e617995a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Abstraktionsebenen">Abstraktionsebenen<a class="anchor-link" href="#Abstraktionsebenen">¶</a></h1><ul>
-<li>Alles, was die Funktion in ihrem Rumpf tut, sollte eine (und nur eine)
-Abstraktionsebene unterhalb der Funktion selbst sein.</li>
-<li>Beispiel: <code>performMeasurementAndProcessResult()</code></li>
-<li>Gegenbeispiel: <code>createAndDistributeExam()</code>:</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>j</th>
+<th>Service1</th>
+<th>Service2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>Dummy</td>
+<td>Dummy</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>Dummy</td>
+<td>Spy/Mock</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>Stub</td>
+<td>Dummy</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Stub</td>
+<td>Spy/Mock</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=18e20537a6cdbccb"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d6cb4e63664783a0"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">CreateAndDistributeExam</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">subject</span><span class="p">)</span>
+<p>Implementieren Sie die entsprechenden Doubles und schreiben Sie die Tests</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=1e4bbe0df44c839f">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Service1Stub</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IService1</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="c1">// high level abstraction</span>
-<span class="w">    </span><span class="n">Exam</span><span class="w"> </span><span class="n">exam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateExamUsingChatGPT</span><span class="p">(</span><span class="n">subject</span><span class="p">);</span>
-
-<span class="w">    </span><span class="c1">// low level abstractions</span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">FileStream</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileStream</span><span class="p">(</span><span class="n">subject</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"_exam.pdf"</span><span class="p">,</span><span class="w"> </span><span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">))</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">WritePdfHeader</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Question</span><span class="w"> </span><span class="n">question</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">exam</span><span class="p">.</span><span class="n">GetQuestions</span><span class="p">())</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">pdfQuestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConvertQuestionToPdf</span><span class="p">(</span><span class="n">question</span><span class="p">);</span>
-<span class="w">            </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">pdfQuestion</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"\n"</span><span class="p">);</span>
-<span class="w">            </span><span class="n">file</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// higher level abstraction</span>
-<span class="w">    </span><span class="n">DistributeExamToStudents</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">42</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ed995939e3b8307d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Kontrolle-der-Abstraktionsebenen:-%22Um-Zu%22-Abs%C3%A4tze">Kontrolle der Abstraktionsebenen: "Um-Zu"-Absätze<a class="anchor-link" href="#Kontrolle-der-Abstraktionsebenen:-%22Um-Zu%22-Abs%C3%A4tze">¶</a></h2><p><code>performMeasurementAndProcessResult()</code>:</p>
-<p>Um eine Messung durchzuführen und das Ergebnis zu verarbeiten:</p>
-<ul>
-<li>Hole ein Messergebnis</li>
-<li>Berechne die Daten für den nächsten Zeitschritt</li>
-<li>Speichere das Ergebnis, falls es gültig ist</li>
-<li>Drucke alle Ergebnisse, unabhängig davon, ob das neue Ergebnis gültig ist</li>
-</ul>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=4e5d40591833a462">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Service2Spy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IService2</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Values</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Values</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e100813f27abbf07"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Kommentare-als-%22Um-Zu%22-Abs%C3%A4tze">Kommentare als "Um-Zu"-Absätze<a class="anchor-link" href="#Kommentare-als-%22Um-Zu%22-Abs%C3%A4tze">¶</a></h2><ul>
-<li>Beim Schreiben von Code können wir das "Um-Zu"-Muster verwenden, um die
-Abstraktionsebenen zu kontrollieren</li>
-<li>Wir können die "Um-Zu"-Absätze als Kommentare schreiben bevor wir den Code
-schreiben</li>
-<li>Meistens wird jeder Kommentar zu einer Funktion</li>
-</ul>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=2ae4b2e0700e0fa9">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestTestMe_0_0</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">TestMe</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a8fd9c93e90cfd92">
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9d1f8b75d338a0fa">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">TestTestMe_0_0</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=8afae08280812856">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestTestMe_0_1</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">service2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Service2Spy</span><span class="p">();</span>
+<span class="w">    </span><span class="n">TestMe</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="n">service2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Check</span><span class="p">(</span><span class="n">service2</span><span class="p">.</span><span class="n">Values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Check</span><span class="p">(</span><span class="n">service2</span><span class="p">.</span><span class="n">Values</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=2e593625818df4e8">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">TestTestMe_0_1</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success!
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=e14f1af24494d919">
 <div class="input">
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderProcessor</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestTestMe_1_0</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ProcessOrder</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Hole die Bestelldetails anhand der `orderID`</span>
-<span class="w">        </span><span class="c1">// Validiere die Lagerverfügbarkeit für jeden Artikel in der Bestellung</span>
-<span class="w">        </span><span class="c1">// Aktualisiere den Lagerbestand bei erfolgreicher Validierung</span>
-<span class="w">        </span><span class="c1">// Erzeuge eine Lieferung für die Bestellung</span>
-<span class="w">        </span><span class="c1">// Benachrichtige den Kunden mit den Lieferdetails</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">service1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Service1Stub</span><span class="p">();</span>
+<span class="w">    </span><span class="n">TestMe</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">service1</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0b15c37f2d02fbc2"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Funktionen-als-%22Um-Zu%22-Abs%C3%A4tze">Funktionen als "Um-Zu"-Absätze<a class="anchor-link" href="#Funktionen-als-%22Um-Zu%22-Abs%C3%A4tze">¶</a></h2><p>Wir können die "Um-Zu"-Absätze auch gleich als Funktionsaufrufe schreiben:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=42e17fedc30f178a">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c0562ce322386dd1">
 <div class="input">
 <div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderProcessor</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">TestTestMe_1_0</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=3fc7b918ff42d688">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestTestMe_1_1</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ProcessOrder</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Hole die Bestelldetails anhand der `orderID`</span>
-<span class="w">        </span><span class="n">FetchOrderDetails</span><span class="p">(</span><span class="n">orderID</span><span class="p">);</span>
-<span class="w">        </span><span class="c1">// Validiere die Lagerverfügbarkeit für jeden Artikel in der Bestellung</span>
-<span class="w">        </span><span class="n">ValidateStockAvailability</span><span class="p">(</span><span class="n">orderID</span><span class="p">);</span>
-<span class="w">        </span><span class="c1">// Aktualisiere den Lagerbestand bei erfolgreicher Validierung</span>
-<span class="w">        </span><span class="n">UpdateInventory</span><span class="p">(</span><span class="n">orderID</span><span class="p">);</span>
-<span class="w">        </span><span class="c1">// Erzeuge eine Lieferung für die Bestellung</span>
-<span class="w">        </span><span class="n">GenerateShipment</span><span class="p">(</span><span class="n">orderID</span><span class="p">);</span>
-<span class="w">        </span><span class="c1">// Benachrichtige den Kunden mit den Lieferdetails</span>
-<span class="w">        </span><span class="n">NotifyCustomer</span><span class="p">(</span><span class="n">orderID</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FetchOrderDetails</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ValidateStockAvailability</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateInventory</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GenerateShipment</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span><span class="w">  </span><span class="p">{}</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NotifyCustomer</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderID</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">service1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Service1Stub</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">service2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Service2Spy</span><span class="p">();</span>
+<span class="w">    </span><span class="n">TestMe</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">service1</span><span class="p">,</span><span class="w"> </span><span class="n">service2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Check</span><span class="p">(</span><span class="n">service2</span><span class="p">.</span><span class="n">Values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Check</span><span class="p">(</span><span class="n">service2</span><span class="p">.</span><span class="n">Values</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">42</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=702f82f566892aff"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Die-Step-Down-Regel">Die Step-Down-Regel<a class="anchor-link" href="#Die-Step-Down-Regel">¶</a></h2><ul>
-<li>Wir wollen, dass sich der Code wie eine Erzählung von oben nach unten liest</li>
-<li>Auf jede Funktion sollten die Funktionen eine Abstraktionsebene darunter
-folgen</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=65b1e461838b787d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Mini-Workshop:-Do-one-Thing">Mini-Workshop: Do one Thing<a class="anchor-link" href="#Mini-Workshop:-Do-one-Thing">¶</a></h2><p>In <code>Code/StarterKits/salaries-sk</code> finden Sie eine Funktion
-<code>handle_money_stuff()</code>.</p>
-<p>Diese Funktion macht mehr als eine Sache.</p>
-<p>Teilen Sie sie in mehrere Funktionen auf, so dass jede nur eine Sache tut.
-Stellen Sie sicher, dass</p>
-<ul>
-<li>jede Funktion ihre Aufgabe gut erfüllt und sich auf einer einzigen
-Abstraktionsebene befindet,</li>
-<li>alle Namen angemessen sind, und</li>
-<li>der Code leicht zu verstehen ist.</li>
-</ul>
-<p><em>Tipp:</em> Beginnen Sie damit, die Variablen gemäß den Kommentaren umzubenennen,
-um den Rest der Arbeit zu vereinfachen.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=6b4e03423667dbb7">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=33fc6aba9f81eb1c">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">TestTestMe_1_1</span><span class="p">();</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success!
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success!
+</pre>
+</div>
 </div>
 </div>
 </div>
