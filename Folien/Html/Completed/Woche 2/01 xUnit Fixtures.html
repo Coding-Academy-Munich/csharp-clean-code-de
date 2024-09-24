@@ -13421,7 +13421,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-22455.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-33572.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13466,12 +13466,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.18:2050/", "http://127.0.0.1:2050/"])
+    probeAddresses(["http://172.18.0.12:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '22455.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '33572.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13693,12 +13693,12 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=1bcb922e318d208b">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a0fadf3a14e0123b">
 <div class="input">
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">MyClassTest1</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="o">&lt;</span><span class="n">MyClassTest1</span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -13807,12 +13807,12 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f22bc74f39fca76a">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=66406f5ce4ae275e">
 <div class="input">
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">MyClassTest2</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="o">&lt;</span><span class="n">MyClassTest2</span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -13930,7 +13930,7 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fcc4eac5c3ff9767"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6096dfc9a81a66b8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Testklassen-und-Fixtures">Testklassen und Fixtures<a class="anchor-link" href="#Testklassen-und-Fixtures">¶</a></h2><ul>
@@ -13939,33 +13939,32 @@ else {
 <li>gemeinsamen Zustand für die Tests bereitstellen</li>
 </ul>
 </li>
-<li><code>@BeforeEach</code> für Setup (Initialisierung)</li>
-<li><code>@AfterEach</code> für Teardown (Freigabe)</li>
-<li><code>@BeforeAll</code> und <code>@AfterAll</code> für Setup und Teardown auf Klassenebene</li>
+<li>Konstruktor für Setup (Initialisierung)</li>
+<li><code>IDispose</code> für Teardown (Freigabe)</li>
+<li>Fixture-Argumente für Zustand, der zwischen Tests geteilt wird</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=e34db7db60d09939">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=7a55d701ce6a50c0">
 <div class="input">
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=7e31901a2bb1637d">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=f4447fd5120a06dc">
 <div class="input">
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TestFixture</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyClassFixture</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">TestFixture</span><span class="p">()</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClassFixture</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Creating the class fixture"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
@@ -13980,29 +13979,29 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=06ef8c5f42edb818">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=d8fb6f0459890afa">
 <div class="input">
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">XUnitFixturesTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span><span class="p">,</span><span class="w"> </span><span class="n">IClassFixture</span><span class="o">&lt;</span><span class="n">TestFixture</span><span class="o">&gt;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">XUnitFixturesTest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span><span class="p">,</span><span class="w"> </span><span class="n">IClassFixture</span><span class="o">&lt;</span><span class="n">MyClassFixture</span><span class="o">&gt;</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">testList</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">TestFixture</span><span class="w"> </span><span class="n">testFixture</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">MyClassFixture</span><span class="w"> </span><span class="n">MyClassFixture</span><span class="p">;</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">XUnitFixturesTest</span><span class="p">(</span><span class="n">TestFixture</span><span class="w"> </span><span class="n">fixture</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">XUnitFixturesTest</span><span class="p">(</span><span class="n">MyClassFixture</span><span class="w"> </span><span class="n">fixture</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">testList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"test"</span><span class="p">];</span>
-<span class="w">        </span><span class="n">testFixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fixture</span><span class="p">;</span>
+<span class="w">        </span><span class="n">MyClassFixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fixture</span><span class="p">;</span>
 <span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">();</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Instantiating test: {id,8}. Fixture is {testFixture.GetHashCode(),8}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Instantiating test: {id,8}. Fixture is {MyClassFixture.GetHashCode(),8}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Dispose</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">testList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Disposing test:     {id,8}. Fixture is {testFixture.GetHashCode(),8}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Disposing test:     {id,8}. Fixture is {MyClassFixture.GetHashCode(),8}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="na">[Fact]</span>
@@ -14024,12 +14023,12 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=7bab6776f09c9dec">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=1290573afd3631cc">
 <div class="input">
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">XUnitFixturesTest</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="o">&lt;</span><span class="n">XUnitFixturesTest</span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -14046,7 +14045,7 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Instantiating test: 50231108. Fixture is 45807350
+<pre>Instantiating test: 58033163. Fixture is 61355519
 </pre>
 </div>
 </div>
@@ -14060,14 +14059,14 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Disposing test:     50231108. Fixture is 45807350
+<pre>Disposing test:     58033163. Fixture is 61355519
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Instantiating test: 23439372. Fixture is 45807350
+<pre>Instantiating test: 48072497. Fixture is 61355519
 </pre>
 </div>
 </div>
@@ -14081,7 +14080,7 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Disposing test:     23439372. Fixture is 45807350
+<pre>Disposing test:     48072497. Fixture is 61355519
 </pre>
 </div>
 </div>
@@ -14096,109 +14095,6 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 2, Passed: 2, Failed: 0
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=3fbc03a67a46c0a9">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyClassTest4</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MyClassTest4</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Dependency1</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dependency1</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
-<span class="w">        </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dependency2</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Dispose</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="na">[Fact]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestValue1</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">MyClass</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">11</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="na">[Fact]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestValue2</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">MyClass</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="m">32</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="na">[Fact]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestValue3</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">MyClass</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="m">33</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="na">[Fact]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestValue4</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">MyClass</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyClass</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="o">-</span><span class="m">26</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">Dependency2</span><span class="w"> </span><span class="n">d2</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ff91c63e35f8ac03">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">MyClassTest4</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[PASS] TestValue1
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[PASS] TestValue2
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[PASS] TestValue3
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[PASS] TestValue4
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Total tests: 4, Passed: 4, Failed: 0
 </pre>
 </div>
 </div>
@@ -14224,7 +14120,7 @@ von <code>PlaylistEntry</code>-Objekten.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0b6feb2b866b0ecc">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">User</span>
@@ -14247,7 +14143,7 @@ von <code>PlaylistEntry</code>-Objekten.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=5e0343283cc0de04">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Song</span>
@@ -14270,7 +14166,7 @@ von <code>PlaylistEntry</code>-Objekten.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=5efa5a0cb7bccc7c">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlaylistEntry</span>
@@ -14296,7 +14192,7 @@ von <code>PlaylistEntry</code>-Objekten.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=6ca2499b067fff4c">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Playlist</span>
@@ -14365,7 +14261,7 @@ in früheren Lektionen besprochen haben.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=4332b94793d66833">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlaylistEntryTest</span>
@@ -14400,7 +14296,7 @@ in früheren Lektionen besprochen haben.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=bdf3bcef35cc1a19">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">PlaylistEntryTest</span><span class="p">));</span>
@@ -14436,7 +14332,7 @@ in früheren Lektionen besprochen haben.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=962dc2aa23983ab7">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlaylistBasicsTest</span>
@@ -14489,7 +14385,7 @@ in früheren Lektionen besprochen haben.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=60c5dd6aa893eee3">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">PlaylistBasicsTest</span><span class="p">));</span>
@@ -14539,7 +14435,7 @@ in früheren Lektionen besprochen haben.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=867ccdb2b9d3f206">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlaylistLimitsTest</span>
@@ -14595,12 +14491,12 @@ in früheren Lektionen besprochen haben.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=0fcf3d9523946e38">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=b51a71082d194930">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">PlaylistLimitsTest</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunTests</span><span class="o">&lt;</span><span class="n">PlaylistLimitsTest</span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>

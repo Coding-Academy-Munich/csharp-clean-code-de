@@ -136,7 +136,7 @@ public class MyClassTest1
 using static XunitTestRunner;
 
 // %%
-RunTests(typeof(MyClassTest1));
+RunTests<MyClassTest1>();
 
 // %%
 public class MyClassTest2
@@ -196,7 +196,7 @@ public class MyClassTest2
 
 
 // %%
-RunTests(typeof(MyClassTest2));
+RunTests<MyClassTest2>();
 
 
 // %%
@@ -239,18 +239,17 @@ RunTests(typeof(MyClassTest3));
 // - Testklassen können
 //   - mehrere Tests zusammenfassen
 //   - gemeinsamen Zustand für die Tests bereitstellen
-// - `@BeforeEach` für Setup (Initialisierung)
-// - `@AfterEach` für Teardown (Freigabe)
-// - `@BeforeAll` und `@AfterAll` für Setup und Teardown auf Klassenebene
+// - Konstruktor für Setup (Initialisierung)
+// - `IDispose` für Teardown (Freigabe)
+// - Fixture-Argumente für Zustand, der zwischen Tests geteilt wird
 
 // %%
-using Xunit;
 using System;
 
 // %%
-public class TestFixture : IDisposable
+public class MyClassFixture : IDisposable
 {
-    public TestFixture()
+    public MyClassFixture()
     {
         Console.WriteLine("Creating the class fixture");
     }
@@ -262,24 +261,24 @@ public class TestFixture : IDisposable
 }
 
 // %%
-public class XUnitFixturesTest : IDisposable, IClassFixture<TestFixture>
+public class XUnitFixturesTest : IDisposable, IClassFixture<MyClassFixture>
 {
     private List<string> testList;
-    private TestFixture testFixture;
+    private MyClassFixture MyClassFixture;
     private int id;
 
-    public XUnitFixturesTest(TestFixture fixture)
+    public XUnitFixturesTest(MyClassFixture fixture)
     {
         testList = ["test"];
-        testFixture = fixture;
+        MyClassFixture = fixture;
         id = this.GetHashCode();
-        Console.WriteLine($"Instantiating test: {id,8}. Fixture is {testFixture.GetHashCode(),8}");
+        Console.WriteLine($"Instantiating test: {id,8}. Fixture is {MyClassFixture.GetHashCode(),8}");
     }
 
     public void Dispose()
     {
         testList = null;
-        Console.WriteLine($"Disposing test:     {id,8}. Fixture is {testFixture.GetHashCode(),8}");
+        Console.WriteLine($"Disposing test:     {id,8}. Fixture is {MyClassFixture.GetHashCode(),8}");
     }
 
     [Fact]
@@ -298,56 +297,7 @@ public class XUnitFixturesTest : IDisposable, IClassFixture<TestFixture>
 }
 
 // %%
-RunTests(typeof(XUnitFixturesTest));
-
-// %%
-public class MyClassTest4 : IDisposable
-{
-    public MyClassTest4()
-    {
-        Dependency1 d1 = new Dependency1(1, 2);
-        d2 = new Dependency2(d1, 3);
-    }
-
-    public void Dispose()
-    {
-        d2 = null;
-    }
-
-    [Fact]
-    public void TestValue1()
-    {
-        MyClass unit = new MyClass(d2, -11);
-        Assert.Equal(7, unit.Value());
-    }
-
-    [Fact]
-    public void TestValue2()
-    {
-        MyClass unit = new MyClass(d2, -1);
-        Assert.Equal(32, unit.Value());
-    }
-
-    [Fact]
-    public void TestValue3()
-    {
-        MyClass unit = new MyClass(d2, 1);
-        Assert.Equal(33, unit.Value());
-    }
-
-    [Fact]
-    public void TestValue4()
-    {
-        MyClass unit = new MyClass(d2, 11);
-        Assert.Equal(-26, unit.Value());
-    }
-
-    private Dependency2 d2;
-}
-
-// %%
-RunTests(typeof(MyClassTest4));
-
+RunTests<XUnitFixturesTest>();
 
 // %% [markdown]
 //
@@ -600,6 +550,6 @@ public class PlaylistLimitsTest
 }
 
 // %%
-RunTests(typeof(PlaylistLimitsTest));
+RunTests<PlaylistLimitsTest>();
 
 // %%
