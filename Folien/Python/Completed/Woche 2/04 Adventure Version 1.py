@@ -68,21 +68,6 @@ new Location("Here", "Where I am")
 // - [Einfache Orte](./simple-locations.json)
 // - [Dungeon](./dungeon-locations.json)
 
-// %% [markdown]
-//
-// - Typischerweise werden wir unsere Spielewelt nicht im Code selber
-//   beschreiben wollen, sondern die Daten aus einer Konfigurationsdatei lesen.
-// - Hier habe ich zwei Beispiele für derartige Dateien verlinkt.
-// - `simple-locations.json` enthält nur zwei Orte mit den minimalen Daten um
-//   die Welt zu erzeugen.
-// - `dungeon-locations.json` enthält eine größere Anzahl von Orten, und auch
-//   Objekte in den verschiedenen Orten.
-// - Beim Laden dieser Dateien in Notebooks kann es ein kleine Problem geben:
-// - Es kann sein, dass der Pfad unseres Notebooks auf ein Elternverzeichnis des
-//   gesuchten Verzeichnisses zeigt
-// - Deshalb habe ich eine kleine Hilfsklasse geschrieben, die in allen
-//   Unterverzeichnissen nach der JSON-Datei sucht:
-
 // %%
 using System;
 using System.Collections.Generic;
@@ -141,6 +126,7 @@ foreach (var room in simpleLocationsData)
 {
     Console.WriteLine(string.Join(", ", room.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
 }
+
 // %% [markdown]
 //
 // ### Erzeugen von Location Instanzen aus JSON Daten
