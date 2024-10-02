@@ -34,26 +34,8 @@
 // Hier ist noch einmal der relevante Teil des Domänenmodells:
 
 // %% [markdown]
-// style="display:block;margin:auto;width:80%"/> %% [markdown] lang="de"
-// tags=["notes"]
-//
-// - Hier ist der relevante Teil unseres Domänenmodells.
-// - Wir wollen uns im Moment auf die Konzepte `World` und `Location`
-//   konzentrieren.
-// - In der Implementierung bekommen wir daraus die Klassen `World` und
-//   `Location`.
-// - Wir haben die Stelligkeiten schon angegeben: Eine Welt kann mehrere Orte
-//   enthalten, ein Ort gehört genau zu einer Welt.
-// - Bei der Implementierung müssen wir uns noch überlegen, wie wir die
-//   Beziehungen zwischen den Klassen abbilden.
-// - In diesem Fall ist es relativ einfach: Wir können die Orte z.B. in einer
-//   Liste in der Welt speichern
-// - Damit können wir von der Welt zu allen Orten navigieren, aber nicht zurück.
-// - Das scheint im Moment ausreichend zu sein.
-// - Es ist vielleicht Overkill für dieses einfache Beispiel ein Design-Modell
-//   zu malen, besser gesagt, es ist sicherlich Overkill es für dieses Beispiel
-//   zu machen, aber wenn Sie wollen können Sie das natürlich machen.
-// - Und ich mache es hier auch, damit Sie sehen, wie das aussehen könnte.
+// <img src="img/adv-domain-03-small.png"
+//   style="display:block;margin:auto;width:80%"/>
 
 // %% [markdown]
 //
