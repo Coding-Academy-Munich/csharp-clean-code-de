@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d7fd20fd33dee5aa"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=8c8e2da21fa4ca29"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13366,7 +13366,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 " style="display:block;margin:auto;width:5%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>GRASP: Informations-Experte</b>
+<b>Bibliothekssystem: Einführung</b>
 </div>
 <br>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
@@ -13376,91 +13376,145 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=e952d8361184d1d3"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e5b95063adc10b4e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Bibliotheks-Verwaltungssystem">Bibliotheks-Verwaltungssystem<a class="anchor-link" href="#Bibliotheks-Verwaltungssystem">¶</a></h1><ul>
+<li>System zur Verwaltung von Benutzern und Medienbestand in Bibliotheken</li>
+<li>Sowohl für Bibliothekare als auch Benutzer</li>
+<li>Aktivitäten: Registrierung, Suche, Ausleihe, Rückgabe, Strafzahlungen</li>
+<li>Suche von Medien in anderen Bibliotheken und Online-Repositories</li>
+<li>Empfehlungen für Benutzer</li>
+<li>Verschiedene Oberflächen (Web, App, Terminal)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=aa88a7e7fc4986b5"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Use Case "Spiel initialisieren"</li>
-<li>Bisher:<ul>
-<li><code>World</code> und <code>Location</code> Klassen</li>
-<li><code>World</code> erzeugt alle <code>Location</code> Objekte</li>
-</ul>
-</li>
-<li>Nächster Schritt:<ul>
-<li>Speichern von Information über die Verbindung zwischen den <code>Location</code>
-Objekten</li>
-<li>Hilfreich dazu: Finden von Locations anhand ihres Namens</li>
-</ul>
-</li>
-<li>Frage:<ul>
-<li>Wer findet <code>Location</code> Objekte anhand ihres Namens?</li>
-</ul>
-</li>
+<li>Wie könnte das Domänenmodell für ein solches System aussehen?</li>
+<li>Welche Konzepte gibt es?</li>
+<li>Welche Use-Cases/Anwendungsfälle gibt es?</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d4aa8ff45747358b"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1e5ae98ccaf6610d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Kandidaten">Kandidaten<a class="anchor-link" href="#Kandidaten">¶</a></h2>
+<h2 id="Dom%C3%A4nenmodell:-Konzepte">Domänenmodell: Konzepte<a class="anchor-link" href="#Dom%C3%A4nenmodell:-Konzepte">¶</a></h2><ul>
+<li>Medien<ul>
+<li>Bücher, Videos, Musik, ...</li>
+<li>Unterschiedliche Metadaten für verschiedene Medien</li>
+</ul>
+</li>
+<li>Benutzer<ul>
+<li>Mitglieder, Besucher</li>
+<li>verschiedene Typen von Mitgliedern: Kinder, Studenten, Senioren, ...</li>
+<li>Unterschiedliche Privilegien</li>
+<li>Aktivitäten: Ausleihen von Medien, Rückgabe, Suche, Strafzahlungen</li>
+</ul>
+</li>
+<li>Bibliothekare<ul>
+<li>Verwalten von Benutzern und Medien</li>
+<li>Aktivitäten: Registrierung, Suche, Ausleihe, Rückgabe, Strafzahlungen</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=f94cc85c4f9946d0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4ad5b882be870b35"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div style="float:left;margin:auto;padding:80px 0;width:25%">
+<h2 id="Aktivit%C3%A4ten-(Bibliothekar)">Aktivitäten (Bibliothekar)<a class="anchor-link" href="#Aktivit%C3%A4ten-(Bibliothekar)">¶</a></h2><ul>
+<li>Verwalten von Mitgliedern (Registrierung, Löschen, Suche, Modifikation,
+...)</li>
+<li>Verwaltung von Medien (Hinzufügen, Löschen, Suche, Modifikation ...)</li>
+<li>Ausleihen und Rückgabe von Medien</li>
+<li>Veranlassen von Erinnerungen, Strafzahlungen</li>
+<li>Anzeige bisheriger Aktivitäten (Hinzufügen, Ausleihen, ...) für alle
+Benutzer</li>
+<li>Anzeige von Aktivitäten für alle Medien</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f8a74c7bcbd70588"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aktivit%C3%A4ten-(Benutzer)">Aktivitäten (Benutzer)<a class="anchor-link" href="#Aktivit%C3%A4ten-(Benutzer)">¶</a></h2><ul>
+<li>Registrierung, Abmeldung, Mitteilung von Adressänderungen</li>
+<li>Suche nach Medien</li>
+<li>Ausleihen und Rückgabe von Medien (Benutzer-Seite)</li>
+<li>Anzeige der bisherigen Aktivitäten (Ausleihen, Rückgaben, Strafzahlungen)
+für den Benutzer</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cac24a892ef9d5b6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Bibliothekssystem-(Setup)">Workshop: Bibliothekssystem (Setup)<a class="anchor-link" href="#Workshop:-Bibliothekssystem-(Setup)">¶</a></h2><p>Starter Kit: <code>Code/StarterKits/LibrarySk</code></p>
 <ul>
-<li> <code>Player</code></li>
-<li> <code>Game</code></li>
-<li> <code>Pawn</code></li>
-<li> <code>Location</code></li>
-<li> <code>World</code></li>
+<li>Versuchen Sie das Starter Kit zu kompilieren und auszuführen.</li>
+<li>Fügen Sie eine Klasse <code>Book</code> hinzu, die ein Attribut <code>title</code> hat.</li>
+<li>Fügen Sie einen Getter für das Attribut <code>title</code> hinzu.</li>
+<li>Schreiben Sie einen Test, der überprüft, dass der Getter funktioniert.</li>
+<li>Erstellen Sie ein Buch im Hauptprogramm und geben Sie den Titel aus.</li>
+<li>Entfernen Sie die Dummy-Klasse <code>DeleteMe</code> und die Tests dieser Klasse.
+Stellen Sie sicher, dass Sie das Projekt immer noch bauen und das
+Hauptprogramm und die Tests ausführen können.</li>
+</ul>
+<p><strong>Hinweis</strong>: Das ist natürlich kein sinnvoller Test, er dient nur dazu, dass
+Sie mit der Infrastruktur, die wir in diesem Kurs verwenden, vertraut werden.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f8a63103e5510c6d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Bibliotheks-Verwaltungssystem-(Teil-1)">Workshop: Bibliotheks-Verwaltungssystem (Teil 1)<a class="anchor-link" href="#Workshop:-Bibliotheks-Verwaltungssystem-(Teil-1)">¶</a></h2><ul>
+<li>Entwickeln Sie ein erstes Domänenmodell für das Bibliotheks-Verwaltungssystem<ul>
+<li>Sie können z.B. ein Klassendiagramm verwenden oder einfach nur eine Liste
+von Klassen und Attributen</li>
+</ul>
+</li>
+<li>Welche Klassen in Ihrem Domänenmodell haben Assoziationen zu<ul>
+<li>Mitgliedern?</li>
+<li>Büchern?</li>
+</ul>
+</li>
 </ul>
 </div>
-<img alt="No description has been provided for this image" src="img/adv-domain-03-small.png" style="float:right;margin:auto;width:70%"/>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c09c6879db2879c2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5a31898648010989"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Informations-Experte-(engl.-%22Information-Expert%22,-GRASP)">Informations-Experte (engl. "Information Expert", GRASP)<a class="anchor-link" href="#Informations-Experte-(engl.-%22Information-Expert%22,-GRASP)">¶</a></h2><h3 id="Frage">Frage<a class="anchor-link" href="#Frage">¶</a></h3><p>An welche Klasse sollen wir eine Verantwortung delegieren?</p>
-<h3 id="Antwort">Antwort<a class="anchor-link" href="#Antwort">¶</a></h3><p>An die Klasse, die die meisten Informationen hat, die für die Erfüllung der
-Verantwortung notwendig sind.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=866df3d2a8a0feed"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Wer-ist-der-Informationsexperte?">Wer ist der Informationsexperte?<a class="anchor-link" href="#Wer-ist-der-Informationsexperte?">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=79f503bf64ed3e1c"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div style="float:left;margin:auto;padding:80px 0;width:25%">
 <ul>
-<li> <strike><code>Player</code></strike></li>
-<li> <strike><code>Game</code></strike></li>
-<li> <strike><code>Pawn</code></strike></li>
-<li> <strike><code>Location</code></strike></li>
-<li> <b><code>World</code></b></li>
+<li>Verwenden Sie das Creator Pattern um zu entscheiden, welche Klasse die
+Verantwortung für das Erstellen von Mitgliedern und welche die Verantwortung
+für das Erstellen von Büchern hat</li>
+<li>Verwenden Sie das Information Expert Pattern um zu entscheiden, welche Klasse
+die Verantwortung für das Suchen von Mitgliedern und welche die Verantwortung
+für das Suchen von Büchern hat</li>
+<li>Implementieren Sie diesen Teil des Domänenmodells in C#</li>
+<li>Versuchen Sie dabei das Prinzip der niedrigen Repräsentationslücke anzuwenden</li>
 </ul>
 </div>
-<img alt="No description has been provided for this image" src="img/adv-domain-03-small.png" style="float:right;margin:auto;width:70%"/>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=01c1d310894a514f">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=42945fb3c75b8f36">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Newtonsoft.Json, 13.0.1"</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -13471,7 +13525,7 @@ Verantwortung notwendig sind.</p>
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-21772.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-22757.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13516,12 +13570,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.15:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.11:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '21772.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '22757.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13577,94 +13631,30 @@ else {
     </script>
 </div></div>
 </div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Newtonsoft.Json, 13.0.1</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7ba6532f0c0c7c5e">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=597d9af89d605be7">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">load</span><span class="w"> </span><span class="s">"JsonLoader.cs"</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ef9866dabb5504df">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">simpleLocationsData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonLoader</span><span class="p">.</span><span class="n">LoadData</span><span class="p">(</span><span class="s">"simple-locations.json"</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=7b92638ccfa489ef">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="nf">Location</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Description</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Member</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Location</span><span class="w"> </span><span class="nf">FromData</span><span class="p">(</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="s">"name"</span><span class="p">].</span><span class="n">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"&lt;missing name&gt;"</span><span class="p">;</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">GetValueOrDefault</span><span class="p">(</span><span class="s">"description"</span><span class="p">)</span><span class="o">?.</span><span class="n">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Location</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=e4a4b54403de0bdd">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=c761bddad3b13e1c">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="nf">World</span><span class="p">(</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">Location</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Locations</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">InitialLocationName</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">World</span><span class="w"> </span><span class="nf">FromLocationData</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">locationData</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">locations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">locationData</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">Location</span><span class="p">.</span><span class="n">FromData</span><span class="p">).</span><span class="n">ToDictionary</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">location</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">InitialLocationName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">locationData</span><span class="p">[</span><span class="m">0</span><span class="p">][</span><span class="s">"name"</span><span class="p">];</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">World</span><span class="p">(</span><span class="n">locations</span><span class="p">,</span><span class="w"> </span><span class="n">InitialLocationName</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Address</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Email</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">World</span><span class="w"> </span><span class="nf">FromJsonFile</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">fileName</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Member</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">locationData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonLoader</span><span class="p">.</span><span class="n">LoadData</span><span class="p">(</span><span class="n">fileName</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">FromLocationData</span><span class="p">(</span><span class="n">locationData</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Location</span><span class="w"> </span><span class="nf">GetLocationByName</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Locations</span><span class="p">[</span><span class="n">name</span><span class="p">];</span>
+<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">address</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"World(Initial location = '{InitialLocationName}', {Locations.Count} locations)"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"Member({Name}, {Address}, {Email})"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -13672,123 +13662,151 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=cb3c8b3ec0c8d62e">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=2a4cd7ed5e367669">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Book</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Isbn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Book</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">isbn</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isbn</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"Book({Title}, {Isbn})"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=f26becd9d85daa3a">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LibrarySystem</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="w"> </span><span class="n">members</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span><span class="w"> </span><span class="n">books</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">LibrarySystem</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Member</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">books</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Members:\n"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">members</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">$"  {member.Name}\n"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">"Books:\n"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">book</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">books</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">$"  {book.Title}\n"</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddMember</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">email</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Member</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">);</span>
+<span class="w">        </span><span class="n">members</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddBook</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">isbn</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">book</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">isbn</span><span class="p">);</span>
+<span class="w">        </span><span class="n">books</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">book</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Member</span><span class="w"> </span><span class="nf">FindMember</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">members</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">member</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">member</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Book</span><span class="w"> </span><span class="nf">FindBook</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">books</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">book</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">book</span><span class="p">.</span><span class="n">Title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">title</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=9d7168a181fd3c1d">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LibrarySystem</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=cfe916de4803b986">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">library</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="s">"Max Mustermann"</span><span class="p">,</span><span class="w"> </span><span class="s">"Musterstraße 1"</span><span class="p">,</span><span class="w"> </span><span class="s">"max@example.com"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=0c1879d093549cf1">
 <div class="input">
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">World</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">World</span><span class="p">.</span><span class="n">FromJsonFile</span><span class="p">(</span><span class="s">"simple-locations.json"</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">library</span><span class="p">.</span><span class="n">AddBook</span><span class="p">(</span><span class="s">"Design Patterns"</span><span class="p">,</span><span class="w"> </span><span class="s">"978-0-20163-361-0"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=cd7b2b8e2d55948e">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=c66b7b7caa4b889b">
 <div class="input">
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">world</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">library</span><span class="p">.</span><span class="n">FindMember</span><span class="p">(</span><span class="s">"Max Mustermann"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>World(Initial location = 'Room 1', 2 locations)</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Locations</td><td><table><thead><tr><th><i>key</i></th><th>value</th></tr></thead><tbody><tr><td><div class="dni-plaintext"><pre>Room 1</pre></div></td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Location { Name = Room 1, Description = A small room }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td><div class="dni-plaintext"><pre>Room 1</pre></div></td></tr><tr><td>Description</td><td><div class="dni-plaintext"><pre>A small room</pre></div></td></tr></tbody></table></div></details></td></tr><tr><td><div class="dni-plaintext"><pre>Room 2</pre></div></td><td><details class="dni-treeview"><summary><span class="dni-code-hint"><code>Location { Name = Room 2, Description = A large room }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td><div class="dni-plaintext"><pre>Room 2</pre></div></td></tr><tr><td>Description</td><td><div class="dni-plaintext"><pre>A large room</pre></div></td></tr></tbody></table></div></details></td></tr></tbody></table></td></tr><tr><td>InitialLocationName</td><td><div class="dni-plaintext"><pre>Room 1</pre></div></td></tr></tbody></table></div></details><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=323dd360e11e161e">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=06f93358c5b8b3c1">
 <div class="input">
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">world</span><span class="p">.</span><span class="n">GetLocationByName</span><span class="p">(</span><span class="s">"Room 1"</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">library</span><span class="p">.</span><span class="n">FindBook</span><span class="p">(</span><span class="s">"Design Patterns"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>Location { Name = Room 1, Description = A small room }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td><div class="dni-plaintext"><pre>Room 1</pre></div></td></tr><tr><td>Description</td><td><div class="dni-plaintext"><pre>A small room</pre></div></td></tr></tbody></table></div></details><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=7ea4cf45684808af">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=1c1db4a95980ed1f">
 <div class="input">
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">world</span><span class="p">.</span><span class="n">GetLocationByName</span><span class="p">(</span><span class="s">"Room 2"</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">library</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -13796,50 +13814,16 @@ table th {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>Location { Name = Room 2, Description = A large room }</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Name</td><td><div class="dni-plaintext"><pre>Room 2</pre></div></td></tr><tr><td>Description</td><td><div class="dni-plaintext"><pre>A large room</pre></div></td></tr></tbody></table></div></details><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Members:
+  Max Mustermann
+Books:
+  Design Patterns
+
+</pre>
 </div>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=983ad809fdb5cb14"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>Code\Completed\GraspAdventure\AdventureV2</code> entspricht
-unserem aktuellen Stand</li>
-</ul>
 </div>
 </div>
 </div>

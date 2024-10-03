@@ -127,10 +127,10 @@ World world = World.FromJsonFile("simple-locations.json");
 world
 
 // %%
-world.GetLocationByName("Room 1");
+world.GetLocationByName("Room 1")
 
 // %%
-world.GetLocationByName("Room 2");
+world.GetLocationByName("Room 2")
 
 // %% [markdown]
 //
