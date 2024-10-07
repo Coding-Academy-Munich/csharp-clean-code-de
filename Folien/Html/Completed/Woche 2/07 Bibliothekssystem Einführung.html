@@ -13455,16 +13455,14 @@ für den Benutzer</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cac24a892ef9d5b6"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b6e0c5a04890fc63"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Bibliothekssystem-(Setup)">Workshop: Bibliothekssystem (Setup)<a class="anchor-link" href="#Workshop:-Bibliothekssystem-(Setup)">¶</a></h2><p>Starter Kit: <code>Code/StarterKits/LibrarySk</code></p>
 <ul>
 <li>Versuchen Sie das Starter Kit zu kompilieren und auszuführen.</li>
-<li>Fügen Sie eine Klasse <code>Book</code> hinzu, die ein Attribut <code>title</code> hat.</li>
-<li>Fügen Sie einen Getter für das Attribut <code>title</code> hinzu.</li>
-<li>Schreiben Sie einen Test, der überprüft, dass der Getter funktioniert.</li>
-<li>Erstellen Sie ein Buch im Hauptprogramm und geben Sie den Titel aus.</li>
+<li>Fügen Sie eine Klasse <code>Book</code> hinzu, die eine Property <code>Title</code> hat.</li>
+<li>Schreiben Sie einen Test, der überprüft, dass Sie die Property lesen können.</li>
 <li>Entfernen Sie die Dummy-Klasse <code>DeleteMe</code> und die Tests dieser Klasse.
 Stellen Sie sicher, dass Sie das Projekt immer noch bauen und das
 Hauptprogramm und die Tests ausführen können.</li>
@@ -13525,7 +13523,7 @@ für das Suchen von Büchern hat</li>
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-22757.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-24537.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13570,12 +13568,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.11:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.10:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '22757.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '24537.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`

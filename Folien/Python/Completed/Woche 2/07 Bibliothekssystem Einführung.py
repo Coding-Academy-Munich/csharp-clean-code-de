@@ -73,10 +73,8 @@
 // Starter Kit: `Code/StarterKits/LibrarySk`
 //
 // - Versuchen Sie das Starter Kit zu kompilieren und auszuführen.
-// - Fügen Sie eine Klasse `Book` hinzu, die ein Attribut `title` hat.
-// - Fügen Sie einen Getter für das Attribut `title` hinzu.
-// - Schreiben Sie einen Test, der überprüft, dass der Getter funktioniert.
-// - Erstellen Sie ein Buch im Hauptprogramm und geben Sie den Titel aus.
+// - Fügen Sie eine Klasse `Book` hinzu, die eine Property `Title` hat.
+// - Schreiben Sie einen Test, der überprüft, dass Sie die Property lesen können.
 // - Entfernen Sie die Dummy-Klasse `DeleteMe` und die Tests dieser Klasse.
 //   Stellen Sie sicher, dass Sie das Projekt immer noch bauen und das
 //   Hauptprogramm und die Tests ausführen können.
