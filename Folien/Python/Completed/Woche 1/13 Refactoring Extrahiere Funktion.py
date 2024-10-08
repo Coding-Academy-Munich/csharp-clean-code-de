@@ -30,9 +30,9 @@ public class OrderLine
 {
     public string Product { get; set; }
     public int Quantity { get; set; }
-    public double Price { get; set; }
+    public decimal Price { get; set; }
 
-    public OrderLine(string product, int quantity, double price)
+    public OrderLine(string product, int quantity, decimal price)
     {
         Product = product;
         Quantity = quantity;
@@ -49,9 +49,9 @@ public class OrderLine
 public static List<OrderLine> MakeOrderLines()
 {
     List<OrderLine> orderLines = new List<OrderLine>();
-    orderLines.Add(new OrderLine("Apple", 2, 0.5));
-    orderLines.Add(new OrderLine("Banana", 3, 0.3));
-    orderLines.Add(new OrderLine("Orange", 1, 0.8));
+    orderLines.Add(new OrderLine("Apple", 2, 0.5m));
+    orderLines.Add(new OrderLine("Banana", 3, 0.3m));
+    orderLines.Add(new OrderLine("Orange", 1, 0.8m));
     return orderLines;
 }
 
@@ -74,7 +74,7 @@ public class ReceiptPrinter
             Console.WriteLine($"{orderLine.Product,-12} {orderLine.Quantity,4} x {orderLine.Price,6:F2}€");
         }
         // Compute total
-        double total = 0.0;
+        decimal total = 0.0m;
         foreach (var orderLine in orderLines)
         {
             total += orderLine.Quantity * orderLine.Price;
@@ -96,13 +96,13 @@ public class ReceiptPrinter
         {
             Console.WriteLine($"{orderLine.Product,-12} {orderLine.Quantity,4} x {orderLine.Price,6:F2}€");
         }
-        double total = ComputeTotal(orderLines);    // <-- call new function
+        decimal total = ComputeTotal(orderLines);    // <-- call new function
         Console.WriteLine($"Total: {total:F2}€");
     }
 
-    private static double ComputeTotal(List<OrderLine> orderLines)
+    private static decimal ComputeTotal(List<OrderLine> orderLines)
     {
-        double total = 0.0;
+        decimal total = 0.0m;
         foreach (var orderLine in orderLines)
         {
             total += orderLine.Quantity * orderLine.Price;
@@ -276,3 +276,5 @@ public class UserDataProcessor
 
 // %%
 UserDataProcessor.Run();
+
+// %%

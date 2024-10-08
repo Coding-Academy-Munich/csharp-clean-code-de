@@ -29,9 +29,9 @@ public class OrderLine
 {
     public string Product { get; }
     public int Quantity { get; }
-    public double Price { get; }
+    public decimal Price { get; }
 
-    public OrderLine(string product, int quantity, double price)
+    public OrderLine(string product, int quantity, decimal price)
     {
         Product = product;
         Quantity = quantity;
@@ -48,28 +48,28 @@ public class OrderLine
 static List<OrderLine> MakeOrderLines()
 {
     List<OrderLine> orderLines = new List<OrderLine>();
-    orderLines.Add(new OrderLine("Apple", 2, 0.5));
-    orderLines.Add(new OrderLine("Banana", 3, 0.3));
-    orderLines.Add(new OrderLine("Orange", 1, 0.8));
+    orderLines.Add(new OrderLine("Apple", 2, 0.5m));
+    orderLines.Add(new OrderLine("Banana", 3, 0.3m));
+    orderLines.Add(new OrderLine("Orange", 1, 0.8m));
     return orderLines;
 }
 
 // %%
 public static class OrderLineProcessor
 {
-    public static double OrderLinePrice(OrderLine orderLine)
+    public static decimal OrderLinePrice(OrderLine orderLine)
     {
         return orderLine.Price;
     }
 
-    public static double OrderLineQuantity(OrderLine orderLine)
+    public static decimal OrderLineQuantity(OrderLine orderLine)
     {
         return orderLine.Quantity;
     }
 
-    public static double ComputeTotal(List<OrderLine> orderLines)
+    public static decimal ComputeTotal(List<OrderLine> orderLines)
     {
-        double total = 0.0;
+        decimal total = 0.0m;
         foreach (OrderLine orderLine in orderLines)
         {
             total += OrderLineQuantity(orderLine) * OrderLinePrice(orderLine);
@@ -84,9 +84,9 @@ OrderLineProcessor.ComputeTotal(MakeOrderLines());
 // %%
 public static class OrderLineProcessor
 {
-    public static double ComputeTotal(List<OrderLine> orderLines)
+    public static decimal ComputeTotal(List<OrderLine> orderLines)
     {
-        double total = 0.0;
+        decimal total = 0.0m;
         foreach (OrderLine orderLine in orderLines)
         {
             total += orderLine.Quantity * orderLine.Price; // <-- inline functions
