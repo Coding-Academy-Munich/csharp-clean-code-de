@@ -26,10 +26,6 @@
 //      style="display:block;margin:auto;width:60%"/>
 
 // %%
-using System;
-using System.Collections.Generic;
-
-// %%
 public class Book
 {
     public Book(string title, string author, int pages)
@@ -69,7 +65,7 @@ book.Save();
 //
 // ## Auflösung der SRP-Verletzung (Version 1a)
 //
-// Vorschlag von Robert C. Martin in Clean Architecture:
+// Vorschlag in Clean Architecture:
 //
 // <img src="img/book_resolution_1a_srp.png"
 //      style="display:block;margin:auto;width:40%"/>
@@ -170,6 +166,7 @@ public class BookPrinterFacadeV1a
 
 // %%
 var bookPrinterFacadeV1a = new BookPrinterFacadeV1a(bookV1);
+
 // %%
 bookPrinterFacadeV1a.Print();
 

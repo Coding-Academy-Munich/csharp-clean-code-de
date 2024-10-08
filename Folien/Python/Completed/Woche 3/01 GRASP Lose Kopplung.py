@@ -25,8 +25,9 @@
 // %% [markdown]
 //
 // - Kopplung: Abhängigkeit zwischen zwei Artefakten
-// - [Verschiedene Arten von
-//   Kopplung](https://de.wikipedia.org/wiki/Kopplung_(Softwareentwicklung))
+// - <a
+//   href="https://de.wikipedia.org/wiki/Kopplung_(Softwareentwicklung)">Verschiedene
+//   Arten von Kopplung</a>
 // - Lose Kopplung ist ein allgemeines Prinzip
 // - Lose Kopplung wichtig von *stabilen* zu *instabilen* Artefakten
 

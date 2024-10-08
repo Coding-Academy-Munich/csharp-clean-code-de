@@ -15,7 +15,7 @@
 // ## Adventure SpielVersion 3b
 //
 // <img src="img/adventure-v3b-overview.png" alt="Adventure Version 3c"
-//      style="display:block;margin:auto;width:40%"/>
+//      style="display:block;margin:auto;width:50%"/>
 
 // %% [markdown]
 //
@@ -30,8 +30,6 @@
 // %% [markdown]
 //
 // # Concrete Factory (Simple Factory)
-//
-// - Einfachere Version des Abstract Factory Patterns aus dem GoF Buch
 //
 // ### Frage
 //
@@ -65,7 +63,7 @@
 // ## Version 3c: Factory
 //
 // <img src="img/adventure-v3c-overview.png" alt="Adventure Version 3c"
-//      style="display:block;margin:auto;width:30%"/>
+//      style="display:block;margin:auto;width:50%"/>
 
 // %% [markdown]
 //

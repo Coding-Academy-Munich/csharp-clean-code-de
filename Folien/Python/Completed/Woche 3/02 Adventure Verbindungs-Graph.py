@@ -16,7 +16,7 @@
 //
 // ## Implementierung der Verbindungen
 //
-// - `code/completed/grasp-adventure/src/main/java/adventure/v3b/`
+// - `Code/Completed/GraspAdventure/AdventureV3b/`
 
 // %% [markdown]
 //

@@ -31,7 +31,7 @@
 // %% [markdown]
 //
 // <img src="img/adventure-v2-overview.png"
-//      style="display:block;margin:auto;width:30%"/>
+//      style="display:block;margin:auto;width:40%"/>
 
 // %% [markdown]
 //
