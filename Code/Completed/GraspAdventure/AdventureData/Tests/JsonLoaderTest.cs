@@ -20,30 +20,32 @@ public class JsonLoaderTests
         }
     ]";
 
-    private static void AssertSimpleJsonWasCorrectlyParsed(List<Dictionary<string, object>?> result)
+    private static void AssertSimpleJsonWasCorrectlyParsed(List<Dictionary<string, object?>> result)
     {
         Assert.NotNull(result);
         Assert.Equal(2, result.Count);
 
-        var room1 = result[0];
+        Dictionary<string, object?>? room1 = result[0];
+        Assert.NotNull(room1);
         Assert.Equal("Room 1", room1["name"]);
         Assert.Equal("A small room", room1["description"]);
-        Assert.IsType<Dictionary<string, object>>(room1["connections"]);
-        var room1Connections = (Dictionary<string, object>)room1["connections"];
-        Assert.Equal("Room 2", room1Connections["north"]);
+        Assert.IsType<Dictionary<string, object?>>(room1["connections"]);
+        var room1Connections = (Dictionary<string, object?>?)room1["connections"];
+        Assert.Equal("Room 2", room1Connections?["north"]);
 
-        var room2 = result[1];
+        Dictionary<string, object?> room2 = result[1];
+        Assert.NotNull(room2);
         Assert.Equal("Room 2", room2["name"]);
         Assert.Equal("A large room", room2["description"]);
-        Assert.IsType<Dictionary<string, object>>(room2["connections"]);
-        var room2Connections = (Dictionary<string, object>)room2["connections"];
-        Assert.Equal("Room 1", room2Connections["south"]);
+        Assert.IsType<Dictionary<string, object?>>(room2["connections"]);
+        var room2Connections = (Dictionary<string, object?>?)room2["connections"];
+        Assert.Equal("Room 1", room2Connections?["south"]);
     }
 
     [Fact]
     public void ParseSimpleJson()
     {
-        var result = JsonLoader.ParseJson(SimpleJsonFile);
+        List<Dictionary<string, object?>> result = JsonLoader.ParseJson(SimpleJsonFile);
 
         AssertSimpleJsonWasCorrectlyParsed(result);
     }
@@ -60,7 +62,7 @@ public class JsonLoaderTests
     [Fact]
     public void ParseEmptyJson()
     {
-        var result = JsonLoader.ParseJson("[]");
+        List<Dictionary<string, object?>> result = JsonLoader.ParseJson("[]");
         Assert.NotNull(result);
         Assert.Empty(result);
     }
@@ -68,7 +70,7 @@ public class JsonLoaderTests
     [Fact]
     public void ParseInvalidJson()
     {
-        var result = JsonLoader.ParseJson("invalid json");
+        List<Dictionary<string, object?>> result = JsonLoader.ParseJson("invalid json");
         Assert.NotNull(result);
         Assert.Empty(result);
     }

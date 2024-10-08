@@ -1,6 +1,4 @@
-﻿using AdventureSk.Data;
-
-namespace AdventureSk.Data;
+﻿namespace AdventureData.Tests;
 
 public class FileFinderTest
 {

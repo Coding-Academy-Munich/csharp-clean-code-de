@@ -1,4 +1,4 @@
-﻿namespace AdventureData;
+﻿namespace AdventureData.Tests;
 
 public class FileFinderTest
 {

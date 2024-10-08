@@ -21,15 +21,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Data\dungeon-locations.json">
+      <None Update="dungeon-locations.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Data\simple-locations.json">
+      <None Update="simple-locations.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\AdventureData\AdventureData.csproj" />
-    </ItemGroup>
 </Project>
