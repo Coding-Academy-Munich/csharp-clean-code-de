@@ -258,14 +258,43 @@ bookFacadeV1.Save();
 
 // %% [markdown]
 //
+// ## Auflösung der SRP-Verletzung (Version 1c)
+
+// %%
+public static class BookPrinterV1c
+{
+    public static void Print(BookV1 book)
+    {
+        // Lots of code that handles the printer
+        Console.WriteLine($"Printing {book.Title} to printer.");
+    }
+}
+
+// %%
+public static class BookDatabaseV1c
+{
+    public static void Save(BookV1 book)
+    {
+        // Lots of code that handles the database
+        Console.WriteLine($"Saving {book.Title} to database.");
+    }
+}
+
+// %%
+BookV1 bookV1 = new BookV1("Clean Code", "Robert C. Martin", 464);
+
+// %%
+BookPrinterV1c.Print(bookV1);
+
+// %%
+BookDatabaseV1c.Save(bookV1);
+
+// %% [markdown]
+//
 // ## Auflösung der SRP-Verletzung (Version 2)
 //
 // <img src="img/book_resolution_2_srp.png"
 //      style="display:block;margin:auto;width:60%"/>
-
-// %%
-using System;
-using System.Collections.Generic;
 
 // %%
 public interface IBook
@@ -359,8 +388,7 @@ bookV2.Save();
 //
 // Ihre Aufgabe: Refaktorisieren Sie die Klasse `Weather`, indem Sie
 // sicherstellen, dass jede Klasse im System dem Single Responsibility Principle
-// entspricht. Damit legen Sie die Grundlage für eine wartbarere und
-// skalierbare Anwendung.
+// entspricht.
 
 // %% [markdown]
 //
@@ -371,22 +399,17 @@ bookV2.Save();
 
 // %% [markdown]
 //
-// ### RunWeatherApp() Sequenzendiagramm
+// ### RunWeatherApp() Sequenzdiagramm
 //
 // <img src="img/weather_app_sequence.png"
-//      style="display:block;margin:auto;width:15%"/>
+//      style="display:block;margin:auto;width:40%"/>
 
 // %%
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 // %%
-using System;
-using System.Collections.Generic;
-
 public class Weather
 {
     public void FetchDataFromSource()
@@ -477,7 +500,7 @@ RunWeatherApp(true);
 
 // %% [markdown]
 //
-// ### RunWeatherApp() Sequenzendiagramm
+// ### RunWeatherApp() Sequenzdiagramm
 //
 // <div/>
 // <img src="img/weather_app_sequence_srp.png"

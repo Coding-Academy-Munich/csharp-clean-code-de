@@ -66,21 +66,16 @@ public interface IStrategy
 // %%
 public class Context
 {
-    private IStrategy _strategy;
-
     public Context(IStrategy strategy)
     {
-        _strategy = strategy;
+        Strategy = strategy;
     }
+
+    public IStrategy Strategy { get; set; }
 
     public double ContextInterface()
     {
-        return _strategy.AlgorithmInterface();
-    }
-
-    public void SetStrategy(IStrategy strategy)
-    {
-        _strategy = strategy;
+        return Strategy.AlgorithmInterface();
     }
 }
 
@@ -112,7 +107,7 @@ Context context = new Context(new ConcreteStrategyA());
 Console.WriteLine("Strategy A: " + context.ContextInterface());
 
 // %%
-context.SetStrategy(new ConcreteStrategyB());
+context.Strategy = new ConcreteStrategyB();
 
 // %%
 Console.WriteLine("Strategy B: " + context.ContextInterface());
@@ -210,32 +205,34 @@ public class BlogPost {
 
 // %%
 public class Blog {
-    private readonly List<BlogPost> posts = new List<BlogPost>();
-    private ITextWrapStrategy strategy;
-
-    public Blog(ITextWrapStrategy strategy) {
-        this.strategy = strategy;
+    public Blog(ITextWrapStrategy strategy)
+    {
+        Strategy = strategy;
     }
 
-    public void Print(int width) {
-        foreach (var post in posts) {
+    public ITextWrapStrategy Strategy { get; set; }
+
+    public void Print(int width)
+    {
+        foreach (var post in posts)
+        {
             Console.WriteLine(new string('-', width));
             Console.WriteLine("Title: " + post.Title);
             Console.WriteLine("Author: " + post.Author);
-            foreach (var line in strategy.Wrap(post.Text, width)) {
+            foreach (var line in Strategy.Wrap(post.Text, width))
+            {
                 Console.WriteLine(line);
             }
             Console.WriteLine(new string('-', width));
         }
     }
 
-    public void AddPost(BlogPost post) {
+    public void AddPost(BlogPost post)
+    {
         posts.Add(post);
     }
-
-    public void SetStrategy(ITextWrapStrategy strategy) {
-        this.strategy = strategy;
-    }
+    
+    private readonly List<BlogPost> posts = new List<BlogPost>();
 }
 
 // %%
@@ -265,13 +262,13 @@ blog.AddPost(new BlogPost("Jane Doe", "My second post", secondPost));
 blog.Print(40);
 
 // %%
-blog.SetStrategy(new BreakAnywhereStrategy());
+blog.Strategy = new BreakAnywhereStrategy();
 
 // %%
 blog.Print(40);
 
 // %%
-blog.SetStrategy(new BreakOnSpaceStrategy());
+blog.Strategy = new BreakOnSpaceStrategy();
 
 // %%
 blog.Print(40);
@@ -310,13 +307,12 @@ using System.Linq;
 
 public class FunBlog
 {
-    private List<BlogPost> _posts = new List<BlogPost>();
-    private Func<string, int, List<string>> _strategy;
-
     public FunBlog(Func<string, int, List<string>> strategy)
     {
-        _strategy = strategy;
+        Strategy = strategy;
     }
+
+    public Func<string, int, List<string>> Strategy { get; set;}
 
     public void Print(int width)
     {
@@ -325,7 +321,7 @@ public class FunBlog
             Console.WriteLine(new string('-', width));
             Console.WriteLine("Title: " + post.Title);
             Console.WriteLine("Author: " + post.Author);
-            foreach (var line in _strategy(post.Text, width))
+            foreach (var line in Strategy(post.Text, width))
             {
                 Console.WriteLine(line);
             }
@@ -338,14 +334,11 @@ public class FunBlog
         _posts.Add(post);
     }
 
-    public void SetStrategy(Func<string, int, List<string>> strategy)
-    {
-        _strategy = strategy;
-    }
+    private List<BlogPost> _posts = new List<BlogPost>();
 }
 
 // %%
-public class Fun1
+public class Wrap
 {
     public static List<string> TruncateLines(string text, int width)
     {
@@ -362,7 +355,7 @@ public class Fun1
 //   Funktionalität hat wie unsere `TruncationStrategy`
 
 // %%
-FunBlog blog = new FunBlog(Fun1.TruncateLines);
+FunBlog blog = new FunBlog(Wrap.TruncateLines);
 
 // %%
 blog.AddPost(new BlogPost("John Doe", "My first post", firstPost));
@@ -372,16 +365,123 @@ blog.AddPost(new BlogPost("Jane Doe", "My second post", secondPost));
 blog.Print(40);
 
 // %%
-blog.SetStrategy((text, width) => {
-    if (text.Length <= width) {
+blog.Strategy = (text, width) => {
+    if (text.Length <= width)
+    {
         return new List<string> { text };
     }
-    return new List<string> { text.Substring(0, width - 3) + "..." };
-});
+    return [text.Substring(0, width - 3) + "..." ];
+};
 
 // %%
 blog.Print(40);
 
 // %% [markdown]
 //
-// ## Mini-Workshop: Vorhersagen
+// ## Workshop: Vorhersagen
+//
+// Sie wollen ein System schreiben, das Vorhersagen für Aktienkurse treffen kann.
+//
+// Schreiben Sie dazu eine Klasse `Predictor` mit einer Methode
+//
+// ```csharp
+// decimal Predict(List<decimal> values)
+// ```
+//
+// Verwenden Sie das Strategy Pattern, um mindestens zwei verschiedene
+// Vorhersage-Varianten zu ermöglichen:
+//
+// - Die Vorhersage ist der Mittelwert aller Werte aus `values`
+// - Die Vorhersage ist der letzte Wert in `values` (oder 0, wenn `values` leer ist)
+//
+// Testen Sie Ihre Implementierung mit einigen Beispieldaten.
+
+// %%
+public interface IPredictionStrategy {
+    decimal Predict(List<decimal> values);
+}
+
+// %%
+public class LastValueStrategy : IPredictionStrategy {
+    public decimal Predict(List<decimal> values) {
+        return values.Count == 0 ? 0.0m : values[^1];
+    }
+}
+
+// %%
+public class MeanValueStrategy : IPredictionStrategy {
+    public decimal Predict(List<decimal> values) {
+        return values.Count == 0 ? 0.0m : values.Average();
+    }
+}
+
+// %%
+public class Predictor {
+    public IPredictionStrategy Strategy { get; set; }
+    
+    public Predictor(IPredictionStrategy strategy) {
+        Strategy = strategy;
+    }
+
+    public decimal Predict(List<decimal> values) {
+        return Strategy.Predict(values);
+    }
+
+    public void SetStrategy(IPredictionStrategy strategy) {
+        Strategy = strategy;
+    }
+}
+
+// %%
+Predictor p = new Predictor(new MeanValueStrategy());
+List<decimal> values = [ 1.0m, 2.0m, 3.0m ];
+
+// %%
+Console.WriteLine("Default prediction: " + p.Predict(values));
+
+// %%
+p.Strategy = new LastValueStrategy();
+Console.WriteLine("Last value prediction: " + p.Predict(values));
+
+// %%
+p.Strategy = new MeanValueStrategy();
+Console.WriteLine("Mean value prediction: " + p.Predict(values));
+
+// %%
+public static decimal Mean(List<decimal> values) {
+    return values.Count == 0 ? 0.0m : values.Average();
+}
+
+// %%
+public class PredictorFun {
+    public Func<List<decimal>, decimal> Strategy { get; set; }
+
+    public PredictorFun(Func<List<decimal>, decimal> strategy) {
+        Strategy = strategy;
+    }
+
+    public decimal Predict(List<decimal> values) {
+        return Strategy(values);
+    }
+
+    public void SetStrategy(Func<List<decimal>, decimal> strategy) {
+        Strategy = strategy;
+    }
+}
+
+// %%
+PredictorFun pf = new PredictorFun(Mean);
+List<decimal> myValues = [ 1.0m, 2.0m, 3.0m ];
+
+// %%
+Console.WriteLine("Default prediction: " + pf.Predict(myValues));
+
+// %%
+pf.Strategy = values => values.Count == 0 ? 0.0m : values[^1];
+Console.WriteLine("Last value prediction: " + pf.Predict(myValues));
+
+// %%
+pf.Strategy = Mean;
+Console.WriteLine("Mean value prediction: " + pf.Predict(myValues));
+
+// %%

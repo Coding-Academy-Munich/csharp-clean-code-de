@@ -23,15 +23,15 @@
 
 // %% [markdown]
 //
-// Siehe `code/completed/adventure/v4a` für den vollständigen Code.
+// Siehe `Code/Completed/GraspAdventure/AdventureV4a/` für den vollständigen Code.
 
 // %% [markdown]
 //
 // ## Version 4b: Enumeration der Aktionen
 //
 // - Enumeration `Action` mit allen möglichen Aktionen
-// - `Pawn`-Klasse hat nur noch eine `perform()`-Methode
-// - `perform()`-Methode bekommt eine `action` als Parameter
+// - `Pawn`-Klasse hat nur noch eine `Perform()`-Methode
+// - `Perform()`-Methode bekommt eine `action` als Parameter
 
 // %% [markdown]
 //
@@ -47,33 +47,30 @@
 // ```
 //
 // ```csharp
-// public class Pawn
+// public class Pawn(string name, Location location)
 // {
-//     private Location location;
-//
 //     public void Perform(Action action, string direction)
 //     {
 //         switch (action)
 //         {
 //             case Action.Move:
-//                 location = location.GetConnectedLocation(direction);
+//                 Location = Location.GetConnectedLocation(direction);
 //                 break;
 //             case Action.SkipTurn:
 //                 break;
+//             default:
+//                 throw new ArgumentOutOfRangeException(nameof(action), action, null);
 //         }
 //     }
 //
 //     public void PerformIfPossible(Action action, string direction)
 //     {
-//         try
-//         {
-//             Perform(action, direction);
-//         }
-//         catch (Exception)
-//         {
-//             // Ignore the exception
-//         }
+//         try { Perform(action, direction); }
+//         catch (ArgumentException) { /* ignored */ }
 //     }
+//
+//     public string Name { get;  } = name;
+//     public Location Location { get; private set; } = location;
 // }
 // ```
 

@@ -12,7 +12,7 @@
 
 // %% [markdown]
 //
-// ## Adventure SpielVersion 3b
+// ## Adventure Spiel Version 3b
 //
 // <img src="img/adventure-v3b-overview.png" alt="Adventure Version 3c"
 //      style="display:block;margin:auto;width:50%"/>

@@ -13429,7 +13429,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-3316.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-7223.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13474,12 +13474,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.12:2050/", "http://127.0.0.1:2050/"])
+    probeAddresses(["http://172.18.0.13:2052/", "http://127.0.0.1:2052/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '3316.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '7223.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -14038,7 +14038,7 @@ Adapter für <code>NewWeatherServer</code>.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>It's not hot
+<pre>It's hot
 </pre>
 </div>
 </div>
@@ -14134,7 +14134,7 @@ Adapter für <code>NewWeatherServer</code>.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>It's not hot
+<pre>It's hot
 </pre>
 </div>
 </div>

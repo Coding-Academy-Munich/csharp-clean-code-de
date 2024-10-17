@@ -13665,14 +13665,14 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=af49a960713a33b0">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=268522534c7bd146">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">RegularMovie</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RegularMovie</span><span class="p">(</span><span class="s">"Casablanca"</span><span class="p">);</span>
-<span class="n">ChildrenMovie</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChildrenMovie</span><span class="p">(</span><span class="s">"Shrek"</span><span class="p">);</span>
-<span class="n">NewReleaseMovie</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NewReleaseMovie</span><span class="p">(</span><span class="s">"Brand New"</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">MovieV2</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RegularMovie</span><span class="p">(</span><span class="s">"Casablanca"</span><span class="p">);</span>
+<span class="n">MovieV2</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChildrenMovie</span><span class="p">(</span><span class="s">"Shrek"</span><span class="p">);</span>
+<span class="n">MovieV2</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NewReleaseMovie</span><span class="p">(</span><span class="s">"Brand New"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -13736,29 +13736,26 @@ besser</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ee77ccda44199d51"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=5d2cb61027867302"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Smart-Home-Device-Control-System">Workshop: Smart Home Device Control System<a class="anchor-link" href="#Workshop:-Smart-Home-Device-Control-System">¶</a></h2><p>In diesem Workshop arbeiten wir mit einem Szenario, das ein Smart Home
-Gerätesteuerungssystem betrifft. Die Herausforderung? Das vorhandene System
-verletzt das OCP, und es liegt an uns, das zu korrigieren.</p>
+Gerätesteuerungssystem betrifft. Leider verletzt das vorhandene System
+das Open-Closed-Prinzip.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0e99c855f369b493"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c98a54bc44cdb397"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Szenario">Szenario<a class="anchor-link" href="#Szenario">¶</a></h3><p>Stellen Sie sich ein Smart-Home-System vor. Dieses System steuert verschiedene
+<h3 id="Szenario">Szenario<a class="anchor-link" href="#Szenario">¶</a></h3><p>Wir haben ein Smart-Home-System. Dieses System steuert verschiedene
 Geräte: Lichter, Thermostate, Sicherheitskameras und intelligente Schlösser.
-Jede Art von Gerät hat ihren eigenen einzigartigen Steuermechanismus und
+Jeder Gerätetyp benötigt einen eigenen Steuerungsmechanismus und eigene
 Automatisierungsregeln.</p>
 <p>Nun muss das Steuerungssystem des Smart Homes diese Geräte verwalten. Das
 Problem mit dem aktuellen System ist die Verwendung eines Enums zur Bestimmung
 des Gerätetyps und basierend darauf seiner Steuermethode. Dieser Ansatz ist
-nicht skalierbar und verletzt das OCP. Was passiert, wenn ein neuer Typ von
-Smart-Gerät zum Zuhause hinzugefügt wird? Oder was passiert, wenn sich der
-Steuermechanismus für Thermostate ändert? Die aktuelle Code-Struktur erfordert
-Änderungen an mehreren Stellen.</p>
+nicht skalierbar und verletzt das OCP.</p>
 </div>
 </div>
 </div>

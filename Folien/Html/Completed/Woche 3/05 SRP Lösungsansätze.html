@@ -13430,7 +13430,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-12803.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-4028.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13475,12 +13475,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.10:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.15:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '12803.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '4028.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -14060,6 +14060,104 @@ else {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e80bd7467cd6753d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufl%C3%B6sung-der-SRP-Verletzung-(Version-1c)">Auflösung der SRP-Verletzung (Version 1c)<a class="anchor-link" href="#Aufl%C3%B6sung-der-SRP-Verletzung-(Version-1c)">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5edd6207002fb0ca">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BookPrinterV1c</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">BookV1</span><span class="w"> </span><span class="n">book</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lots of code that handles the printer</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Printing {book.Title} to printer."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=42b252281bc190f2">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BookDatabaseV1c</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="n">BookV1</span><span class="w"> </span><span class="n">book</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lots of code that handles the database</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Saving {book.Title} to database."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=c54e44cad44d2710">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">BookV1</span><span class="w"> </span><span class="n">bookV1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BookV1</span><span class="p">(</span><span class="s">"Clean Code"</span><span class="p">,</span><span class="w"> </span><span class="s">"Robert C. Martin"</span><span class="p">,</span><span class="w"> </span><span class="m">464</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=14ed945dab08257b">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">BookPrinterV1c</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="n">bookV1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Printing Clean Code to printer.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=f1c3315d021efff3">
+<div class="input">
+<div class="prompt input_prompt">In [32]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">BookDatabaseV1c</span><span class="p">.</span><span class="n">Save</span><span class="p">(</span><span class="n">bookV1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Saving Clean Code to database.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=97b686d3472bee96"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14067,21 +14165,9 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=42945fb3c75b8f36">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=cf18949cb079ebb6">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=cf18949cb079ebb6">
-<div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IBook</span>
@@ -14095,7 +14181,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=b0e3953ee704329d">
 <div class="input">
-<div class="prompt input_prompt">In [30]:</div>
+<div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BookPrinterV2</span>
@@ -14113,7 +14199,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d38ba08fef7fd0c5">
 <div class="input">
-<div class="prompt input_prompt">In [31]:</div>
+<div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BookDatabaseV2</span>
@@ -14129,9 +14215,9 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=36b2785f4b7e33fe">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=36b2785f4b7e33fe">
 <div class="input">
-<div class="prompt input_prompt">In [32]:</div>
+<div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BookV2</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IBook</span>
@@ -14164,7 +14250,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=25c6ce5e93adc4fc">
 <div class="input">
-<div class="prompt input_prompt">In [33]:</div>
+<div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">bookV2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BookV2</span><span class="p">(</span><span class="s">"Clean Code"</span><span class="p">,</span><span class="w"> </span><span class="s">"Robert C. Martin"</span><span class="p">,</span><span class="w"> </span><span class="m">464</span><span class="p">);</span>
@@ -14175,7 +14261,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=00acb721ceec3c88">
 <div class="input">
-<div class="prompt input_prompt">In [34]:</div>
+<div class="prompt input_prompt">In [38]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">bookV2</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
@@ -14197,7 +14283,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered" id="cell-id=2166850854c2dd7f">
 <div class="input">
-<div class="prompt input_prompt">In [35]:</div>
+<div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">bookV2</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
@@ -14227,7 +14313,7 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d1a2c8394cd90cc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f9d7d78e37ecb4b1"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Wetter-App">Workshop: Wetter-App<a class="anchor-link" href="#Workshop:-Wetter-App">¶</a></h2><p>Sie arbeiten an einer vielseitigen Wetteranwendung namens WeatherWise. Die
@@ -14245,8 +14331,7 @@ Einführung neuer Funktionen, ohne dass dabei die Gefahr besteht, Fehler
 einzuführen.</p>
 <p>Ihre Aufgabe: Refaktorisieren Sie die Klasse <code>Weather</code>, indem Sie
 sicherstellen, dass jede Klasse im System dem Single Responsibility Principle
-entspricht. Damit legen Sie die Grundlage für eine wartbarere und
-skalierbare Anwendung.</p>
+entspricht.</p>
 </div>
 </div>
 </div>
@@ -14257,21 +14342,19 @@ skalierbare Anwendung.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6a40d3bbc4737637"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=715f3c3429f6b9ba"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="RunWeatherApp()-Sequenzendiagramm">RunWeatherApp() Sequenzendiagramm<a class="anchor-link" href="#RunWeatherApp()-Sequenzendiagramm">¶</a></h3><p><img alt="No description has been provided for this image" src="img/weather_app_sequence.png" style="display:block;margin:auto;width:15%"/></p>
+<h3 id="RunWeatherApp()-Sequenzdiagramm">RunWeatherApp() Sequenzdiagramm<a class="anchor-link" href="#RunWeatherApp()-Sequenzdiagramm">¶</a></h3><p><img alt="No description has been provided for this image" src="img/weather_app_sequence.png" style="display:block;margin:auto;width:40%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=45e980a80f29423a">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b063bc8302b4aad3">
 <div class="input">
-<div class="prompt input_prompt">In [36]:</div>
+<div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
 </pre></div>
@@ -14279,15 +14362,12 @@ skalierbare Anwendung.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=d225dc15e2c5c841">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=1ad0c76a1d3bade2">
 <div class="input">
-<div class="prompt input_prompt">In [37]:</div>
+<div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Weather</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Weather</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">FetchDataFromSource</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
@@ -14351,7 +14431,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b2cf0255ef837754">
 <div class="input">
-<div class="prompt input_prompt">In [38]:</div>
+<div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RunWeatherApp</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">introduceError</span><span class="p">)</span>
@@ -14372,7 +14452,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=637950036062ea84">
 <div class="input">
-<div class="prompt input_prompt">In [39]:</div>
+<div class="prompt input_prompt">In [43]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">RunWeatherApp</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
@@ -14415,7 +14495,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a971180240169440">
 <div class="input">
-<div class="prompt input_prompt">In [40]:</div>
+<div class="prompt input_prompt">In [44]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">RunWeatherApp</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
@@ -14463,17 +14543,17 @@ skalierbare Anwendung.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_alt celltag_subslide" id="cell-id=81a0af10015c708d"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_alt celltag_subslide" id="cell-id=d13f52d6fbd7fe24"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="RunWeatherApp()-Sequenzendiagramm">RunWeatherApp() Sequenzendiagramm<a class="anchor-link" href="#RunWeatherApp()-Sequenzendiagramm">¶</a></h3><div></div>
+<h3 id="RunWeatherApp()-Sequenzdiagramm">RunWeatherApp() Sequenzdiagramm<a class="anchor-link" href="#RunWeatherApp()-Sequenzdiagramm">¶</a></h3><div></div>
 <img alt="No description has been provided for this image" src="img/weather_app_sequence_srp.png" style="display:block;margin:auto;width:75%"/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=9d719b13606cdf56">
 <div class="input">
-<div class="prompt input_prompt">In [41]:</div>
+<div class="prompt input_prompt">In [45]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeatherErrorLogger</span>
@@ -14491,7 +14571,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=4f82d03296d5f1ed">
 <div class="input">
-<div class="prompt input_prompt">In [42]:</div>
+<div class="prompt input_prompt">In [46]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WeatherData</span>
@@ -14529,7 +14609,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=bd56e3112380a1a9">
 <div class="input">
-<div class="prompt input_prompt">In [43]:</div>
+<div class="prompt input_prompt">In [47]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeatherDataSource</span>
@@ -14571,7 +14651,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=f3fc6d37e0c54f9c">
 <div class="input">
-<div class="prompt input_prompt">In [44]:</div>
+<div class="prompt input_prompt">In [48]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeatherDataParser</span>
@@ -14604,7 +14684,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=9a305223cf0ea13e">
 <div class="input">
-<div class="prompt input_prompt">In [45]:</div>
+<div class="prompt input_prompt">In [49]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeatherDisplay</span>
@@ -14649,7 +14729,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=21c2549aa967d7b3">
 <div class="input">
-<div class="prompt input_prompt">In [46]:</div>
+<div class="prompt input_prompt">In [50]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RunWeatherAppSrp</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">introduceError</span><span class="p">)</span>
@@ -14676,7 +14756,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=dde0ea3faa00ddc1">
 <div class="input">
-<div class="prompt input_prompt">In [47]:</div>
+<div class="prompt input_prompt">In [51]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">RunWeatherAppSrp</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
@@ -14719,7 +14799,7 @@ skalierbare Anwendung.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=0ea56b0dc5a75e0d">
 <div class="input">
-<div class="prompt input_prompt">In [48]:</div>
+<div class="prompt input_prompt">In [52]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">RunWeatherAppSrp</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>

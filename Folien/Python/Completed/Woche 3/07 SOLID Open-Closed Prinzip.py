@@ -193,9 +193,9 @@ public class NewReleaseMovie : MovieV2
 }
 
 // %%
-RegularMovie m1 = new RegularMovie("Casablanca");
-ChildrenMovie m2 = new ChildrenMovie("Shrek");
-NewReleaseMovie m3 = new NewReleaseMovie("Brand New");
+MovieV2 m1 = new RegularMovie("Casablanca");
+MovieV2 m2 = new ChildrenMovie("Shrek");
+MovieV2 m3 = new NewReleaseMovie("Brand New");
 
 // %%
 m1.PrintInfo();
@@ -236,25 +236,22 @@ m3.PrintInfo();
 // ## Workshop: Smart Home Device Control System
 //
 // In diesem Workshop arbeiten wir mit einem Szenario, das ein Smart Home
-// Gerätesteuerungssystem betrifft. Die Herausforderung? Das vorhandene System
-// verletzt das OCP, und es liegt an uns, das zu korrigieren.
+// Gerätesteuerungssystem betrifft. Leider verletzt das vorhandene System
+// das Open-Closed-Prinzip.
 
 // %% [markdown]
 //
 // ### Szenario
 //
-// Stellen Sie sich ein Smart-Home-System vor. Dieses System steuert verschiedene
+// Wir haben ein Smart-Home-System. Dieses System steuert verschiedene
 // Geräte: Lichter, Thermostate, Sicherheitskameras und intelligente Schlösser.
-// Jede Art von Gerät hat ihren eigenen einzigartigen Steuermechanismus und
+// Jeder Gerätetyp benötigt einen eigenen Steuerungsmechanismus und eigene
 // Automatisierungsregeln.
 //
 // Nun muss das Steuerungssystem des Smart Homes diese Geräte verwalten. Das
 // Problem mit dem aktuellen System ist die Verwendung eines Enums zur Bestimmung
 // des Gerätetyps und basierend darauf seiner Steuermethode. Dieser Ansatz ist
-// nicht skalierbar und verletzt das OCP. Was passiert, wenn ein neuer Typ von
-// Smart-Gerät zum Zuhause hinzugefügt wird? Oder was passiert, wenn sich der
-// Steuermechanismus für Thermostate ändert? Die aktuelle Code-Struktur erfordert
-// Änderungen an mehreren Stellen.
+// nicht skalierbar und verletzt das OCP.
 
 // %%
 using System;
