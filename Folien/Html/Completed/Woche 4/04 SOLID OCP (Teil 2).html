@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=1ce78f5d2158949f"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=eae744cbfc68b36d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13366,7 +13366,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 " style="display:block;margin:auto;width:5%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>GoF: Strategy Pattern</b>
+<b>SOLID: OCP (Teil 2)</b>
 </div>
 <br>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
@@ -13376,76 +13376,64 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6d590633c00d3032"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=406e5f065b8941c4"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Zweck">Zweck<a class="anchor-link" href="#Zweck">¶</a></h3><ul>
-<li>Austauschbare Algorithmen / austauschbares Verhalten</li>
-<li>Algorithmen unabhängig von Klassen, die sie verwenden</li>
-</ul>
+<h2 id="Wiederholung:-OCP-Verletzung">Wiederholung: OCP-Verletzung<a class="anchor-link" href="#Wiederholung:-OCP-Verletzung">¶</a></h2><p><img alt="MovieV0" src="img/movie_v0.png" style="display:block;margin:auto;width:50%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0a38cdf05c04ee48"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ae67fce730765352"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Auch-bekannt-als">Auch bekannt als<a class="anchor-link" href="#Auch-bekannt-als">¶</a></h3><p>Policy</p>
+<h2 id="L%C3%B6sungsversuch-1:-Vererbung">Lösungsversuch 1: Vererbung<a class="anchor-link" href="#L%C3%B6sungsversuch-1:-Vererbung">¶</a></h2><p><img alt="MovieV2" src="img/movie_v2.png" style="display:block;margin:auto;width:70%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=e82bddc0f3c57782"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=455adc169508e662"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><ul>
-<li>Wir wollen einen Text in einem Feld mit begrenzter Breite darstellen</li>
-<li>Dafür gibt es verschiedene Möglichkeiten:<ul>
-<li>Abschneiden nach einer bestimmten Anzahl von Zeichen (mit/ohne Ellipse)</li>
-<li>Umbruch nach einer bestimmten Anzahl von Zeichen<ul>
-<li>Umbruch mitten im Wort</li>
-<li>Umbruch bei Leerzeichen (greedy/dynamische Programmierung)</li>
+<ul>
+<li>OCP ist erfüllt</li>
+<li>Großer Scope der Vererbung<ul>
+<li>Preisberechnung ist das wichtigste an Filmen?</li>
 </ul>
 </li>
+<li>Nur eindimensionale Klassifikation</li>
+<li>Keine Möglichkeit, Preisschema zu wechseln</li>
 </ul>
-</li>
-</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=db8880fc3454b5df"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c8641602f3f5afc1"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Struktur">Struktur<a class="anchor-link" href="#Struktur">¶</a></h2><p><img alt="No description has been provided for this image" src="img/pat_strategy.png" style="display:block;margin:auto;width:80%"/></p>
+<h2 id="L%C3%B6sungsversuch-2:-Strategie-Muster">Lösungsversuch 2: Strategie-Muster<a class="anchor-link" href="#L%C3%B6sungsversuch-2:-Strategie-Muster">¶</a></h2><p><img alt="MovieV3" src="img/movie_v3.png" style="display:block;margin:auto;width:80%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cb6aa29f6e2d2487"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cebc960a3989d448"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Teilnehmer">Teilnehmer<a class="anchor-link" href="#Teilnehmer">¶</a></h2><ul>
-<li><code>Strategy</code><ul>
-<li>gemeinsames Interface für alle unterstützten Algorithmen</li>
-</ul>
-</li>
-<li><code>ConcreteStrategy</code><ul>
-<li>implementiert den Algorithmus</li>
-</ul>
-</li>
-<li><code>Context</code><ul>
-<li>wird mit einem <code>ConcreteStrategy</code>-Objekt konfiguriert</li>
-<li>kennt sein <code>Strategy</code>-Objekt</li>
-<li>optional: Interface, das der Strategie Zugriff die Kontext-Daten ermöglicht</li>
-</ul>
-</li>
+<ul>
+<li>OCP ist erfüllt</li>
+<li>Vererbung ist auf die Preisberechnung beschränkt</li>
+<li>Mehrdimensionale Klassifikation ist einfach</li>
+<li>Preisschema kann zur Laufzeit gewechselt werden</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=7a55d701ce6a50c0">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=209645c13d9534ba">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IMovie</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintInfo</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -13456,7 +13444,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-3280.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-12563.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13501,12 +13489,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.16:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.10:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '3280.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '12563.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13565,37 +13553,30 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b01e6e699469837b">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a04b5a065942f5bc">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IStrategy</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IPricingStrategy</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">AlgorithmInterface</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">(</span><span class="n">IMovie</span><span class="w"> </span><span class="n">movie</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=4b6cb89dd20d026e">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=0caecf7d19709e9a">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Context</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RegularPricingStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IPricingStrategy</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Context</span><span class="p">(</span><span class="n">IStrategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">(</span><span class="n">IMovie</span><span class="w"> </span><span class="n">movie</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">IStrategy</span><span class="w"> </span><span class="n">Strategy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">ContextInterface</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Strategy</span><span class="p">.</span><span class="n">AlgorithmInterface</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -13603,16 +13584,16 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=9910a51c5091d158">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=92f472d80c16265b">
 <div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConcreteStrategyA</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IStrategy</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ChildrenPricingStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IPricingStrategy</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">AlgorithmInterface</span><span class="p">()</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">(</span><span class="n">IMovie</span><span class="w"> </span><span class="n">movie</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1.5f</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -13620,337 +13601,362 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=706c5f3402b7dfa9">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=480d631a3db6688b">
 <div class="input">
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConcreteStrategyB</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IStrategy</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Movie</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IMovie</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">AlgorithmInterface</span><span class="p">()</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Movie</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">IPricingStrategy</span><span class="w"> </span><span class="n">pricingStrategy</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">2.0f</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
+<span class="w">        </span><span class="n">PricingStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pricingStrategy</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">IPricingStrategy</span><span class="w"> </span><span class="n">PricingStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">PricingStrategy</span><span class="p">.</span><span class="n">ComputePrice</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintInfo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{Title} costs {Price}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=539693d92555a265">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">IMovie</span><span class="o">&gt;</span><span class="w"> </span><span class="n">movies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">Movie</span><span class="p">(</span><span class="s">"Casablanca"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RegularPricingStrategy</span><span class="p">()),</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">Movie</span><span class="p">(</span><span class="s">"Shrek"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChildrenPricingStrategy</span><span class="p">()),</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=c74846636815a44e">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">movies</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Casablanca costs 4.99
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Shrek costs 5.99
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=92bf3d8e82d4ddf8">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">NewReleasePricingStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IPricingStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">(</span><span class="n">IMovie</span><span class="w"> </span><span class="n">movie</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">6.99</span><span class="n">m</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=b1de09d380866f49">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">godfather</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Movie</span><span class="p">(</span><span class="s">"The Godfather"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NewReleasePricingStrategy</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=5a164097b7653405">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">movies</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">godfather</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ce412780da6fd23a">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">movies</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Casablanca costs 4.99
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Shrek costs 5.99
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The Godfather costs 6.99
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=d6cc701acab4e969">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">godfather</span><span class="p">.</span><span class="n">PricingStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RegularPricingStrategy</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=acf34c4d423d85b9">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">movies</span><span class="p">.</span><span class="n">ForEach</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Casablanca costs 4.99
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Shrek costs 5.99
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The Godfather costs 4.99
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7d258a92bfe34e34"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Berechnung-von-%C3%96PNV-Fahrpreisen">Workshop: Berechnung von ÖPNV-Fahrpreisen<a class="anchor-link" href="#Workshop:-Berechnung-von-%C3%96PNV-Fahrpreisen">¶</a></h2><p>In einer modernen Stadt stehen verschiedene öffentliche Verkehrsmittel zur
+Verfügung – Busse, U-Bahnen, Züge, Boote, etc. Jedes dieser Verkehrsmittel
+hat seine eigene Methode zur Fahrpreisberechnung. Zum Beispiel können
+Bustarife auf Pauschalpreisen basieren, U-Bahnen können auf
+Entfernungstarifen basieren und Boote können Premiumtarife für
+landschaftlich reizvolle Strecken haben.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7780f7fb98c91f01"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sie haben ein rudimentäres Fahrpreisberechnungssystem, das den Fahrpreis
+basierend auf dem Verkehrsmittel bestimmt. Leider verstößt dieses System
+gegen das OCP, da es ohne Modifikation nicht für die Erweiterung geöffnet
+ist. Jedes Mal, wenn ein neues Verkehrsmittel hinzugefügt werden muss, muss
+das Kernsystem geändert werden.</p>
+<p>Ihre Aufgabe ist es, das System so zu refaktorisieren, dass es dem OCP
+entspricht. Genauer gesagt, werden Sie die <code>switch</code>-Anweisung aus der
+Fahrpreisberechnungslogik entfernen. Das Ziel ist es, das System leicht
+erweiterbar zu machen, so dass neue Verkehrsmittel hinzugefügt werden können,
+ohne den vorhandenen Code zu ändern.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=42945fb3c75b8f36">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=4a5a676cf5fd5e8f">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Context</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ConcreteStrategyA</span><span class="p">());</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ea5cfc9f82e637a5">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Strategy A: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">ContextInterface</span><span class="p">());</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Strategy A: 1.5
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0f4501189204b0a4">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">context</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcreteStrategyB</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=361485b447be9672">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Strategy B: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">ContextInterface</span><span class="p">());</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Strategy B: 2
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=edd47549755a086c"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interaktionen">Interaktionen<a class="anchor-link" href="#Interaktionen">¶</a></h3><ul>
-<li>Strategie und Kontext interagieren, um den gewählten Algorithmus zu implementieren.<ul>
-<li>Kontext kann Daten an Strategie übergeben</li>
-<li>Kontext kann sich selber an Strategie übergeben</li>
-</ul>
-</li>
-<li>Ein Kontext leitet Anfragen seiner Clients an seine Strategie weiter. [...]</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=be9cc9b0802a015e"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Implementierung">Implementierung<a class="anchor-link" href="#Implementierung">¶</a></h3><ul>
-<li><code>ConcreteStrategy</code> benötigt effizienten Zugriff auf alle benötigten Daten</li>
-<li>...</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=087cb260cc860d4b"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Beispielcode:-Textumbruch-f%C3%BCr-ein-Blog">Beispielcode: Textumbruch für ein Blog<a class="anchor-link" href="#Beispielcode:-Textumbruch-f%C3%BCr-ein-Blog">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b4f995e83cac2337">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-
-<span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">ITextWrapStrategy</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Wrap</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=0f85a4397f91bcb5">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TruncationStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITextWrapStrategy</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Wrap</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">};</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"..."</span><span class="w"> </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=a45df0381eb22f56">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BreakAnywhereStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITextWrapStrategy</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Wrap</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">remainingText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">remainingText</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">lines</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">remainingText</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">));</span>
-<span class="w">            </span><span class="n">remainingText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remainingText</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">width</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">lines</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">remainingText</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">lines</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=549c06dc872e6c8e">
-<div class="input">
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BreakOnSpaceStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ITextWrapStrategy</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Wrap</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">remainingText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">remainingText</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remainingText</span><span class="p">.</span><span class="n">LastIndexOf</span><span class="p">(</span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="n">lines</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">remainingText</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">));</span>
-<span class="w">            </span><span class="n">remainingText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">remainingText</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="n">lines</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">remainingText</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">lines</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f93dd0e47f59c09e">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=59c8bc063b66dfe9">
 <div class="input">
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BlogPost</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Author</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">BlogPost</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">author</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">author</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">TransportType</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Bus</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Subway</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Train</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Boat</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=7bf2b8fd652610ca">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=5068dc08683bed71">
 <div class="input">
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Blog</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Blog</span><span class="p">(</span><span class="n">ITextWrapStrategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Transport</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">TransportType</span><span class="w"> </span><span class="n">Type</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Transport</span><span class="p">(</span><span class="n">TransportType</span><span class="w"> </span><span class="n">type</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ITextWrapStrategy</span><span class="w"> </span><span class="n">Strategy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">CalculateFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">posts</span><span class="p">)</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">Type</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">(</span><span class="sc">'-'</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">));</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Title: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Author: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">Author</span><span class="p">);</span>
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Strategy</span><span class="p">.</span><span class="n">Wrap</span><span class="p">(</span><span class="n">post</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">(</span><span class="sc">'-'</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">));</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">TransportType</span><span class="p">.</span><span class="n">Bus</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">2.50</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// flat rate</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">TransportType</span><span class="p">.</span><span class="n">Subway</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1.50</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.20</span><span class="n">m</span><span class="p">);</span><span class="w"> </span><span class="c1">// base rate + per km</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">TransportType</span><span class="p">.</span><span class="n">Train</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">5.00</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.15</span><span class="n">m</span><span class="p">);</span><span class="w"> </span><span class="c1">// base rate + per km</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">TransportType</span><span class="p">.</span><span class="n">Boat</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">10.00</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// premium rate</span>
+<span class="w">            </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddPost</span><span class="p">(</span><span class="n">BlogPost</span><span class="w"> </span><span class="n">post</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">posts</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">post</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">BlogPost</span><span class="o">&gt;</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">BlogPost</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=aed0c56cb60da2c7">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a6fcfc4230303eaa">
 <div class="input">
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">firstPost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"mollit anim id est laborum."</span><span class="p">;</span>
-<span class="kt">string</span><span class="w"> </span><span class="n">secondPost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"To be or not to be that is the question. Whether 'tis nobler in the mind to suffer "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"the slings and arrows of outrageous fortune or to take arms against a sea of "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"troubles and by opposing end them. To die, to sleep no more and by a sleep to say we "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"end the heart-ache and the thousand natural shocks that flesh is heir to. 'Tis a "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"consummation devoutly to be wish'd. To die, to sleep to sleep perchance to dream. "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"Ay, there's the rub. For in that sleep of death what dreams may come when we have "</span>
-<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"shuffled off this mortal coil must give us pause."</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="n">TransportType</span><span class="p">.</span><span class="n">Bus</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Bus fare: ${bus.CalculateFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Bus fare: $2.50
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=75803cd1e9321065">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=348a5c692fc776da">
 <div class="input">
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Blog</span><span class="w"> </span><span class="n">blog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Blog</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TruncationStrategy</span><span class="p">());</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">subway</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="n">TransportType</span><span class="p">.</span><span class="n">Subway</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Subway fare: ${subway.CalculateFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Subway fare: $3.50
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d67587ffe0674e8d">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7ca5e1abded99fa6">
 <div class="input">
 <div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">AddPost</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BlogPost</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"My first post"</span><span class="p">,</span><span class="w"> </span><span class="n">firstPost</span><span class="p">));</span>
-<span class="n">blog</span><span class="p">.</span><span class="n">AddPost</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BlogPost</span><span class="p">(</span><span class="s">"Jane Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"My second post"</span><span class="p">,</span><span class="w"> </span><span class="n">secondPost</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">train</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="n">TransportType</span><span class="p">.</span><span class="n">Train</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Train fare: ${train.CalculateFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train fare: $6.50
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0cd85a6949dfafe1">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=f0532843a7373931">
 <div class="input">
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="m">40</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">boat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="n">TransportType</span><span class="p">.</span><span class="n">Boat</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Boat fare: ${boat.CalculateFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -13960,718 +13966,100 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My first post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: John Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The quick brown fox jumps over the la...
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My second post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: Jane Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>To be or not to be that is the questi...
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
+<pre>Boat fare: $10.00
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=96c898847e7702ae">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=6f7a0bd5fa58afb0">
 <div class="input">
 <div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BreakAnywhereStrategy</span><span class="p">();</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0cf76b7d73734573">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=de6b83aefd26b209">
 <div class="input">
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="m">40</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IFareCalculationStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">CalculateFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
 </div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My first post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: John Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The quick brown fox jumps over the lazy 
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dog. Lorem ipsum dolor sit amet, consect
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>etur adipiscing elit. Sed do eiusmod tem
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>por incididunt ut labore et dolore magna
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> aliqua. Ut enim ad minim veniam, quis n
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ostrud exercitation ullamco laboris nisi
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> ut aliquip ex ea commodo consequat. Dui
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>s aute irure dolor in reprehenderit in v
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>oluptate velit esse cillum dolore eu fug
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>iat nulla pariatur. Excepteur sint occae
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>cat cupidatat non proident, sunt in culp
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>a qui officia deserunt mollit anim id es
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>t laborum.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My second post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: Jane Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>To be or not to be that is the question.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> Whether 'tis nobler in the mind to suff
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>er the slings and arrows of outrageous f
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ortune or to take arms against a sea of 
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>troubles and by opposing end them. To di
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>e, to sleep no more and by a sleep to sa
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>y we end the heart-ache and the thousand
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> natural shocks that flesh is heir to. '
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Tis a consummation devoutly to be wish'd
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>. To die, to sleep to sleep perchance to
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> dream. Ay, there's the rub. For in that
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> sleep of death what dreams may come whe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>n we have shuffled off this mortal coil 
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>must give us pause.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=33497eb0f2dd7b8a">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=153a32d3f0922c3c">
 <div class="input">
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BreakOnSpaceStrategy</span><span class="p">();</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BusFare</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFareCalculationStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">CalculateFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">2.50</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// flat rate</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7d43d70e9d0fe799">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=43aed5749eda176c">
 <div class="input">
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="m">40</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SubwayFare</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFareCalculationStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">CalculateFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1.50</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.20</span><span class="n">m</span><span class="p">);</span><span class="w"> </span><span class="c1">// base rate + per km</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
 </div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My first post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: John Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The quick brown fox jumps over the lazy
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dog. Lorem ipsum dolor sit amet,
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>consectetur adipiscing elit. Sed do
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>eiusmod tempor incididunt ut labore et
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dolore magna aliqua. Ut enim ad minim
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>veniam, quis nostrud exercitation
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ullamco laboris nisi ut aliquip ex ea
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>commodo consequat. Duis aute irure dolor
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>in reprehenderit in voluptate velit esse
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>cillum dolore eu fugiat nulla pariatur.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Excepteur sint occaecat cupidatat non
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>proident, sunt in culpa qui officia
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>deserunt mollit anim id est laborum.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My second post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: Jane Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>To be or not to be that is the question.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Whether 'tis nobler in the mind to
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>suffer the slings and arrows of
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>outrageous fortune or to take arms
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>against a sea of troubles and by
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>opposing end them. To die, to sleep no
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>more and by a sleep to say we end the
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>heart-ache and the thousand natural
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>shocks that flesh is heir to. 'Tis a
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>consummation devoutly to be wish'd. To
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>die, to sleep to sleep perchance to
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dream. Ay, there's the rub. For in that
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>sleep of death what dreams may come when
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>we have shuffled off this mortal coil
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>must give us pause.
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f2c409bcbe934dea"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Anwendbarkeit">Anwendbarkeit<a class="anchor-link" href="#Anwendbarkeit">¶</a></h3><ul>
-<li>Konfiguration von Objekten mit einer von mehreren Verhaltensweisen</li>
-<li>Verschiedene Varianten eines Algorithmus</li>
-<li>Kapseln von Daten mit Algorithmus (Client muss Daten nicht kennen)</li>
-<li>Vermeidung von bedingten Anweisungen zur Auswahl eines Algorithmus</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2854b2bd37905646"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Konsequenzen">Konsequenzen<a class="anchor-link" href="#Konsequenzen">¶</a></h3><ul>
-<li>Familien wiederverwendbarer, verwandter Algorithmen</li>
-<li>Alternative zu Vererbung</li>
-<li>Auswahl einer Strategie ohne bedingte Anweisungen</li>
-<li>Context/Clients muss die möglichen Strategien kennen</li>
-<li>Kommunikations-Overhead zwischen Strategie und Kontext</li>
-<li>Erhöhte Anzahl von Objekten</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a30e0917e710d5ec"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="C%23-Implementierungs-Tipp">C# Implementierungs-Tipp<a class="anchor-link" href="#C%23-Implementierungs-Tipp">¶</a></h3><p>In C# kann das Strategy Pattern oft einfach durch ein Funktions-Objekt als
-Member implementiert werden:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=9c3b880fa49f5ead">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=9de40b3eb1e2a2f2">
 <div class="input">
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FunBlog</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TrainFare</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFareCalculationStrategy</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">FunBlog</span><span class="p">(</span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">CalculateFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">5.00</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.15</span><span class="n">m</span><span class="p">);</span><span class="w"> </span><span class="c1">// base rate + per km</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Strategy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">_posts</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">(</span><span class="sc">'-'</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">));</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Title: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Author: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">Author</span><span class="p">);</span>
-<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Strategy</span><span class="p">(</span><span class="n">post</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">(</span><span class="sc">'-'</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">));</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddPost</span><span class="p">(</span><span class="n">BlogPost</span><span class="w"> </span><span class="n">post</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">_posts</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">post</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">BlogPost</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_posts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">BlogPost</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=5766b4c938193fd0">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=fc9655b9136e5696">
 <div class="input">
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Wrap</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BoatFare</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IFareCalculationStrategy</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TruncateLines</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">CalculateFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">};</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"..."</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">10.00</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="c1">// premium rate</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -14679,45 +14067,60 @@ Member implementiert werden:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a095917d032d9428"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Hier haben wir eine Funktion <code>TruncateLines()</code> definiert, die die gleiche
-Funktionalität hat wie unsere <code>TruncationStrategy</code></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=b54d5bf0c735ff84">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=fd1712f033913a71">
 <div class="input">
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">FunBlog</span><span class="w"> </span><span class="n">blog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FunBlog</span><span class="p">(</span><span class="n">Wrap</span><span class="p">.</span><span class="n">TruncateLines</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Transport</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IFareCalculationStrategy</span><span class="w"> </span><span class="n">FareStrategy</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Transport</span><span class="p">(</span><span class="n">IFareCalculationStrategy</span><span class="w"> </span><span class="n">fareStrategy</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">FareStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fareStrategy</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputeFare</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">FareStrategy</span><span class="p">.</span><span class="n">CalculateFare</span><span class="p">(</span><span class="n">distance</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=33cb0e0d30bd1e24">
+<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=46443b922c2e45f2">
 <div class="input">
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">AddPost</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BlogPost</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"My first post"</span><span class="p">,</span><span class="w"> </span><span class="n">firstPost</span><span class="p">));</span>
-<span class="n">blog</span><span class="p">.</span><span class="n">AddPost</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BlogPost</span><span class="p">(</span><span class="s">"Jane Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"My second post"</span><span class="p">,</span><span class="w"> </span><span class="n">secondPost</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BusFare</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Bus fare: ${bus.ComputeFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Bus fare: $2.50
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=f9ef3f19ff5037d8">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=83a4f3baeebe737d">
 <div class="input">
 <div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="m">40</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">subway</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SubwayFare</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Subway fare: ${subway.ComputeFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -14727,99 +14130,43 @@ Funktionalität hat wie unsere <code>TruncationStrategy</code></li>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My first post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: John Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The quick brown fox jumps over the la...
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My second post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: Jane Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>To be or not to be that is the questi...
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
+<pre>Subway fare: $3.50
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=8f978d066261ac76">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=fc5271f24ef3c13f">
 <div class="input">
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">width</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"..."</span><span class="w"> </span><span class="p">];</span>
-<span class="p">};</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">train</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TrainFare</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Train fare: ${train.ComputeFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Train fare: $6.50
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=f48f4f17b0322f8a">
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=73897889bea2af7e">
 <div class="input">
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">blog</span><span class="p">.</span><span class="n">Print</span><span class="p">(</span><span class="m">40</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Transport</span><span class="w"> </span><span class="n">boat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Transport</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BoatFare</span><span class="p">());</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Boat fare: ${boat.ComputeFare(10)}"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -14829,114 +14176,52 @@ Funktionalität hat wie unsere <code>TruncationStrategy</code></li>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My first post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: John Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The quick brown fox jumps over the la...
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Title: My second post
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Author: Jane Doe
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>To be or not to be that is the questi...
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>----------------------------------------
+<pre>Boat fare: $10.00
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=9866840af23070f7"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=65723c0628fbbaf5"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workshop:-Vorhersagen">Workshop: Vorhersagen<a class="anchor-link" href="#Workshop:-Vorhersagen">¶</a></h2><p>Sie wollen ein System schreiben, das Vorhersagen für Aktienkurse treffen kann.</p>
-<p>Schreiben Sie dazu eine Klasse <code>Predictor</code> mit einer Methode</p>
-<div class="highlight"><pre><span></span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Predict</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-<p>Verwenden Sie das Strategy Pattern, um mindestens zwei verschiedene
-Vorhersage-Varianten zu ermöglichen:</p>
-<ul>
-<li>Die Vorhersage ist der Mittelwert aller Werte aus <code>values</code></li>
-<li>Die Vorhersage ist der letzte Wert in <code>values</code> (oder 0, wenn <code>values</code> leer ist)</li>
-</ul>
-<p>Testen Sie Ihre Implementierung mit einigen Beispieldaten.</p>
+<h2 id="Extra-Workshop:-Smart-Home-Device-Control-System-mit-Strategy">Extra-Workshop: Smart Home Device Control System mit Strategy<a class="anchor-link" href="#Extra-Workshop:-Smart-Home-Device-Control-System-mit-Strategy">¶</a></h2><p>In einem früheren Workshop haben wir ein System zur Kontrolle von Smart Home
+Devices implementiert.</p>
+<p>Lösen Sie das OCP-Problem für dieses System mit dem Strategy-Muster.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=485ee61da9eee9b4">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=3cc5d5cb62888525">
 <div class="input">
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IPredictionStrategy</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Predict</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IDeviceStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Control</span><span class="p">();</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=856465c3faa05583">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=1512790dcdf71d73">
 <div class="input">
 <div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LastValueStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IPredictionStrategy</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Predict</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">[</span><span class="o">^</span><span class="m">1</span><span class="p">];</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LightStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDeviceStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Light control"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Light status"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -14944,14 +14229,21 @@ Vorhersage-Varianten zu ermöglichen:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=9fd1ce6f5bc147aa">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=0808fca14e64afef">
 <div class="input">
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MeanValueStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IPredictionStrategy</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Predict</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">Average</span><span class="p">();</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ThermostatStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDeviceStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Thermostat control"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Thermostat status"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -14959,24 +14251,21 @@ Vorhersage-Varianten zu ermöglichen:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=7f6899ec41a2f879">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=4bb39d958567a841">
 <div class="input">
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Predictor</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">IPredictionStrategy</span><span class="w"> </span><span class="n">Strategy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Predictor</span><span class="p">(</span><span class="n">IPredictionStrategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SecurityCameraStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDeviceStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Security camera control"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Predict</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Strategy</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetStrategy</span><span class="p">(</span><span class="n">IPredictionStrategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Security camera status"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -14984,211 +14273,177 @@ Vorhersage-Varianten zu ermöglichen:</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=6a3c0c285fae1f1d">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=1bc2f509000c95ed">
 <div class="input">
 <div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Predictor</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Predictor</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MeanValueStrategy</span><span class="p">());</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="m">1.0</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="m">2.0</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="n">m</span><span class="w"> </span><span class="p">];</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SmartLockStrategy</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDeviceStrategy</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Smart lock control"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Smart lock status"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=f5d516b54ea1daee">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=475337237fe5be17">
 <div class="input">
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Default prediction: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">values</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Default prediction: 2.0
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=1bb4c9bd0e47bc2d">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=ed01f6dcdbd8361d">
 <div class="input">
 <div class="prompt input_prompt">In [38]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">p</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LastValueStrategy</span><span class="p">();</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Last value prediction: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">values</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SmartHomeDevice</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IDeviceStrategy</span><span class="w"> </span><span class="n">Strategy</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">SmartHomeDevice</span><span class="p">(</span><span class="n">IDeviceStrategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Strategy</span><span class="p">.</span><span class="n">Control</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Strategy</span><span class="p">.</span><span class="n">GetStatus</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Last value prediction: 3.0
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=87188288b06b1cfa">
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_alt" id="cell-id=daec92da9c3b3cc8">
 <div class="input">
 <div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">p</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MeanValueStrategy</span><span class="p">();</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Mean value prediction: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">values</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Mean value prediction: 2.0
-</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=2ef0516bdcda4534">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=79b67d9432764968">
 <div class="input">
 <div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Mean</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">Average</span><span class="p">();</span>
-<span class="p">}</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">SmartHomeDevice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">SmartHomeDevice</span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=03457f9d63f57aef">
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=ab477f644c83eac8">
 <div class="input">
 <div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PredictorFun</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Func</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Strategy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">PredictorFun</span><span class="p">(</span><span class="n">Func</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">Predict</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">Strategy</span><span class="p">(</span><span class="n">values</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetStrategy</span><span class="p">(</span><span class="n">Func</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">devices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SmartHomeDevice</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LightStrategy</span><span class="p">()));</span>
+<span class="n">devices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SmartHomeDevice</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ThermostatStrategy</span><span class="p">()));</span>
+<span class="n">devices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SmartHomeDevice</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SecurityCameraStrategy</span><span class="p">()));</span>
+<span class="n">devices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SmartHomeDevice</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SmartLockStrategy</span><span class="p">()));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=6f4cc7fc67cc69d1">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">device</span><span class="p">.</span><span class="n">Control</span><span class="p">();</span>
+<span class="w">    </span><span class="n">device</span><span class="p">.</span><span class="n">GetStatus</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=242e274a4daf5ba8">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">PredictorFun</span><span class="w"> </span><span class="n">pf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PredictorFun</span><span class="p">(</span><span class="n">Mean</span><span class="p">);</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="m">1.0</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="m">2.0</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="n">m</span><span class="w"> </span><span class="p">];</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=0ed658bad9e2a67d">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Default prediction: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pf</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">myValues</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Default prediction: 2.0
+<pre>Light control
 </pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=ddfdb0c0e6506ed4">
-<div class="input">
-<div class="prompt input_prompt">In [44]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">pf</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">[</span><span class="o">^</span><span class="m">1</span><span class="p">];</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Last value prediction: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pf</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">myValues</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Last value prediction: 3.0
+<pre>Light status
 </pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=38801c17e90abda4">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">pf</span><span class="p">.</span><span class="n">Strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mean</span><span class="p">;</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Mean value prediction: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pf</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">myValues</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Mean value prediction: 2.0
+<pre>Thermostat control
 </pre>
 </div>
 </div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Thermostat status
+</pre>
 </div>
 </div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Security camera control
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=6b4e03423667dbb7">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span>
-</pre></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Security camera status
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Smart lock control
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Smart lock status
+</pre>
+</div>
 </div>
 </div>
 </div>

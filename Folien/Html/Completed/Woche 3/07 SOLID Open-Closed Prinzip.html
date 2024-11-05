@@ -13408,7 +13408,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-2530.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-1024.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13453,12 +13453,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.14:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.12:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '2530.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '1024.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13948,24 +13948,24 @@ nicht skalierbar und verletzt das OCP.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=e18bebb09271525b">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0c419d479ca8c6d3">
 <div class="input">
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">DeviceType</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">LIGHT</span><span class="p">,</span>
-<span class="w">    </span><span class="n">THERMOSTAT</span><span class="p">,</span>
-<span class="w">    </span><span class="n">SECURITY_CAMERA</span><span class="p">,</span>
-<span class="w">    </span><span class="n">SMART_LOCK</span>
+<span class="w">    </span><span class="n">Light</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Thermostat</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SecurityCamera</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SmartLock</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=74712b88c8391480">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f57576bf8a6d359f">
 <div class="input">
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
@@ -13981,10 +13981,10 @@ nicht skalierbar und verletzt das OCP.</p>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">LIGHT</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Turning light on/off."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">THERMOSTAT</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Adjusting temperature."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SECURITY_CAMERA</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Activating motion detection."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SMART_LOCK</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Locking/Unlocking door."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Turning light on/off."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Adjusting temperature."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Activating motion detection."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SmartLock</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Locking/Unlocking door."</span><span class="p">,</span>
 <span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Unknown device control!"</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">    </span><span class="p">}</span>
@@ -13993,10 +13993,10 @@ nicht skalierbar und verletzt das OCP.</p>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">LIGHT</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Light is on/off."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">THERMOSTAT</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Current temperature: 22°C."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SECURITY_CAMERA</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Camera is active/inactive."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SMART_LOCK</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Door is locked/unlocked."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Light is on/off."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Current temperature: 22°C."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Camera is active/inactive."</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SmartLock</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Door is locked/unlocked."</span><span class="p">,</span>
 <span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Unknown device status!"</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">    </span><span class="p">}</span>
@@ -14008,16 +14008,16 @@ nicht skalierbar und verletzt das OCP.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ac09d2d945e7c42a">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=c91ef880ee963019">
 <div class="input">
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devicesOriginal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">LIGHT</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">THERMOSTAT</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SECURITY_CAMERA</span><span class="p">)</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="p">),</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="p">),</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="p">)</span>
 <span class="p">};</span>
 </pre></div>
 </div>

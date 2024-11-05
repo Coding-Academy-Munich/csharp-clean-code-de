@@ -260,10 +260,10 @@ using System.Collections.Generic;
 // %%
 public enum DeviceType
 {
-    LIGHT,
-    THERMOSTAT,
-    SECURITY_CAMERA,
-    SMART_LOCK
+    Light,
+    Thermostat,
+    SecurityCamera,
+    SmartLock
 }
 
 // %%
@@ -278,10 +278,10 @@ public class DeviceV0
     {
         return type switch
         {
-            DeviceType.LIGHT => "Turning light on/off.",
-            DeviceType.THERMOSTAT => "Adjusting temperature.",
-            DeviceType.SECURITY_CAMERA => "Activating motion detection.",
-            DeviceType.SMART_LOCK => "Locking/Unlocking door.",
+            DeviceType.Light => "Turning light on/off.",
+            DeviceType.Thermostat => "Adjusting temperature.",
+            DeviceType.SecurityCamera => "Activating motion detection.",
+            DeviceType.SmartLock => "Locking/Unlocking door.",
             _ => "Unknown device control!"
         };
     }
@@ -290,10 +290,10 @@ public class DeviceV0
     {
         return type switch
         {
-            DeviceType.LIGHT => "Light is on/off.",
-            DeviceType.THERMOSTAT => "Current temperature: 22°C.",
-            DeviceType.SECURITY_CAMERA => "Camera is active/inactive.",
-            DeviceType.SMART_LOCK => "Door is locked/unlocked.",
+            DeviceType.Light => "Light is on/off.",
+            DeviceType.Thermostat => "Current temperature: 22°C.",
+            DeviceType.SecurityCamera => "Camera is active/inactive.",
+            DeviceType.SmartLock => "Door is locked/unlocked.",
             _ => "Unknown device status!"
         };
     }
@@ -304,9 +304,9 @@ public class DeviceV0
 // %%
 List<DeviceV0> devicesOriginal = new List<DeviceV0>
 {
-    new DeviceV0(DeviceType.LIGHT),
-    new DeviceV0(DeviceType.THERMOSTAT),
-    new DeviceV0(DeviceType.SECURITY_CAMERA)
+    new DeviceV0(DeviceType.Light),
+    new DeviceV0(DeviceType.Thermostat),
+    new DeviceV0(DeviceType.SecurityCamera)
 };
 
 // %%

@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ee001dd0714a6e61"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=4565ee55eed88e24"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13366,7 +13366,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 " style="display:block;margin:auto;width:5%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>SOLID: Open-Closed Prinzip</b>
+<b>GoF: Command Pattern</b>
 </div>
 <br>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
@@ -13376,513 +13376,874 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=6d6d0c3384564cee"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=2e117b92fb484e05"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Open-Closed-Prinzip-(SOLID)">Open-Closed Prinzip (SOLID)<a class="anchor-link" href="#Open-Closed-Prinzip-(SOLID)">¶</a></h1><p>Klassen sollen</p>
+<h3 id="Zweck">Zweck<a class="anchor-link" href="#Zweck">¶</a></h3><p>Kapselung​ eines Requests als Objekt, um so die Parametrisierung von Clients
+mit verschiedenen Requests, Warteschlangen- oder Logging-Operationen sowie
+das Rückgängigmachen von Operationen zu ermöglichen.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=aa6aeac75b4fafbb"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Auch-bekannt-als">Auch bekannt als<a class="anchor-link" href="#Auch-bekannt-als">¶</a></h3><p>Aktion, Transaktion</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2427f2e4a4cc0f07"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><p>Kommandos in graphischen Benutzeroberflächen</p>
 <ul>
-<li>Offen für Erweiterung</li>
-<li>Geschlossen für Modifikation</li>
-</ul>
-<p>sein.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=4e96b79ea4a714ac">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">MovieKindV0</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Regular</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Children</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=468879a76b7e9118">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MovieV0</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MovieV0</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">MovieKindV0</span><span class="w"> </span><span class="n">kind</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Kind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kind</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MovieKindV0</span><span class="w"> </span><span class="n">Kind</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Kind</span><span class="w"> </span><span class="k">switch</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Regular</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Children</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="p">,</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintInfo</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{Title} costs {ComputePrice()}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=bf30f23c5f56e080">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">MovieV0</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MovieV0</span><span class="p">(</span><span class="s">"Casablanca"</span><span class="p">,</span><span class="w"> </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Regular</span><span class="p">);</span>
-<span class="n">MovieV0</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MovieV0</span><span class="p">(</span><span class="s">"Shrek"</span><span class="p">,</span><span class="w"> </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Children</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=2f2307fb523816b9">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">m1</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-<span class="n">m2</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f452df4b349d1ff9"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="MovieV0" src="img/movie_v0.png" style="display:block;margin:auto;width:50%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=77316076626eaade"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Was passiert, wenn wir eine neue Filmart hinzufügen wollen?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_start" id="cell-id=a4d36814ef86a7f1">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">MovieKind</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Regular</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Children</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_start celltag_subslide" id="cell-id=75643b383c573582">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MovieV1</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MovieV1</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">MovieKind</span><span class="w"> </span><span class="n">kind</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Kind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kind</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">MovieKind</span><span class="w"> </span><span class="n">Kind</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Kind</span><span class="w"> </span><span class="k">switch</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Regular</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Children</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="p">,</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintInfo</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{Title} costs {ComputePrice()}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=cb5131ab6f12800b">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">MovieV1</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MovieV1</span><span class="p">(</span><span class="s">"Casablanca"</span><span class="p">,</span><span class="w"> </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Regular</span><span class="p">);</span>
-<span class="n">MovieV1</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MovieV1</span><span class="p">(</span><span class="s">"Shrek"</span><span class="p">,</span><span class="w"> </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Children</span><span class="p">);</span>
-<span class="c1">// MovieV1 m3 = new MovieV1("Brand New", MovieKind.NewRelease);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=002bc178fe34359b">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">m1</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-<span class="n">m2</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-<span class="c1">// m3.PrintInfo();</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f918518dd8d5cf1c"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="MovieV1" src="img/movie_v1.png" style="display:block;margin:auto;width:50%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=06046b71a83f882d"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="OCP-Verletzung">OCP-Verletzung<a class="anchor-link" href="#OCP-Verletzung">¶</a></h2><ul>
-<li>Neue Filmarten erfordern Änderungen an <code>MovieV1</code></li>
-<li><code>MovieV1</code> ist nicht geschlossen für Modifikation</li>
+<li>Können auf mehrere Arten aktiviert werden (Menü, Tastatur, Maus)</li>
+<li>Sollten oft Undo/Redo unterstützen</li>
+<li>Sollten geloggt werden können</li>
+<li>Sollten in Warteschlangen abgelegt werden können</li>
+<li>Sollten für Macros verwendet werden können</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a4dda57c88ce329b"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ea2c2197e7db12b6"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufl%C3%B6sung-(Versuch-1:-Vererbung)">Auflösung (Versuch 1: Vererbung)<a class="anchor-link" href="#Aufl%C3%B6sung-(Versuch-1:-Vererbung)">¶</a></h2><ul>
-<li>Neue Filmarten werden als neue Klassen implementiert</li>
-<li><code>MovieV2</code> wird abstrakt</li>
-<li><code>MovieV2</code> ist geschlossen für Modifikation</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=fae1790cc14901f0">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MovieV2</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MovieV2</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Title</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">();</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintInfo</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{Title} costs {ComputePrice()}"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=2ae853916a75d792">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RegularMovie</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MovieV2</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">RegularMovie</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a86ecfe6a26576c6">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ChildrenMovie</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MovieV2</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">ChildrenMovie</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=b6a21a20d881db90">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">NewReleaseMovie</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MovieV2</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">NewReleaseMovie</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">6.99</span><span class="n">m</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=268522534c7bd146">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">MovieV2</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RegularMovie</span><span class="p">(</span><span class="s">"Casablanca"</span><span class="p">);</span>
-<span class="n">MovieV2</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChildrenMovie</span><span class="p">(</span><span class="s">"Shrek"</span><span class="p">);</span>
-<span class="n">MovieV2</span><span class="w"> </span><span class="n">m3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NewReleaseMovie</span><span class="p">(</span><span class="s">"Brand New"</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=801ba4c7e5773527">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">m1</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-<span class="n">m2</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-<span class="n">m3</span><span class="p">.</span><span class="n">PrintInfo</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8894f552f6213987"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="MovieV0" src="img/movie_v2.png" style="display:block;margin:auto;width:100%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4ef4a80f6515a20b"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mögliche Lösung: Implementierung als Objekt</p>
 <ul>
-<li><code>MovieV2</code> ist offen für Erweiterung</li>
-<li>Neue Filmarten können hinzugefügt werden, ohne die bestehenden Klassen zu
-ändern</li>
-<li>Aber: Die Vererbungshierarchie umfasst die ganze Klasse<ul>
-<li>Nur eine Art von Variabilität</li>
+<li>Jedes Kommando wird als Objekt implementiert</li>
+<li>Das Kommando-Objekt kapselt die Operation und ihre Parameter</li>
+<li>Das Kommando-Objekt bietet eine Methode <code>Execute()</code>, die die Operation
+ausführt</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b07ff2a443860f6a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img alt="No description has been provided for this image" src="img/command_example.png" style="display:block;margin:auto;width:70%"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0abf336ec2db87bd">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nf">Document</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Text</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_text</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Modify</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">newText</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  Document::Modify(\"{newText}\")"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newText</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_text</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Append</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  Document::Append(\"{text}\")"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_text</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Restore</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  Document::Restore(\"{state}\")"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a75f1be8f1ec85c2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">interface</span><span class="w"> </span><span class="n">ICommand</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">();</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ad760dac51285641">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">commandCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=35fcefb94b9a32ac">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nf">ModifyCommand</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">change</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ICommand</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="n">_doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">change</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_state</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">commandCounter</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"ModifyCommand::Execute()"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_doc</span><span class="p">.</span><span class="n">State</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_doc</span><span class="p">.</span><span class="n">Modify</span><span class="p">(</span><span class="s">"!"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_change</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"_"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_counter</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"ModifyCommand::Undo()"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_doc</span><span class="p">.</span><span class="n">Restore</span><span class="p">(</span><span class="n">_state</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=21afc73c092c9f95">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nf">AppendCommand</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">change</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ICommand</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="n">_doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">change</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_state</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">commandCounter</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"AppendCommand::Execute()"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_doc</span><span class="p">.</span><span class="n">State</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_doc</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">_change</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"_"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"!"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"AppendCommand::Undo()"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_doc</span><span class="p">.</span><span class="n">Restore</span><span class="p">(</span><span class="n">_state</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=2125565a69566bba">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ICommand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ICommand</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=bddf80966bcf6dae">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nf">Menu</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="n">_doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ModifyDocument</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModifyCommand</span><span class="p">(</span><span class="n">_doc</span><span class="p">,</span><span class="w"> </span><span class="s">"menu_mod"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">command</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AppendDocument</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AppendCommand</span><span class="p">(</span><span class="n">_doc</span><span class="p">,</span><span class="w"> </span><span class="s">"menu_app"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">command</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">last</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0841771c0908f062">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nf">KeyboardShortcuts</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="n">_doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ModifyDocument</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModifyCommand</span><span class="p">(</span><span class="n">_doc</span><span class="p">,</span><span class="w"> </span><span class="s">"key_mod"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">save</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">save</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AppendDocument</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AppendCommand</span><span class="p">(</span><span class="n">_doc</span><span class="p">,</span><span class="w"> </span><span class="s">"key_app"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">save</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">save</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">];</span>
+<span class="w">        </span><span class="n">last</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=9b5a627f68552c84">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">commandCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Document</span><span class="p">(</span><span class="s">"&lt;&lt;doc&gt;&gt;"</span><span class="p">);</span>
+<span class="n">Menu</span><span class="w"> </span><span class="n">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Menu</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
+<span class="n">KeyboardShortcuts</span><span class="w"> </span><span class="n">shortcuts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KeyboardShortcuts</span><span class="p">(</span><span class="n">doc</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">doc</span><span class="p">.</span><span class="n">Text</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=fa5647f1e5e86c0a">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">menu</span><span class="p">.</span><span class="n">ModifyDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=2c20a95297f8b430">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">shortcuts</span><span class="p">.</span><span class="n">ModifyDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=2507a62985dfbf9c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">menu</span><span class="p">.</span><span class="n">AppendDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=66b381239c340f65">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+<span class="n">shortcuts</span><span class="p">.</span><span class="n">ModifyDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d935b9ac697e649b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">shortcuts</span><span class="p">.</span><span class="n">AppendDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0267c6a22174d569">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">menu</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=09f1fc65cfc664ee">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">menu</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=47172b02bf9f230f">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">shortcuts</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=324079e44624e8f3">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+<span class="n">shortcuts</span><span class="p">.</span><span class="n">ModifyDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=312c43dd9ea8f626">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">shortcuts</span><span class="p">.</span><span class="n">AppendDocument</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=dda07b5e7a16b14a">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">menu</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=1e5014b13cec8243">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">shortcuts</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8516e42ea6379b9a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Anwendbarkeit">Anwendbarkeit<a class="anchor-link" href="#Anwendbarkeit">¶</a></h3><ul>
+<li>Parametrisierung von Objekten mit einer ausführbaren Operation</li>
+<li>Erzeugung und Ausführung von Operationen zu unterschied Zeitpunkten</li>
+<li>Warteschlangen von Operationen</li>
+<li>Undo/Redo</li>
+<li>Logging von Operationen</li>
+<li>Unterstützung von Transaktionen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=07d1d5de3552691c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Struktur">Struktur<a class="anchor-link" href="#Struktur">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_command.png" style="display:block;margin:auto;width:70%"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6d6259530a3aeb19"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Teilnehmer">Teilnehmer<a class="anchor-link" href="#Teilnehmer">¶</a></h3><ul>
+<li><strong>Command</strong><ul>
+<li>Deklariert ein Interface für das Ausführen einer Operation</li>
 </ul>
 </li>
-<li>Was ist, wenn wir für andere Zwecke eine andere Klassifikation brauchen?<ul>
-<li>Z.B. DVD, BluRay, Online?</li>
+<li><strong>ConcreteCommand</strong><ul>
+<li>Implementiert <code>Execute()</code> durch Aufruf der entsprechenden Operation(en)
+an <code>Receiver</code></li>
+<li>Definiert einen Link zwischen <code>Receiver</code> und <code>Action</code></li>
 </ul>
 </li>
-<li>Mehrfachvererbung?</li>
-<li>Produkt von Klassen?<ul>
-<li><code>ChildrenDVD</code>, <code>ChildrenBluRay</code>, <code>ChildrenOnline</code>, ...</li>
+<li><strong>Client</strong><ul>
+<li>Erstellt ein <code>ConcreteCommand</code>-Objekt und setzt dessen <code>Receiver</code></li>
+</ul>
+</li>
+<li><strong>Invoker</strong><ul>
+<li>Ruft <code>Execute()</code> auf <code>ConcreteCommand</code> auf um die Anfrage auszuführen</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8d0dcafbc7b47890"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=81d19bf44c27802c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bessere-Aufl%C3%B6sung:-Strategy-Pattern">Bessere Auflösung: Strategy Pattern<a class="anchor-link" href="#Bessere-Aufl%C3%B6sung:-Strategy-Pattern">¶</a></h2><ul>
-<li>Das Strategy-Pattern erlaubt es uns, die Vererbung auf kleinere Teile der
-Klasse anzuwenden</li>
-<li>In fast allen Fällen ist das die bessere Lösung!</li>
-<li>Vererbung ist ein sehr mächtiges Werkzeug</li>
-<li>Aber je kleiner und lokaler wir unsere Vererbungshierarchien halten, desto
-besser</li>
+<h3 id="Sequenzendiagramm">Sequenzendiagramm<a class="anchor-link" href="#Sequenzendiagramm">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_command_seq.png" style="display:block;margin:auto;width:70%"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1a4622082c9d9fa8"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interaktionen">Interaktionen<a class="anchor-link" href="#Interaktionen">¶</a></h3><ul>
+<li>Ein Client erstellt ein <code>ConcreteCommand</code>-Objekt und setzt dessen <code>Receiver</code></li>
+<li>Ein <code>Invoker</code>-Objekt speichert das <code>ConcreteCommand</code>-Objekt</li>
+<li>Der <code>Invoker</code> ruft <code>Execute()</code> auf dem <code>ConcreteCommand</code>-Objekt auf.
+Falls Kommandos rückgängig gemacht werden können, speichert das
+<code>ConcreteCommand</code>-Objekt den Zustand, der benötigt wird, um die Operation
+rückgängig zu machen.</li>
+<li>Das <code>ConcreteCommand</code>-Objekt ruft eine oder mehrere Operationen am
+<code>Receiver</code> auf, um die Anfrage auszuführen</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=5d2cb61027867302"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=201fb1048b42c3a0"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workshop:-Smart-Home-Device-Control-System">Workshop: Smart Home Device Control System<a class="anchor-link" href="#Workshop:-Smart-Home-Device-Control-System">¶</a></h2><p>In diesem Workshop arbeiten wir mit einem Szenario, das ein Smart Home
-Gerätesteuerungssystem betrifft. Leider verletzt das vorhandene System
-das Open-Closed-Prinzip.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c98a54bc44cdb397"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Szenario">Szenario<a class="anchor-link" href="#Szenario">¶</a></h3><p>Wir haben ein Smart-Home-System. Dieses System steuert verschiedene
-Geräte: Lichter, Thermostate, Sicherheitskameras und intelligente Schlösser.
-Jeder Gerätetyp benötigt einen eigenen Steuerungsmechanismus und eigene
-Automatisierungsregeln.</p>
-<p>Nun muss das Steuerungssystem des Smart Homes diese Geräte verwalten. Das
-Problem mit dem aktuellen System ist die Verwendung eines Enums zur Bestimmung
-des Gerätetyps und basierend darauf seiner Steuermethode. Dieser Ansatz ist
-nicht skalierbar und verletzt das OCP.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=42945fb3c75b8f36">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0c419d479ca8c6d3">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">DeviceType</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Light</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Thermostat</span><span class="p">,</span>
-<span class="w">    </span><span class="n">SecurityCamera</span><span class="p">,</span>
-<span class="w">    </span><span class="n">SmartLock</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f57576bf8a6d359f">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DeviceV0</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="w"> </span><span class="n">type</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">switch</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Turning light on/off."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Adjusting temperature."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Activating motion detection."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SmartLock</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Locking/Unlocking door."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Unknown device control!"</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">switch</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Light is on/off."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Current temperature: 22°C."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Camera is active/inactive."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SmartLock</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Door is locked/unlocked."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Unknown device status!"</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">DeviceType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=c91ef880ee963019">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devicesOriginal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="p">)</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9a6d22c245e21506">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ManageDevices</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">DeviceV0</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">Control</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">GetStatus</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=553a8a41552c684b">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">ManageDevices</span><span class="p">(</span><span class="n">devicesOriginal</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=536ed71511162336"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Beseitigen Sie das Problem mit der OCP-Verletzung im vorhandenen Code</li>
-<li>Sie können entweder den vorhandenen Code ändern oder eine neue Lösung von
-Grund auf neu erstellen</li>
+<h3 id="Konsequenzen">Konsequenzen<a class="anchor-link" href="#Konsequenzen">¶</a></h3><ul>
+<li>Einfache Erweiterung des Systems durch neue <code>ConcreteCommand</code>-Klassen</li>
+<li>Einfache Implementierung von Undo/Redo und anderen erweiterten Funktionen</li>
+<li>Entkopplung von <code>Client</code>, <code>Invoker</code> und <code>Receiver</code> möglich</li>
+<li>Zusammenfassung von Operationen in <code>MacroCommands</code> möglich</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=383d445bb068d605"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Implementierung">Implementierung<a class="anchor-link" href="#Implementierung">¶</a></h3><ul>
+<li>Für einfache Szenarien kann eine <code>SimpleCommand</code>-Klasse, die einen Zeiger
+auf eine Memberfunktion speichert verwendet werden</li>
+<li>...</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=f740533de99ae987">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SimpleCommand</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ICommand</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Document</span><span class="w"> </span><span class="n">_doc</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">Document</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_action</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_text</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_state</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">commandCounter</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">SimpleCommand</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">Document</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">action</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"SimpleCommand::Execute()"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_doc</span><span class="p">.</span><span class="n">State</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_action</span><span class="p">(</span><span class="n">_doc</span><span class="p">,</span><span class="w"> </span><span class="s">"!"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_text</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"_"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"!"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"SimpleCommand::Undo()"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_doc</span><span class="p">.</span><span class="n">Restore</span><span class="p">(</span><span class="n">_state</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=cef981402959c052">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">RunSimpleAction</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">Document</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleCommand</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">);</span>
+<span class="w">    </span><span class="n">command</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="w">    </span><span class="n">history</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=ed8d64c1c10b5b9d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">void</span><span class="w"> </span><span class="nf">Undo</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">history</span><span class="p">[</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">last</span><span class="p">.</span><span class="n">Undo</span><span class="p">();</span>
+<span class="w">    </span><span class="n">history</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=739e3d0a17226e09">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">history</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="n">commandCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Document</span><span class="p">(</span><span class="s">"&lt;&lt;doc&gt;&gt;"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5a221b24c1733755">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunSimpleAction</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">doc</span><span class="p">.</span><span class="n">Modify</span><span class="p">(</span><span class="n">text</span><span class="p">),</span><span class="w"> </span><span class="s">"mod"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c68beace75a32768">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunSimpleAction</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="s">"app"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c141cd36e08fdeaa">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunSimpleAction</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">Modify</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="s">"mod"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=3a2d7fad300b583e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=3865ebf0f629ce71">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=6e826027253d8259">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">RunSimpleAction</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="s">"app"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=4733d0257a72f50c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=8f83e2a3fc096b11">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=b431917f86210439">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Undo</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {doc.State}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=321bf5c95f034794"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Command-Pattern">Workshop: Command Pattern<a class="anchor-link" href="#Workshop:-Command-Pattern">¶</a></h2><h3 id="Szenario">Szenario<a class="anchor-link" href="#Szenario">¶</a></h3><p>Eine Bank möchte ihr Online-Banking-System verbessern. Das System soll verschiedene
+Funktionen anbieten, wie Überweisungen tätigen, Daueraufträge einrichten und
+Kontostände abfragen. Zusätzlich soll es möglich sein, die letzte Aktion rückgängig
+zu machen, falls ein Kunde einen Fehler gemacht hat.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c359fbed7fef0ee4"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ziel">Ziel<a class="anchor-link" href="#Ziel">¶</a></h3><p>Ihre Aufgabe ist es, die Online-Banking-Operationen mit dem Command Pattern zu
+implementieren. Dies soll die einfache Erweiterung des Systems in der Zukunft
+ermöglichen und eine Undo-Funktion für die letzte Transaktion bereitstellen.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b4e44cd23e368304"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Starter-Code">Starter Code<a class="anchor-link" href="#Starter-Code">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=37a20786cae67f9e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StandingOrder</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Amount</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Recipient</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Frequency</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">StandingOrder</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">frequency</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Recipient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recipient</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frequency</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=35e2c0868c41ee26">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Account</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_accountNumber</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">_balance</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">StandingOrder</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_standingOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">StandingOrder</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Account</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">accountNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">initialBalance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_accountNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accountNumber</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initialBalance</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Transfer</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">recipient</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">amount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">_balance</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_balance</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Transferred: ${amount} to {recipient}. New Balance: ${_balance}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Insufficient funds. Current Balance: ${_balance}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SetupStandingOrder</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">frequency</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Set up standing order: ${amount} to {recipient} {frequency}"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_standingOrders</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StandingOrder</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="n">frequency</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CancelStandingOrder</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">recipient</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_standingOrders</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">so</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">so</span><span class="p">.</span><span class="n">Recipient</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">recipient</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">order</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Cancelled standing order: ${order.Amount} to {order.Recipient} {order.Frequency}"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">_standingOrders</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"No standing order found for recipient: {recipient}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">GetBalance</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_balance</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetAccountNumber</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_accountNumber</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">IReadOnlyList</span><span class="o">&lt;</span><span class="n">StandingOrder</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetStandingOrders</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_standingOrders</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DisplayAccount</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">$"Account: {GetAccountNumber()}, Balance: ${GetBalance()}"</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">standingOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetStandingOrders</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">standingOrders</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">", No Standing Orders"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n  Standing Orders:"</span><span class="p">);</span>
+<span class="w">            </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">standingOrders</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"    Amount: ${so.Amount}, Recipient: {so.Recipient}, Frequency: {so.Frequency}"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_start" id="cell-id=4bfd63a7b91b5cce">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OnlineBankingSystem</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Account</span><span class="w"> </span><span class="n">_account</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">OnlineBankingSystem</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">accountNumber</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">initialBalance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Account</span><span class="p">(</span><span class="n">accountNumber</span><span class="p">,</span><span class="w"> </span><span class="n">initialBalance</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Account</span><span class="w"> </span><span class="nf">GetAccount</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_account</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// TODO: Implement Transfer, SetupStandingOrder, and Undo operations using the Command Pattern.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=6b4e03423667dbb7">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
