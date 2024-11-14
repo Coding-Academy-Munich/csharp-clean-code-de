@@ -13442,7 +13442,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-1023.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-6048.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13487,12 +13487,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.15:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://172.18.0.9:2050/", "http://127.0.0.1:2050/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '1023.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '6048.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13558,7 +13558,7 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=c84109194699fe20">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c84109194699fe20">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
@@ -13699,7 +13699,7 @@ table th {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0b1d13c88c4535e6">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0b1d13c88c4535e6">
 <div class="input">
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
@@ -14077,7 +14077,7 @@ Adapter für <code>NewWeatherServer</code>.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>It's hot
+<pre>It's not hot
 </pre>
 </div>
 </div>
@@ -14173,7 +14173,7 @@ Adapter für <code>NewWeatherServer</code>.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>It's hot
+<pre>It's not hot
 </pre>
 </div>
 </div>

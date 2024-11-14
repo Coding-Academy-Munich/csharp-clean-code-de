@@ -15,7 +15,7 @@
 // ## Letzter Stand: Spielfiguren mit Enumeration
 //
 // <img src="img/adventure-v4b-overview.png" alt="Adventure Version 4b"
-//      style="display:block;margin:auto;height:80%"/>
+//      style="display:block;margin:auto;width:70%"/>
 
 // %% [markdown]
 //
@@ -23,20 +23,18 @@
 //
 // - Open-Closed Prinzip verletzt
 //   - Neue Aktionen benötigen Änderungen an `Pawn` und `Action`
-// - Signatur von `Pawn::Perform` ist nicht klar
+// - Signatur von `Pawn.Perform()` ist nicht klar
 //   - Verschiedene Aktionen benötigen verschiedene Parameter
-//   - Ein Parameter vom Typ `std::variant` wäre eine Möglichkeit, hätte aber
-//     viele Probleme
 
 // %% [markdown]
 //
 // ### Lösung: Command Pattern
 //
 // - Aktionen werden in eigene Klassen ausgelagert
-// - `Pawn::Perform()` nimmt einen Zeiger auf ein `Action`-Objekt
-// - Die zur Ausführung der Aktion benötigten Daten werden im `Action`-Objekt
+// - `Pawn.Perform()` nimmt ein `IAction`-Objekt
+// - Die zur Ausführung der Aktion benötigten Daten werden im `IAction`-Objekt
 //   gespeichert
-// - `Action`-Objekte können zusätzliche Funktion zur Verfügung stellen, z.B.
+// - `IAction`-Objekte können zusätzliche Funktion zur Verfügung stellen, z.B.
 //    Texte für das UI bereitstellen
 
 // %% [markdown]
@@ -44,12 +42,12 @@
 // ## Version 4c: Command Pattern
 //
 // <img src="img/adventure-v4c-overview.png" alt="Adventure Version 4b"
-//      style="display:block;margin:auto;height:80%"/>
+//      style="display:block;margin:auto;width:50%"/>
 
 // %% [markdown]
 //
 // ### Vorteile
 //
 // - Open-Closed Prinzip wird eingehalten
-// - `Pawn::Perform` hat eine klare Signatur
-// - `Action`-Klassen können zusätzliche Funktionen bereitstellen
+// - `Pawn.Perform()` hat eine klare Signatur
+// - `IAction`-Klassen können zusätzliche Funktionen bereitstellen

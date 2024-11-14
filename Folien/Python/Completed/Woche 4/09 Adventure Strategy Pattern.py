@@ -14,8 +14,8 @@
 //
 // ## Version 4c: Command Pattern
 //
-// <img src="img/adventure-v4c-overview.svg" alt="Adventure Version 4c"
-//      style="display:block;margin:auto;height:80%"/>
+// <img src="img/adventure-v4c-overview.png" alt="Adventure Version 4c"
+//      style="display:block;margin:auto;width:50%"/>
 
 // %% [markdown]
 //
@@ -51,8 +51,8 @@
 // - Sehen wir im Domänenmodell nach:
 
 // %% [markdown]
-// <img src="img/adv-domain-03.svg"
-//      style="display:block;margin:auto;width:50%"/>
+// <img src="img/adv-domain-03.png"
+//      style="display:block;margin:auto;width:60%"/>
 
 // %% [markdown]
 //
@@ -64,8 +64,8 @@
 //
 // ## Version 5a: `Player`-Klasse
 //
-// <img src="img/adventure-v5a.svg" alt="Adventure Version 5a"
-//      style="display:block;margin:auto;height:60%"/>
+// <img src="img/adventure-v5a.png" alt="Adventure Version 5a"
+//      style="display:block;margin:auto;width:50%"/>
 
 // %% [markdown]
 //
@@ -81,8 +81,8 @@
 //
 // ## Version 5b: Mehrere Strategien
 //
-// <img src="img/adventure-v5b.svg" alt="Adventure Version 5b"
-//      style="display:block;margin:auto;height:60%"/>
+// <img src="img/adventure-v5b.png" alt="Adventure Version 5b"
+//      style="display:block;margin:auto;width:90%"/>
 
 // %% [markdown]
 //
@@ -95,9 +95,13 @@
 //
 // ## Version 5c: Mehrere Strategien
 //
-// <img src="img/adventure-v5c.svg" alt="Adventure Version 4b"
+// <img src="img/adventure-v5c.png" alt="Adventure Version 4b"
 //      style="display:block;margin:auto;height:60%"/>
 
 // %% [markdown]
 //
-// Nächster Schritt: Verbesserung der interaktiven Strategie
+// ### Nächste Schritte
+//
+// - Verbesserung der interaktiven Strategie / Kommunikation von Informationen
+// - Leichtere Benutzbarkeit
+

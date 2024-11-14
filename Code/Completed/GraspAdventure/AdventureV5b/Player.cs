@@ -38,7 +38,6 @@ public class Player(Pawn pawn, PlayerStrategy strategy = PlayerStrategy.FirstAct
         {
             actions.Add(new ErrorAction());
         }
-
         return actions;
     }
 

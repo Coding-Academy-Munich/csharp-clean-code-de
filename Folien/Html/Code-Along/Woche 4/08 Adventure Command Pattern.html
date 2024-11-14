@@ -13376,14 +13376,14 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6a9c5fb8039879be"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ebe93fce5a5c5057"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Letzter-Stand:-Spielfiguren-mit-Enumeration">Letzter Stand: Spielfiguren mit Enumeration<a class="anchor-link" href="#Letzter-Stand:-Spielfiguren-mit-Enumeration">¶</a></h2><p><img alt="Adventure Version 4b" src="img/adventure-v4b-overview.png" style="display:block;margin:auto;height:80%"/></p>
+<h2 id="Letzter-Stand:-Spielfiguren-mit-Enumeration">Letzter Stand: Spielfiguren mit Enumeration<a class="anchor-link" href="#Letzter-Stand:-Spielfiguren-mit-Enumeration">¶</a></h2><p><img alt="Adventure Version 4b" src="img/adventure-v4b-overview.png" style="display:block;margin:auto;width:70%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8393a0eefdb7b383"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=68053996afae286f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Probleme">Probleme<a class="anchor-link" href="#Probleme">¶</a></h3><ul>
@@ -13391,44 +13391,42 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <li>Neue Aktionen benötigen Änderungen an <code>Pawn</code> und <code>Action</code></li>
 </ul>
 </li>
-<li>Signatur von <code>Pawn::Perform</code> ist nicht klar<ul>
+<li>Signatur von <code>Pawn.Perform()</code> ist nicht klar<ul>
 <li>Verschiedene Aktionen benötigen verschiedene Parameter</li>
-<li>Ein Parameter vom Typ <code>std::variant</code> wäre eine Möglichkeit, hätte aber
-viele Probleme</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8655b518106b7725"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ffc25c02f89c633f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="L%C3%B6sung:-Command-Pattern">Lösung: Command Pattern<a class="anchor-link" href="#L%C3%B6sung:-Command-Pattern">¶</a></h3><ul>
 <li>Aktionen werden in eigene Klassen ausgelagert</li>
-<li><code>Pawn::Perform()</code> nimmt einen Zeiger auf ein <code>Action</code>-Objekt</li>
-<li>Die zur Ausführung der Aktion benötigten Daten werden im <code>Action</code>-Objekt
+<li><code>Pawn.Perform()</code> nimmt ein <code>IAction</code>-Objekt</li>
+<li>Die zur Ausführung der Aktion benötigten Daten werden im <code>IAction</code>-Objekt
 gespeichert</li>
-<li><code>Action</code>-Objekte können zusätzliche Funktion zur Verfügung stellen, z.B.
+<li><code>IAction</code>-Objekte können zusätzliche Funktion zur Verfügung stellen, z.B.
 Texte für das UI bereitstellen</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cf573f3165f223e5"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=5dca83d1c9113785"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Version-4c:-Command-Pattern">Version 4c: Command Pattern<a class="anchor-link" href="#Version-4c:-Command-Pattern">¶</a></h2><p><img alt="Adventure Version 4b" src="img/adventure-v4c-overview.png" style="display:block;margin:auto;height:80%"/></p>
+<h2 id="Version-4c:-Command-Pattern">Version 4c: Command Pattern<a class="anchor-link" href="#Version-4c:-Command-Pattern">¶</a></h2><p><img alt="Adventure Version 4b" src="img/adventure-v4c-overview.png" style="display:block;margin:auto;width:50%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=896f00b8d7bad775"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0c4c610065eadf2a"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Vorteile">Vorteile<a class="anchor-link" href="#Vorteile">¶</a></h3><ul>
 <li>Open-Closed Prinzip wird eingehalten</li>
-<li><code>Pawn::Perform</code> hat eine klare Signatur</li>
-<li><code>Action</code>-Klassen können zusätzliche Funktionen bereitstellen</li>
+<li><code>Pawn.Perform()</code> hat eine klare Signatur</li>
+<li><code>IAction</code>-Klassen können zusätzliche Funktionen bereitstellen</li>
 </ul>
 </div>
 </div>
