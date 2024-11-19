@@ -9,6 +9,11 @@ internal static class Program
     {
         public float X;
         public float VelocityX;
+
+        public override string ToString()
+        {
+            return $"X: {X}, VelocityX: {VelocityX}";
+        }
     }
 
     // Value type (struct) version
@@ -16,6 +21,11 @@ internal static class Program
     {
         public float X;
         public float VelocityX;
+
+        public override string ToString()
+        {
+            return $"X: {X}, VelocityX: {VelocityX}";
+        }
     }
 
     public static void Main()
@@ -54,7 +64,7 @@ internal static class Program
             Console.WriteLine($"Example particle: {particles[0]}");
         }
 
-        GC.Collect();
+        GC.Collect(2, GCCollectionMode.Aggressive);
         GC.WaitForPendingFinalizers();
 
         // Test with structs (value types)
