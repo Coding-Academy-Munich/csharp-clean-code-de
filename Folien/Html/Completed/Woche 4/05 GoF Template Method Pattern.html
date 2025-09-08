@@ -13086,7 +13086,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=624e38fea78d4834"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3a6353b4e2349bd7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13366,7 +13366,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 " style="display:block;margin:auto;width:5%"/>
 <br/></p>
 <div style="text-align:center; font-size:200%;">
-<b>Clean Code: Namen (Teil 1)</b>
+<b>GoF: Template Method Pattern</b>
 </div>
 <br>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
@@ -13376,23 +13376,65 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6cca43b3d6fdcec4"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=754f03245523cddc"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Namen sind ein mächtiges Kommunikationsmittel.</p>
-<ul>
-<li>Sie sind überall im Programm zu finden</li>
-<li>Sie verbinden den Code mit Domänen-Konzepten.</li>
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Zweck">Zweck<a class="anchor-link" href="#Zweck">¶</a></h3><p>Definiere ein Verhalten oder einen Algorithmus, in dem bestimmte Schritte zur
+Implementierung oder Modifikation in Unterklassen vorgesehen sind. Die
+Unterklassen können individuelle Schritte, die vom Algorithmus ausgeführt
+werden überschreiben, haben aber keinen Einfluss auf seine Gesamtstruktur.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=02f013e371f9003b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><ul>
+<li>Eine Anwendung, die mit verschiedenen Arten von Dokumenten umgehen muss.</li>
+<li>In manchen Operationen der Anwendung gibt es Gemeinsamkeiten, aber auch
+Unterschiede zwischen den verschiedenen Dokumenten</li>
+<li>Z.B. ist der Ablauf zum Speichern eines Dokuments immer gleich, aber die
+Art und Weise, wie die einzelnen Dokumenttypen gespeichert werden, ist
+unterschiedlich</li>
+<li>Die Anwendung definiert konkrete Operationen, die abstrakte Operationen
+aufrufen, die Teil ihrer Ausführung sind</li>
+<li>Instanzen der Anwendung implementieren die virtuellen Methoden</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=7a55d701ce6a50c0">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=0df6574f4abece85"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Klassendiagramm">Klassendiagramm<a class="anchor-link" href="#Klassendiagramm">¶</a></h3><p><img alt="No description has been provided for this image" src="img/template_method_example.svg" style="display:block;margin:auto;width:40%"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=22a41fcff75dcca5">
 <div class="input">
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Document</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Save</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Saving to existing file."</span><span class="p">);</span>
+<span class="w">        </span><span class="n">DoSave</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Document saved.\n"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SaveAs</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Asking user for file name."</span><span class="p">);</span>
+<span class="w">        </span><span class="n">DoSave</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Document saved.\n"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DoSave</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -13403,7 +13445,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-6194.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-3020.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13448,12 +13490,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.11:2049/", "http://127.0.0.1:2049/"])
+    probeAddresses(["http://172.18.0.7:2050/", "http://127.0.0.1:2050/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '6194.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '3020.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13512,405 +13554,48 @@ else {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c2f45a03ebd142fb">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=40f56a3835952fcf">
 <div class="input">
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">Foo</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TextDocument</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Document</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">40.0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DoSave</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ArgumentException</span><span class="p">(</span><span class="s">"Not allowed!"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"-&gt; Saving text document in DOCX format."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">40.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">60.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=970b70707d310f3f">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=6fed8fccf5046f7b">
 <div class="input">
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Foo</span><span class="p">(</span><span class="m">40.0</span><span class="p">,</span><span class="w"> </span><span class="m">3.5</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SpreadsheetDocument</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Document</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DoSave</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"-&gt; Saving spreadsheet in XLSX format."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>1810</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=a0fac092831177eb">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=649364ab61a431b9">
 <div class="input">
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">RegularPayPerHour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">40.0</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">OvertimePayPerHour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60.0</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">MaxAllowedOvertime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">40.0</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5602abae05524e47">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">ComputeTotalSalary</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">regularHoursWorked</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">overtimeHoursWorked</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">overtimeHoursWorked</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MaxAllowedOvertime</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ArgumentException</span><span class="p">(</span><span class="s">"Not allowed!"</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">regularPay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regularHoursWorked</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">RegularPayPerHour</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">overtimePay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">overtimeHoursWorked</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">OvertimePayPerHour</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">regularPay</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">overtimePay</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=dfadd482b953a2de">
-<div class="input">
-<div class="prompt input_prompt">In [6]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">ComputeTotalSalary</span><span class="p">(</span><span class="m">40.0</span><span class="p">,</span><span class="w"> </span><span class="m">3.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>1810</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=063c71de8d6a2c95">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">severity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">;</span><span class="w"> </span><span class="c1">// Is this high or low?</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d3eac6c8d4034199">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">severity</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>30</pre></div><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=755b1e8dcc93fcea"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Konstanten">Konstanten<a class="anchor-link" href="#Konstanten">¶</a></h3><ul>
-<li>Namen für besondere Werte</li>
-<li>Klarer, als die Werte direkt zu verwenden</li>
-<li>Direkter Bezug zwischen Name und Wert</li>
-<li>Wenig Information über alle möglichen Werte</li>
-<li>Wenig Bezug zum Typsystem</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=53cb18727c390879">
-<div class="input">
-<div class="prompt input_prompt">In [9]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SeverityHigh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=65dea3ad06652caf"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Enumerationen">Enumerationen<a class="anchor-link" href="#Enumerationen">¶</a></h3><ul>
-<li>Alternative zu Konstanten</li>
-<li>Dokumentieren, welche Werte erwartet werden</li>
-<li>Bessere Typsicherheit</li>
-<li>Weniger Flexibilität</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a1eaf243f65aab55">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">Severity</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">High</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Medium</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Low</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7cc2d4156a7c807d">
-<div class="input">
-<div class="prompt input_prompt">In [11]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">Severity</span><span class="w"> </span><span class="n">severity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Severity</span><span class="p">.</span><span class="n">High</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f344c6119ad0f25b"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Klassen-und-Structs">Klassen und Structs<a class="anchor-link" href="#Klassen-und-Structs">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=842393f65e5ae499">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=483c494cec3adcd2">
-<div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="n">AnalyzeReview</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="s">"Generally positive"</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=887236a90ab2c5e8">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">AnalyzeReview</span><span class="p">(</span><span class="s">"Some review text"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[14]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>(5, Generally positive)</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Item1</td><td><div class="dni-plaintext"><pre>5</pre></div></td></tr><tr><td>Item2</td><td><div class="dni-plaintext"><pre>Generally positive</pre></div></td></tr></tbody></table></div></details><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=9c8750c0143d4047">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AnalysisResult</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Score</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Sentiment</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">AnalysisResult</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sentiment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Sentiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentiment</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"Score: {Score}, Sentiment: {Sentiment}"</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a1ab43867a73849d">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">AnalysisResult</span><span class="w"> </span><span class="nf">AnalyzeReview</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">AnalysisResult</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="s">"Overall positive"</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0fcb34eb9db72c6b">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AnalyzeReview</span><span class="p">(</span><span class="s">"Some review text"</span><span class="p">);</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">SpreadsheetDocument</span><span class="w"> </span><span class="n">spreadsheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SpreadsheetDocument</span><span class="p">();</span>
+<span class="n">spreadsheet</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
+<span class="n">spreadsheet</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -13920,73 +13605,58 @@ table th {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Score: 5, Sentiment: Overall positive
+<pre>Saving to existing file.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-&gt; Saving spreadsheet in XLSX format.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Document saved.
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Asking user for file name.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-&gt; Saving spreadsheet in XLSX format.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Document saved.
+
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=6d38f977aba27917">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=30120c751ab375bc">
 <div class="input">
-<div class="prompt input_prompt">In [18]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">Score</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">High</span><span class="p">,</span>
-<span class="w">    </span><span class="n">ModeratelyHigh</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Medium</span><span class="p">,</span>
-<span class="w">    </span><span class="n">ModeratelyLow</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Low</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Unknown</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=fa9ee70b821dda01">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AnalysisResult</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Score</span><span class="w"> </span><span class="n">Score</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Sentiment</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">AnalysisResult</span><span class="p">(</span><span class="n">Score</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sentiment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Sentiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentiment</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">$"Score: {Score}, Sentiment: {Sentiment}"</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=46739f7520b18d00">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">AnalysisResult</span><span class="w"> </span><span class="nf">AnalyzeReview</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">AnalysisResult</span><span class="p">(</span><span class="n">Score</span><span class="p">.</span><span class="n">ModeratelyHigh</span><span class="p">,</span><span class="w"> </span><span class="s">"Overall positive"</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=07a9b9faedcba53f">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">AnalyzeReview</span><span class="p">(</span><span class="s">"Some review text"</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">TextDocument</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TextDocument</span><span class="p">();</span>
+<span class="n">text</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
+<span class="n">text</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -13994,78 +13664,532 @@ table th {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[21]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>Score: ModeratelyHigh, Sentiment: Overall positive</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Score</td><td><span>ModeratelyHigh</span></td></tr><tr><td>Sentiment</td><td><div class="dni-plaintext"><pre>Overall positive</pre></div></td></tr></tbody></table></div></details><style>
-.dni-code-hint {
-    font-style: italic;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.dni-treeview {
-    white-space: nowrap;
-}
-.dni-treeview td {
-    vertical-align: top;
-    text-align: start;
-}
-details.dni-treeview {
-    padding-left: 1em;
-}
-table td {
-    text-align: start;
-}
-table tr { 
-    vertical-align: top; 
-    margin: 0em 0px;
-}
-table tr td pre 
-{ 
-    vertical-align: top !important; 
-    margin: 0em 0px !important;
-} 
-table th {
-    text-align: start;
-}
-</style></div>
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Saving to existing file.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-&gt; Saving text document in DOCX format.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Document saved.
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Asking user for file name.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-&gt; Saving text document in DOCX format.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Document saved.
+
+</pre>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=60ec04344f97790e"><div class="prompt input_prompt">
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=0d4804a2f89737aa">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Document</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spreadsheet</span><span class="p">;</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">Save</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Saving to existing file.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-&gt; Saving spreadsheet in XLSX format.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Document saved.
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=b7a38237d80f7e5a">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">;</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Asking user for file name.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-&gt; Saving text document in DOCX format.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Document saved.
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=a00831495989e701"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Was-ist-ein-guter-Name?">Was ist ein guter Name?<a class="anchor-link" href="#Was-ist-ein-guter-Name?">¶</a></h2><ul>
-<li>Präzise (sagt was er meint, meint was er sagt)</li>
-<li>Beantwortet<ul>
-<li>Warum gibt es diese Variable (Funktion, Klasse, Modul, Objekt...)?</li>
-<li>Was macht sie?</li>
-<li>Wie wird sie verwendet?</li>
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Anwendbarkeit">Anwendbarkeit<a class="anchor-link" href="#Anwendbarkeit">¶</a></h3><ul>
+<li>Um die invarianten Teile eines Algorithmus einmal zu implementieren und
+Verhaltensvariationen in Unterklassen zu realisieren</li>
+<li>Zentralisieren von gemeinsamem Verhalten in einer Klasse, um
+Code-Duplizierung zu vermeiden</li>
+<li>Kontrolle der Erweiterung von Verhalten durch Unterklassen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=4fe1cb225520c8ee"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Structure">Structure<a class="anchor-link" href="#Structure">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_template_method.svg" style="display:block;margin:auto;width:40%"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=58b5529db50d60e7"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Teilnehmer">Teilnehmer<a class="anchor-link" href="#Teilnehmer">¶</a></h3><ul>
+<li><code>AbstractClass</code>:<ul>
+<li>definiert abstrakte <em>primitive Operationen</em>, die konkrete Unterklassen
+implementieren (Hooks)</li>
+<li>implementiert eine Template-Methode, die das Skelett eines Algorithmus
+definiert</li>
+</ul>
+</li>
+<li><code>ConcreteClass</code>:<ul>
+<li>implementiert die primitiven Operationen</li>
 </ul>
 </li>
 </ul>
-<p>Gute Namen sind schwer zu finden!</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1804c18ec5d18007"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=89ea0f9cd9f174fc"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Was-ist-ein-schlechter-Name?">Was ist ein schlechter Name?<a class="anchor-link" href="#Was-ist-ein-schlechter-Name?">¶</a></h2><ul>
-<li>Braucht einen Kommentar</li>
-<li>Verbreitet Disinformation</li>
-<li>Entspricht nicht den Namensregeln</li>
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Interaktionen">Interaktionen<a class="anchor-link" href="#Interaktionen">¶</a></h3><p><code>ConcreteClass</code> verlässt sich auf <code>AbstractClass</code>, um die invarianten Schritte
+des Algorithmus zu implementieren</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=63c35cb5f4d7267e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Template-Method-(Behavioral-Pattern)">Template Method (Behavioral Pattern)<a class="anchor-link" href="#Template-Method-(Behavioral-Pattern)">¶</a></h2><h3 id="Consequences">Consequences<a class="anchor-link" href="#Consequences">¶</a></h3><ul>
+<li>Template Methods sind eine grundlegende Strategie, zur Wiederverwendung von
+Code</li>
+<li>Sie führen zu einem invertierten Kontrollfluss, der oft als "Hollywood
+Prinzip" bezeichnet wird ("Don't call us, we'll call you")</li>
+<li>Es ist für Template Methods essentiell, klar zu definieren, welche
+Methoden überschrieben werden <em>müssen</em> und welche <em>optional</em> sind</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c63d5fe74a029bd7"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1e0d9a0b1282dc64"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workshop:-Rezepte">Workshop: Rezepte<a class="anchor-link" href="#Workshop:-Rezepte">¶</a></h2><p>In <code>Code/StarterKits/RecipesSk</code> ist ein Programm, mit dem sich ein
-Kochbuch verwalten lässt. Leider hat der Programmierer sehr schlechte Namen
-verwendet, dadurch ist das Programm schwer zu verstehen.</p>
-<p>Ändern Sie die Namen so, dass das Programm leichter verständlich wird.</p>
-<h3 id="Hinweis">Hinweis<a class="anchor-link" href="#Hinweis">¶</a></h3><p>Verwenden Sie die Refactoring-Tools Ihrer Entwicklungsumgebung!</p>
+<h2 id="Workshop:-Mode-Design">Workshop: Mode-Design<a class="anchor-link" href="#Workshop:-Mode-Design">¶</a></h2><h3 id="Stilvolle-Kleidung-mit-dem-Template-Method-Pattern">Stilvolle Kleidung mit dem Template Method Pattern<a class="anchor-link" href="#Stilvolle-Kleidung-mit-dem-Template-Method-Pattern">¶</a></h3><p>Die Welt der Mode ist groß, mit unzähligen Stilen, Materialien und
+Designmustern. Wenn es jedoch um den eigentlichen Herstellungsprozess
+verschiedener Kleidungsstücke geht, gibt es bestimmte Schritte, die relativ
+konstant bleiben. Zum Beispiel könnte der Prozess Folgendes beinhalten:</p>
+<ul>
+<li>Entwickeln eines Designmusters für das Kleidungsstück</li>
+<li>Auswahl des richtigen Materials</li>
+<li>Schneiden des Materials nach dem Muster</li>
+<li>Zusammennähen der Teile</li>
+<li>Hinzufügen von Veredelungs-Details</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=f39a2f6c61158e7f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ihre Aufgabe als angehender Modedesigner (und Programmierer!) ist es, einen
+systematischen Ansatz zur Gestaltung verschiedener Arten von Kleidung zu
+entwickeln. Aber nicht nur irgendeinen Ansatz, wir brauchen einen effizienten
+und erweiterbaren Ansatz. Nehmen wir an, Sie möchten sowohl Kleider als auch
+Anzüge entwerfen. Während der Gesamtprozess ähnlich ist, variieren die
+Details erheblich. Wenn Sie z.B. Veredelungs-details hinzufügen, benötigen
+Kleider möglicherweise Spitzen-Details, während bei Anzügen die Platzierung
+der Knöpfe wichtig ist.</p>
+<p>Das Ziel ist es, ein System zu entwickeln, in dem die generischen Schritte
+einmal definiert werden, die spezifischen Schritte jedoch je nach
+Kleidungsstück angepasst werden können.</p>
+<ol>
+<li>Definieren Sie einen generischen Prozess zur Herstellung von Kleidung
+basierend auf den oben beschriebenen Schritten.</li>
+<li>Identifizieren Sie Schritte, die allen Kleidungsstücken gemeinsam sind.</li>
+<li>Identifizieren Sie Schritte, die für jeden Kleidungstyp einzigartig und
+spezifisch sind.</li>
+<li>Implementieren Sie diesen Prozess mit dem Template Method Design Pattern
+in C#.</li>
+<li>Implementieren Sie konkrete Klassen zur Herstellung von Anzügen und
+Kleidern.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=5bca8dd9e30f6878">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Clothing</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// The template method</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DesignClothing</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DevelopDesignPattern</span><span class="p">();</span>
+<span class="w">        </span><span class="n">ChooseMaterial</span><span class="p">();</span>
+<span class="w">        </span><span class="n">CutPattern</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Sew</span><span class="p">();</span>
+<span class="w">        </span><span class="n">AddDetails</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DevelopDesignPattern</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChooseMaterial</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"You can't go wrong with cotton as material."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CutPattern</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Cutting based on the design pattern."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Sew</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Sewing pieces together."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddDetails</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=b29b4f7012acb537">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Dress</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Clothing</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DevelopDesignPattern</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Dress: Developing a design pattern for the dress."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChooseMaterial</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Dress: Choosing satin material."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddDetails</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Dress: Adding lace and sequins to the dress."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=e27149757bc0ca01">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Suit</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Clothing</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DevelopDesignPattern</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Suit: Developing a design pattern for the suit."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ChooseMaterial</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Suit: Choosing wool material."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddDetails</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Suit: Adding buttons and pockets to the suit."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=15bf2f96fcbe544c">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TShirt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Clothing</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DevelopDesignPattern</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"TShirt: Developing a design pattern for the T-Shirt."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddDetails</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"TShirt: Adding a logo to the T-Shirt."</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=159acb8bb977d32d">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Designing a Dress:\n"</span><span class="p">);</span>
+<span class="n">Dress</span><span class="w"> </span><span class="n">dress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dress</span><span class="p">();</span>
+<span class="n">dress</span><span class="p">.</span><span class="n">DesignClothing</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Designing a Dress:
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dress: Developing a design pattern for the dress.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dress: Choosing satin material.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting based on the design pattern.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sewing pieces together.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dress: Adding lace and sequins to the dress.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=7b2ccf84a4d6cec7">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\nDesigning a Suit:\n"</span><span class="p">);</span>
+<span class="n">Suit</span><span class="w"> </span><span class="n">suit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Suit</span><span class="p">();</span>
+<span class="n">suit</span><span class="p">.</span><span class="n">DesignClothing</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Designing a Suit:
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Suit: Developing a design pattern for the suit.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Suit: Choosing wool material.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting based on the design pattern.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sewing pieces together.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Suit: Adding buttons and pockets to the suit.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=7d1928bb615194f5">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\nDesigning a T-Shirt:\n"</span><span class="p">);</span>
+<span class="n">TShirt</span><span class="w"> </span><span class="n">tShirt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TShirt</span><span class="p">();</span>
+<span class="n">tShirt</span><span class="p">.</span><span class="n">DesignClothing</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Designing a T-Shirt:
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>TShirt: Developing a design pattern for the T-Shirt.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>You can't go wrong with cotton as material.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting based on the design pattern.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sewing pieces together.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>TShirt: Adding a logo to the T-Shirt.
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
