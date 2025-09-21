@@ -13376,6 +13376,69 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=611e79ed0fced589"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Observer-Pattern">Observer Pattern<a class="anchor-link" href="#Observer-Pattern">¶</a></h2><h3 id="Zweck">Zweck<a class="anchor-link" href="#Zweck">¶</a></h3><ul>
+<li>1:n Beziehung zwischen Objekten</li>
+<li>Automatische Benachrichtigung aller abhängigen Objekte bei Zustandsänderung</li>
+</ul>
+<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><ul>
+<li>Konsistenz zwischen zusammenhängenden Objekten erhalten</li>
+<li>Dabei aber lose Kopplung erhalten</li>
+<li>Ein <em>Publisher</em> kann beliebig viele <em>Subscribers</em> haben</li>
+<li><em>Subscribers</em> werden automatisch über Änderungen am <em>Publisher</em> benachrichtigt</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ce003c7af9f33967"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Observer-Pattern-vs.-C%23-Events">Observer Pattern vs. C# Events<a class="anchor-link" href="#Observer-Pattern-vs.-C%23-Events">¶</a></h2><h3 id="Terminologie-Mapping">Terminologie-Mapping<a class="anchor-link" href="#Terminologie-Mapping">¶</a></h3><table>
+<thead>
+<tr>
+<th><strong>GoF Pattern</strong></th>
+<th><strong>C# Implementation</strong></th>
+<th><strong>Beschreibung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subject</td>
+<td>Publisher/Event Source</td>
+<td>Objekt das Ereignisse auslöst</td>
+</tr>
+<tr>
+<td>Observer</td>
+<td>Subscriber/Event Handler</td>
+<td>Objekt das auf Ereignisse reagiert</td>
+</tr>
+<tr>
+<td>attach()</td>
+<td>+= (Event Subscription)</td>
+<td>Hinzufügen eines Beobachters</td>
+</tr>
+<tr>
+<td>detach()</td>
+<td>-= (Event Unsubscription)</td>
+<td>Entfernen eines Beobachters</td>
+</tr>
+<tr>
+<td>notify()</td>
+<td>Event.Invoke()</td>
+<td>Benachrichtigung aller Beobachter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="C%23-bietet-native-Unterst%C3%BCtzung">C# bietet native Unterstützung<a class="anchor-link" href="#C%23-bietet-native-Unterst%C3%BCtzung">¶</a></h3><ul>
+<li>Das Observer Pattern ist in C# durch Events direkt in die Sprache integriert</li>
+<li>Keine manuelle Implementierung von Subscriber-Listen notwendig</li>
+<li>Thread-Sicherheit und Multicast-Delegates automatisch verfügbar</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3fbf00da8a2ee929"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13388,30 +13451,27 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=a5ef45de3fcbfabe"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=2644da076de1744e"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Observer">Observer<a class="anchor-link" href="#Observer">¶</a></h2><h3 id="Zweck">Zweck<a class="anchor-link" href="#Zweck">¶</a></h3><ul>
-<li>1:n Beziehung zwischen Objekten</li>
-<li>Automatische Benachrichtigung aller abhängigen Objekte bei Zustandsänderung</li>
-</ul>
-<h3 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h3><ul>
-<li>Konsistenz zwischen zusammenhängenden Objekten erhalten</li>
-<li>Dabei aber lose Kopplung erhalten</li>
-<li>Ein <em>Subject</em> kann beliebig viele <em>Observers</em> haben</li>
-<li><em>Observer</em> werden automatisch über Änderungen am <em>Subject</em> benachrichtigt</li>
-</ul>
+<h3 id="Klassendiagramm">Klassendiagramm<a class="anchor-link" href="#Klassendiagramm">¶</a></h3><p><img alt="No description has been provided for this image" src="img/stock_example_csharp.png" style="display:block;margin:auto;width:90%"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=cfa6ca10db5038f2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=099a7348773aeeb8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Klassendiagramm">Klassendiagramm<a class="anchor-link" href="#Klassendiagramm">¶</a></h3><p><img alt="No description has been provided for this image" src="img/stock_example.png" style="display:block;margin:auto;width:90%"/></p>
+<h2 id="C%23-Events---Die-native-Implementierung">C# Events - Die native Implementierung<a class="anchor-link" href="#C%23-Events---Die-native-Implementierung">¶</a></h2><p>C# bietet mit Events eine eingebaute Implementierung des Observer Patterns:</p>
+<ul>
+<li><code>event</code> Schlüsselwort für typsichere Multicast-Delegates</li>
+<li>Automatische Verwaltung von Subscribern</li>
+<li>Thread-sichere Addition/Entfernung von Event-Handlern</li>
+<li>Standardmäßige <code>EventArgs</code>-Konvention</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f53c58b8222ff2ea">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=4a0a3afea7ea0066">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
@@ -13419,104 +13479,102 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Numerics</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=473278bd98ce09e6">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0e0403042a385733">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Stock</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Stock</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Stock</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Stock</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">price</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
 <span class="w">        </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{Name}: {Price:C}"</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=545b622ebc038722">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=969959a444d222e6">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">interface</span><span class="w"> </span><span class="n">IStockObserver</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Modern C# implementation using Events</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StockPriceChangedEventArgs</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EventArgs</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">NoteUpdatedPrices</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stocks</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">UpdatedStocks</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">StockPriceChangedEventArgs</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">updatedStocks</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">UpdatedStocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">updatedStocks</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ae7e31745a8565e9">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=90906bf578b9976c">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StockMarket</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Publisher (was Subject in GoF pattern)</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StockMarket</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_stocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">WeakReference</span><span class="o">&lt;</span><span class="n">IStockObserver</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">_observers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Random</span><span class="w"> </span><span class="n">_random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Event declaration - the C# way of implementing Observer</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">EventHandler</span><span class="o">&lt;</span><span class="n">StockPriceChangedEventArgs</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PricesUpdated</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddStock</span><span class="p">(</span><span class="n">Stock</span><span class="w"> </span><span class="n">stock</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">stock</span><span class="p">));</span>
 <span class="w">        </span><span class="n">_stocks</span><span class="p">[</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stock</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AttachObserver</span><span class="p">(</span><span class="n">IStockObserver</span><span class="w"> </span><span class="n">observer</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">_observers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WeakReference</span><span class="o">&lt;</span><span class="n">IStockObserver</span><span class="o">&gt;</span><span class="p">(</span><span class="n">observer</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdatePrices</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">stocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SelectStocksToUpdate</span><span class="p">();</span>
-<span class="w">        </span><span class="n">UpdatePricesFor</span><span class="p">(</span><span class="n">stocks</span><span class="p">);</span>
-<span class="w">        </span><span class="n">NotifyObservers</span><span class="p">(</span><span class="n">stocks</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">stocksToUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SelectStocksToUpdate</span><span class="p">();</span>
+<span class="w">        </span><span class="n">UpdatePricesFor</span><span class="p">(</span><span class="n">stocksToUpdate</span><span class="p">);</span>
+<span class="w">        </span><span class="n">OnPricesUpdated</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StockPriceChangedEventArgs</span><span class="p">(</span><span class="n">stocksToUpdate</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetNumStocksToSelect</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">// Protected virtual method for raising the event</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPricesUpdated</span><span class="p">(</span><span class="n">StockPriceChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Floor</span><span class="p">(</span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_stocks</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<span class="w">        </span><span class="n">PricesUpdated</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SelectStocksToUpdate</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">allStocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_stocks</span><span class="p">.</span><span class="n">Values</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
-<span class="w">        </span><span class="n">_random</span><span class="p">.</span><span class="n">Shuffle</span><span class="p">(</span><span class="n">allStocks</span><span class="p">);</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">stocksToUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allStocks</span><span class="p">.</span><span class="n">Take</span><span class="p">(</span><span class="n">GetNumStocksToSelect</span><span class="p">()).</span><span class="n">ToList</span><span class="p">();</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stocksToUpdate</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">numToSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">_stocks</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.8</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_stocks</span><span class="p">.</span><span class="n">Values</span>
+<span class="w">            </span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_random</span><span class="p">.</span><span class="n">Next</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Take</span><span class="p">(</span><span class="n">numToSelect</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdatePricesFor</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.1</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NotifyObservers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">observer</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">_observers</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">observer</span><span class="p">.</span><span class="n">TryGetTarget</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">observerTarget</span><span class="p">))</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">observerTarget</span><span class="p">.</span><span class="n">NoteUpdatedPrices</span><span class="p">(</span><span class="n">stocks</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">changePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">decimal</span><span class="p">)(</span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">changePercent</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13525,12 +13583,13 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=1d97ef93b56feb3e">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=2eeed9307a1adb63">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PrintingStockObserver</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IStockObserver</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Subscriber implementations (were Observers in GoF pattern)</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PrintingStockObserver</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_name</span><span class="p">;</span>
 
@@ -13539,12 +13598,13 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <span class="w">        </span><span class="n">_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NoteUpdatedPrices</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Event handler method matching EventHandler&lt;T&gt; signature</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPricesUpdated</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">StockPriceChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"PrintingStockObserver {_name} received update:"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">UpdatedStocks</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {stock.Name}: {stock.Price}"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {stock}"</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13553,31 +13613,32 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=8fa8810675fcd537">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=15e7c468d91fab0c">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RisingStockObserver</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IStockObserver</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RisingStockObserver</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_name</span><span class="p">;</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_oldPrices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_previousPrices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">RisingStockObserver</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">NoteUpdatedPrices</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPricesUpdated</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">StockPriceChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"RisingStockObserver {_name} received update:"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">UpdatedStocks</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_oldPrices</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_oldPrices</span><span class="p">[</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">])</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_previousPrices</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">oldPrice</span><span class="p">)</span>
+<span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">oldPrice</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {stock.Name}: {_oldPrices[stock.Name]} -&gt; {stock.Price}"</span><span class="p">);</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"  {stock.Name}: {oldPrice:C} -&gt; {stock.Price:C}"</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="n">_oldPrices</span><span class="p">[</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="p">;</span>
+<span class="w">            </span><span class="n">_previousPrices</span><span class="p">[</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13586,61 +13647,45 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=2ac2f7aefbd8a4aa">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=efd791e239881435">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">market</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StockMarket</span><span class="p">();</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Usage example with C# events</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">market</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StockMarket</span><span class="p">();</span><span class="w">  </span><span class="c1">// Publisher</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">printingObserver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s">"PrintingObserver"</span><span class="p">);</span><span class="w">  </span><span class="c1">// Subscriber</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">risingObserver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RisingStockObserver</span><span class="p">(</span><span class="s">"RisingObserver"</span><span class="p">);</span><span class="w">  </span><span class="c1">// Subscriber</span>
+
+<span class="c1">// Subscribe to events using += operator</span>
+<span class="n">market</span><span class="p">.</span><span class="n">PricesUpdated</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">printingObserver</span><span class="p">.</span><span class="n">OnPricesUpdated</span><span class="p">;</span>
+<span class="n">market</span><span class="p">.</span><span class="n">PricesUpdated</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">risingObserver</span><span class="p">.</span><span class="n">OnPricesUpdated</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=fe0313343a816b9e">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=15fe89247cb09f28">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">printingObserver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PrintingStockObserver</span><span class="p">(</span><span class="s">"PrintingObserver"</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">risingObserver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RisingStockObserver</span><span class="p">(</span><span class="s">"RisingObserver"</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Microsoft"</span><span class="p">,</span><span class="w"> </span><span class="m">300</span><span class="n">m</span><span class="p">));</span>
+<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="m">180</span><span class="n">m</span><span class="p">));</span>
+<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Amazon"</span><span class="p">,</span><span class="w"> </span><span class="m">140</span><span class="n">m</span><span class="p">));</span>
+<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Google"</span><span class="p">,</span><span class="w"> </span><span class="m">150</span><span class="n">m</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5980ee8e2ba9f537">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=1f10d05902f5d751">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">market</span><span class="p">.</span><span class="n">AttachObserver</span><span class="p">(</span><span class="n">printingObserver</span><span class="p">);</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AttachObserver</span><span class="p">(</span><span class="n">risingObserver</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=11bf2ed9e847fe98">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="m">100.0</span><span class="p">));</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Billionz"</span><span class="p">,</span><span class="w"> </span><span class="m">200.0</span><span class="p">));</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Macrosoft"</span><span class="p">,</span><span class="w"> </span><span class="m">300.0</span><span class="p">));</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"BCD"</span><span class="p">,</span><span class="w"> </span><span class="m">400.0</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=feb88a58b583226f">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"============= Update {i + 1} ============="</span><span class="p">);</span>
 <span class="w">    </span><span class="n">market</span><span class="p">.</span><span class="n">UpdatePrices</span><span class="p">();</span>
@@ -13650,23 +13695,25 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=65d047797a98c6e4">
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b919a1fdf54581d8">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">printingObserver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Unsubscribe using -= operator</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n&gt;&gt;&gt; Unsubscribing PrintingObserver &lt;&lt;&lt;\n"</span><span class="p">);</span>
+<span class="n">market</span><span class="p">.</span><span class="n">PricesUpdated</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">printingObserver</span><span class="p">.</span><span class="n">OnPricesUpdated</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a1a92b4ba6e81a1b">
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=dc471a214b4732dd">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"============= Update {i + 1} ============="</span><span class="p">);</span>
 <span class="w">    </span><span class="n">market</span><span class="p">.</span><span class="n">UpdatePrices</span><span class="p">();</span>
@@ -13676,172 +13723,529 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=3811d3a35122afd0">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=17b53ee015361f74">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"============= Update {i + 1} ============="</span><span class="p">);</span>
-<span class="w">    </span><span class="n">market</span><span class="p">.</span><span class="n">UpdatePrices</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d8ace39736c27e29"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=688b0107979a1a28"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Anwendbarkeit">Anwendbarkeit<a class="anchor-link" href="#Anwendbarkeit">¶</a></h3><ul>
-<li>Ein Objekt muss andere Objekte benachrichtigen, ohne Details zu kennen</li>
-<li>Eine Änderung in einem Objekt führt zu Änderungen in (beliebig vielen)
-anderen Objekten</li>
+<li>Ein Publisher muss mehrere Subscriber benachrichtigen, ohne Details zu kennen</li>
+<li>Eine Änderung in einem Publisher führt zu Änderungen in (beliebig vielen)
+Subscribern</li>
 <li>Eine Abstraktion hat zwei Aspekte, wobei einer vom anderen abhängt</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=06d74cd3c4d2c702"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Struktur:-Pull-Observer">Struktur: Pull Observer<a class="anchor-link" href="#Struktur:-Pull-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_pull.png" style="display:block;margin:auto;width:100%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=b31af8b64bd91918"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=e4521df712b89baa"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Observer-(Behavioral-Pattern)">Observer (Behavioral Pattern)<a class="anchor-link" href="#Observer-(Behavioral-Pattern)">¶</a></h2><h3 id="Teilnehmer">Teilnehmer<a class="anchor-link" href="#Teilnehmer">¶</a></h3><ul>
-<li><code>Subject</code><ul>
-<li>kennt seine Observer. Jede Anzahl von Observern kann ein Subject
+<li><code>Publisher</code> (Subject im GoF Pattern)<ul>
+<li>kennt seine Subscriber. Jede Anzahl von Subscribern kann einen Publisher
 beobachten</li>
-<li>stellt eine Schnittstelle zum Hinzufügen und Entfernen von Observern
-bereit</li>
+<li>stellt eine Schnittstelle zum Hinzufügen und Entfernen von Subscribern
+bereit (in C# durch += und -= Operatoren)</li>
 </ul>
 </li>
-<li><code>Observer</code><ul>
+<li><code>Subscriber</code> (Observer im GoF Pattern)<ul>
 <li>definiert eine Aktualisierungs-Schnittstelle für Objekte, die über
-Änderungen eines Subjects informiert werden sollen</li>
+Änderungen eines Publishers informiert werden sollen</li>
+<li>in C# implementiert als Event Handler Methoden</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=69214d2ae161189c"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>ConcreteSubject</code><ul>
-<li>Speichert den Zustand, der für <code>ConcreteObserver</code>-Objekte von Interesse
-ist</li>
-<li>Sendet eine Benachrichtigung an seine Observer, wenn sich sein Zustand
-ändert</li>
-</ul>
-</li>
-<li><code>ConcreteObserver</code><ul>
-<li>Kann eine Referenz auf ein <code>ConcreteSubject</code>-Objekt halten</li>
-<li>Speichert Zustand, der mit dem des Subjects konsistent bleiben soll</li>
-<li>Implementiert die <code>Observer</code>-Aktualisierungs-Schnittstelle, um seinen
-Zustand mit dem des Subjects konsistent zu halten</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=5150adfe06823201"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interaktionen:-Pull-Observer">Interaktionen: Pull Observer<a class="anchor-link" href="#Interaktionen:-Pull-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_pull_seq.png" style="display:block;margin:auto;width:65%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d3cfbd31dfafd3d8"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interaktionen">Interaktionen<a class="anchor-link" href="#Interaktionen">¶</a></h3><ul>
-<li><code>ConcreteSubject</code> benachrichtigt seine Observer über Änderungen in seinem
-Zustand</li>
-<li>Nachdem ein <code>ConcreteObserver</code> über eine Änderung im <code>ConcreteSubject</code>
-informiert wurde, holt es den neuen Zustand vom Subjekt</li>
-<li><code>ConcreteObserver</code> verwendet diese Informationen, um seinen Zustand mit dem
-des Subjects in Einklang zu bringen</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d5d900c2a5a76fd5"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Struktur:-Push-Observer">Struktur: Push Observer<a class="anchor-link" href="#Struktur:-Push-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_push.png" style="display:block;margin:auto;width:100%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=180131fda34a0ecd"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interaktion:-Push-Observer">Interaktion: Push Observer<a class="anchor-link" href="#Interaktion:-Push-Observer">¶</a></h3><p><img alt="No description has been provided for this image" src="img/pat_observer_push_seq.png" style="display:block;margin:auto;width:65%"/></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=19ad15e74d51d345"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3d207199bae40ac8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Konsequenzen">Konsequenzen<a class="anchor-link" href="#Konsequenzen">¶</a></h3><ul>
-<li><code>Subject</code> und <code>Observer</code> können unabhängig voneinander<ul>
+<li><code>Publisher</code> und <code>Subscriber</code> können unabhängig voneinander<ul>
 <li>variiert werden</li>
 <li>wiederverwendet werden</li>
 </ul>
 </li>
-<li>Hinzufügen neuer <code>Observer</code> ohne Änderungen am <code>Subject</code></li>
-<li>Abstrakte Kopplung zwischen <code>Subject</code> und <code>Observer</code></li>
+<li>Hinzufügen neuer <code>Subscriber</code> ohne Änderungen am <code>Publisher</code></li>
+<li>Abstrakte Kopplung zwischen <code>Publisher</code> und <code>Subscriber</code></li>
 <li>Unterstützung für Broadcast-Kommunikation</li>
 <li>Unerwartete Updates</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=1384ac347baf3e50"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f2047c56d41b9d35"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Praxisbeispiele">Praxisbeispiele<a class="anchor-link" href="#Praxisbeispiele">¶</a></h3><ul>
-<li>Event-Listener in Benutzeroberflächen (SWT)</li>
+<h3 id="C%23-Spezifische-Vorteile">C# Spezifische Vorteile<a class="anchor-link" href="#C%23-Spezifische-Vorteile">¶</a></h3><ul>
+<li><strong>Events</strong>: Eingebaute Sprachunterstützung für das Observer Pattern</li>
+<li><strong>Delegates</strong>: Type-sichere Funktionszeiger für Event-Handler</li>
+<li><strong>Lambda Expressions</strong>: Kompakte Event-Handler Definition</li>
+<li><strong>LINQ</strong>: Elegante Filterung und Transformation von Event-Daten</li>
+<li><strong>async/await</strong>: Asynchrone Event-Handler für nicht-blockierende Updates</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d773dd0fd0e6ada9"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Praxisbeispiele-in-C%23">Praxisbeispiele in C#<a class="anchor-link" href="#Praxisbeispiele-in-C%23">¶</a></h3><ul>
+<li><strong>Windows Forms/WPF</strong>: Event-Handler für UI-Interaktionen</li>
+<li><strong>INotifyPropertyChanged</strong>: Data Binding in MVVM</li>
+<li><strong>Reactive Extensions (Rx.NET)</strong>: Erweiterte Event-Stream-Verarbeitung</li>
+<li><strong>ASP.NET Core</strong>: Middleware-Pipeline und Event-basierte Kommunikation</li>
+<li><strong>.NET Events</strong>: System.ComponentModel Events</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f849dbba767d6116"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Verwandte-Patterns">Verwandte Patterns<a class="anchor-link" href="#Verwandte-Patterns">¶</a></h3><ul>
-<li>Mediator: Durch die Kapselung komplexer Update-Semantik fungiert der
-<code>ChangeManager</code> als Mediator zwischen Subjects und Observers</li>
-<li>Singleton: ...</li>
+<li><strong>Mediator</strong>: Durch die Kapselung komplexer Update-Semantik fungiert der
+<code>ChangeManager</code> als Mediator zwischen Publishers und Subscribers</li>
+<li><strong>Singleton</strong>: Oft wird ein Singleton als zentraler Event-Bus verwendet</li>
+<li><strong>Command</strong>: Events können als Commands implementiert werden</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f2b5b7c4852d6a92"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=4090ce7a214066e5"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Workshop:-Produktion-von-Werkst%C3%BCcken">Workshop: Produktion von Werkstücken<a class="anchor-link" href="#Workshop:-Produktion-von-Werkst%C3%BCcken">¶</a></h2><p>In einem Produktionssystem wollen Sie verschiedene andere System
 benachrichtigen, wenn Sie ein Werkstück erzeugt haben. Dabei sollen diese
 Systeme vom konkreten Produzenten unabhängig sein und auch der Produzent
 keine (statische) Kenntnis über die benachrichtigten System haben.</p>
-<p>Implementieren Sie ein derartiges System mit dem Observer-Pattern.
-Implementieren Sie dazu einen konkreten Observer <code>PrintingObserver</code>, der den
-Zustand des beobachteten Objekts ausgibt.</p>
-<p><em>Hinweis:</em> Sie können das System sowohl mit Pull- als auch mit Push-Observern
-implementieren. Es ist eine gute Übung, wenn Sie beide Varianten
-implementieren und vergleichen.</p>
+<p>Implementieren Sie ein derartiges System mit dem Observer-Pattern unter Verwendung von C# Events.
+Implementieren Sie dazu:</p>
+<ol>
+<li>Eine <code>ItemProducedEventArgs</code> Klasse mit Informationen über das produzierte Werkstück</li>
+<li>Einen <code>Producer</code> (Publisher) mit einem <code>ItemProduced</code> Event</li>
+<li>Verschiedene Subscriber die auf das Event reagieren</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=008462df02288c45"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="INotifyPropertyChanged-f%C3%BCr-Data-Binding">INotifyPropertyChanged für Data Binding<a class="anchor-link" href="#INotifyPropertyChanged-f%C3%BCr-Data-Binding">¶</a></h2><h3 id="Was-ist-INotifyPropertyChanged?">Was ist INotifyPropertyChanged?<a class="anchor-link" href="#Was-ist-INotifyPropertyChanged?">¶</a></h3><ul>
+<li>Standard-Interface in .NET für Property Change Notification</li>
+<li>Kernbestandteil des Data Binding in WPF, WinForms, Xamarin, MAUI</li>
+<li>Ermöglicht automatische UI-Updates bei Datenänderungen</li>
+<li>Basis für das MVVM (Model-View-ViewModel) Pattern</li>
+</ul>
+<h3 id="Warum-wird-es-verwendet?">Warum wird es verwendet?<a class="anchor-link" href="#Warum-wird-es-verwendet?">¶</a></h3><ul>
+<li><strong>Automatische UI-Synchronisation</strong>: UI aktualisiert sich automatisch bei Datenänderungen</li>
+<li><strong>Entkopplung</strong>: View muss nicht direkt mit Model kommunizieren</li>
+<li><strong>Two-Way Binding</strong>: Änderungen können bidirektional propagiert werden</li>
+<li><strong>Performance</strong>: Nur geänderte Properties lösen Updates aus</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ecf6ab367e583de7"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Einsatzgebiete-von-INotifyPropertyChanged">Einsatzgebiete von INotifyPropertyChanged<a class="anchor-link" href="#Einsatzgebiete-von-INotifyPropertyChanged">¶</a></h3><ul>
+<li><strong>WPF Applications</strong>: Binding in XAML</li>
+<li><strong>Windows Forms</strong>: Data Binding mit BindingSource</li>
+<li><strong>Xamarin/MAUI</strong>: Cross-platform mobile apps</li>
+<li><strong>Blazor</strong>: Component state management</li>
+<li><strong>Business Objects</strong>: Automatische Validierung und Änderungsverfolgung</li>
+<li><strong>Undo/Redo Systeme</strong>: Tracking von Eigenschaftsänderungen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=7fafca65bb28e2bf">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Runtime.CompilerServices</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=217846cbb3df6b4c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PriceChangedEventArgs</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">EventArgs</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">OldPrice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">NewPrice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">PriceChangedEventArgs</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">oldPrice</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">newPrice</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">OldPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oldPrice</span><span class="p">;</span>
+<span class="w">        </span><span class="n">NewPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newPrice</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=2fe3f0c58d2a502c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// ObservableStock implements INotifyPropertyChanged</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ObservableStock</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">INotifyPropertyChanged</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_name</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">_price</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_name</span><span class="p">;</span>
+<span class="w">        </span><span class="k">set</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
+<span class="w">                </span><span class="n">OnPropertyChanged</span><span class="p">();</span><span class="w">  </span><span class="c1">// Notify subscribers of property change</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_price</span><span class="p">;</span>
+<span class="w">        </span><span class="k">set</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_price</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">oldValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_price</span><span class="p">;</span>
+<span class="w">                </span><span class="n">_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
+<span class="w">                </span><span class="n">OnPropertyChanged</span><span class="p">();</span><span class="w">  </span><span class="c1">// Standard property change notification</span>
+<span class="w">                </span><span class="n">OnPriceChanged</span><span class="p">(</span><span class="n">oldValue</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// Custom event for price changes</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Standard INotifyPropertyChanged event</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">PropertyChangedEventHandler</span><span class="w"> </span><span class="n">PropertyChanged</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Custom event for specific price changes</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">EventHandler</span><span class="o">&lt;</span><span class="n">PriceChangedEventArgs</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PriceChanged</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// CallerMemberName automatically provides the property name</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPropertyChanged</span><span class="p">([</span><span class="n">CallerMemberName</span><span class="p">]</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">propertyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PropertyChanged</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PropertyChangedEventArgs</span><span class="p">(</span><span class="n">propertyName</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPriceChanged</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">oldPrice</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">newPrice</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PriceChanged</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriceChangedEventArgs</span><span class="p">(</span><span class="n">oldPrice</span><span class="p">,</span><span class="w"> </span><span class="n">newPrice</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=993dd1978b5db08a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Verwendungsbeispiele-f%C3%BCr-ObservableStock">Verwendungsbeispiele für ObservableStock<a class="anchor-link" href="#Verwendungsbeispiele-f%C3%BCr-ObservableStock">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=04ac606048524d41">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Example 1: Simple property change monitoring</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">observableStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Tesla"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">850</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ce7e266d2193d6f2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Subscribe to PropertyChanged event</span>
+<span class="n">observableStock</span><span class="p">.</span><span class="n">PropertyChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Property '{e.PropertyName}' changed on {((ObservableStock)sender).Name}"</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=7ee4bb2e9442fd25">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Subscribe to custom PriceChanged event</span>
+<span class="n">observableStock</span><span class="p">.</span><span class="n">PriceChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">changePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">e</span><span class="p">.</span><span class="n">NewPrice</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">OldPrice</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">OldPrice</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{stock.Name}: ${e.OldPrice:F2} → ${e.NewPrice:F2} ({changePercent:+0.00;-0.00}%)"</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=5732cec3cc049b2b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">observableStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">900</span><span class="n">m</span><span class="p">;</span><span class="w">  </span><span class="c1">// Triggers both PropertyChanged and PriceChanged</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=04ce879c6e8bcda6">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">observableStock</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"TSLA"</span><span class="p">;</span><span class="w">  </span><span class="c1">// Triggers only PropertyChanged</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=adae47550fc12f5d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Example 2: Portfolio monitoring with multiple stocks</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Portfolio</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ObservableStock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_stocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">_totalValue</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">TotalValue</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_totalValue</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddStock</span><span class="p">(</span><span class="n">ObservableStock</span><span class="w"> </span><span class="n">stock</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_stocks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stock</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Subscribe to each stock's price changes</span>
+<span class="w">        </span><span class="n">stock</span><span class="p">.</span><span class="n">PropertyChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">OnStockPropertyChanged</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">UpdateTotalValue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnStockPropertyChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">PropertyChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">PropertyName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nameof</span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">.</span><span class="n">Price</span><span class="p">))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">UpdateTotalValue</span><span class="p">();</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Portfolio update: {stock.Name} price changed. New total: ${TotalValue:F2}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdateTotalValue</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_totalValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_stocks</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">Price</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=935fb01af502d5a0">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Usage of the examples</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"=== Portfolio Example ==="</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">portfolio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Portfolio</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=623a6a128b9efbc5">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">180</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">microsoft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Microsoft"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=54f02c6fadd56eef">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">portfolio</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="n">apple</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+<span class="n">portfolio</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="n">microsoft</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=fd085e6c434965a2">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Simulate price changes</span>
+<span class="n">apple</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">185</span><span class="n">m</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=6b081ed71043f39c">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">microsoft</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">295</span><span class="n">m</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=9364715a1ec9ac39">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Example 3: WPF-style data binding simulation</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">StockViewModel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">INotifyPropertyChanged</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="n">_model</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">_isTracking</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">StockViewModel</span><span class="p">(</span><span class="n">ObservableStock</span><span class="w"> </span><span class="n">model</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_model</span><span class="p">.</span><span class="n">PropertyChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ModelPropertyChanged</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DisplayName</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"{_model.Name} - ${_model.Price:F2}"</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsTracking</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_isTracking</span><span class="p">;</span>
+<span class="w">        </span><span class="k">set</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_isTracking</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">value</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">_isTracking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span>
+<span class="w">                </span><span class="n">OnPropertyChanged</span><span class="p">();</span>
+<span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Tracking {_model.Name}: {value}"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ModelPropertyChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">PropertyChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// When model changes, notify that DisplayName might have changed</span>
+<span class="w">        </span><span class="n">OnPropertyChanged</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">DisplayName</span><span class="p">));</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsTracking</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"[Tracked] {DisplayName}"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">event</span><span class="w"> </span><span class="n">PropertyChangedEventHandler</span><span class="w"> </span><span class="n">PropertyChanged</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnPropertyChanged</span><span class="p">([</span><span class="n">CallerMemberName</span><span class="p">]</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">propertyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PropertyChanged</span><span class="o">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PropertyChangedEventArgs</span><span class="p">(</span><span class="n">propertyName</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=eccde45b3579b39f">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n=== ViewModel Example ==="</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">googleStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Google"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">150</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">viewModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StockViewModel</span><span class="p">(</span><span class="n">googleStock</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=ba9153c690102a51">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Enable tracking</span>
+<span class="n">viewModel</span><span class="p">.</span><span class="n">IsTracking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=24e79fb91caf538e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Change the stock price - ViewModel will be notified</span>
+<span class="n">googleStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">155</span><span class="n">m</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=a395e813a072cd62">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">googleStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">152</span><span class="n">m</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=942fd5ed552c35ce"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Zusammenfassung">Zusammenfassung<a class="anchor-link" href="#Zusammenfassung">¶</a></h2><ul>
+<li>Das Observer Pattern ist in C# nativ durch Events implementiert</li>
+<li>Publisher/Subscriber Terminologie ersetzt Subject/Observer in C#</li>
+<li>Events bieten typsichere, elegante und performante Implementierung</li>
+<li>Delegates und Lambda Expressions ermöglichen flexible Event-Handler</li>
+<li><code>INotifyPropertyChanged</code> ist Standard für Data Binding in .NET UI Frameworks</li>
+<li>Reactive Extensions (Rx.NET) erweitern das Pattern für komplexe Szenarien</li>
+<li>async/await ermöglicht asynchrone Event-Verarbeitung</li>
+</ul>
 </div>
 </div>
 </div>

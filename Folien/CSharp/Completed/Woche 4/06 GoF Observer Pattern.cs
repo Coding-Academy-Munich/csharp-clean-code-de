@@ -12,16 +12,7 @@
 
 // %% [markdown]
 //
-// ### Beispiel: Aktienkurse
-//
-// - Aktienkurse ändern sich ständig
-// - Viele verschiedene Anwendungen wollen über Änderungen informiert werden
-// - Anwendungen sollen unabhängig voneinander sein
-// - Die Anwendung soll nicht über konkrete Applikationen Bescheid wissen
-
-// %% [markdown]
-//
-// ## Observer
+// ## Observer Pattern
 //
 // ### Zweck
 //
@@ -32,100 +23,137 @@
 //
 // - Konsistenz zwischen zusammenhängenden Objekten erhalten
 // - Dabei aber lose Kopplung erhalten
-// - Ein *Subject* kann beliebig viele *Observers* haben
-// - *Observer* werden automatisch über Änderungen am *Subject* benachrichtigt
+// - Ein *Publisher* kann beliebig viele *Subscribers* haben
+// - *Subscribers* werden automatisch über Änderungen am *Publisher* benachrichtigt
+
+// %% [markdown]
+//
+// ## Observer Pattern vs. C# Events
+//
+// ### Terminologie-Mapping
+//
+// | **GoF Pattern** | **C# Implementation** | **Beschreibung** |
+// |-----------------|----------------------|------------------|
+// | Subject | Publisher/Event Source | Objekt das Ereignisse auslöst |
+// | Observer | Subscriber/Event Handler | Objekt das auf Ereignisse reagiert |
+// | attach() | += (Event Subscription) | Hinzufügen eines Beobachters |
+// | detach() | -= (Event Unsubscription) | Entfernen eines Beobachters |
+// | notify() | Event.Invoke() | Benachrichtigung aller Beobachter |
+//
+// ### C# bietet native Unterstützung
+// - Das Observer Pattern ist in C# durch Events direkt in die Sprache integriert
+// - Keine manuelle Implementierung von Subscriber-Listen notwendig
+// - Thread-Sicherheit und Multicast-Delegates automatisch verfügbar
+
+// %% [markdown]
+//
+// ### Beispiel: Aktienkurse
+//
+// - Aktienkurse ändern sich ständig
+// - Viele verschiedene Anwendungen wollen über Änderungen informiert werden
+// - Anwendungen sollen unabhängig voneinander sein
+// - Die Anwendung soll nicht über konkrete Applikationen Bescheid wissen
 
 // %% [markdown]
 //
 // ### Klassendiagramm
 //
-// <img src="img/stock_example.png"
+// <img src="img/stock_example_csharp.png"
 //      style="display:block;margin:auto;width:90%"/>
+
+// %% [markdown]
+//
+// ## C# Events - Die native Implementierung
+//
+// C# bietet mit Events eine eingebaute Implementierung des Observer Patterns:
+// - `event` Schlüsselwort für typsichere Multicast-Delegates
+// - Automatische Verwaltung von Subscribern
+// - Thread-sichere Addition/Entfernung von Event-Handlern
+// - Standardmäßige `EventArgs`-Konvention
 
 // %%
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 
 // %%
-class Stock
+public class Stock
 {
-    public Stock(string name, double price)
+    public string Name { get; }
+    public decimal Price { get; set; }
+
+    public Stock(string name, decimal price)
     {
-        Name = name;
+        Name = name ?? throw new ArgumentNullException(nameof(name));
         Price = price;
     }
 
-    public string Name { get; }
-    public double Price { get; set; }
+    public override string ToString() => $"{Name}: {Price:C}";
 }
 
 // %%
-interface IStockObserver
+// Modern C# implementation using Events
+public class StockPriceChangedEventArgs : EventArgs
 {
-    void NoteUpdatedPrices(List<Stock> stocks);
+    public List<Stock> UpdatedStocks { get; }
+
+    public StockPriceChangedEventArgs(List<Stock> updatedStocks)
+    {
+        UpdatedStocks = updatedStocks ?? new List<Stock>();
+    }
 }
 
 // %%
-class StockMarket
+// Publisher (was Subject in GoF pattern)
+public class StockMarket
 {
     private readonly Dictionary<string, Stock> _stocks = new();
-    private readonly List<WeakReference<IStockObserver>> _observers = new();
     private readonly Random _random = new();
+
+    // Event declaration - the C# way of implementing Observer
+    public event EventHandler<StockPriceChangedEventArgs> PricesUpdated;
 
     public void AddStock(Stock stock)
     {
+        if (stock == null) throw new ArgumentNullException(nameof(stock));
         _stocks[stock.Name] = stock;
-    }
-
-    public void AttachObserver(IStockObserver observer)
-    {
-        _observers.Add(new WeakReference<IStockObserver>(observer));
     }
 
     public void UpdatePrices()
     {
-        var stocks = SelectStocksToUpdate();
-        UpdatePricesFor(stocks);
-        NotifyObservers(stocks);
+        var stocksToUpdate = SelectStocksToUpdate();
+        UpdatePricesFor(stocksToUpdate);
+        OnPricesUpdated(new StockPriceChangedEventArgs(stocksToUpdate));
     }
 
-    private int GetNumStocksToSelect()
+    // Protected virtual method for raising the event
+    protected virtual void OnPricesUpdated(StockPriceChangedEventArgs e)
     {
-        return (int)Math.Floor(_random.NextDouble() * 0.8 * _stocks.Count);
+        PricesUpdated?.Invoke(this, e);
     }
 
     private List<Stock> SelectStocksToUpdate()
     {
-        var allStocks = _stocks.Values.ToArray();
-        _random.Shuffle(allStocks);
-        var stocksToUpdate = allStocks.Take(GetNumStocksToSelect()).ToList();
-        return stocksToUpdate;
+        var numToSelect = (int)(_stocks.Count * _random.NextDouble() * 0.8);
+        return _stocks.Values
+            .OrderBy(x => _random.Next())
+            .Take(numToSelect)
+            .ToList();
     }
 
     private void UpdatePricesFor(List<Stock> stocks)
     {
         foreach (var stock in stocks)
         {
-            stock.Price += stock.Price * (_random.NextDouble() * 0.2 - 0.1);
-        }
-    }
-
-    private void NotifyObservers(List<Stock> stocks)
-    {
-        foreach (var observer in _observers)
-        {
-            if (observer.TryGetTarget(out var observerTarget))
-            {
-                observerTarget.NoteUpdatedPrices(stocks);
-            }
+            var changePercent = (decimal)(_random.NextDouble() * 0.2 - 0.1);
+            stock.Price *= (1 + changePercent);
         }
     }
 }
 
 // %%
-class PrintingStockObserver : IStockObserver
+// Subscriber implementations (were Observers in GoF pattern)
+public class PrintingStockObserver
 {
     private readonly string _name;
 
@@ -134,80 +162,74 @@ class PrintingStockObserver : IStockObserver
         _name = name;
     }
 
-    public void NoteUpdatedPrices(List<Stock> stocks)
+    // Event handler method matching EventHandler<T> signature
+    public void OnPricesUpdated(object sender, StockPriceChangedEventArgs e)
     {
         Console.WriteLine($"PrintingStockObserver {_name} received update:");
-        foreach (var stock in stocks)
+        foreach (var stock in e.UpdatedStocks)
         {
-            Console.WriteLine($"  {stock.Name}: {stock.Price}");
+            Console.WriteLine($"  {stock}");
         }
     }
 }
 
 // %%
-class RisingStockObserver : IStockObserver
+public class RisingStockObserver
 {
     private readonly string _name;
-    private readonly Dictionary<string, double> _oldPrices = new();
+    private readonly Dictionary<string, decimal> _previousPrices = new();
 
     public RisingStockObserver(string name)
     {
         _name = name;
     }
 
-    public void NoteUpdatedPrices(List<Stock> stocks)
+    public void OnPricesUpdated(object sender, StockPriceChangedEventArgs e)
     {
         Console.WriteLine($"RisingStockObserver {_name} received update:");
-        foreach (var stock in stocks)
+        foreach (var stock in e.UpdatedStocks)
         {
-            if (_oldPrices.ContainsKey(stock.Name) && stock.Price > _oldPrices[stock.Name])
+            if (_previousPrices.TryGetValue(stock.Name, out var oldPrice)
+                && stock.Price > oldPrice)
             {
-                Console.WriteLine($"  {stock.Name}: {_oldPrices[stock.Name]} -> {stock.Price}");
+                Console.WriteLine($"  {stock.Name}: {oldPrice:C} -> {stock.Price:C}");
             }
-            _oldPrices[stock.Name] = stock.Price;
+            _previousPrices[stock.Name] = stock.Price;
         }
     }
 }
 
 // %%
-var market = new StockMarket();
+// Usage example with C# events
+var market = new StockMarket();  // Publisher
+
+var printingObserver = new PrintingStockObserver("PrintingObserver");  // Subscriber
+var risingObserver = new RisingStockObserver("RisingObserver");  // Subscriber
+
+// Subscribe to events using += operator
+market.PricesUpdated += printingObserver.OnPricesUpdated;
+market.PricesUpdated += risingObserver.OnPricesUpdated;
 
 // %%
-var printingObserver = new PrintingStockObserver("PrintingObserver");
-var risingObserver = new RisingStockObserver("RisingObserver");
+market.AddStock(new Stock("Microsoft", 300m));
+market.AddStock(new Stock("Apple", 180m));
+market.AddStock(new Stock("Amazon", 140m));
+market.AddStock(new Stock("Google", 150m));
 
 // %%
-market.AttachObserver(printingObserver);
-market.AttachObserver(risingObserver);
-
-// %%
-market.AddStock(new Stock("Banana", 100.0));
-market.AddStock(new Stock("Billionz", 200.0));
-market.AddStock(new Stock("Macrosoft", 300.0));
-market.AddStock(new Stock("BCD", 400.0));
-
-// %%
-for (int i = 0; i < 5; i++)
+for (int i = 0; i < 3; i++)
 {
     Console.WriteLine($"============= Update {i + 1} =============");
     market.UpdatePrices();
 }
 
 // %%
-printingObserver = null;
+// Unsubscribe using -= operator
+Console.WriteLine("\n>>> Unsubscribing PrintingObserver <<<\n");
+market.PricesUpdated -= printingObserver.OnPricesUpdated;
 
 // %%
-for (int i = 0; i < 5; i++)
-{
-    Console.WriteLine($"============= Update {i + 1} =============");
-    market.UpdatePrices();
-}
-
-// %%
-GC.Collect()
-
-// %%
-for (int i = 0; i < 5; i++)
+for (int i = 0; i < 2; i++)
 {
     Console.WriteLine($"============= Update {i + 1} =============");
     market.UpdatePrices();
@@ -217,18 +239,10 @@ for (int i = 0; i < 5; i++)
 //
 // ### Anwendbarkeit
 //
-// - Ein Objekt muss andere Objekte benachrichtigen, ohne Details zu kennen
-// - Eine Änderung in einem Objekt führt zu Änderungen in (beliebig vielen)
-//   anderen Objekten
+// - Ein Publisher muss mehrere Subscriber benachrichtigen, ohne Details zu kennen
+// - Eine Änderung in einem Publisher führt zu Änderungen in (beliebig vielen)
+//   Subscribern
 // - Eine Abstraktion hat zwei Aspekte, wobei einer vom anderen abhängt
-
-// %% [markdown]
-//
-// ### Struktur: Pull Observer
-//
-// <img src="img/pat_observer_pull.png"
-//      style="display:block;margin:auto;width:100%"/>
-
 
 // %% [markdown]
 //
@@ -236,85 +250,56 @@ for (int i = 0; i < 5; i++)
 //
 // ### Teilnehmer
 //
-// - `Subject`
-//   - kennt seine Observer. Jede Anzahl von Observern kann ein Subject
+// - `Publisher` (Subject im GoF Pattern)
+//   - kennt seine Subscriber. Jede Anzahl von Subscribern kann einen Publisher
 //     beobachten
-//   - stellt eine Schnittstelle zum Hinzufügen und Entfernen von Observern
-//     bereit
-// - `Observer`
+//   - stellt eine Schnittstelle zum Hinzufügen und Entfernen von Subscribern
+//     bereit (in C# durch += und -= Operatoren)
+// - `Subscriber` (Observer im GoF Pattern)
 //   - definiert eine Aktualisierungs-Schnittstelle für Objekte, die über
-//     Änderungen eines Subjects informiert werden sollen
-
-// %% [markdown]
-//
-// - `ConcreteSubject`
-//   - Speichert den Zustand, der für `ConcreteObserver`-Objekte von Interesse
-//     ist
-//   - Sendet eine Benachrichtigung an seine Observer, wenn sich sein Zustand
-//     ändert
-// - `ConcreteObserver`
-//   - Kann eine Referenz auf ein `ConcreteSubject`-Objekt halten
-//   - Speichert Zustand, der mit dem des Subjects konsistent bleiben soll
-//   - Implementiert die `Observer`-Aktualisierungs-Schnittstelle, um seinen
-//     Zustand mit dem des Subjects konsistent zu halten
-
-// %% [markdown]
-//
-// ### Interaktionen: Pull Observer
-//
-// <img src="img/pat_observer_pull_seq.png"
-//      style="display:block;margin:auto;width:65%"/>
-
-
-// %% [markdown]
-//
-// ### Interaktionen
-//
-// - `ConcreteSubject` benachrichtigt seine Observer über Änderungen in seinem
-//   Zustand
-// - Nachdem ein `ConcreteObserver` über eine Änderung im `ConcreteSubject`
-//   informiert wurde, holt es den neuen Zustand vom Subjekt
-// - `ConcreteObserver` verwendet diese Informationen, um seinen Zustand mit dem
-//   des Subjects in Einklang zu bringen
-
-
-// %% [markdown]
-//
-// ### Struktur: Push Observer
-//
-// <img src="img/pat_observer_push.png"
-//      style="display:block;margin:auto;width:100%"/>
-
-// %% [markdown]
-//
-// ### Interaktion: Push Observer
-//
-// <img src="img/pat_observer_push_seq.png"
-//      style="display:block;margin:auto;width:65%"/>
+//     Änderungen eines Publishers informiert werden sollen
+//   - in C# implementiert als Event Handler Methoden
 
 // %% [markdown]
 //
 // ### Konsequenzen
 //
-// - `Subject` und `Observer` können unabhängig voneinander
+// - `Publisher` und `Subscriber` können unabhängig voneinander
 //    - variiert werden
 //    - wiederverwendet werden
-// - Hinzufügen neuer `Observer` ohne Änderungen am `Subject`
-// - Abstrakte Kopplung zwischen `Subject` und `Observer`
+// - Hinzufügen neuer `Subscriber` ohne Änderungen am `Publisher`
+// - Abstrakte Kopplung zwischen `Publisher` und `Subscriber`
 // - Unterstützung für Broadcast-Kommunikation
 // - Unerwartete Updates
 
 // %% [markdown]
 //
-// ### Praxisbeispiele
+// ### C# Spezifische Vorteile
 //
-// - Event-Listener in Benutzeroberflächen (SWT)
+// - **Events**: Eingebaute Sprachunterstützung für das Observer Pattern
+// - **Delegates**: Type-sichere Funktionszeiger für Event-Handler
+// - **Lambda Expressions**: Kompakte Event-Handler Definition
+// - **LINQ**: Elegante Filterung und Transformation von Event-Daten
+// - **async/await**: Asynchrone Event-Handler für nicht-blockierende Updates
+
+// %% [markdown]
+//
+// ### Praxisbeispiele in C#
+//
+// - **Windows Forms/WPF**: Event-Handler für UI-Interaktionen
+// - **INotifyPropertyChanged**: Data Binding in MVVM
+// - **Reactive Extensions (Rx.NET)**: Erweiterte Event-Stream-Verarbeitung
+// - **ASP.NET Core**: Middleware-Pipeline und Event-basierte Kommunikation
+// - **.NET Events**: System.ComponentModel Events
+
+// %% [markdown]
 //
 // ### Verwandte Patterns
 //
-// - Mediator: Durch die Kapselung komplexer Update-Semantik fungiert der
-//   `ChangeManager` als Mediator zwischen Subjects und Observers
-// - Singleton: ...
+// - **Mediator**: Durch die Kapselung komplexer Update-Semantik fungiert der
+//   `ChangeManager` als Mediator zwischen Publishers und Subscribers
+// - **Singleton**: Oft wird ein Singleton als zentraler Event-Bus verwendet
+// - **Command**: Events können als Commands implementiert werden
 
 // %% [markdown]
 //
@@ -325,258 +310,384 @@ for (int i = 0; i < 5; i++)
 // Systeme vom konkreten Produzenten unabhängig sein und auch der Produzent
 // keine (statische) Kenntnis über die benachrichtigten System haben.
 //
-// Implementieren Sie ein derartiges System mit dem Observer-Pattern.
-// Implementieren Sie dazu einen konkreten Observer `PrintingObserver`, der den
-// Zustand des beobachteten Objekts ausgibt.
+// Implementieren Sie ein derartiges System mit dem Observer-Pattern unter Verwendung von C# Events.
+// Implementieren Sie dazu:
+// 1. Eine `ItemProducedEventArgs` Klasse mit Informationen über das produzierte Werkstück
+// 2. Einen `Producer` (Publisher) mit einem `ItemProduced` Event
+// 3. Verschiedene Subscriber die auf das Event reagieren
+
+// %%
+// Workshop Solution: Event-based implementation
+public class ItemProducedEventArgs : EventArgs
+{
+    public int ItemId { get; }
+    public string ItemType { get; }
+    public DateTime ProducedAt { get; }
+
+    public ItemProducedEventArgs(int itemId, string itemType)
+    {
+        ItemId = itemId;
+        ItemType = itemType;
+        ProducedAt = DateTime.Now;
+    }
+}
+
+// %%
+// Producer acts as Publisher
+public class Producer
+{
+    private int _nextItemId = 1;
+    private readonly List<int> _producedItems = new();
+
+    // Event declaration
+    public event EventHandler<ItemProducedEventArgs> ItemProduced;
+
+    public void ProduceItem(string itemType)
+    {
+        var itemId = _nextItemId++;
+        _producedItems.Add(itemId);
+
+        Console.WriteLine($"Producer: Creating item {itemId} of type {itemType}");
+
+        // Raise the event (notify all subscribers)
+        OnItemProduced(new ItemProducedEventArgs(itemId, itemType));
+    }
+
+    protected virtual void OnItemProduced(ItemProducedEventArgs e)
+    {
+        ItemProduced?.Invoke(this, e);
+    }
+
+    public IReadOnlyList<int> ProducedItems => _producedItems.AsReadOnly();
+}
+
+// %%
+// QualityControlObserver acts as Subscriber
+public class QualityControlObserver
+{
+    private readonly string _name;
+
+    public QualityControlObserver(string name)
+    {
+        _name = name;
+    }
+
+    public void OnItemProduced(object sender, ItemProducedEventArgs e)
+    {
+        Console.WriteLine($"QC {_name}: Inspecting item {e.ItemId} of type {e.ItemType}");
+        Console.WriteLine($"  Produced at: {e.ProducedAt:HH:mm:ss}");
+    }
+}
+
+// %%
+// InventoryObserver acts as Subscriber
+public class InventoryObserver
+{
+    private readonly Dictionary<string, int> _inventory = new();
+
+    public void OnItemProduced(object sender, ItemProducedEventArgs e)
+    {
+        if (!_inventory.ContainsKey(e.ItemType))
+            _inventory[e.ItemType] = 0;
+
+        _inventory[e.ItemType]++;
+
+        Console.WriteLine($"Inventory: Added item {e.ItemId}");
+        Console.WriteLine($"  Current stock of {e.ItemType}: {_inventory[e.ItemType]}");
+    }
+
+    // Lambda event handler example
+    public static EventHandler<ItemProducedEventArgs> CreateSimpleHandler()
+    {
+        return (sender, e) => Console.WriteLine($"Lambda: Item {e.ItemId} produced!");
+    }
+}
+
+// %%
+// Usage of the workshop solution
+var producer = new Producer();  // Publisher
+var qcObserver = new QualityControlObserver("QC-1");  // Subscriber
+var inventoryObserver = new InventoryObserver();  // Subscriber
+
+// Subscribe using method references
+producer.ItemProduced += qcObserver.OnItemProduced;
+producer.ItemProduced += inventoryObserver.OnItemProduced;
+
+// Subscribe using lambda expression
+producer.ItemProduced += (sender, e) =>
+    Console.WriteLine($"Logging: Item {e.ItemId} of type {e.ItemType} produced");
+
+// Subscribe using static lambda
+producer.ItemProduced += InventoryObserver.CreateSimpleHandler();
+
+// %%
+producer.ProduceItem("Widget");
+producer.ProduceItem("Gadget");
+producer.ProduceItem("Widget");
+
+// %%
+// Unsubscribe
+Console.WriteLine("\n>>> Unsubscribing QC Observer <<<\n");
+producer.ItemProduced -= qcObserver.OnItemProduced;
+
+producer.ProduceItem("Gadget");
+
+// %% [markdown]
 //
-// *Hinweis:* Sie können das System sowohl mit Pull- als auch mit Push-Observern
-// implementieren. Es ist eine gute Übung, wenn Sie beide Varianten
-// implementieren und vergleichen.
+// ## INotifyPropertyChanged für Data Binding
+//
+// ### Was ist INotifyPropertyChanged?
+//
+// - Standard-Interface in .NET für Property Change Notification
+// - Kernbestandteil des Data Binding in WPF, WinForms, Xamarin, MAUI
+// - Ermöglicht automatische UI-Updates bei Datenänderungen
+// - Basis für das MVVM (Model-View-ViewModel) Pattern
+//
+// ### Warum wird es verwendet?
+//
+// - **Automatische UI-Synchronisation**: UI aktualisiert sich automatisch bei Datenänderungen
+// - **Entkopplung**: View muss nicht direkt mit Model kommunizieren
+// - **Two-Way Binding**: Änderungen können bidirektional propagiert werden
+// - **Performance**: Nur geänderte Properties lösen Updates aus
 
+// %% [markdown]
+//
+// ### Einsatzgebiete von INotifyPropertyChanged
+//
+// - **WPF Applications**: Binding in XAML
+// - **Windows Forms**: Data Binding mit BindingSource
+// - **Xamarin/MAUI**: Cross-platform mobile apps
+// - **Blazor**: Component state management
+// - **Business Objects**: Automatische Validierung und Änderungsverfolgung
+// - **Undo/Redo Systeme**: Tracking von Eigenschaftsänderungen
 
 // %%
-public static class ListFormatter
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+// %%
+public class PriceChangedEventArgs : EventArgs
 {
-    public static string ToString(List<int> vec) {
-        string result = "[";
-        string sep = "";
-        foreach (var i in vec) {
-            result += sep + i;
-            sep = ", ";
-        }
-        result += "]";
-        return result;
+    public decimal OldPrice { get; }
+    public decimal NewPrice { get; }
+
+    public PriceChangedEventArgs(decimal oldPrice, decimal newPrice)
+    {
+        OldPrice = oldPrice;
+        NewPrice = newPrice;
     }
 }
 
-
 // %%
-interface IPullObserver
+// ObservableStock implements INotifyPropertyChanged
+public class ObservableStock : INotifyPropertyChanged
 {
-    void Update();
-    int GetId();
-}
+    private string _name;
+    private decimal _price;
 
-// %%
-class PullSubject
-{
-    public void Attach(IPullObserver observer)
+    public string Name
     {
-        observers.Add(new WeakReference<IPullObserver>(observer));
-        PrintObservers("after attaching");
-    }
-
-    public void Detach(IPullObserver observer)
-    {
-        observers.RemoveAll(o => o.TryGetTarget(out var oTarget) && oTarget == observer);
-        PrintObservers("after detaching");
-    }
-
-    public void Notify()
-    {
-        PrintObservers("before notifying");
-        foreach (var o in observers)
+        get => _name;
+        set
         {
-            if (o.TryGetTarget(out var observerPtr))
+            if (_name != value)
             {
-                observerPtr.Update();
+                _name = value;
+                OnPropertyChanged();  // Notify subscribers of property change
             }
         }
     }
 
-    public virtual List<int> GetState() => throw new NotImplementedException();
-
-    private void PrintObservers(string context)
+    public decimal Price
     {
-        Console.WriteLine($"Observers {context} are:");
-        foreach (var o in observers)
+        get => _price;
+        set
         {
-            if (o.TryGetTarget(out var observerPtr))
+            if (_price != value)
             {
-                Console.Write($" Observer-{observerPtr.GetId()}");
-            }
-            else
-            {
-                Console.Write(" Observer-<deleted>");
+                var oldValue = _price;
+                _price = value;
+                OnPropertyChanged();  // Standard property change notification
+                OnPriceChanged(oldValue, value);  // Custom event for price changes
             }
         }
-        Console.WriteLine();
     }
 
-    private List<WeakReference<IPullObserver>> observers = new();
+    // Standard INotifyPropertyChanged event
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    // Custom event for specific price changes
+    public event EventHandler<PriceChangedEventArgs> PriceChanged;
+
+    // CallerMemberName automatically provides the property name
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected virtual void OnPriceChanged(decimal oldPrice, decimal newPrice)
+    {
+        PriceChanged?.Invoke(this, new PriceChangedEventArgs(oldPrice, newPrice));
+    }
 }
 
+// %% [markdown]
+//
+// ### Verwendungsbeispiele für ObservableStock
+
 // %%
-class PrintingPullObserver : IPullObserver
+// Example 1: Simple property change monitoring
+var observableStock = new ObservableStock { Name = "Tesla", Price = 850m };
+
+// %%
+// Subscribe to PropertyChanged event
+observableStock.PropertyChanged += (sender, e) =>
 {
-    public PrintingPullObserver(int id)
+    Console.WriteLine($"Property '{e.PropertyName}' changed on {((ObservableStock)sender).Name}");
+};
+
+// %%
+// Subscribe to custom PriceChanged event
+observableStock.PriceChanged += (sender, e) =>
+{
+    var stock = (ObservableStock)sender;
+    var changePercent = ((e.NewPrice - e.OldPrice) / e.OldPrice) * 100;
+    Console.WriteLine($"{stock.Name}: ${e.OldPrice:F2} → ${e.NewPrice:F2} ({changePercent:+0.00;-0.00}%)");
+};
+
+// %%
+observableStock.Price = 900m;  // Triggers both PropertyChanged and PriceChanged
+
+// %%
+observableStock.Name = "TSLA";  // Triggers only PropertyChanged
+
+// %%
+// Example 2: Portfolio monitoring with multiple stocks
+public class Portfolio
+{
+    private readonly List<ObservableStock> _stocks = new();
+    private decimal _totalValue;
+
+    public decimal TotalValue => _totalValue;
+
+    public void AddStock(ObservableStock stock, int quantity)
     {
-        this.id = id;
+        _stocks.Add(stock);
+
+        // Subscribe to each stock's price changes
+        stock.PropertyChanged += OnStockPropertyChanged;
+
+        UpdateTotalValue();
     }
 
-    public void Update()
+    private void OnStockPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
-        Console.WriteLine($"Observer {id}: Observing {subject}.");
-        Console.WriteLine($"  Old observer state is {ListFormatter.ToString(observerState)}.");
-        observerState = subject.GetState();
-        Console.WriteLine($"  New observer state is {ListFormatter.ToString(observerState)}.");
-    }
-
-    public int GetId() => id;
-
-    public void AttachTo(PullSubject subject)
-    {
-        subject.Attach(this);
-        this.subject = subject;
-    }
-
-    public void DetachFromSubject()
-    {
-        if (subject != null)
+        if (e.PropertyName == nameof(ObservableStock.Price))
         {
-            subject.Detach(this);
-            subject = null;
+            UpdateTotalValue();
+            var stock = (ObservableStock)sender;
+            Console.WriteLine($"Portfolio update: {stock.Name} price changed. New total: ${TotalValue:F2}");
         }
     }
 
-    private int id;
-    private PullSubject subject;
-    private List<int> observerState = new();
+    private void UpdateTotalValue()
+    {
+        _totalValue = _stocks.Sum(s => s.Price);
+    }
 }
 
 // %%
-class PullProducer : PullSubject
+// Usage of the examples
+Console.WriteLine("=== Portfolio Example ===");
+var portfolio = new Portfolio();
+
+// %%
+var apple = new ObservableStock { Name = "Apple", Price = 180m };
+var microsoft = new ObservableStock { Name = "Microsoft", Price = 300m };
+
+// %%
+portfolio.AddStock(apple, 10);
+portfolio.AddStock(microsoft, 5);
+
+// %%
+// Simulate price changes
+apple.Price = 185m;
+
+// %%
+microsoft.Price = 295m;
+
+// %%
+// Example 3: WPF-style data binding simulation
+public class StockViewModel : INotifyPropertyChanged
 {
-    public void ProduceItem(int item) {
-        availableItems.Add(item);
-        Notify();
+    private ObservableStock _model;
+    private bool _isTracking;
+
+    public StockViewModel(ObservableStock model)
+    {
+        _model = model;
+        _model.PropertyChanged += ModelPropertyChanged;
     }
 
-    public override List<int> GetState() => availableItems;
+    public string DisplayName => $"{_model.Name} - ${_model.Price:F2}";
 
-    private List<int> availableItems = new();
-}
-
-// %%
-var p = new PullProducer();
-var o1 = new PrintingPullObserver(1);
-o1.AttachTo(p);
-var o2 = new PrintingPullObserver(2);
-o2.AttachTo(p);
-
-// %%
-p.ProduceItem(1);
-p.ProduceItem(2);
-
-// %%
-o1.DetachFromSubject();
-p.ProduceItem(3);
-
-// %%
-o1.AttachTo(p);
-o2.DetachFromSubject();
-p.ProduceItem(4);
-
-// %%
-interface IPushObserver {
-    void Update(int item);
-    int GetId();
-}
-
-// %%
-class PushSubject {
-    public void Attach(IPushObserver observer)
+    public bool IsTracking
     {
-        observers.Add(new WeakReference<IPushObserver>(observer));
-        PrintObservers("after attaching");
-    }
-
-    public void Detach(IPushObserver observer)
-    {
-        observers.RemoveAll(o => o.TryGetTarget(out var oTarget) && oTarget == observer);
-        PrintObservers("after detaching");
-    }
-
-    public void Notify(int item)
-    {
-        PrintObservers("before notifying");
-        foreach (var o in observers)
+        get => _isTracking;
+        set
         {
-            if (o.TryGetTarget(out var observerPtr))
+            if (_isTracking != value)
             {
-                observerPtr.Update(item);
+                _isTracking = value;
+                OnPropertyChanged();
+                Console.WriteLine($"Tracking {_model.Name}: {value}");
             }
         }
     }
 
-    private void PrintObservers(string context)
+    private void ModelPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
-        Console.WriteLine($"Observers {context} are:");
-        foreach (var o in observers)
+        // When model changes, notify that DisplayName might have changed
+        OnPropertyChanged(nameof(DisplayName));
+
+        if (IsTracking)
         {
-            if (o.TryGetTarget(out var observerPtr))
-            {
-                Console.Write($" Observer-{observerPtr.GetId()}");
-            }
-            else
-            {
-                Console.Write(" Observer-<deleted>");
-            }
+            Console.WriteLine($"[Tracked] {DisplayName}");
         }
-        Console.WriteLine();
     }
 
-    private List<WeakReference<IPushObserver>> observers = new();
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 }
 
 // %%
-class PrintingPushObserver : IPushObserver
-{
-    public PrintingPushObserver(int id)
-    {
-        this.id = id;
-    }
-
-    public void Update(int item)
-    {
-        Console.WriteLine($"Observer {id}");
-        Console.WriteLine($"  Received item {item}.");
-    }
-
-    public int GetId() => id;
-    private int id;
-}
+Console.WriteLine("\n=== ViewModel Example ===");
+var googleStock = new ObservableStock { Name = "Google", Price = 150m };
+var viewModel = new StockViewModel(googleStock);
 
 // %%
-class PushProducer : PushSubject
-{
-    public void ProduceItem(int item)
-    {
-        availableItems.Add(item);
-        Notify(item);
-    }
-
-    private List<int> availableItems = new();
-}
+// Enable tracking
+viewModel.IsTracking = true;
 
 // %%
-var pPush = new PushProducer();
-var o1Push = new PrintingPushObserver(1);
-pPush.Attach(o1Push);
-var o2Push = new PrintingPushObserver(2);
-pPush.Attach(o2Push);
+// Change the stock price - ViewModel will be notified
+googleStock.Price = 155m;
 
 // %%
-pPush.ProduceItem(1);
-pPush.ProduceItem(2);
+googleStock.Price = 152m;
 
-// %%
-pPush.Detach(o1Push);
-GC.Collect();
-pPush.ProduceItem(3);
-
-// %%
-pPush.Attach(o1Push);
-o2Push = null;
-GC.Collect();
-pPush.ProduceItem(4);
+// %% [markdown]
+//
+// ## Zusammenfassung
+//
+// - Das Observer Pattern ist in C# nativ durch Events implementiert
+// - Publisher/Subscriber Terminologie ersetzt Subject/Observer in C#
+// - Events bieten typsichere, elegante und performante Implementierung
+// - Delegates und Lambda Expressions ermöglichen flexible Event-Handler
+// - `INotifyPropertyChanged` ist Standard für Data Binding in .NET UI Frameworks
+// - Reactive Extensions (Rx.NET) erweitern das Pattern für komplexe Szenarien
+// - async/await ermöglicht asynchrone Event-Verarbeitung

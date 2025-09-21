@@ -62,8 +62,8 @@
 // # GRASP: Polymorphie
 //
 // - Polymorphe Operationen beschreiben ähnliche (aber nicht identische)
-//   Verhaltensweisen, die sich je nach Typ eines Objekts ändern können
-// - Normalerweise kein Wechsel zwischen den Verhaltensweisen während der Laufzeit
+//   Verhaltensweisen, die sich je nach Objekt oder Typ eines Objekts ändern
+//   können
 
 // %% [markdown]
 //
@@ -78,14 +78,6 @@
 //   - Ähnlich zu virtuellen Methoden
 //   - Manchmal syntaktisch einfacher, weniger Code
 
-
-// %% [markdown]
-//
-// - Verwandt: Regeln der Typenhierarchie
-//   - Isa-Regel
-//   - Nur Blätter sind konkret
-//   - Erzwingen von Invarianten für Subtypen durch Supertyp
-// - Siehe auch: LSP, Offen/Geschlossen-Prinzip
 
 // %% [markdown]
 //
@@ -126,7 +118,7 @@
 //
 // - Low Coupling, High Cohesion
 // - Information Expert
-//   - Pure Fabrication entfernt die vom Information Expert zugewiesen
+//   - Pure Fabrication übernimmt die vom Information Expert zugewiesenen
 //     Verantwortlichkeiten
 // - Fast alle Design Patterns sind Pure Fabrications
 

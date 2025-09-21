@@ -13396,16 +13396,16 @@ können aber auch mehr als einen Use-Case bearbeiten).</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0df917f0e06483d8"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c056223b354a81be"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Beispiel:-Controller-als-Subsystem-Fassade">Beispiel: Controller als Subsystem-Fassade<a class="anchor-link" href="#Beispiel:-Controller-als-Subsystem-Fassade">¶</a></h2><h3 id="Billing-System-Controller">Billing System Controller<a class="anchor-link" href="#Billing-System-Controller">¶</a></h3><ul>
-<li>Controller: <code>BillingController</code></li>
-<li>Kontext: Ein einzelner Controller dient als Einstiegspunkt für das gesamte
-Abrechnungssubsystem.</li>
-<li>Funktionsweise: Die Benutzeroberfläche (UI) sendet eine einzige Nachricht
-an den <code>BillingController</code>, um eine Bestellung zu verarbeiten.<ul>
-<li>UI-Aufruf: <code>billingController.processOrder(cart, customer)</code></li>
+<li><strong>Controller</strong>: <code>BillingController</code></li>
+<li><strong>Kontext</strong>: Ein einzelner Controller dient als Einstiegspunkt für das
+gesamte Abrechnungssubsystem.</li>
+<li><strong>Funktionsweise</strong>: Die Benutzeroberfläche (UI) sendet eine einzige
+Nachricht an den <code>BillingController</code>, um eine Bestellung zu verarbeiten.<ul>
+<li>UI-Aufruf: <code>billingController.ProcessOrder(cart, customer)</code></li>
 <li>Delegation: Der Controller koordiniert dann die internen Domänenobjekte:<ol>
 <li>Ruft den <code>TaxCalculator</code> auf, um die Steuern zu berechnen.</li>
 <li>Weist den <code>InvoiceGenerator</code> an, eine Rechnung zu erstellen.</li>
@@ -13414,13 +13414,21 @@ an den <code>BillingController</code>, um eine Bestellung zu verarbeiten.<ul>
 </li>
 </ul>
 </li>
-<li>Der <code>BillingController</code> bietet alle Funktionalität des Abrechnungssubsystems an, z.B.:<ul>
-<li><code>processOrder(cart, customer)</code></li>
-<li><code>refundOrder(orderId)</code></li>
-<li><code>getOrders(customerId)</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=28ab012365095777"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Funktionalität</strong>: Alle Use-Cases des Abrechnungssubsystems, z.B.:<ul>
+<li><code>ProcessOrder(cart, customer)</code></li>
+<li><code>RefundOrder(orderId)</code></li>
+<li><code>GetOrders(customerId)</code></li>
 </ul>
 </li>
-<li>GRASP-Prinzip: Der <code>BillingController</code> kapselt die Komplexität des
+<li><strong>GRASP-Prinzip</strong>: Der <code>BillingController</code> kapselt die Komplexität des
 Abrechnungssubsystems und bietet eine einfache Schnittstelle. Er ist nicht
 Teil der UI und koordiniert die Systemantwort.</li>
 </ul>
@@ -13448,7 +13456,7 @@ Teil der UI und koordiniert die Systemantwort.</li>
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-2898.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-11744.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13493,12 +13501,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.7:2049/", "http://127.0.0.1:2049/"])
+    probeAddresses(["http://172.18.0.7:2048/", "http://127.0.0.1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '2898.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '11744.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -13764,24 +13772,43 @@ des Abrechnungssubsystems.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ac6408d8c87587ae"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=086e63b9a91d1573"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Beispiel:-Use-Case-Controller">Beispiel: Use-Case-Controller<a class="anchor-link" href="#Beispiel:-Use-Case-Controller">¶</a></h2><h3 id="E-Commerce-Auftragsverwaltung">E-Commerce Auftragsverwaltung<a class="anchor-link" href="#E-Commerce-Auftragsverwaltung">¶</a></h3><ul>
-<li>Subsystem: Auftragsverwaltung</li>
-<li>Kontext: Anstatt eines großen Controllers für das gesamte Subsystem wird
+<li><strong>Subsystem</strong>: Auftragsverwaltung</li>
+<li><strong>Kontext</strong>: Anstatt eines großen Controllers für das gesamte Subsystem wird
 für jeden Anwendungsfall ein eigener, fokussierter Controller erstellt.</li>
-<li>Controller:<ul>
-<li><code>PlaceOrderController</code>: Bearbeitet den kompletten Anwendungsfall
-"Bestellung aufgeben". Die UI ruft <code>placeOrderController.execute(cart)</code>
-auf. Dieser koordiniert den <code>InventoryService</code> und <code>PaymentService</code>.</li>
-<li><code>CancelOrderController</code>: Bearbeitet den Anwendungsfall "Bestellung
-stornieren". Die UI ruft <code>cancelOrderController.execute(orderId)</code> auf.
-Dieser koordiniert <code>PaymentService</code> (für die Rückerstattung) und
+<li><strong>User Cases</strong>:<ul>
+<li>Bestellung aufgeben</li>
+<li>Bestellung stornieren</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a302ed2ac184b960"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Controller</strong>:<ul>
+<li><code>PlaceOrderController</code>:<ul>
+<li>Bearbeitet den kompletten Anwendungsfall "Bestellung aufgeben".</li>
+<li>Die UI ruft <code>placeOrderController.Execute(cart)</code> auf.</li>
+<li>Dieser koordiniert den <code>InventoryService</code> und <code>PaymentService</code>.</li>
+</ul>
+</li>
+<li><code>CancelOrderController</code>:<ul>
+<li>Bearbeitet den Anwendungsfall "Bestellung stornieren".</li>
+<li>Die UI ruft <code>cancelOrderController.Execute(orderId)</code> auf.</li>
+<li>Dieser koordiniert <code>PaymentService</code> (für die Rückerstattung) und
 <code>InventoryService</code> (um Artikel wieder einzulagern).</li>
 </ul>
 </li>
-<li>GRASP-Prinzip: Jeder Controller ist für einen vollständigen,
+</ul>
+</li>
+<li><strong>GRASP-Prinzip</strong>: Jeder Controller ist für einen vollständigen,
 abgeschlossenen Geschäftsprozess (Use Case) verantwortlich. Dies erhöht die
 Kohäsion und vereinfacht das System.</li>
 </ul>
@@ -13864,13 +13891,10 @@ Kohäsion und vereinfacht das System.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9fcb4ed7ec844f55"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8aaace0d5d7005b7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Verwendung verschiedener Controller durch die UI-Schicht:</p>
-<ul>
-<li>Benutzer klickt auf "Bestellung aufgeben" -&gt; <code>PlaceOrderController</code></li>
-</ul>
+<h3 id="Verwendung-verschiedener-Controller-durch-die-UI-Schicht">Verwendung verschiedener Controller durch die UI-Schicht<a class="anchor-link" href="#Verwendung-verschiedener-Controller-durch-die-UI-Schicht">¶</a></h3><p>Benutzer klickt auf "Bestellung aufgeben" -&gt; <code>PlaceOrderController</code></p>
 </div>
 </div>
 </div>
@@ -13919,13 +13943,11 @@ Kohäsion und vereinfacht das System.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=738fe7d07a3ff5a9"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f5a43f575c3badf7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Später klickt der Benutzer auf die Schaltfläche "Bestellung stornieren"
--&gt; <code>CancelOrderController</code></li>
-</ul>
+<p>Später klickt der Benutzer auf die Schaltfläche "Bestellung stornieren" -&gt;
+<code>CancelOrderController</code></p>
 </div>
 </div>
 </div>
@@ -13974,14 +13996,14 @@ Kohäsion und vereinfacht das System.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d7b46208a6bc4403"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d4d7d80009f7de45"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Verwandt: Fassaden-Pattern (Domänen-Fassade), Domänencontroller</li>
-<li>Siehe hexagonale Architektur: Controller sind die Ports in der hexagonalen
+<li><strong>Verwandt</strong>: Fassaden-Pattern (Domänen-Fassade), Domänencontroller</li>
+<li><strong>Hexagonale Architektur</strong>: Controller sind die Ports in der hexagonalen
 Architektur</li>
-<li>Tests: Controller bieten eine zentrale Schnittstelle für einzelne
+<li><strong>Tests</strong>: Controller bieten eine zentrale Schnittstelle für einzelne
 Subsysteme oder Anwendungsfälle</li>
 </ul>
 </div>

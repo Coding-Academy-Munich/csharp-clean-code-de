@@ -31,21 +31,24 @@
 //
 // ### Billing System Controller
 //
-// - Controller: `BillingController`
-// - Kontext: Ein einzelner Controller dient als Einstiegspunkt für das gesamte
-//   Abrechnungssubsystem.
-// - Funktionsweise: Die Benutzeroberfläche (UI) sendet eine einzige Nachricht
-//   an den `BillingController`, um eine Bestellung zu verarbeiten.
-//   - UI-Aufruf: `billingController.processOrder(cart, customer)`
+// - **Controller**: `BillingController`
+// - **Kontext**: Ein einzelner Controller dient als Einstiegspunkt für das
+//   gesamte Abrechnungssubsystem.
+// - **Funktionsweise**: Die Benutzeroberfläche (UI) sendet eine einzige
+//   Nachricht an den `BillingController`, um eine Bestellung zu verarbeiten.
+//   - UI-Aufruf: `billingController.ProcessOrder(cart, customer)`
 //   - Delegation: Der Controller koordiniert dann die internen Domänenobjekte:
 //     1.  Ruft den `TaxCalculator` auf, um die Steuern zu berechnen.
 //     2.  Weist den `InvoiceGenerator` an, eine Rechnung zu erstellen.
 //     3.  Beauftragt das `PaymentGateway`, die Zahlung abzuwickeln.
-// - Der `BillingController` bietet alle Funktionalität des Abrechnungssubsystems an, z.B.:
-//   - `processOrder(cart, customer)`
-//   - `refundOrder(orderId)`
-//   - `getOrders(customerId)`
-// - GRASP-Prinzip: Der `BillingController` kapselt die Komplexität des
+
+// %% [markdown]
+//
+// - **Funktionalität**: Alle Use-Cases des Abrechnungssubsystems, z.B.:
+//   - `ProcessOrder(cart, customer)`
+//   - `RefundOrder(orderId)`
+//   - `GetOrders(customerId)`
+// - **GRASP-Prinzip**: Der `BillingController` kapselt die Komplexität des
 //   Abrechnungssubsystems und bietet eine einfache Schnittstelle. Er ist nicht
 //   Teil der UI und koordiniert die Systemantwort.
 
@@ -132,18 +135,26 @@ billingController.GetOrders("customer-456");
 //
 // ### E-Commerce Auftragsverwaltung
 //
-// - Subsystem: Auftragsverwaltung
-// - Kontext: Anstatt eines großen Controllers für das gesamte Subsystem wird
+// - **Subsystem**: Auftragsverwaltung
+// - **Kontext**: Anstatt eines großen Controllers für das gesamte Subsystem wird
 //   für jeden Anwendungsfall ein eigener, fokussierter Controller erstellt.
-// - Controller:
-//   - `PlaceOrderController`: Bearbeitet den kompletten Anwendungsfall
-//     "Bestellung aufgeben". Die UI ruft `placeOrderController.execute(cart)`
-//     auf. Dieser koordiniert den `InventoryService` und `PaymentService`.
-//   - `CancelOrderController`: Bearbeitet den Anwendungsfall "Bestellung
-//     stornieren". Die UI ruft `cancelOrderController.execute(orderId)` auf.
-//     Dieser koordiniert `PaymentService` (für die Rückerstattung) und
-//     `InventoryService` (um Artikel wieder einzulagern).
-// - GRASP-Prinzip: Jeder Controller ist für einen vollständigen,
+// - **User Cases**:
+//   - Bestellung aufgeben
+//   - Bestellung stornieren
+
+// %% [markdown]
+//
+// - **Controller**:
+//   - `PlaceOrderController`:
+//     - Bearbeitet den kompletten Anwendungsfall "Bestellung aufgeben".
+//     - Die UI ruft `placeOrderController.Execute(cart)` auf.
+//     - Dieser koordiniert den `InventoryService` und `PaymentService`.
+//   - `CancelOrderController`:
+//     - Bearbeitet den Anwendungsfall "Bestellung stornieren".
+//     - Die UI ruft `cancelOrderController.Execute(orderId)` auf.
+//     - Dieser koordiniert `PaymentService` (für die Rückerstattung) und
+//       `InventoryService` (um Artikel wieder einzulagern).
+// - **GRASP-Prinzip**: Jeder Controller ist für einen vollständigen,
 //   abgeschlossenen Geschäftsprozess (Use Case) verantwortlich. Dies erhöht die
 //   Kohäsion und vereinfacht das System.
 
@@ -195,8 +206,9 @@ public class CancelOrderController {
 
 // %% [markdown]
 //
-// Verwendung verschiedener Controller durch die UI-Schicht:
-// - Benutzer klickt auf "Bestellung aufgeben" -> `PlaceOrderController`
+// ### Verwendung verschiedener Controller durch die UI-Schicht
+//
+// Benutzer klickt auf "Bestellung aufgeben" -> `PlaceOrderController`
 
 // %%
 var placeOrderController = new PlaceOrderController();
@@ -204,8 +216,8 @@ placeOrderController.Execute("cart-123");
 
 // %% [markdown]
 //
-// - Später klickt der Benutzer auf die Schaltfläche "Bestellung stornieren"
-//   -> `CancelOrderController`
+// Später klickt der Benutzer auf die Schaltfläche "Bestellung stornieren" ->
+// `CancelOrderController`
 
 // %%
 var cancelOrderController = new CancelOrderController();
@@ -213,8 +225,8 @@ cancelOrderController.Execute("order-abc");
 
 // %% [markdown]
 //
-// - Verwandt: Fassaden-Pattern (Domänen-Fassade), Domänencontroller
-// - Siehe hexagonale Architektur: Controller sind die Ports in der hexagonalen
+// - **Verwandt**: Fassaden-Pattern (Domänen-Fassade), Domänencontroller
+// - **Hexagonale Architektur**: Controller sind die Ports in der hexagonalen
 //   Architektur
-// - Tests: Controller bieten eine zentrale Schnittstelle für einzelne
+// - **Tests**: Controller bieten eine zentrale Schnittstelle für einzelne
 //   Subsysteme oder Anwendungsfälle

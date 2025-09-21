@@ -40,7 +40,7 @@
 //
 // ### Klassendiagramm
 //
-// <img src="img/template_method_example.svg"
+// <img src="img/template_method_example.png"
 //      style="display:block;margin:auto;width:40%"/>
 
 // %%
@@ -119,7 +119,7 @@ doc.SaveAs();
 //
 // ### Structure
 //
-// <img src="img/pat_template_method.svg"
+// <img src="img/pat_template_method.png"
 //      style="display:block;margin:auto;width:40%"/>
 
 // %% [markdown]

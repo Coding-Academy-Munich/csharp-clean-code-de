@@ -13442,13 +13442,13 @@ Indirektion hinzufügt. <em>Doch damit entsteht meist ein weiteres Problem.</em>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=34c6bbee3659aa60"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=bfed417de53ef134"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="GRASP:-Polymorphie">GRASP: Polymorphie<a class="anchor-link" href="#GRASP:-Polymorphie">¶</a></h1><ul>
 <li>Polymorphe Operationen beschreiben ähnliche (aber nicht identische)
-Verhaltensweisen, die sich je nach Typ eines Objekts ändern können</li>
-<li>Normalerweise kein Wechsel zwischen den Verhaltensweisen während der Laufzeit</li>
+Verhaltensweisen, die sich je nach Objekt oder Typ eines Objekts ändern
+können</li>
 </ul>
 </div>
 </div>
@@ -13469,21 +13469,6 @@ Verhaltensweisen, die sich je nach Typ eines Objekts ändern können</li>
 <li>Manchmal syntaktisch einfacher, weniger Code</li>
 </ul>
 </li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=464bb93e05c10647"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Verwandt: Regeln der Typenhierarchie<ul>
-<li>Isa-Regel</li>
-<li>Nur Blätter sind konkret</li>
-<li>Erzwingen von Invarianten für Subtypen durch Supertyp</li>
-</ul>
-</li>
-<li>Siehe auch: LSP, Offen/Geschlossen-Prinzip</li>
 </ul>
 </div>
 </div>
@@ -13531,13 +13516,13 @@ Informationen zusammenfallen</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9ef76d9e760d9449"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=67e731dc786dbc68"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Verwandte-Prinzipien">Verwandte Prinzipien<a class="anchor-link" href="#Verwandte-Prinzipien">¶</a></h3><ul>
 <li>Low Coupling, High Cohesion</li>
 <li>Information Expert<ul>
-<li>Pure Fabrication entfernt die vom Information Expert zugewiesen
+<li>Pure Fabrication übernimmt die vom Information Expert zugewiesenen
 Verantwortlichkeiten</li>
 </ul>
 </li>
