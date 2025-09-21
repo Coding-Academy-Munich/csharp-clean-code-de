@@ -13396,10 +13396,326 @@ können aber auch mehr als einen Use-Case bearbeiten).</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ddb45d59ae76ad7b"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0df917f0e06483d8"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Controller">Controller<a class="anchor-link" href="#Controller">¶</a></h2><ul>
+<h2 id="Beispiel:-Controller-als-Subsystem-Fassade">Beispiel: Controller als Subsystem-Fassade<a class="anchor-link" href="#Beispiel:-Controller-als-Subsystem-Fassade">¶</a></h2><h3 id="Billing-System-Controller">Billing System Controller<a class="anchor-link" href="#Billing-System-Controller">¶</a></h3><ul>
+<li>Controller: <code>BillingController</code></li>
+<li>Kontext: Ein einzelner Controller dient als Einstiegspunkt für das gesamte
+Abrechnungssubsystem.</li>
+<li>Funktionsweise: Die Benutzeroberfläche (UI) sendet eine einzige Nachricht
+an den <code>BillingController</code>, um eine Bestellung zu verarbeiten.<ul>
+<li>UI-Aufruf: <code>billingController.processOrder(cart, customer)</code></li>
+<li>Delegation: Der Controller koordiniert dann die internen Domänenobjekte:<ol>
+<li>Ruft den <code>TaxCalculator</code> auf, um die Steuern zu berechnen.</li>
+<li>Weist den <code>InvoiceGenerator</code> an, eine Rechnung zu erstellen.</li>
+<li>Beauftragt das <code>PaymentGateway</code>, die Zahlung abzuwickeln.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Der <code>BillingController</code> bietet alle Funktionalität des Abrechnungssubsystems an, z.B.:<ul>
+<li><code>processOrder(cart, customer)</code></li>
+<li><code>refundOrder(orderId)</code></li>
+<li><code>getOrders(customerId)</code></li>
+</ul>
+</li>
+<li>GRASP-Prinzip: Der <code>BillingController</code> kapselt die Komplexität des
+Abrechnungssubsystems und bietet eine einfache Schnittstelle. Er ist nicht
+Teil der UI und koordiniert die Systemantwort.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=94d050d94820ea88">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Example Domain Objects (for illustration)</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ShoppingCart</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomerInfo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">CustomerInfo</span><span class="w"> </span><span class="nf">FromOrderId</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomerInfo</span><span class="p">();</span>
+<span class="w">    </span><span class="cm">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=96ff739e201da5c1">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// The services within the Billing Subsystem</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">TaxCalculator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CalculateTaxes</span><span class="p">(</span><span class="n">ShoppingCart</span><span class="w"> </span><span class="n">cart</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Taxes calculated."</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InvoiceGenerator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateInvoice</span><span class="p">(</span><span class="n">ShoppingCart</span><span class="w"> </span><span class="n">cart</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Invoice created."</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PaymentGateway</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ProcessPayment</span><span class="p">(</span><span class="n">CustomerInfo</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Payment processed."</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ProcessRefund</span><span class="p">(</span><span class="n">CustomerInfo</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Refund processed."</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9d7ebf4d8e529146"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Der GRASP-Controller für das Abrechnungssubsystem</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=aada4b23e3608a3b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BillingController</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">TaxCalculator</span><span class="w"> </span><span class="n">_taxCalculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">InvoiceGenerator</span><span class="w"> </span><span class="n">_invoiceGenerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">PaymentGateway</span><span class="w"> </span><span class="n">_paymentGateway</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// The entry points for the UI</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ProcessOrder</span><span class="p">(</span><span class="n">ShoppingCart</span><span class="w"> </span><span class="n">cart</span><span class="p">,</span><span class="w"> </span><span class="n">CustomerInfo</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"--- BillingController: Processing new order ---"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_taxCalculator</span><span class="p">.</span><span class="n">CalculateTaxes</span><span class="p">(</span><span class="n">cart</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_invoiceGenerator</span><span class="p">.</span><span class="n">CreateInvoice</span><span class="p">(</span><span class="n">cart</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_paymentGateway</span><span class="p">.</span><span class="n">ProcessPayment</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"--- Order processing complete ---"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RefundOrder</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"--- BillingController: Refunding order {orderId} ---"</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Logic to refund the order</span>
+<span class="w">        </span><span class="n">CustomerInfo</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CustomerInfo</span><span class="p">.</span><span class="n">FromOrderId</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span><span class="w"> </span><span class="c1">// Hypothetical method</span>
+<span class="w">        </span><span class="n">_paymentGateway</span><span class="p">.</span><span class="n">ProcessRefund</span><span class="p">(</span><span class="n">customer</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"--- Refund complete ---"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GetOrders</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">customerId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"--- BillingController: Retrieving orders for customer {customerId} ---"</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Logic to get orders for the customer</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"--- Orders retrieved ---"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=279cc9ec28a6d4c6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Der einzige Einstiegspunkt für die UI in das Abrechnungssubsystem ist der
+<code>BillingController</code>.</li>
+<li>Er koordiniert die internen Domänenobjekte für die verschiedenen Use-Cases
+des Abrechnungssubsystems.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=f92385704bda0746">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// How the UI layer might use the BillingController</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">billingController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BillingController</span><span class="p">();</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ShoppingCart</span><span class="p">();</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CustomerInfo</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=50ed69122d367c5e">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">billingController</span><span class="p">.</span><span class="n">ProcessOrder</span><span class="p">(</span><span class="n">cart</span><span class="p">,</span><span class="w"> </span><span class="n">customer</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9289ede8efb6659d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">billingController</span><span class="p">.</span><span class="n">RefundOrder</span><span class="p">(</span><span class="s">"order-123"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c963efbbfa6cbb71">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">billingController</span><span class="p">.</span><span class="n">GetOrders</span><span class="p">(</span><span class="s">"customer-456"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ac6408d8c87587ae"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Beispiel:-Use-Case-Controller">Beispiel: Use-Case-Controller<a class="anchor-link" href="#Beispiel:-Use-Case-Controller">¶</a></h2><h3 id="E-Commerce-Auftragsverwaltung">E-Commerce Auftragsverwaltung<a class="anchor-link" href="#E-Commerce-Auftragsverwaltung">¶</a></h3><ul>
+<li>Subsystem: Auftragsverwaltung</li>
+<li>Kontext: Anstatt eines großen Controllers für das gesamte Subsystem wird
+für jeden Anwendungsfall ein eigener, fokussierter Controller erstellt.</li>
+<li>Controller:<ul>
+<li><code>PlaceOrderController</code>: Bearbeitet den kompletten Anwendungsfall
+"Bestellung aufgeben". Die UI ruft <code>placeOrderController.execute(cart)</code>
+auf. Dieser koordiniert den <code>InventoryService</code> und <code>PaymentService</code>.</li>
+<li><code>CancelOrderController</code>: Bearbeitet den Anwendungsfall "Bestellung
+stornieren". Die UI ruft <code>cancelOrderController.execute(orderId)</code> auf.
+Dieser koordiniert <code>PaymentService</code> (für die Rückerstattung) und
+<code>InventoryService</code> (um Artikel wieder einzulagern).</li>
+</ul>
+</li>
+<li>GRASP-Prinzip: Jeder Controller ist für einen vollständigen,
+abgeschlossenen Geschäftsprozess (Use Case) verantwortlich. Dies erhöht die
+Kohäsion und vereinfacht das System.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide celltag_keep" id="cell-id=9593c491cbf1a18b">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Shared services used by multiple controllers</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">InventoryService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ReserveItems</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">cartId</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Inventory: Items reserved."</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RestockItems</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Inventory: Items restocked."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PaymentService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CollectPayment</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">cartId</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Payment: Payment collected."</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">IssueRefund</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Payment: Refund issued."</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=fa605902ffa40ffb"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use Case 1: Bestellung aufgeben</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=4036588552a68fcb">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PlaceOrderController</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">InventoryService</span><span class="w"> </span><span class="n">_inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">_payment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">cartId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n--- PlaceOrderController: Executing ---"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_inventory</span><span class="p">.</span><span class="n">ReserveItems</span><span class="p">(</span><span class="n">cartId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_payment</span><span class="p">.</span><span class="n">CollectPayment</span><span class="p">(</span><span class="n">cartId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"--- Order placed successfully ---"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=28c6655e10c89bc3"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use Case 2: Bestellung stornieren</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9ee98cb2095c8351">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CancelOrderController</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">_payment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">InventoryService</span><span class="w"> </span><span class="n">_inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n--- CancelOrderController: Executing ---"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_payment</span><span class="p">.</span><span class="n">IssueRefund</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_inventory</span><span class="p">.</span><span class="n">RestockItems</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"--- Order cancelled successfully ---"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9fcb4ed7ec844f55"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Verwendung verschiedener Controller durch die UI-Schicht:</p>
+<ul>
+<li>Benutzer klickt auf "Bestellung aufgeben" -&gt; <code>PlaceOrderController</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=bf396a2669b63faa">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">placeOrderController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PlaceOrderController</span><span class="p">();</span>
+<span class="n">placeOrderController</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"cart-123"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=738fe7d07a3ff5a9"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Später klickt der Benutzer auf die Schaltfläche "Bestellung stornieren"
+-&gt; <code>CancelOrderController</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=6c94dd9f4ef43a2d">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">cancelOrderController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CancelOrderController</span><span class="p">();</span>
+<span class="n">cancelOrderController</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="s">"order-abc"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d7b46208a6bc4403"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>Verwandt: Fassaden-Pattern (Domänen-Fassade), Domänencontroller</li>
 <li>Siehe hexagonale Architektur: Controller sind die Ports in der hexagonalen
 Architektur</li>

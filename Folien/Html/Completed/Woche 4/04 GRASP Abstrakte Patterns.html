@@ -13376,6 +13376,72 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=70d1a6c7eab1ede4"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img alt="No description has been provided for this image" src="img/grasp-patterns.png" style="display:block;margin:auto;width:100%"/></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=3e4ce189746df522"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="GRASP:-Indirektion">GRASP: Indirektion<a class="anchor-link" href="#GRASP:-Indirektion">¶</a></h1><p>"Jedes Problem in der Informatik kann gelöst werden, indem man eine weitere
+Indirektion hinzufügt."</p>
+<div style="float:right;">- David Wheeler</div>
+<p><br/><br/></p>
+<div class="fragment">
+<p>"Außer zu viele Indirektionen."</p>
+<div style="float:right;">– N.N.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ac7466214ab36b7"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Wie können wir die Kopplung zwischen zwei Objekten verringern?</li>
+<li>Wir führen eine weitere Schicht ein, die die beiden Objekte entkoppelt</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=4b057cc1095c3016"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indirektion">Indirektion<a class="anchor-link" href="#Indirektion">¶</a></h2><ul>
+<li>Sehr häufige Muster auf jeder Schicht<ul>
+<li>Betriebssystem</li>
+<li>Virtuelle Maschinen</li>
+<li>Polymorphe Methodenaufrufe</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d9d659547fdb2fc0"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Testen:<ul>
+<li>Indirektionen sind Nahtstellen, die für Testzwecke verwendet werden können</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=9e250399ed5c2223"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indirektion">Indirektion<a class="anchor-link" href="#Indirektion">¶</a></h2><p>"Jedes Problem in der Informatik kann gelöst werden, indem man eine weitere
+Indirektion hinzufügt. <em>Doch damit entsteht meist ein weiteres Problem.</em>"</p>
+<div style="float:right;">- David Wheeler</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=34c6bbee3659aa60"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13407,10 +13473,26 @@ Verhaltensweisen, die sich je nach Typ eines Objekts ändern können</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b181eefed32e6b59"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=464bb93e05c10647"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="GRASP:-Pure-Fabrication">GRASP: Pure Fabrication<a class="anchor-link" href="#GRASP:-Pure-Fabrication">¶</a></h1><p>Welchem Objekt geben wir die Verantwortung für eine Aufgabe, wenn z.B.
+<ul>
+<li>Verwandt: Regeln der Typenhierarchie<ul>
+<li>Isa-Regel</li>
+<li>Nur Blätter sind konkret</li>
+<li>Erzwingen von Invarianten für Subtypen durch Supertyp</li>
+</ul>
+</li>
+<li>Siehe auch: LSP, Offen/Geschlossen-Prinzip</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3ca0d01cd8ca0e6f"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!-- GRASP: Pure Fabrication -->
+<p>Welchem Objekt geben wir die Verantwortung für eine Aufgabe, wenn z.B.
 Information Expert oder Creator zu Lösungen führen, die nicht gut sind, weil
 sie niedrige Kohäsion oder hohe Kopplung haben?</p>
 </div>
@@ -13449,53 +13531,26 @@ Informationen zusammenfallen</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=1d6340af66c74d50"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=9ef76d9e760d9449"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="GRASP:-Indirektion">GRASP: Indirektion<a class="anchor-link" href="#GRASP:-Indirektion">¶</a></h1><div>
-"Jedes Problem in der Informatik kann gelöst werden, indem man eine weitere
-Indirektion hinzufügt."
-<div style="float:right;">- David Wheeler</div>
-</div>
-<br/>
-<div> "Außer zu viele Indirektionen."
-<div style="float:right;">– N.N.</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8ac7466214ab36b7"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Wie können wir die Kopplung zwischen zwei Objekten verringern?</li>
-<li>Wir führen eine weitere Schicht ein, die die beiden Objekte entkoppelt</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a3ae21db65d2d12e"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Indirektion">Indirektion<a class="anchor-link" href="#Indirektion">¶</a></h2><ul>
-<li>Sehr häufige Muster auf jeder Schicht<ul>
-<li>Betriebssystem</li>
-<li>Virtuelle Maschinen</li>
-<li>Polymorphe Methodenaufrufe</li>
+<h3 id="Verwandte-Prinzipien">Verwandte Prinzipien<a class="anchor-link" href="#Verwandte-Prinzipien">¶</a></h3><ul>
+<li>Low Coupling, High Cohesion</li>
+<li>Information Expert<ul>
+<li>Pure Fabrication entfernt die vom Information Expert zugewiesen
+Verantwortlichkeiten</li>
 </ul>
 </li>
-<li>Testen:<ul>
-<li>Indirektionen sind Nahtstellen, die für Testzwecke verwendet werden können</li>
-</ul>
-</li>
+<li>Fast alle Design Patterns sind Pure Fabrications</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=fa31c1547f6ee2e2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d86ded6b646f3ae7"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Protected-Variation">Protected Variation<a class="anchor-link" href="#Protected-Variation">¶</a></h2><p>Problem: Wie können wir Komponenten so gestalten, dass Variations- oder
+<!-- Protected Variation -->
+<p>Problem: Wie können wir Komponenten so gestalten, dass Variations- oder
 Evolutionspunkte keine unerwünschten Auswirkungen auf andere Komponenten haben?</p>
 </div>
 </div>
@@ -13513,7 +13568,7 @@ Evolutionspunkte keine unerwünschten Auswirkungen auf andere Komponenten haben?
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d2fd9b42b498bcce"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=594e27ec708cd930"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Protected-Variations">Protected Variations<a class="anchor-link" href="#Protected-Variations">¶</a></h2><ul>
@@ -13524,13 +13579,18 @@ Evolutionspunkte keine unerwünschten Auswirkungen auf andere Komponenten haben?
 <li>Standards</li>
 </ul>
 </li>
-<li>Testen:<ul>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=da7f715973dd1497"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Protected-Variation">Protected Variation<a class="anchor-link" href="#Protected-Variation">¶</a></h2><h3 id="Testen">Testen<a class="anchor-link" href="#Testen">¶</a></h3><ul>
 <li>Geschützte Variationen sind oft Einstiegspunkte für Tests</li>
 <li>Aber oft müssen zusätzliche Tests geschrieben werden, um sicherzustellen,
 dass das System noch funktioniert, wenn die Variabilität tatsächlich
 verwendet wird</li>
-</ul>
-</li>
 </ul>
 </div>
 </div>

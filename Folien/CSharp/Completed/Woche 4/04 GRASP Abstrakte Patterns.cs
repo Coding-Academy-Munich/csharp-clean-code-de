@@ -12,6 +12,53 @@
 
 // %% [markdown]
 //
+// <img src="img/grasp-patterns.png"
+//      style="display:block;margin:auto;width:100%"/>
+
+// %% [markdown]
+//
+// # GRASP: Indirektion
+//
+// <p>"Jedes Problem in der Informatik kann gelöst werden, indem man eine weitere
+// Indirektion hinzufügt."</p>
+// <div style="float:right;">- David Wheeler</div>
+//
+// <br><br>
+// <div class="fragment">
+// <p>"Außer zu viele Indirektionen."</p>
+// <div style="float:right;">– N.N.</div>
+// </div>
+
+// %% [markdown]
+//
+// - Wie können wir die Kopplung zwischen zwei Objekten verringern?
+// - Wir führen eine weitere Schicht ein, die die beiden Objekte entkoppelt
+
+// %% [markdown]
+//
+// ## Indirektion
+//
+// - Sehr häufige Muster auf jeder Schicht
+//   - Betriebssystem
+//   - Virtuelle Maschinen
+//   - Polymorphe Methodenaufrufe
+
+// %% [markdown]
+//
+// - Testen:
+//   - Indirektionen sind Nahtstellen, die für Testzwecke verwendet werden können
+
+// %% [markdown]
+//
+// ## Indirektion
+//
+// "Jedes Problem in der Informatik kann gelöst werden, indem man eine weitere
+// Indirektion hinzufügt. *Doch damit entsteht meist ein weiteres Problem.*"
+//
+// <div style="float:right;">- David Wheeler</div>
+
+// %% [markdown]
+//
 // # GRASP: Polymorphie
 //
 // - Polymorphe Operationen beschreiben ähnliche (aber nicht identische)
@@ -34,7 +81,15 @@
 
 // %% [markdown]
 //
-// # GRASP: Pure Fabrication
+// - Verwandt: Regeln der Typenhierarchie
+//   - Isa-Regel
+//   - Nur Blätter sind konkret
+//   - Erzwingen von Invarianten für Subtypen durch Supertyp
+// - Siehe auch: LSP, Offen/Geschlossen-Prinzip
+
+// %% [markdown]
+//
+// <!-- GRASP: Pure Fabrication -->
 //
 // Welchem Objekt geben wir die Verantwortung für eine Aufgabe, wenn z.B.
 // Information Expert oder Creator zu Lösungen führen, die nicht gut sind, weil
@@ -67,38 +122,17 @@
 
 // %% [markdown]
 //
-// # GRASP: Indirektion
+// ### Verwandte Prinzipien
 //
-// <div>
-// "Jedes Problem in der Informatik kann gelöst werden, indem man eine weitere
-// Indirektion hinzufügt."
-// <div style="float:right;">- David Wheeler</div>
-// </div>
-//
-// <br>
-// <div> "Außer zu viele Indirektionen."
-// <div style="float:right;">– N.N.</div>
-// </div>
+// - Low Coupling, High Cohesion
+// - Information Expert
+//   - Pure Fabrication entfernt die vom Information Expert zugewiesen
+//     Verantwortlichkeiten
+// - Fast alle Design Patterns sind Pure Fabrications
 
 // %% [markdown]
 //
-// - Wie können wir die Kopplung zwischen zwei Objekten verringern?
-// - Wir führen eine weitere Schicht ein, die die beiden Objekte entkoppelt
-
-// %% [markdown]
-//
-// ## Indirektion
-//
-// - Sehr häufige Muster auf jeder Schicht
-//   - Betriebssystem
-//   - Virtuelle Maschinen
-//   - Polymorphe Methodenaufrufe
-// - Testen:
-//   - Indirektionen sind Nahtstellen, die für Testzwecke verwendet werden können
-
-// %% [markdown]
-//
-// ## Protected Variation
+// <!-- Protected Variation -->
 //
 // Problem: Wie können wir Komponenten so gestalten, dass Variations- oder
 // Evolutionspunkte keine unerwünschten Auswirkungen auf andere Komponenten haben?
@@ -122,11 +156,16 @@
 //   - Schnittstellen, Polymorphismus
 //   - Virtuelle Maschinen
 //   - Standards
-// - Testen:
-//   - Geschützte Variationen sind oft Einstiegspunkte für Tests
-//   - Aber oft müssen zusätzliche Tests geschrieben werden, um sicherzustellen,
-//     dass das System noch funktioniert, wenn die Variabilität tatsächlich
-//     verwendet wird
+
+// %% [markdown]
+//
+// ## Protected Variation
+// ### Testen
+//
+// - Geschützte Variationen sind oft Einstiegspunkte für Tests
+// - Aber oft müssen zusätzliche Tests geschrieben werden, um sicherzustellen,
+//   dass das System noch funktioniert, wenn die Variabilität tatsächlich
+//   verwendet wird
 
 // %% [markdown]
 //
