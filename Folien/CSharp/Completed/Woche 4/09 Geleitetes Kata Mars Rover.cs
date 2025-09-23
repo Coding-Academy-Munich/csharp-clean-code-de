@@ -72,17 +72,17 @@
 //     public Point Position { get; private set; }
 //     public Direction Direction { get; private set; }
 //
-//     public Rover()
+//     public Rover(Point startPosition = new(), Direction startDirection = Direction.N)
 //     {
-//         Position = new Point(0, 0);
-//         Direction = Direction.N;
+//         Position = startPosition;
+//         Direction = startDirection;
 //     }
 // }
 // ```
 
 // %% [markdown]
 //
-// ### 2. Zyklus: Verhalten hinzufügen - Drehen
+// ### 2. Zyklus: Verhalten hinzufügen - Drehen nach rechts
 //
 // #### ROT:
 // - Wir schreiben einen Test, um zu überprüfen, ob das Senden des Befehls `R`
@@ -95,7 +95,7 @@
 // ```csharp
 // // In MarsRoverTests.cs
 // [Fact]
-// public void Rover_Can_Turn_Right()
+// public void Rover_Turning_Right_Once_Changes_Direction_To_East()
 // {
 //     var rover = new Rover();
 //     rover.ExecuteCommands("R"); // Fails: ExecuteCommands does not exist
@@ -122,9 +122,6 @@
 //             Direction = Direction switch
 //             {
 //                 Direction.N => Direction.E,
-//                 Direction.E => Direction.S,
-//                 Direction.S => Direction.W,
-//                 Direction.W => Direction.N,
 //                 _ => Direction
 //             };
 //         }
@@ -135,7 +132,241 @@
 
 // %% [markdown]
 //
-// ### 3. Zyklus: Verhalten hinzufügen - Bewegen
+// ### 3. Zyklus: Verhalten hinzufügen - Zweimal Drehen nach rechts
+//
+// #### ROT:
+// - Wir schreiben einen Test, um zu überprüfen, ob das Senden von `RR` an einen
+//   Rover, der nach `N` ausgerichtet ist, ihn nach `S` (Süden) ausrichtet.
+// - Der Test wird fehlschlagen.
+
+// %% [markdown]
+//
+// ```csharp
+// // In MarsRoverTests.cs
+// [Fact]
+// public void Rover_Turning_Right_Twice_Changes_Direction_To_South()
+// {
+//     var rover = new Rover();
+//     rover.ExecuteCommands("R");
+//     rover.ExecuteCommands("R");
+//     Assert.Equal(Direction.S, rover.Direction);
+// }
+// ```
+
+// %% [markdown]
+//
+// #### GRÜN:
+// - Wir erweitern die `ExecuteCommands`-Methode, um die Logik für das Drehen
+//   nach rechts, wenn der Rover bereits nach Osten ausgerichtet ist, zu
+//   implementieren.
+
+// %% [markdown]
+//
+// ```csharp
+// // In Rover.cs
+// public void ExecuteCommands(string commands)
+// {
+//     foreach (char command in commands)
+//     {
+//         if (command == 'R')
+//         {
+//             Direction = Direction switch
+//             {
+//                 Direction.N => Direction.E,
+//                 Direction.E => Direction.S,
+//                 _ => Direction
+//             };
+//         }
+//     }
+// }
+// ```
+
+// %% [markdown]
+//
+// #### REFACTOR:
+//
+// - Wir refaktorisieren die Drehrichtung in eine separate Methode `TurnRight`
+// - Wir erzeugen den Rover im Konstruktor der Test-Klasse, und speichern ihn in
+//   einer Member-Variable, um Wiederholungen zu vermeiden.
+// - Wir ersetzen die zwei Tests für das Drehen  nach rechts durch einen
+//   parametrisierten Test.
+// - Dazu müssen wir das Ausführen mehrerer Befehle in der
+//   `ExecuteCommands`-Methode unterstützen.
+
+// %% [markdown]
+//
+// ```csharp
+// // In Rover.cs
+// private void TurnRight()
+// {
+//     Direction = Direction switch
+//     {
+//         Direction.N => Direction.E,
+//         Direction.E => Direction.S,
+//         _ => Direction
+//     };
+// }
+//
+// public void ExecuteCommands(string commands)
+// {
+//     foreach (char command in commands)
+//     {
+//         if (command == 'R')
+//         {
+//             TurnRight();
+//         }
+//     }
+// }
+// ```
+//
+// ```csharp
+// // In MarsRoverTests.cs
+// public class MarsRoverTests
+// {
+//     private readonly Rover _rover;
+//
+//     public MarsRoverTests()
+//     {
+//         _rover = new Rover(new Point(0, 0), Direction.N);
+//     }
+//
+//     // ...
+//
+//     [Theory]
+//     [InlineData("R", Direction.E)]
+//     [InlineData("RR", Direction.S)]
+//     public void Rover_Turning_Right_Changes_Direction_Correctly(string commands, Direction expectedDirection)
+//     {
+//         _rover.ExecuteCommands(commands);
+//         Assert.Equal(expectedDirection, _rover.Direction);
+//     }
+// }
+// ```
+
+// %% [markdown]
+//
+// ### 4. Zyklus: Verhalten hinzufügen - Mehrfach Drehen nach rechts
+//
+// #### ROT:
+//
+// - Wir erweitern den parametrischen Test, um zu überprüfen, ob die Befehle
+//   `RRR` und `RRRR` den Rover korrekt ausrichten.
+// - Der Test wird fehlschlagen.
+
+// %% [markdown]
+//
+// ```csharp
+// // In MarsRoverTests.cs
+// [Theory]
+// [InlineData("R", Direction.E)]
+// [InlineData("RR", Direction.S)]
+// [InlineData("RRR", Direction.W)]
+// [InlineData("RRRR", Direction.N)]
+// public void Rover_Turning_Right_Changes_Direction_Correctly(string commands, Direction expectedDirection)
+// {
+//     _rover.ExecuteCommands(commands);
+//     Assert.Equal(expectedDirection, _rover.Direction);
+// }
+// ```
+
+// %% [markdown]
+//
+// #### GRÜN & REFACTOR:
+//
+// - Wir erweitern die `TurnRight`-Methode, um alle vier Richtungen zu
+//   unterstützen.
+// - Der parametrisierte Test ist jetzt grün.
+
+// %% [markdown]
+//
+// ```csharp
+// // In Rover.cs
+// private void TurnRight()
+// {
+//     Direction = Direction switch
+//     {
+//         Direction.N => Direction.E,
+//         Direction.E => Direction.S,
+//         Direction.S => Direction.W,
+//         Direction.W => Direction.N,
+//         _ => Direction
+//     };
+// }
+// ```
+
+// %% [markdown]
+//
+// ### 5. Zyklus: Verhalten hinzufügen - Drehen nach links
+//
+// #### ROT:
+//
+// - Wir erweitern den parametrischen Test um ein- bis viermaliges Drehen nach
+//   links.
+// - Der Test wird fehlschlagen.
+
+// %% [markdown]
+//
+// ```csharp
+// // In MarsRoverTests.cs
+// [Theory]
+// [InlineData("R", Direction.E)]
+// [InlineData("RR", Direction.S)]
+// [InlineData("RRR", Direction.W)]
+// [InlineData("RRRR", Direction.N)]
+// [InlineData("L", Direction.W)]
+// [InlineData("LL", Direction.S)]
+// [InlineData("LLL", Direction.E)]
+// [InlineData("LLLL", Direction.N)]
+// public void Rover_Turning_Changes_Direction_Correctly(string commands, Direction expectedDirection)
+// {
+//     _rover.ExecuteCommands(commands);
+//     Assert.Equal(expectedDirection, _rover.Direction);
+// }
+// ```
+
+// %% [markdown]
+//
+// #### GRÜN & REFACTOR:
+//
+// - Wir implementieren die `TurnLeft`-Methode und erweitern die
+//   `ExecuteCommands`-Methode, um den `L`-Befehl zu unterstützen.
+// - Der parametrisierte Test ist jetzt grün.
+
+// %% [markdown]
+//
+// ```csharp
+// // In Rover.cs
+// private void TurnLeft()
+// {
+//     Direction = Direction switch
+//     {
+//         Direction.N => Direction.W,
+//         Direction.W => Direction.S,
+//         Direction.S => Direction.E,
+//         Direction.E => Direction.N,
+//         _ => Direction
+//     };
+// }
+//
+// public void ExecuteCommands(string commands)
+// {
+//     foreach (char command in commands)
+//     {
+//         if (command == 'R')
+//         {
+//             TurnRight();
+//         }
+//         else if (command == 'L')
+//         {
+//             TurnLeft();
+//         }
+//     }
+// }
+// ```
+
+// %% [markdown]
+//
+// ### 6. Zyklus: Verhalten hinzufügen - Bewegen
 //
 // #### ROT:
 // - Wir schreiben einen Test, um zu überprüfen, ob das Senden von `M` an einen
@@ -150,7 +381,7 @@
 // [Fact]
 // public void Rover_Moves_Forward_Facing_North()
 // {
-//     var rover = new Rover { Position = new Point(10, 10), Direction = Direction.N };
+//     var rover = new Rover(new Point(10, 10), Direction.N);
 //     rover.ExecuteCommands("M"); // Fails: 'M' logic does not exist
 //     Assert.Equal(new Point(10, 11), rover.Position);
 // }
@@ -158,7 +389,98 @@
 
 // %% [markdown]
 //
-// ### 4. Zyklus: Design durch eine neue Anforderung treiben
+// #### GRÜN & REFACTOR:
+//
+// - Wir implementieren die Bewegungslogik für die `N`-Richtung.
+// - Der Test ist jetzt grün.
+
+// %% [markdown]
+//
+// ```csharp
+// // In Rover.cs
+// private void Move()
+// {
+//     Position = Direction switch
+//     {
+//         Direction.N => new Point(Position.X, Position.Y + 1),
+//         _ => Position
+//     };
+// }
+//
+// public void ExecuteCommands(string commands)
+// {
+//     foreach (char command in commands)
+//     {
+//         if (command == 'R')
+//         {
+//             TurnRight();
+//         }
+//         else if (command == 'L')
+//         {
+//             TurnLeft();
+//         }
+//         else if (command == 'M')
+//         {
+//             Move();
+//         }
+//     }
+// }
+// ```
+
+// %% [markdown]
+//
+// ### 7. Zyklus: Verhalten hinzufügen - Bewegen in alle Richtungen
+//
+// #### ROT:
+// - Wir erweitern den Test, um das Bewegen in alle vier Richtungen zu
+//   überprüfen.
+// - Der Test wird fehlschlagen.
+
+// %% [markdown]
+//
+// ```csharp
+// // In MarsRoverTests.cs
+// [Theory]
+// [InlineData(Direction.N, new Point(0, 0), new Point(0, 1))]
+// [InlineData(Direction.E, new Point(0, 0), new Point(1, 0))]
+// [InlineData(Direction.S, new Point(0, 0), new Point(0, -1))]
+// [InlineData(Direction.W, new Point(0, 0), new Point(-1, 0))]
+// public void Rover_Moves_Forward_In_All_Directions(Direction startDirection, Point startPosition, Point expectedPosition)
+// {
+//     var rover = new Rover(startPosition, startDirection);
+//     rover.ExecuteCommands("M");
+//     Assert.Equal(expectedPosition, rover.Position);
+// }
+// ```
+
+// %% [markdown]
+//
+// #### GRÜN & REFACTOR:
+//
+// - Wir erweitern die `Move`-Methode, um alle vier Richtungen zu unterstützen.
+// - Der parametrisierte Test ist jetzt grün.
+
+// %% [markdown]
+//
+// ```csharp
+// // In Rover.cs
+// private void Move()
+// {
+//     Position = Direction switch
+//     {
+//         Direction.N => new Point(Position.X, Position.Y + 1),
+//         Direction.E => new Point(Position.X + 1, Position.Y),
+//         Direction.S => new Point(Position.X, Position.Y - 1),
+//         Direction.W => new Point(Position.X - 1, Position.Y),
+//         _ => Position
+//     };
+// }
+// ```
+
+
+// %% [markdown]
+//
+// ### 8. Zyklus: Design durch eine neue Anforderung treiben
 //
 // #### ROT:
 // - Wir führen das Konzept des "wrapping" ein. Ein Rover am Rand eines
@@ -173,42 +495,77 @@
 // [Fact]
 // public void Rover_Wraps_Around_The_Grid_Edge()
 // {
-//     var rover = new Rover { Position = new Point(5, 9), Direction = Direction.N };
+//     // Rover should be on a 10x10 grid...
+//     var rover = new Rover(new Point(5, 9), Direction.N);
 //     rover.ExecuteCommands("M");
 //     // Fails: Position will be (5, 10), not (5, 0).
-//     // The Rover needs to know about the grid size (e.g., 10x10).
 //     Assert.Equal(new Point(5, 0), rover.Position);
+//     // The Rover needs to know about the grid size (e.g., 10x10) to make this work.
 // }
 // ```
 
 // %% [markdown]
 //
-// ### Der "Aha!"-Moment: Refactoring zu einem besseren Design
+// - Wir müssen unser Design überdenken, um das neue "wrapping"-Verhalten zu
+//   unterstützen.
+// - Dazu können wir mit verschiedenen Ansätzen experimentieren, indem wir den
+//   Test auf verschiedene Arten schreiben:
+//   - Angeben der Grid-Größe bei der Ausführung von Befehlen:
+//     ```csharp
+//     rover.ExecuteCommands("M", gridWidth: 10, gridHeight: 10);
+//     ```
+//   - Übergabe der Grid-Größe im Konstruktor des Rovers:
+//     ```csharp
+//     var rover = new Rover(new Point(5, 9), Direction.N, gridWidth: 10, gridHeight: 10);
+//     ```
+//   - Einführung einer `Grid`-Klasse, die für die "Topologie" der Welt
+//     verantwortlich ist:
+//     ```csharp
+//     var grid = new Grid(width: 10, height: 10);
+//     var rover = new Rover(grid, new Point(5, 9), Direction.N);
+//     ```
+
+// %% [markdown]
 //
 // #### GRÜN & REFACTOR:
-// - Der Test hat einen Designfehler aufgedeckt: Der Rover weiß zu viel über die Regeln der Welt.
-// - Dies führt zu einer **bedeutenden Designverbesserung**: Wir erstellen eine `Grid`-Klasse.
-// - Der Rover delegiert die Bewegungsberechnung an das `Grid`.
-// - Das Ergebnis ist ein entkoppeltes Design, das direkt aus der
-//   Notwendigkeit geboren wurde, einen Test zu bestehen.
+//
+// - Der Test hat ein Problem mit unserem bisherigen Design aufgedeckt:
+//   - Der Rover weiß viel über die Regeln der Welt.
+//   - Es wäre besser, die Verantwortlichkeit für die "Grid-Logik" auszulagern.
+// - Designverbesserung:
+//   - Wir erstellen eine `Grid`-Klasse.
+//   - Der Rover delegiert die Bewegungsberechnung an das `Grid`.
+// - Das Ergebnis ist ein entkoppeltes Design, das direkt aus der Notwendigkeit
+//   geboren wurde, einen Test zu bestehen.
 
 // %% [markdown]
 //
 // ```csharp
-// // Final Grid class
+// // Grid class
 // public class Grid
 // {
 //     public int Width { get; }
 //     public int Height { get; }
 //
-//     public Grid(int width, int height) { /* ... */ }
+//     public Grid(int width, int height)
+//     {
+//         if (width <= 0 || height <= 0)
+//         {
+//             throw new ArgumentException("Grid dimensions must be positive.");
+//         }
+//         Width = width;
+//         Height = height;
+//     }
 //
 //     public Point CalculateNextPosition(Point current, Direction dir)
 //     {
 //         return dir switch
 //         {
 //             Direction.N => new Point(current.X, (current.Y + 1) % Height),
-//             // ... other directions with wrapping logic
+//             Direction.E => new Point((current.X + 1) % Width, current.Y),
+//             Direction.S => new Point(current.X, (current.Y - 1 + Height) % Height),
+//             Direction.W => new Point((current.X - 1 + Width) % Width, current.Y),
+//             _ => current
 //         };
 //     }
 // }
@@ -222,8 +579,11 @@
 // {
 //     private readonly Grid _grid;
 //
-//     public Rover(Grid grid, /*...*/) {
+//     public Rover(Grid grid, Point startPosition = new(), Direction startDirection = Direction.N)
+//     {
 //         _grid = grid;
+//         Position = startPosition;
+//         Direction = startDirection;
 //     }
 //
 //     private void Move()
@@ -234,6 +594,36 @@
 // }
 // ```
 
+// %% [markdown]
+//
+// - Der Test ist jetzt grün.
+// - Da die Grid-Instanz nicht modifiziert wird, können wir eine Fixture
+//   einführen, die sie für alle Tests bereitstellt.
+// - In diesem Fall ist das nicht notwendig, da die Grid-Instanz sehr billig zu
+//   erstellen ist, aber für komplexere Objekte ist es eine gute Praxis.
+
+// %% [markdown]
+//
+// ```csharp
+// // In MarsRoverTests.cs
+// public class MarsRoverTestFixture
+// {
+//     public Grid Grid { get; } = new(100, 100);
+// }
+//
+// public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
+// {
+//     private readonly Grid _grid;
+//     private readonly Rover _rover;
+//
+//     public MarsRoverTests(MarsRoverTestFixture fixture)
+//     {
+//         _grid = fixture.Grid;
+//         _rover = new Rover(_grid, new Point(0, 0), Direction.N);
+//     }
+//     // ... rest of the tests
+// }
+// ```
 
 // %% [markdown]
 //

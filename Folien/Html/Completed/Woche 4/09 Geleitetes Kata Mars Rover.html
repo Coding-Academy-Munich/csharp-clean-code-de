@@ -13439,7 +13439,7 @@ orientiert ist.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=1ee0cf11a4066a72"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=366b621cd95f059b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">MarsRover</span><span class="p">;</span>
@@ -13453,20 +13453,20 @@ orientiert ist.</li>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">Position</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Rover</span><span class="p">()</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Rover</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">startPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(),</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">startDirection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startPosition</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startDirection</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7b84e326ea803b77"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c3f1f2309b3a7898"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Drehen">2. Zyklus: Verhalten hinzufügen - Drehen<a class="anchor-link" href="#2.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Drehen">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<h3 id="2.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Drehen-nach-rechts">2. Zyklus: Verhalten hinzufügen - Drehen nach rechts<a class="anchor-link" href="#2.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Drehen-nach-rechts">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
 <li>Wir schreiben einen Test, um zu überprüfen, ob das Senden des Befehls <code>R</code>
 an einen nach <code>N</code> ausgerichteten Rover ihn nach <code>E</code> (Osten) ausrichtet.</li>
 <li>Der Test wird fehlschlagen, da es noch keine Methode zur Befehlsausführung
@@ -13475,12 +13475,12 @@ gibt.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=10f63db4dd4fa9f2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=bad7dbb631047428"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
 <span class="na">[Fact]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Can_Turn_Right</span><span class="p">()</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Turning_Right_Once_Changes_Direction_To_East</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">();</span>
 <span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"R"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Fails: ExecuteCommands does not exist</span>
@@ -13500,7 +13500,68 @@ gibt.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=3076a7e58a221f44"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=429508793dbfbcc1"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ExecuteCommands</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'R'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="p">,</span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Logic for 'L' would be added here next</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=98faf9ff5840233c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Zweimal-Drehen-nach-rechts">3. Zyklus: Verhalten hinzufügen - Zweimal Drehen nach rechts<a class="anchor-link" href="#3.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Zweimal-Drehen-nach-rechts">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<li>Wir schreiben einen Test, um zu überprüfen, ob das Senden von <code>RR</code> an einen
+Rover, der nach <code>N</code> ausgerichtet ist, ihn nach <code>S</code> (Süden) ausrichtet.</li>
+<li>Der Test wird fehlschlagen.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=5cb2ac00ce66730c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
+<span class="na">[Fact]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Turning_Right_Twice_Changes_Direction_To_South</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">();</span>
+<span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"R"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"R"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Direction</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=d3fed7c0db8e621b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="GR%C3%9CN:">GRÜN:<a class="anchor-link" href="#GR%C3%9CN:">¶</a></h4><ul>
+<li>Wir erweitern die <code>ExecuteCommands</code>-Methode, um die Logik für das Drehen
+nach rechts, wenn der Rover bereits nach Osten ausgerichtet ist, zu
+implementieren.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=5f46586851f916cb"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
@@ -13514,22 +13575,221 @@ gibt.</li>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="p">,</span>
 <span class="w">                </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="p">,</span>
-<span class="w">                </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="p">,</span>
-<span class="w">                </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span>
 <span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span>
 <span class="w">            </span><span class="p">};</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="c1">// Logic for 'L' would be added here next</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=03790dadf5d5f9b0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=49b932d377129a7b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen">3. Zyklus: Verhalten hinzufügen - Bewegen<a class="anchor-link" href="#3.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<h4 id="REFACTOR:">REFACTOR:<a class="anchor-link" href="#REFACTOR:">¶</a></h4><ul>
+<li>Wir refaktorisieren die Drehrichtung in eine separate Methode <code>TurnRight</code></li>
+<li>Wir erzeugen den Rover im Konstruktor der Test-Klasse, und speichern ihn in
+einer Member-Variable, um Wiederholungen zu vermeiden.</li>
+<li>Wir ersetzen die zwei Tests für das Drehen  nach rechts durch einen
+parametrisierten Test.</li>
+<li>Dazu müssen wir das Ausführen mehrerer Befehle in der
+<code>ExecuteCommands</code>-Methode unterstützen.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=bae5ff2af2dbdf8a"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TurnRight</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="p">,</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ExecuteCommands</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'R'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TurnRight</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MarsRoverTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Rover</span><span class="w"> </span><span class="n">_rover</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MarsRoverTests</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="na">[Theory]</span>
+<span class="w">    </span><span class="na">[InlineData("R", Direction.E)]</span>
+<span class="w">    </span><span class="na">[InlineData("RR", Direction.S)]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Turning_Right_Changes_Direction_Correctly</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">expectedDirection</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="n">commands</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expectedDirection</span><span class="p">,</span><span class="w"> </span><span class="n">_rover</span><span class="p">.</span><span class="n">Direction</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6bcb8b5f03e17e56"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Mehrfach-Drehen-nach-rechts">4. Zyklus: Verhalten hinzufügen - Mehrfach Drehen nach rechts<a class="anchor-link" href="#4.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Mehrfach-Drehen-nach-rechts">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<li>Wir erweitern den parametrischen Test, um zu überprüfen, ob die Befehle
+<code>RRR</code> und <code>RRRR</code> den Rover korrekt ausrichten.</li>
+<li>Der Test wird fehlschlagen.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=39f09a2847f0ced9"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
+<span class="na">[Theory]</span>
+<span class="na">[InlineData("R", Direction.E)]</span>
+<span class="na">[InlineData("RR", Direction.S)]</span>
+<span class="na">[InlineData("RRR", Direction.W)]</span>
+<span class="na">[InlineData("RRRR", Direction.N)]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Turning_Right_Changes_Direction_Correctly</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">expectedDirection</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="n">commands</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expectedDirection</span><span class="p">,</span><span class="w"> </span><span class="n">_rover</span><span class="p">.</span><span class="n">Direction</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=94e4a17727131be6"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
+<li>Wir erweitern die <code>TurnRight</code>-Methode, um alle vier Richtungen zu
+unterstützen.</li>
+<li>Der parametrisierte Test ist jetzt grün.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=693f9b0142a2e67b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TurnRight</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=acf27fd6ac260ec4"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Drehen-nach-links">5. Zyklus: Verhalten hinzufügen - Drehen nach links<a class="anchor-link" href="#5.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Drehen-nach-links">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<li>Wir erweitern den parametrischen Test um ein- bis viermaliges Drehen nach
+links.</li>
+<li>Der Test wird fehlschlagen.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=d02dd088bfb0f751"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
+<span class="na">[Theory]</span>
+<span class="na">[InlineData("R", Direction.E)]</span>
+<span class="na">[InlineData("RR", Direction.S)]</span>
+<span class="na">[InlineData("RRR", Direction.W)]</span>
+<span class="na">[InlineData("RRRR", Direction.N)]</span>
+<span class="na">[InlineData("L", Direction.W)]</span>
+<span class="na">[InlineData("LL", Direction.S)]</span>
+<span class="na">[InlineData("LLL", Direction.E)]</span>
+<span class="na">[InlineData("LLLL", Direction.N)]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Turning_Changes_Direction_Correctly</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">expectedDirection</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="n">commands</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expectedDirection</span><span class="p">,</span><span class="w"> </span><span class="n">_rover</span><span class="p">.</span><span class="n">Direction</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b0d7b2d8f77c9168"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
+<li>Wir implementieren die <code>TurnLeft</code>-Methode und erweitern die
+<code>ExecuteCommands</code>-Methode, um den <code>L</code>-Befehl zu unterstützen.</li>
+<li>Der parametrisierte Test ist jetzt grün.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=d08246816fcfc46e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TurnLeft</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="p">,</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Direction</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ExecuteCommands</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'R'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TurnRight</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'L'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TurnLeft</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d1b53409c6a4bf1"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen">6. Zyklus: Verhalten hinzufügen - Bewegen<a class="anchor-link" href="#6.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
 <li>Wir schreiben einen Test, um zu überprüfen, ob das Senden von <code>M</code> an einen
 Rover bei <code>{10, 10}</code>, der nach <code>N</code> ausgerichtet ist, ihn nach <code>{10, 11}</code>
 bewegt.</li>
@@ -13538,14 +13798,14 @@ bewegt.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=2caa13a9242efa39"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=4ef369aa1cb739ee"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
 <span class="na">[Fact]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Moves_Forward_Facing_North</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 <span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Fails: 'M' logic does not exist</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
 <span class="p">}</span>
@@ -13553,10 +13813,114 @@ bewegt.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=11c5250017ddf38d"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=baa2d2be58fbca3f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.-Zyklus:-Design-durch-eine-neue-Anforderung-treiben">4. Zyklus: Design durch eine neue Anforderung treiben<a class="anchor-link" href="#4.-Zyklus:-Design-durch-eine-neue-Anforderung-treiben">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
+<li>Wir implementieren die Bewegungslogik für die <code>N</code>-Richtung.</li>
+<li>Der Test ist jetzt grün.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=95168b6eb35f403b"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Move</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Position</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ExecuteCommands</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'R'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TurnRight</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'L'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TurnLeft</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">command</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'M'</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Move</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ee16865c11d55c82"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="7.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen-in-alle-Richtungen">7. Zyklus: Verhalten hinzufügen - Bewegen in alle Richtungen<a class="anchor-link" href="#7.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen-in-alle-Richtungen">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
+<li>Wir erweitern den Test, um das Bewegen in alle vier Richtungen zu
+überprüfen.</li>
+<li>Der Test wird fehlschlagen.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=dcc3568562d4a550"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
+<span class="na">[Theory]</span>
+<span class="na">[InlineData(Direction.N, new Point(0, 0), new Point(0, 1))]</span>
+<span class="na">[InlineData(Direction.E, new Point(0, 0), new Point(1, 0))]</span>
+<span class="na">[InlineData(Direction.S, new Point(0, 0), new Point(0, -1))]</span>
+<span class="na">[InlineData(Direction.W, new Point(0, 0), new Point(-1, 0))]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Moves_Forward_In_All_Directions</span><span class="p">(</span><span class="n">Direction</span><span class="w"> </span><span class="n">startDirection</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">startPosition</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">expectedPosition</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">startPosition</span><span class="p">,</span><span class="w"> </span><span class="n">startDirection</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expectedPosition</span><span class="p">,</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8bff7239291be8e7"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
+<li>Wir erweitern die <code>Move</code>-Methode, um alle vier Richtungen zu unterstützen.</li>
+<li>Der parametrisierte Test ist jetzt grün.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=00d7aae6c97c30ff"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In Rover.cs</span>
+<span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Move</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Position</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a998e740427ad4d2"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="8.-Zyklus:-Design-durch-eine-neue-Anforderung-treiben">8. Zyklus: Design durch eine neue Anforderung treiben<a class="anchor-link" href="#8.-Zyklus:-Design-durch-eine-neue-Anforderung-treiben">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
 <li>Wir führen das Konzept des "wrapping" ein. Ein Rover am Rand eines
 10x10-Gitters soll auf der gegenüberliegenden Seite wieder erscheinen.</li>
 <li>Dieser Test wird fehlschlagen, weil der Rover kein Konzept von einem Gitter
@@ -13565,53 +13929,97 @@ hat.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=807ae0f0f8eb61b2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=f091bf7d8b0d6a89"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
 <span class="na">[Fact]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Wraps_Around_The_Grid_Edge</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// Rover should be on a 10x10 grid...</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 <span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// Fails: Position will be (5, 10), not (5, 0).</span>
-<span class="w">    </span><span class="c1">// The Rover needs to know about the grid size (e.g., 10x10).</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// The Rover needs to know about the grid size (e.g., 10x10) to make this work.</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c8b12ee061e5d7d8"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c08ee72df78e31ac"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Der-%22Aha!%22-Moment:-Refactoring-zu-einem-besseren-Design">Der "Aha!"-Moment: Refactoring zu einem besseren Design<a class="anchor-link" href="#Der-%22Aha!%22-Moment:-Refactoring-zu-einem-besseren-Design">¶</a></h3><h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
-<li>Der Test hat einen Designfehler aufgedeckt: Der Rover weiß zu viel über die Regeln der Welt.</li>
-<li>Dies führt zu einer <strong>bedeutenden Designverbesserung</strong>: Wir erstellen eine <code>Grid</code>-Klasse.</li>
-<li>Der Rover delegiert die Bewegungsberechnung an das <code>Grid</code>.</li>
-<li>Das Ergebnis ist ein entkoppeltes Design, das direkt aus der
-Notwendigkeit geboren wurde, einen Test zu bestehen.</li>
+<ul>
+<li>Wir müssen unser Design überdenken, um das neue "wrapping"-Verhalten zu
+unterstützen.</li>
+<li>Dazu können wir mit verschiedenen Ansätzen experimentieren, indem wir den
+Test auf verschiedene Arten schreiben:<ul>
+<li>Angeben der Grid-Größe bei der Ausführung von Befehlen:<div class="highlight"><pre><span></span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">,</span><span class="w"> </span><span class="n">gridWidth</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">gridHeight</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+</pre></div>
+</li>
+<li>Übergabe der Grid-Größe im Konstruktor des Rovers:<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">gridWidth</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">gridHeight</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+</pre></div>
+</li>
+<li>Einführung einer <code>Grid</code>-Klasse, die für die "Topologie" der Welt
+verantwortlich ist:<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Grid</span><span class="p">(</span><span class="n">width</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+</pre></div>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=749a8eb44b233261"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=bf4be57fc450bf9d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="c1">// Final Grid class</span>
+<h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
+<li>Der Test hat ein Problem mit unserem bisherigen Design aufgedeckt:<ul>
+<li>Der Rover weiß viel über die Regeln der Welt.</li>
+<li>Es wäre besser, die Verantwortlichkeit für die "Grid-Logik" auszulagern.</li>
+</ul>
+</li>
+<li>Designverbesserung:<ul>
+<li>Wir erstellen eine <code>Grid</code>-Klasse.</li>
+<li>Der Rover delegiert die Bewegungsberechnung an das <code>Grid</code>.</li>
+</ul>
+</li>
+<li>Das Ergebnis ist ein entkoppeltes Design, das direkt aus der Notwendigkeit
+geboren wurde, einen Test zu bestehen.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=43c4c7bfc8d4c983"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// Grid class</span>
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Grid</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Width</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Height</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Grid</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Grid</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ArgumentException</span><span class="p">(</span><span class="s">"Grid dimensions must be positive."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="nf">CalculateNextPosition</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">current</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">dir</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Height</span><span class="p">),</span>
-<span class="w">            </span><span class="c1">// ... other directions with wrapping logic</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">((</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Height</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Height</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">((</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Width</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">current</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13619,7 +14027,7 @@ Notwendigkeit geboren wurde, einen Test zu bestehen.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=3c2e16c1d2abbdc0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=6dd938f7a1a5555f"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c1">// Updated Rover class</span>
@@ -13627,8 +14035,11 @@ Notwendigkeit geboren wurde, einen Test zu bestehen.</li>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="n">_grid</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Rover</span><span class="p">(</span><span class="n">Grid</span><span class="w"> </span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="cm">/*...*/</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Rover</span><span class="p">(</span><span class="n">Grid</span><span class="w"> </span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">startPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(),</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">startDirection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">_grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grid</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startPosition</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startDirection</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Move</span><span class="p">()</span>
@@ -13636,6 +14047,44 @@ Notwendigkeit geboren wurde, einen Test zu bestehen.</li>
 <span class="w">        </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_grid</span><span class="p">.</span><span class="n">CalculateNextPosition</span><span class="p">(</span><span class="n">Position</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">// ... rest of the Rover code</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ae53faf6b1dccef5"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Der Test ist jetzt grün.</li>
+<li>Da die Grid-Instanz nicht modifiziert wird, können wir eine Fixture
+einführen, die sie für alle Tests bereitstellt.</li>
+<li>In diesem Fall ist das nicht notwendig, da die Grid-Instanz sehr billig zu
+erstellen ist, aber für komplexere Objekte ist es eine gute Praxis.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide celltag_alt" id="cell-id=213049dec2c04abd"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MarsRoverTestFixture</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MarsRoverTests</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IClassFixture</span><span class="o">&lt;</span><span class="n">MarsRoverTestFixture</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="n">_grid</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Rover</span><span class="w"> </span><span class="n">_rover</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MarsRoverTests</span><span class="p">(</span><span class="n">MarsRoverTestFixture</span><span class="w"> </span><span class="n">fixture</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fixture</span><span class="p">.</span><span class="n">Grid</span><span class="p">;</span>
+<span class="w">        </span><span class="n">_rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">_grid</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// ... rest of the tests</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -13697,7 +14146,7 @@ FizzBuzz
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-35835.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-50753.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13747,7 +14196,7 @@ function loadDotnetInteractiveApi() {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '35835.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '50753.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
