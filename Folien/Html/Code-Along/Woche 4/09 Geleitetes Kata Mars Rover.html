@@ -13396,19 +13396,19 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a11fa4a8d315b098"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=73bbf11bc150663b"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="1.-Zyklus:-Erzeugen-des-Rovers">1. Zyklus: Erzeugen des Rovers<a class="anchor-link" href="#1.-Zyklus:-Erzeugen-des-Rovers">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
 <li>Wir schreiben einen Test, der überprüft, dass ein neu erzeugtes
-Rover-Objekt an der Position <code>{0, 0}</code> und in Richtung <code>N</code> (Norden)
+Rover-Objekt an der Position <code>(0, 0)</code> und in Richtung <code>N</code> (Norden)
 orientiert ist.</li>
 <li>Dieser Test wird fehlschlagen, da die Rover-Klasse noch nicht existiert.</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1eccc447db044641"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6564ac3d43330fe9"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="GR%C3%9CN:">GRÜN:<a class="anchor-link" href="#GR%C3%9CN:">¶</a></h4><ul>
@@ -13429,12 +13429,11 @@ gibt.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e10e0dd2cd8f0efc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=60ec31f53d2018b2"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="GR%C3%9CN-&amp;-REFACTOR:">GRÜN &amp; REFACTOR:<a class="anchor-link" href="#GR%C3%9CN-&amp;-REFACTOR:">¶</a></h4><ul>
+<h4 id="GR%C3%9CN:">GRÜN:<a class="anchor-link" href="#GR%C3%9CN:">¶</a></h4><ul>
 <li>Wir implementieren eine <code>ExecuteCommands</code>-Methode mit einfacher Logik.</li>
-<li>Wir fügen Tests für Links- und Rechtsdrehungen hinzu und refaktorisieren die Logik.</li>
 </ul>
 </div>
 </div>
@@ -13461,17 +13460,25 @@ implementieren.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=49b932d377129a7b"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=7a63df1aa987873c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="REFACTOR:">REFACTOR:<a class="anchor-link" href="#REFACTOR:">¶</a></h4><ul>
+<h4 id="REFACTOR-(1):">REFACTOR (1):<a class="anchor-link" href="#REFACTOR-(1):">¶</a></h4><ul>
+<li>Wir ersetzen die ad-hoc Logik in der <code>ExecuteCommands</code>-Methode durch eine
+Schleife, die jeden Befehl einzeln verarbeitet.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=ccc980c3ea5ec758"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="REFACTOR-(2):">REFACTOR (2):<a class="anchor-link" href="#REFACTOR-(2):">¶</a></h4><ul>
 <li>Wir refaktorisieren die Drehrichtung in eine separate Methode <code>TurnRight</code></li>
 <li>Wir erzeugen den Rover im Konstruktor der Test-Klasse, und speichern ihn in
 einer Member-Variable, um Wiederholungen zu vermeiden.</li>
 <li>Wir ersetzen die zwei Tests für das Drehen  nach rechts durch einen
 parametrisierten Test.</li>
-<li>Dazu müssen wir das Ausführen mehrerer Befehle in der
-<code>ExecuteCommands</code>-Methode unterstützen.</li>
 </ul>
 </div>
 </div>
@@ -13520,12 +13527,12 @@ links.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=1d1b53409c6a4bf1"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a66e2b89726fc09d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="6.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen">6. Zyklus: Verhalten hinzufügen - Bewegen<a class="anchor-link" href="#6.-Zyklus:-Verhalten-hinzuf%C3%BCgen---Bewegen">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
 <li>Wir schreiben einen Test, um zu überprüfen, ob das Senden von <code>M</code> an einen
-Rover bei <code>{10, 10}</code>, der nach <code>N</code> ausgerichtet ist, ihn nach <code>{10, 11}</code>
+Rover bei <code>(10, 10)</code>, der nach <code>N</code> ausgerichtet ist, ihn nach <code>(10, 11)</code>
 bewegt.</li>
 <li>Der Test wird fehlschlagen.</li>
 </ul>
@@ -13563,14 +13570,16 @@ bewegt.</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=a998e740427ad4d2"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=94f03db2849a817c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="8.-Zyklus:-Design-durch-eine-neue-Anforderung-treiben">8. Zyklus: Design durch eine neue Anforderung treiben<a class="anchor-link" href="#8.-Zyklus:-Design-durch-eine-neue-Anforderung-treiben">¶</a></h3><h4 id="ROT:">ROT:<a class="anchor-link" href="#ROT:">¶</a></h4><ul>
-<li>Wir führen das Konzept des "wrapping" ein. Ein Rover am Rand eines
-10x10-Gitters soll auf der gegenüberliegenden Seite wieder erscheinen.</li>
-<li>Dieser Test wird fehlschlagen, weil der Rover kein Konzept von einem Gitter
-hat.</li>
+<li>Wir führen das Konzept des "wrapping" ein.<ul>
+<li>Ein Rover am Rand eines Grids soll auf der gegenüberliegenden Seite wieder erscheinen.</li>
+<li>Die Größe des Grids ist konfigurierbar.</li>
+</ul>
+</li>
+<li>Dieser Test wird fehlschlagen, weil der Rover kein Konzept von einem Grid hat.</li>
 </ul>
 </div>
 </div>

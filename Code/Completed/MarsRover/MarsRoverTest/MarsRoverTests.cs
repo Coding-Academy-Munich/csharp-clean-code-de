@@ -41,15 +41,16 @@ public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
     {
         _rover.ExecuteCommands("R");
         Assert.Equal(Direction.E, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
     }
 
     // Second test for turning. The structure is almost similar to the first test for turning.
     [Fact]
     public void Rover_Turning_Right_Twice_Changes_Direction_To_South()
     {
-        _rover.ExecuteCommands("R");
-        _rover.ExecuteCommands("R");
+        _rover.ExecuteCommands("RR");
         Assert.Equal(Direction.S, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
     }
 
     // Don't write tests like this!
@@ -58,12 +59,16 @@ public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
     {
         _rover.ExecuteCommands("R");
         Assert.Equal(Direction.E, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
         _rover.ExecuteCommands("R");
         Assert.Equal(Direction.S, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
         _rover.ExecuteCommands("R");
         Assert.Equal(Direction.W, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
         _rover.ExecuteCommands("R");
         Assert.Equal(Direction.N, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
     }
 
     // If we have many similar tests, we can use a parametric test (Theory) to reduce the amount of boilerplate code
@@ -78,10 +83,11 @@ public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
     [InlineData("LL", Direction.S)]
     [InlineData("LLL", Direction.E)]
     [InlineData("LLLL", Direction.N)]
-    public void Rover_Turning_Commands_Result_In_Correct_Direction(string commands, Direction expectedDirection)
+    public void Rover_Turning_Changes_Direction_Correctly(string commands, Direction expectedDirection)
     {
         _rover.ExecuteCommands(commands);
         Assert.Equal(expectedDirection, _rover.Direction);
+        Assert.Equal(new Point(0, 0), _rover.Position);
     }
 
     // Test 3: Moving
@@ -92,6 +98,7 @@ public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
         var rover = new Rover(_grid, new Point(10, 10), Direction.N);
         rover.ExecuteCommands("M");
         Assert.Equal(new Point(10, 11), rover.Position);
+        Assert.Equal(Direction.N, rover.Direction);
     }
 
     [Theory]
@@ -100,14 +107,16 @@ public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
     [InlineData(Direction.E, 11, 10)]
     [InlineData(Direction.W, 9, 10)]
     public void Rover_Moves_Forward_One_Grid_Point_In_Correct_Direction(
-        Direction startDirection, int expectedX, int expectedY)
+        Direction direction, int expectedX, int expectedY)
     {
         // This test requires a specific starting position, so it instantiates its own Rover.
-        var rover = new Rover(_grid, new Point(10, 10), startDirection);
+        var rover = new Rover(_grid, new Point(10, 10), direction);
+        var expectedPosition = new Point(expectedX, expectedY);
 
         rover.ExecuteCommands("M");
 
-        Assert.Equal(new Point(expectedX, expectedY), rover.Position);
+        Assert.Equal(expectedPosition, rover.Position);
+        Assert.Equal(direction, rover.Direction);
     }
 
     // Test 4: Command Sequence
@@ -133,15 +142,16 @@ public class MarsRoverTests : IClassFixture<MarsRoverTestFixture>
     [InlineData(9, 5, Direction.E, 0, 5)] // Wraps from East to West
     [InlineData(0, 5, Direction.W, 9, 5)] // Wraps from West to East
     public void Rover_Wraps_Around_The_Grid_Edges(
-        int startX, int startY, Direction startDirection, int expectedX, int expectedY)
+        int startX, int startY, Direction direction, int expectedX, int expectedY)
     {
         // For this test, a specific 10x10 grid is needed, which is different from the fixture's 100x100 grid.
         // Therefore, we still instantiate a new Grid and Rover here.
         var grid = new Grid(10, 10);
-        var rover = new Rover(grid, new Point(startX, startY), startDirection);
+        var rover = new Rover(grid, new Point(startX, startY), direction);
 
         rover.ExecuteCommands("M");
 
         Assert.Equal(new Point(expectedX, expectedY), rover.Position);
+        Assert.Equal(direction, rover.Direction);
     }
 }
