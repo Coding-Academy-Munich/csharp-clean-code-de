@@ -16,9 +16,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #f8f8f8; }
 .highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .err { border: 1px solid #F00 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
+.highlight .o { color: #666 } /* Operator */
 .highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #9C6500 } /* Comment.Preproc */
@@ -35,34 +35,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .gt { color: #04D } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { color: #008000 } /* Keyword.Pseudo */
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .m { color: #666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
 .highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .nc { color: #00F; font-weight: bold } /* Name.Class */
+.highlight .no { color: #800 } /* Name.Constant */
+.highlight .nd { color: #A2F } /* Name.Decorator */
 .highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
 .highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nf { color: #00F } /* Name.Function */
 .highlight .nl { color: #767600 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nn { color: #00F; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666 } /* Literal.Number.Float */
+.highlight .mh { color: #666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666 } /* Literal.Number.Oct */
 .highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
@@ -77,12 +77,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .fm { color: #00F } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .il { color: #666 } /* Literal.Number.Integer.Long */
   </style>
 <style type="text/css">
 /*!
@@ -13069,6 +13069,7 @@ div#notebook {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -13496,7 +13497,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Stock</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">price</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
 <span class="w">        </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -13543,7 +13544,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AddStock</span><span class="p">(</span><span class="n">Stock</span><span class="w"> </span><span class="n">stock</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">stock</span><span class="p">));</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="n">stock</span><span class="p">));</span>
 <span class="w">        </span><span class="n">_stocks</span><span class="p">[</span><span class="n">stock</span><span class="p">.</span><span class="n">Name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stock</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -13562,7 +13563,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Stock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SelectStocksToUpdate</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">numToSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">_stocks</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.8</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">numToSelect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">_stocks</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">);</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_stocks</span><span class="p">.</span><span class="n">Values</span>
 <span class="w">            </span><span class="p">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_random</span><span class="p">.</span><span class="n">Next</span><span class="p">())</span>
 <span class="w">            </span><span class="p">.</span><span class="n">Take</span><span class="p">(</span><span class="n">numToSelect</span><span class="p">)</span>
@@ -13573,8 +13574,8 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">stocks</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">changePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">decimal</span><span class="p">)(</span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.1</span><span class="p">);</span>
-<span class="w">            </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">changePercent</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">changePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">decimal</span><span class="p">)(</span><span class="n">_random</span><span class="p">.</span><span class="n">NextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">stock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">changePercent</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13671,10 +13672,10 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Microsoft"</span><span class="p">,</span><span class="w"> </span><span class="m">300</span><span class="n">m</span><span class="p">));</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="m">180</span><span class="n">m</span><span class="p">));</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Amazon"</span><span class="p">,</span><span class="w"> </span><span class="m">140</span><span class="n">m</span><span class="p">));</span>
-<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Google"</span><span class="p">,</span><span class="w"> </span><span class="m">150</span><span class="n">m</span><span class="p">));</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Microsoft"</span><span class="p">,</span><span class="w"> </span><span class="mf">300m</span><span class="p">));</span>
+<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="mf">180m</span><span class="p">));</span>
+<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Amazon"</span><span class="p">,</span><span class="w"> </span><span class="mf">140m</span><span class="p">));</span>
+<span class="n">market</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Stock</span><span class="p">(</span><span class="s">"Google"</span><span class="p">,</span><span class="w"> </span><span class="mf">150m</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -13685,7 +13686,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"============= Update {i + 1} ============="</span><span class="p">);</span>
 <span class="w">    </span><span class="n">market</span><span class="p">.</span><span class="n">UpdatePrices</span><span class="p">();</span>
@@ -13713,7 +13714,7 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"============= Update {i + 1} ============="</span><span class="p">);</span>
 <span class="w">    </span><span class="n">market</span><span class="p">.</span><span class="n">UpdatePrices</span><span class="p">();</span>
@@ -13967,7 +13968,7 @@ Implementieren Sie dazu:</p>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Example 1: Simple property change monitoring</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">observableStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Tesla"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">850</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">observableStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Tesla"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">850m</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
 </div>
@@ -13997,7 +13998,7 @@ Implementieren Sie dazu:</p>
 <span class="n">observableStock</span><span class="p">.</span><span class="n">PriceChanged</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">changePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">e</span><span class="p">.</span><span class="n">NewPrice</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">OldPrice</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">OldPrice</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">changePercent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">e</span><span class="p">.</span><span class="n">NewPrice</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">OldPrice</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">OldPrice</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{stock.Name}: ${e.OldPrice:F2} → ${e.NewPrice:F2} ({changePercent:+0.00;-0.00}%)"</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
@@ -14010,7 +14011,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">observableStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">900</span><span class="n">m</span><span class="p">;</span><span class="w">  </span><span class="c1">// Triggers both PropertyChanged and PriceChanged</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">observableStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">900m</span><span class="p">;</span><span class="w">  </span><span class="c1">// Triggers both PropertyChanged and PriceChanged</span>
 </pre></div>
 </div>
 </div>
@@ -14052,7 +14053,7 @@ Implementieren Sie dazu:</p>
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnStockPropertyChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">PropertyChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">PropertyName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nameof</span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">.</span><span class="n">Price</span><span class="p">))</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">PropertyName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nameof</span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">.</span><span class="n">Price</span><span class="p">))</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">UpdateTotalValue</span><span class="p">();</span>
 <span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ObservableStock</span><span class="p">)</span><span class="n">sender</span><span class="p">;</span>
@@ -14088,8 +14089,8 @@ Implementieren Sie dazu:</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">180</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">microsoft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Microsoft"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">apple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">180m</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">microsoft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Microsoft"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">300m</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
 </div>
@@ -14100,8 +14101,8 @@ Implementieren Sie dazu:</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">portfolio</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="n">apple</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
-<span class="n">portfolio</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="n">microsoft</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">);</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">portfolio</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="n">apple</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="n">portfolio</span><span class="p">.</span><span class="n">AddStock</span><span class="p">(</span><span class="n">microsoft</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -14113,7 +14114,7 @@ Implementieren Sie dazu:</p>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Simulate price changes</span>
-<span class="n">apple</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">185</span><span class="n">m</span><span class="p">;</span>
+<span class="n">apple</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">185m</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -14124,7 +14125,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">microsoft</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">295</span><span class="n">m</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">microsoft</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">295m</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -14166,7 +14167,7 @@ Implementieren Sie dazu:</p>
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ModelPropertyChanged</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">PropertyChangedEventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// When model changes, notify that DisplayName might have changed</span>
-<span class="w">        </span><span class="n">OnPropertyChanged</span><span class="p">(</span><span class="n">nameof</span><span class="p">(</span><span class="n">DisplayName</span><span class="p">));</span>
+<span class="w">        </span><span class="n">OnPropertyChanged</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="n">DisplayName</span><span class="p">));</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsTracking</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
@@ -14192,7 +14193,7 @@ Implementieren Sie dazu:</p>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n=== ViewModel Example ==="</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">googleStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Google"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">150</span><span class="n">m</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">googleStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObservableStock</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Google"</span><span class="p">,</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">150m</span><span class="w"> </span><span class="p">};</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">viewModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StockViewModel</span><span class="p">(</span><span class="n">googleStock</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -14217,7 +14218,7 @@ Implementieren Sie dazu:</p>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Change the stock price - ViewModel will be notified</span>
-<span class="n">googleStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">155</span><span class="n">m</span><span class="p">;</span>
+<span class="n">googleStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">155m</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -14228,7 +14229,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">googleStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">152</span><span class="n">m</span><span class="p">;</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="n">googleStock</span><span class="p">.</span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">152m</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>

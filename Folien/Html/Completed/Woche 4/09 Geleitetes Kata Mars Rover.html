@@ -16,9 +16,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #f8f8f8; }
 .highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .err { border: 1px solid #F00 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
+.highlight .o { color: #666 } /* Operator */
 .highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #9C6500 } /* Comment.Preproc */
@@ -35,34 +35,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .gt { color: #04D } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { color: #008000 } /* Keyword.Pseudo */
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .m { color: #666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
 .highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .nc { color: #00F; font-weight: bold } /* Name.Class */
+.highlight .no { color: #800 } /* Name.Constant */
+.highlight .nd { color: #A2F } /* Name.Decorator */
 .highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
 .highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nf { color: #00F } /* Name.Function */
 .highlight .nl { color: #767600 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nn { color: #00F; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666 } /* Literal.Number.Float */
+.highlight .mh { color: #666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666 } /* Literal.Number.Oct */
 .highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
@@ -77,12 +77,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .fm { color: #00F } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .il { color: #666 } /* Literal.Number.Integer.Long */
   </style>
 <style type="text/css">
 /*!
@@ -13069,6 +13069,7 @@ div#notebook {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -13418,7 +13419,7 @@ orientiert ist.</li>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">();</span><span class="w"> </span><span class="c1">// Fails: Rover does not exist</span>
 
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Direction</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13440,7 +13441,7 @@ orientiert ist.</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">MarsRover</span><span class="p">;</span>
 
-<span class="k">public</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nf">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span>
+<span class="k">public</span><span class="w"> </span><span class="k">record</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nf">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Y</span><span class="p">);</span>
 
 <span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">}</span>
 
@@ -13451,7 +13452,7 @@ orientiert ist.</li>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Rover</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -13644,7 +13645,7 @@ parametrisierten Test.</li>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MarsRoverTests</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">_rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// ...</span>
@@ -13818,9 +13819,9 @@ bewegt.</li>
 <span class="na">[Fact]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Moves_Forward_Facing_North</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 <span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Fails: 'M' logic does not exist</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -13844,7 +13845,7 @@ bewegt.</li>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
 <span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Position</span>
 <span class="w">    </span><span class="p">};</span>
 <span class="p">}</span>
@@ -13895,7 +13896,7 @@ bewegt.</li>
 <span class="w">    </span><span class="n">Direction</span><span class="w"> </span><span class="n">direction</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">expectedX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">expectedY</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// This test requires a specific starting position, so it instantiates its own Rover.</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">direction</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">direction</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">expectedPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">expectedX</span><span class="p">,</span><span class="w"> </span><span class="n">expectedY</span><span class="p">);</span>
 <span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">);</span>
 <span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expectedPosition</span><span class="p">,</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
@@ -13923,10 +13924,10 @@ bewegt.</li>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
-<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
 <span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Position</span>
 <span class="w">    </span><span class="p">};</span>
 <span class="p">}</span>
@@ -13956,10 +13957,10 @@ bewegt.</li>
 <span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Rover_Wraps_Around_The_Grid_Edge</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// Rover should be on a 10x10 grid...</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 <span class="w">    </span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// Fails: Position will be (5, 10), not (5, 0).</span>
-<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">rover</span><span class="p">.</span><span class="n">Position</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// The Rover needs to know about the grid size (e.g., 10x10) to make this work.</span>
 <span class="p">}</span>
 </pre></div>
@@ -13974,15 +13975,15 @@ bewegt.</li>
 unterstützen.</li>
 <li>Dazu können wir mit verschiedenen Ansätzen experimentieren, indem wir den
 Test auf verschiedene Arten schreiben:<ul>
-<li>Angeben der Grid-Größe bei der Ausführung von Befehlen:<div class="highlight"><pre><span></span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">,</span><span class="w"> </span><span class="n">gridWidth</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">gridHeight</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+<li>Angeben der Grid-Größe bei der Ausführung von Befehlen:<div class="highlight"><pre><span></span><span class="n">rover</span><span class="p">.</span><span class="n">ExecuteCommands</span><span class="p">(</span><span class="s">"M"</span><span class="p">,</span><span class="w"> </span><span class="n">gridWidth</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">gridHeight</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </li>
-<li>Übergabe der Grid-Größe im Konstruktor des Rovers:<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">gridWidth</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">gridHeight</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
+<li>Übergabe der Grid-Größe im Konstruktor des Rovers:<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">gridWidth</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">gridHeight</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </li>
 <li>Einführung einer <code>Grid</code>-Klasse, die für die "Topologie" der Welt
-verantwortlich ist:<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Grid</span><span class="p">(</span><span class="n">width</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+verantwortlich ist:<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Grid</span><span class="p">(</span><span class="n">width</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 </pre></div>
 </li>
 </ul>
@@ -14022,7 +14023,7 @@ geboren wurde, einen Test zu bestehen.</li>
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Grid</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ArgumentException</span><span class="p">(</span><span class="s">"Grid dimensions must be positive."</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
@@ -14034,10 +14035,10 @@ geboren wurde, einen Test zu bestehen.</li>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Height</span><span class="p">),</span>
-<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">((</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
-<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Height</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Height</span><span class="p">),</span>
-<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">((</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Width</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Height</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">((</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">S</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Height</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Height</span><span class="p">),</span>
+<span class="w">            </span><span class="n">Direction</span><span class="p">.</span><span class="n">W</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">((</span><span class="n">current</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Width</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="n">Y</span><span class="p">),</span>
 <span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">current</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">    </span><span class="p">}</span>
@@ -14090,7 +14091,7 @@ erstellen ist, aber für komplexere Objekte ist es eine gute Praxis.</li>
 <div class="highlight"><pre><span></span><span class="c1">// In MarsRoverTests.cs</span>
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MarsRoverTestFixture</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="n">Grid</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MarsRoverTests</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IClassFixture</span><span class="o">&lt;</span><span class="n">MarsRoverTestFixture</span><span class="o">&gt;</span>
@@ -14101,7 +14102,7 @@ erstellen ist, aber für komplexere Objekte ist es eine gute Praxis.</li>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MarsRoverTests</span><span class="p">(</span><span class="n">MarsRoverTestFixture</span><span class="w"> </span><span class="n">fixture</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">_grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fixture</span><span class="p">.</span><span class="n">Grid</span><span class="p">;</span>
-<span class="w">        </span><span class="n">_rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">_grid</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_rover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rover</span><span class="p">(</span><span class="n">_grid</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">Direction</span><span class="p">.</span><span class="n">N</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">// ... rest of the tests</span>
 <span class="p">}</span>
@@ -14165,109 +14166,109 @@ FizzBuzz
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-54458.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.9:2049/", "http://127.0.0.1:2049/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '54458.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.7:2048/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '1479.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
     </script>
 </div></div>
 </div>
@@ -14313,12 +14314,12 @@ else {
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzzSimple</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintFizzBuzz</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -14329,7 +14330,7 @@ else {
 <span class="w">    </span><span class="c1">// Main method (not named Main in notebook...)</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Run</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Example usage</span>
-<span class="w">        </span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="m">16</span><span class="p">);</span>
+<span class="w">        </span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -14483,16 +14484,16 @@ else {
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FizzBuzz</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ArgumentException</span><span class="p">(</span><span class="s">"Input must be non-negative"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">);</span>
-<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">);</span>
-<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">);</span>
 <span class="w">            </span><span class="k">else</span>
 <span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
@@ -14510,7 +14511,7 @@ else {
 <span class="w">    </span><span class="c1">// Main method (not named Main in notebook...)</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Run</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Example usage</span>
-<span class="w">        </span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
+<span class="w">        </span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">Out</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -14670,7 +14671,7 @@ else {
 <span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"4"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"7"</span><span class="p">,</span><span class="w"> </span><span class="s">"8"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="s">"11"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"13"</span><span class="p">,</span><span class="w"> </span><span class="s">"14"</span><span class="p">,</span><span class="w"> </span><span class="s">"FizzBuzz"</span>
 <span class="w">        </span><span class="p">};</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="m">15</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -14686,35 +14687,35 @@ else {
 
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GenerateFizzBuzz_ReturnsEmptyListForZero</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Empty</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GenerateFizzBuzz_ThrowsArgumentExceptionForNegativeNumber</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="o">-</span><span class="m">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">GenerateFizzBuzz_ReturnsCorrectSequenceFor100</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">2</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"4"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">3</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">4</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">5</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">14</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">29</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">44</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="m">99</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">GenerateFizzBuzz</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"4"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">14</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">29</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"FizzBuzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">44</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">"Buzz"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">[</span><span class="mi">99</span><span class="p">]);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="na">[Fact]</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">PrintFizzBuzz_WritesToProvidedTextWriter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">StringWriter</span><span class="w"> </span><span class="n">stringWriter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringWriter</span><span class="p">();</span>
-<span class="w">        </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">stringWriter</span><span class="p">);</span>
+<span class="w">        </span><span class="n">FizzBuzz</span><span class="p">.</span><span class="n">PrintFizzBuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">stringWriter</span><span class="p">);</span>
 <span class="w">        </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stringWriter</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">Trim</span><span class="p">().</span><span class="n">Split</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">NewLine</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"1"</span><span class="p">,</span><span class="w"> </span><span class="s">"2"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fizz"</span><span class="p">,</span><span class="w"> </span><span class="s">"4"</span><span class="p">,</span><span class="w"> </span><span class="s">"Buzz"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>

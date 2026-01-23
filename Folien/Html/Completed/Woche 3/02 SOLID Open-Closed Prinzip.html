@@ -16,9 +16,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #f8f8f8; }
 .highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .err { border: 1px solid #F00 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
+.highlight .o { color: #666 } /* Operator */
 .highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #9C6500 } /* Comment.Preproc */
@@ -35,34 +35,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .gt { color: #04D } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { color: #008000 } /* Keyword.Pseudo */
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .m { color: #666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
 .highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .nc { color: #00F; font-weight: bold } /* Name.Class */
+.highlight .no { color: #800 } /* Name.Constant */
+.highlight .nd { color: #A2F } /* Name.Decorator */
 .highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
 .highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nf { color: #00F } /* Name.Function */
 .highlight .nl { color: #767600 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nn { color: #00F; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666 } /* Literal.Number.Float */
+.highlight .mh { color: #666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666 } /* Literal.Number.Oct */
 .highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
@@ -77,12 +77,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .fm { color: #00F } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+.highlight .il { color: #666 } /* Literal.Number.Integer.Long */
   </style>
 <style type="text/css">
 /*!
@@ -13069,6 +13069,7 @@ div#notebook {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -13408,109 +13409,109 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-1024.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.12:2048/", "http://127.0.0.1:2048/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '1024.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.8:2048/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '1058.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
     </script>
 </div></div>
 </div>
@@ -13537,9 +13538,9 @@ else {
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Kind</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Regular</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Children</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Regular</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">4.99m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">MovieKindV0</span><span class="p">.</span><span class="n">Children</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">5.99m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">0.0m</span><span class="p">,</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -13645,10 +13646,10 @@ else {
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Kind</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Regular</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Children</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">NewRelease</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">6.99</span><span class="n">m</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">0.0</span><span class="n">m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Regular</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">4.99m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">Children</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">5.99m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">MovieKind</span><span class="p">.</span><span class="n">NewRelease</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">6.99m</span><span class="p">,</span>
+<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mf">0.0m</span><span class="p">,</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -13771,7 +13772,7 @@ else {
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">4.99</span><span class="n">m</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">4.99m</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -13790,7 +13791,7 @@ else {
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">5.99</span><span class="n">m</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">5.99m</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -13809,7 +13810,7 @@ else {
 
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="nf">ComputePrice</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">6.99</span><span class="n">m</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">6.99m</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
