@@ -13490,108 +13490,210 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+<div id="dotnet-interactive-this-cell-54720.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+
         The below script needs to be able to find the current output cell; this is an easy method to get it.
+
     </div>
 <script type="text/javascript">
+
 async function probeAddresses(probingAddresses) {
+
     function timeout(ms, promise) {
+
         return new Promise(function (resolve, reject) {
+
             setTimeout(function () {
+
                 reject(new Error('timeout'))
+
             }, ms)
+
             promise.then(resolve, reject)
+
         })
+
     }
 
+
+
     if (Array.isArray(probingAddresses)) {
+
         for (let i = 0; i < probingAddresses.length; i++) {
+
+
 
             let rootUrl = probingAddresses[i];
 
+
+
             if (!rootUrl.endsWith('/')) {
+
                 rootUrl = `${rootUrl}/`;
+
             }
+
+
 
             try {
+
                 let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+
                     method: 'POST',
+
                     cache: 'no-cache',
+
                     mode: 'cors',
+
                     timeout: 1000,
+
                     headers: {
+
                         'Content-Type': 'text/plain'
+
                     },
+
                     body: probingAddresses[i]
+
                 }));
 
+
+
                 if (response.status == 200) {
+
                     return rootUrl;
+
                 }
+
             }
+
             catch (e) { }
+
         }
+
     }
+
 }
 
+
+
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.5:2048/"])
+
+    probeAddresses(["http://192.168.178.24:2048/", "http://169.254.203.116:2048/", "http://169.254.194.28:2048/", "http://172.16.0.1:2048/", "http://172.23.192.1:2048/", "http://172.23.176.1:2048/", "http://127.0.0.1:2048/"])
+
         .then((root) => {
+
         // use probing to find host url and api resources
+
         // load interactive helpers and language services
+
         let dotnetInteractiveRequire = require.config({
-        context: '1299.Microsoft.DotNet.Interactive.Http.HttpPort',
+
+        context: '54720.Microsoft.DotNet.Interactive.Http.HttpPort',
+
                 paths:
+
             {
+
                 'dotnet-interactive': `${root}resources`
+
                 }
+
         }) || require;
+
+
 
             window.dotnetInteractiveRequire = dotnetInteractiveRequire;
 
+
+
             window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+
                 let paths = {};
+
                 paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+
                 
+
                 let internalRequire = require.config({
+
                     context: extensionCacheBuster,
+
                     paths: paths,
+
                     urlArgs: `cacheBuster=${extensionCacheBuster}`
+
                     }) || require;
 
+
+
                 return internalRequire
+
             };
+
         
+
             dotnetInteractiveRequire([
+
                     'dotnet-interactive/dotnet-interactive'
+
                 ],
+
                 function (dotnet) {
+
                     dotnet.init(window);
+
                 },
+
                 function (error) {
+
                     console.log(error);
+
                 }
+
             );
+
         })
+
         .catch(error => {console.log(error);});
+
     }
 
+
+
 // ensure `require` is available globally
+
 if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+
     let require_script = document.createElement('script');
+
     require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+
     require_script.setAttribute('type', 'text/javascript');
+
     
+
     
+
     require_script.onload = function() {
+
         loadDotnetInteractiveApi();
+
     };
 
+
+
     document.getElementsByTagName('head')[0].appendChild(require_script);
+
 }
+
 else {
+
     loadDotnetInteractiveApi();
+
 }
+
+
 
     </script>
 </div></div>
@@ -13815,6 +13917,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>============= Update 1 =============
+
 </pre>
 </div>
 </div>
@@ -13822,6 +13925,23 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>PrintingStockObserver PrintingObserver received update:
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  Amazon: 131,13 €
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  Microsoft: 307,09 €
+
 </pre>
 </div>
 </div>
@@ -13829,6 +13949,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>RisingStockObserver RisingObserver received update:
+
 </pre>
 </div>
 </div>
@@ -13836,6 +13957,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>============= Update 2 =============
+
 </pre>
 </div>
 </div>
@@ -13843,20 +13965,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>PrintingStockObserver PrintingObserver received update:
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>  Amazon: ¤144.61
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>  Microsoft: ¤285.91
+
 </pre>
 </div>
 </div>
@@ -13864,6 +13973,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>RisingStockObserver RisingObserver received update:
+
 </pre>
 </div>
 </div>
@@ -13871,6 +13981,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>============= Update 3 =============
+
 </pre>
 </div>
 </div>
@@ -13878,20 +13989,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>PrintingStockObserver PrintingObserver received update:
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>  Amazon: ¤134.53
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>  Apple: ¤190.50
+
 </pre>
 </div>
 </div>
@@ -13899,6 +13997,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>RisingStockObserver RisingObserver received update:
+
 </pre>
 </div>
 </div>
@@ -13924,6 +14023,7 @@ else {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 &gt;&gt;&gt; Unsubscribing PrintingObserver &lt;&lt;&lt;
+
 
 </pre>
 </div>
@@ -13951,6 +14051,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>============= Update 1 =============
+
 </pre>
 </div>
 </div>
@@ -13958,20 +14059,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>RisingStockObserver RisingObserver received update:
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>  Microsoft: ¤285.91 -&gt; ¤293.19
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>  Amazon: ¤134.53 -&gt; ¤134.82
+
 </pre>
 </div>
 </div>
@@ -13979,6 +14067,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>============= Update 2 =============
+
 </pre>
 </div>
 </div>
@@ -13986,6 +14075,15 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>RisingStockObserver RisingObserver received update:
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  Apple: 197,80 € -&gt; 202,27 €
+
 </pre>
 </div>
 </div>
@@ -14259,6 +14357,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Producer: Creating item 1 of type Widget
+
 </pre>
 </div>
 </div>
@@ -14266,13 +14365,15 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>QC QC-1: Inspecting item 1 of type Widget
+
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  Produced at: 15:30:55
+<pre>  Produced at: 05:29:37
+
 </pre>
 </div>
 </div>
@@ -14280,6 +14381,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Inventory: Added item 1
+
 </pre>
 </div>
 </div>
@@ -14287,6 +14389,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Current stock of Widget: 1
+
 </pre>
 </div>
 </div>
@@ -14294,6 +14397,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Logging: Item 1 of type Widget produced
+
 </pre>
 </div>
 </div>
@@ -14301,6 +14405,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lambda: Item 1 produced!
+
 </pre>
 </div>
 </div>
@@ -14308,6 +14413,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Producer: Creating item 2 of type Gadget
+
 </pre>
 </div>
 </div>
@@ -14315,13 +14421,15 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>QC QC-1: Inspecting item 2 of type Gadget
+
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  Produced at: 15:30:55
+<pre>  Produced at: 05:29:37
+
 </pre>
 </div>
 </div>
@@ -14329,6 +14437,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Inventory: Added item 2
+
 </pre>
 </div>
 </div>
@@ -14336,6 +14445,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Current stock of Gadget: 1
+
 </pre>
 </div>
 </div>
@@ -14343,6 +14453,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Logging: Item 2 of type Gadget produced
+
 </pre>
 </div>
 </div>
@@ -14350,6 +14461,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lambda: Item 2 produced!
+
 </pre>
 </div>
 </div>
@@ -14357,6 +14469,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Producer: Creating item 3 of type Widget
+
 </pre>
 </div>
 </div>
@@ -14364,13 +14477,15 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>QC QC-1: Inspecting item 3 of type Widget
+
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  Produced at: 15:30:55
+<pre>  Produced at: 05:29:37
+
 </pre>
 </div>
 </div>
@@ -14378,6 +14493,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Inventory: Added item 3
+
 </pre>
 </div>
 </div>
@@ -14385,6 +14501,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Current stock of Widget: 2
+
 </pre>
 </div>
 </div>
@@ -14392,6 +14509,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Logging: Item 3 of type Widget produced
+
 </pre>
 </div>
 </div>
@@ -14399,6 +14517,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lambda: Item 3 produced!
+
 </pre>
 </div>
 </div>
@@ -14427,6 +14546,7 @@ Implementieren Sie dazu:</p>
 <pre>
 &gt;&gt;&gt; Unsubscribing QC Observer &lt;&lt;&lt;
 
+
 </pre>
 </div>
 </div>
@@ -14434,6 +14554,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Producer: Creating item 4 of type Gadget
+
 </pre>
 </div>
 </div>
@@ -14441,6 +14562,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Inventory: Added item 4
+
 </pre>
 </div>
 </div>
@@ -14448,6 +14570,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  Current stock of Gadget: 2
+
 </pre>
 </div>
 </div>
@@ -14455,6 +14578,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Logging: Item 4 of type Gadget produced
+
 </pre>
 </div>
 </div>
@@ -14462,6 +14586,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lambda: Item 4 produced!
+
 </pre>
 </div>
 </div>
@@ -14661,13 +14786,15 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Property 'Price' changed on Tesla
+
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Tesla: $850.00 → $900.00 (+5.88%)
+<pre>Tesla: $850,00 → $900,00 (+5,88%)
+
 </pre>
 </div>
 </div>
@@ -14690,6 +14817,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Property 'Name' changed on TSLA
+
 </pre>
 </div>
 </div>
@@ -14757,6 +14885,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>=== Portfolio Example ===
+
 </pre>
 </div>
 </div>
@@ -14803,7 +14932,8 @@ Implementieren Sie dazu:</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Portfolio update: Apple price changed. New total: $485.00
+<pre>Portfolio update: Apple price changed. New total: $485,00
+
 </pre>
 </div>
 </div>
@@ -14825,7 +14955,8 @@ Implementieren Sie dazu:</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Portfolio update: Microsoft price changed. New total: $480.00
+<pre>Portfolio update: Microsoft price changed. New total: $480,00
+
 </pre>
 </div>
 </div>
@@ -14907,6 +15038,7 @@ Implementieren Sie dazu:</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 === ViewModel Example ===
+
 </pre>
 </div>
 </div>
@@ -14930,6 +15062,7 @@ Implementieren Sie dazu:</p>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tracking Google: True
+
 </pre>
 </div>
 </div>
@@ -14952,7 +15085,8 @@ Implementieren Sie dazu:</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[Tracked] Google - $155.00
+<pre>[Tracked] Google - $155,00
+
 </pre>
 </div>
 </div>
@@ -14974,7 +15108,8 @@ Implementieren Sie dazu:</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[Tracked] Google - $152.00
+<pre>[Tracked] Google - $152,00
+
 </pre>
 </div>
 </div>

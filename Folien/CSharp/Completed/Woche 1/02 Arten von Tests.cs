@@ -27,7 +27,7 @@
 // ### Nach Fokus (Testquadranten)
 //
 // <img src="img/testing-styles.png"
-//      alt="Velocity vs. Tests 1"
+//      alt="Testing Styles"
 //      style="width: 75%; margin-left: auto; margin-right: auto;"/>
 
 // %% [markdown]

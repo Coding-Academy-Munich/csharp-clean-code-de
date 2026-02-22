@@ -13377,6 +13377,1278 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 </br></div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=eb6ff076aafe5a6d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Was-ist-FluentAssertions?">Was ist FluentAssertions?<a class="anchor-link" href="#Was-ist-FluentAssertions?">¶</a></h2><ul>
+<li>Bibliothek für lesbare Test-Assertions in C#</li>
+<li>Verwendet eine fluente API mit <code>Should()</code>-Syntax</li>
+<li>Bessere Fehlermeldungen als Standard-xUnit-Assertions</li>
+<li>Unterstützt Strings, Zahlen, Collections, Exceptions, ...</li>
+<li>NuGet-Paket: <code>FluentAssertions</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=b1cf636fdd622fb0">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: xunit, 2.4.1"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: FluentAssertions, 6.12.0"</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-52276.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+
+    </div>
+<script type="text/javascript">
+
+async function probeAddresses(probingAddresses) {
+
+    function timeout(ms, promise) {
+
+        return new Promise(function (resolve, reject) {
+
+            setTimeout(function () {
+
+                reject(new Error('timeout'))
+
+            }, ms)
+
+            promise.then(resolve, reject)
+
+        })
+
+    }
+
+
+
+    if (Array.isArray(probingAddresses)) {
+
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+
+
+            let rootUrl = probingAddresses[i];
+
+
+
+            if (!rootUrl.endsWith('/')) {
+
+                rootUrl = `${rootUrl}/`;
+
+            }
+
+
+
+            try {
+
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+
+                    method: 'POST',
+
+                    cache: 'no-cache',
+
+                    mode: 'cors',
+
+                    timeout: 1000,
+
+                    headers: {
+
+                        'Content-Type': 'text/plain'
+
+                    },
+
+                    body: probingAddresses[i]
+
+                }));
+
+
+
+                if (response.status == 200) {
+
+                    return rootUrl;
+
+                }
+
+            }
+
+            catch (e) { }
+
+        }
+
+    }
+
+}
+
+
+
+function loadDotnetInteractiveApi() {
+
+    probeAddresses(["http://192.168.178.24:2054/", "http://169.254.203.116:2054/", "http://169.254.194.28:2054/", "http://172.16.0.1:2054/", "http://172.23.192.1:2054/", "http://172.23.176.1:2054/", "http://127.0.0.1:2054/"])
+
+        .then((root) => {
+
+        // use probing to find host url and api resources
+
+        // load interactive helpers and language services
+
+        let dotnetInteractiveRequire = require.config({
+
+        context: '52276.Microsoft.DotNet.Interactive.Http.HttpPort',
+
+                paths:
+
+            {
+
+                'dotnet-interactive': `${root}resources`
+
+                }
+
+        }) || require;
+
+
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+
+                let paths = {};
+
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+
+                
+
+                let internalRequire = require.config({
+
+                    context: extensionCacheBuster,
+
+                    paths: paths,
+
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+
+                    }) || require;
+
+
+
+                return internalRequire
+
+            };
+
+        
+
+            dotnetInteractiveRequire([
+
+                    'dotnet-interactive/dotnet-interactive'
+
+                ],
+
+                function (dotnet) {
+
+                    dotnet.init(window);
+
+                },
+
+                function (error) {
+
+                    console.log(error);
+
+                }
+
+            );
+
+        })
+
+        .catch(error => {console.log(error);});
+
+    }
+
+
+
+// ensure `require` is available globally
+
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+
+    let require_script = document.createElement('script');
+
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+
+    require_script.setAttribute('type', 'text/javascript');
+
+    
+
+    
+
+    require_script.onload = function() {
+
+        loadDotnetInteractiveApi();
+
+    };
+
+
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+
+}
+
+else {
+
+    loadDotnetInteractiveApi();
+
+}
+
+
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>FluentAssertions, 6.12.0</span></li><li><span>xunit, 2.4.1</span></li></ul></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=a6ac61c8a988bfa6">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">Xunit</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">FluentAssertions</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=c26f9b16871ad3ed">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">load</span><span class="w"> </span><span class="s">"XunitTestRunner.cs"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=96f414c25b56a6fe"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Vergleich:-xUnit-vs.-FluentAssertions">Vergleich: xUnit vs. FluentAssertions<a class="anchor-link" href="#Vergleich:-xUnit-vs.-FluentAssertions">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=b6f0a4e2c1ba6e89"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="xUnit-Style">xUnit-Style<a class="anchor-link" href="#xUnit-Style">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=bfdad36eea937a46">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
+<span class="n">Assert</span><span class="p">.</span><span class="n">NotEqual</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="n">Assert</span><span class="p">.</span><span class="n">True</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=e6bd64690bc6446e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="FluentAssertions-Style">FluentAssertions-Style<a class="anchor-link" href="#FluentAssertions-Style">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=7ce86603c62996ce">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="mi">42</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="mi">42</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">NotBe</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="n">Should</span><span class="p">().</span><span class="n">BeTrue</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=d1211d4dfe7c936e"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Numerische-Assertions">Numerische Assertions<a class="anchor-link" href="#Numerische-Assertions">¶</a></h2><ul>
+<li><code>Be()</code>, <code>NotBe()</code> — Gleichheit</li>
+<li><code>BeGreaterThan()</code>, <code>BeLessThan()</code> — Vergleiche</li>
+<li><code>BeInRange()</code> — Wertebereich</li>
+<li><code>BeApproximately()</code> — Gleitkommazahlen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=8612d308f73c55ea">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+
+<span class="k">value</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeGreaterThan</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">value</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeLessThanOrEqualTo</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="k">value</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeInRange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=2a16a678d5e84b8b">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
+
+<span class="n">pi</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeApproximately</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=b1122ef9bd079670"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="String-Assertions">String-Assertions<a class="anchor-link" href="#String-Assertions">¶</a></h2><ul>
+<li><code>Be()</code>, <code>NotBe()</code> — Gleichheit</li>
+<li><code>Contain()</code>, <code>StartWith()</code>, <code>EndWith()</code> — Teilstrings</li>
+<li><code>BeEmpty()</code>, <code>NotBeNullOrEmpty()</code> — Leer/Null</li>
+<li><code>HaveLength()</code>, <code>MatchRegex()</code> — Länge und Pattern</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=617588f1f81b79ea">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">;</span>
+
+<span class="n">greeting</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">StartWith</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="n">greeting</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">EndWith</span><span class="p">(</span><span class="s">"!"</span><span class="p">);</span>
+<span class="n">greeting</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Contain</span><span class="p">(</span><span class="s">"World"</span><span class="p">);</span>
+<span class="n">greeting</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">HaveLength</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=5d8aa5a05bb3a810">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Alice"</span><span class="p">;</span>
+
+<span class="n">name</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">NotBeNullOrEmpty</span><span class="p">();</span>
+<span class="n">name</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">NotBe</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0ab76a9458013c80"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Collection-Assertions">Collection-Assertions<a class="anchor-link" href="#Collection-Assertions">¶</a></h2><ul>
+<li><code>HaveCount()</code> — Anzahl der Elemente</li>
+<li><code>Contain()</code>, <code>NotContain()</code> — Elemente prüfen</li>
+<li><code>BeInAscendingOrder()</code> — Sortierung</li>
+<li><code>OnlyContain()</code> — Bedingung für alle Elemente</li>
+<li><code>BeEquivalentTo()</code> — gleiche Elemente, beliebige Reihenfolge</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=66db926f68b613a9">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d2cd579619062c42">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">HaveCount</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Contain</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">NotContain</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeInAscendingOrder</span><span class="p">();</span>
+<span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">OnlyContain</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=91f43dd992a287bb">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Cherry"</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">fruits</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">HaveCount</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Contain</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">);</span>
+<span class="n">fruits</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeEquivalentTo</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Cherry"</span><span class="p">,</span><span class="w"> </span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="w"> </span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=bcec563a41e66338"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exception-Assertions">Exception-Assertions<a class="anchor-link" href="#Exception-Assertions">¶</a></h2><ul>
+<li><code>action.Should().Throw&lt;T&gt;()</code> — Exception erwartet</li>
+<li><code>action.Should().NotThrow()</code> — keine Exception erwartet</li>
+<li><code>.WithMessage()</code> — Fehlermeldung prüfen</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=7a55d701ce6a50c0">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=840655a3c82d5788">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Action</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">"Something went wrong"</span><span class="p">);</span>
+
+<span class="n">act</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Throw</span><span class="o">&lt;</span><span class="n">InvalidOperationException</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">   </span><span class="p">.</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">"*went wrong*"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=11715a65449426c2">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">Action</span><span class="w"> </span><span class="n">safeAct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">safeAct</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">NotThrow</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+(1,30): warning CS0219: The variable 'x' is assigned but its value is never used
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=b52dc84989bd402c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Fehlermeldungen">Fehlermeldungen<a class="anchor-link" href="#Fehlermeldungen">¶</a></h2><p>Ein großer Vorteil von FluentAssertions: bessere Fehlermeldungen</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=801a2cc32b74c824"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>xUnit:</strong></p>
+<pre><code>Assert.Equal() Failure
+Expected: 5
+Actual:   3
+</code></pre>
+<p><strong>FluentAssertions:</strong></p>
+<pre><code>Expected numbers to contain 5 items, but found 3.
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=c49540d071403c9c"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Test-Beispiel">Test-Beispiel<a class="anchor-link" href="#Test-Beispiel">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=61f291eda0af2bdc">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FluentAssertionsBasicsTest</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestStringOperations</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"World"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">StartWith</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">HaveLength</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestCollectionOperations</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">HaveCount</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">        </span><span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Contain</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">numbers</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">ContainInOrder</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestNumericComparisons</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">BeApproximately</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.001</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=fff6e71939148aaf">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">XunitTestRunner</span><span class="p">.</span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">FluentAssertionsBasicsTest</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestStringOperations
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestCollectionOperations
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestNumericComparisons
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total tests: 3, Passed: 3, Failed: 0
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=3ba0202992f61ded"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workshop:-Fluent-Assertions">Workshop: Fluent Assertions<a class="anchor-link" href="#Workshop:-Fluent-Assertions">¶</a></h2><p>Schreiben Sie die folgenden xUnit-Assertions als FluentAssertions um:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=06732c96e6255fc3">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">XunitStyleTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestEquality</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestStringContains</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The quick brown fox"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"brown"</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestListCount</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="n">items</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestException</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">ArgumentNullException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=8bf0e4702cb4e9f5">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">XunitTestRunner</span><span class="p">.</span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">XunitStyleTests</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestEquality
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestStringContains
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestListCount
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestException
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total tests: 4, Passed: 4, Failed: 0
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_subslide" id="cell-id=539164d5c4c7ad5a">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FluentStyleTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestEquality</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="n">Should</span><span class="p">().</span><span class="n">Be</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestStringContains</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The quick brown fox"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">text</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Contain</span><span class="p">(</span><span class="s">"brown"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestListCount</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="n">items</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">HaveCount</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">items</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Contain</span><span class="p">(</span><span class="s">"B"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">TestException</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Action</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArgumentNullException</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="n">act</span><span class="p">.</span><span class="n">Should</span><span class="p">().</span><span class="n">Throw</span><span class="o">&lt;</span><span class="n">ArgumentNullException</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Linq.Expressions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Linq.Expressions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Linq.Expressions', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Net.Http, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Net.Http, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Net.Http', you may need to supply runtime policy
+
+
+
+warning CS1701: Assuming assembly reference 'System.Data.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' used by 'FluentAssertions' matches identity 'System.Data.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' of 'System.Data.Common', you may need to supply runtime policy
+
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=d9e5509449f9a65c">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="n">XunitTestRunner</span><span class="p">.</span><span class="n">RunTests</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">FluentStyleTests</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestEquality
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestStringContains
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestListCount
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[PASS] TestException
+
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total tests: 4, Passed: 4, Failed: 0
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </main>

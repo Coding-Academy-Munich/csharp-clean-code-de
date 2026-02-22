@@ -14166,108 +14166,210 @@ FizzBuzz
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+<div id="dotnet-interactive-this-cell-77960.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+
         The below script needs to be able to find the current output cell; this is an easy method to get it.
+
     </div>
 <script type="text/javascript">
+
 async function probeAddresses(probingAddresses) {
+
     function timeout(ms, promise) {
+
         return new Promise(function (resolve, reject) {
+
             setTimeout(function () {
+
                 reject(new Error('timeout'))
+
             }, ms)
+
             promise.then(resolve, reject)
+
         })
+
     }
 
+
+
     if (Array.isArray(probingAddresses)) {
+
         for (let i = 0; i < probingAddresses.length; i++) {
+
+
 
             let rootUrl = probingAddresses[i];
 
+
+
             if (!rootUrl.endsWith('/')) {
+
                 rootUrl = `${rootUrl}/`;
+
             }
+
+
 
             try {
+
                 let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+
                     method: 'POST',
+
                     cache: 'no-cache',
+
                     mode: 'cors',
+
                     timeout: 1000,
+
                     headers: {
+
                         'Content-Type': 'text/plain'
+
                     },
+
                     body: probingAddresses[i]
+
                 }));
 
+
+
                 if (response.status == 200) {
+
                     return rootUrl;
+
                 }
+
             }
+
             catch (e) { }
+
         }
+
     }
+
 }
 
+
+
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.7:2048/"])
+
+    probeAddresses(["http://192.168.178.24:2052/", "http://169.254.203.116:2052/", "http://169.254.194.28:2052/", "http://172.16.0.1:2052/", "http://172.23.192.1:2052/", "http://172.23.176.1:2052/", "http://127.0.0.1:2052/"])
+
         .then((root) => {
+
         // use probing to find host url and api resources
+
         // load interactive helpers and language services
+
         let dotnetInteractiveRequire = require.config({
-        context: '1479.Microsoft.DotNet.Interactive.Http.HttpPort',
+
+        context: '77960.Microsoft.DotNet.Interactive.Http.HttpPort',
+
                 paths:
+
             {
+
                 'dotnet-interactive': `${root}resources`
+
                 }
+
         }) || require;
+
+
 
             window.dotnetInteractiveRequire = dotnetInteractiveRequire;
 
+
+
             window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+
                 let paths = {};
+
                 paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+
                 
+
                 let internalRequire = require.config({
+
                     context: extensionCacheBuster,
+
                     paths: paths,
+
                     urlArgs: `cacheBuster=${extensionCacheBuster}`
+
                     }) || require;
 
+
+
                 return internalRequire
+
             };
+
         
+
             dotnetInteractiveRequire([
+
                     'dotnet-interactive/dotnet-interactive'
+
                 ],
+
                 function (dotnet) {
+
                     dotnet.init(window);
+
                 },
+
                 function (error) {
+
                     console.log(error);
+
                 }
+
             );
+
         })
+
         .catch(error => {console.log(error);});
+
     }
 
+
+
 // ensure `require` is available globally
+
 if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+
     let require_script = document.createElement('script');
+
     require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+
     require_script.setAttribute('type', 'text/javascript');
+
     
+
     
+
     require_script.onload = function() {
+
         loadDotnetInteractiveApi();
+
     };
 
+
+
     document.getElementsByTagName('head')[0].appendChild(require_script);
+
 }
+
 else {
+
     loadDotnetInteractiveApi();
+
 }
+
+
 
     </script>
 </div></div>
@@ -14354,6 +14456,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1
+
 </pre>
 </div>
 </div>
@@ -14361,6 +14464,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>2
+
 </pre>
 </div>
 </div>
@@ -14368,6 +14472,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14375,6 +14480,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>4
+
 </pre>
 </div>
 </div>
@@ -14382,6 +14488,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Buzz
+
 </pre>
 </div>
 </div>
@@ -14389,6 +14496,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14396,6 +14504,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>7
+
 </pre>
 </div>
 </div>
@@ -14403,6 +14512,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>8
+
 </pre>
 </div>
 </div>
@@ -14410,6 +14520,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14417,6 +14528,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Buzz
+
 </pre>
 </div>
 </div>
@@ -14424,6 +14536,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>11
+
 </pre>
 </div>
 </div>
@@ -14431,6 +14544,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14438,6 +14552,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>13
+
 </pre>
 </div>
 </div>
@@ -14445,6 +14560,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>14
+
 </pre>
 </div>
 </div>
@@ -14452,6 +14568,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>FizzBuzz
+
 </pre>
 </div>
 </div>
@@ -14459,6 +14576,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>16
+
 </pre>
 </div>
 </div>
@@ -14535,6 +14653,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1
+
 </pre>
 </div>
 </div>
@@ -14542,6 +14661,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>2
+
 </pre>
 </div>
 </div>
@@ -14549,6 +14669,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14556,6 +14677,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>4
+
 </pre>
 </div>
 </div>
@@ -14563,6 +14685,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Buzz
+
 </pre>
 </div>
 </div>
@@ -14570,6 +14693,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14577,6 +14701,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>7
+
 </pre>
 </div>
 </div>
@@ -14584,6 +14709,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>8
+
 </pre>
 </div>
 </div>
@@ -14591,6 +14717,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14598,6 +14725,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Buzz
+
 </pre>
 </div>
 </div>
@@ -14605,6 +14733,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>11
+
 </pre>
 </div>
 </div>
@@ -14612,6 +14741,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fizz
+
 </pre>
 </div>
 </div>
@@ -14619,6 +14749,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>13
+
 </pre>
 </div>
 </div>
@@ -14626,6 +14757,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>14
+
 </pre>
 </div>
 </div>
@@ -14633,6 +14765,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>FizzBuzz
+
 </pre>
 </div>
 </div>
@@ -14640,6 +14773,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>16
+
 </pre>
 </div>
 </div>
@@ -14741,6 +14875,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsCorrectSequenceFor15
+
 </pre>
 </div>
 </div>
@@ -14748,6 +14883,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsCorrectValueForSpecificNumbers(1, 1)
+
 </pre>
 </div>
 </div>
@@ -14755,6 +14891,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsCorrectValueForSpecificNumbers(3, Fizz)
+
 </pre>
 </div>
 </div>
@@ -14762,6 +14899,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsCorrectValueForSpecificNumbers(5, Buzz)
+
 </pre>
 </div>
 </div>
@@ -14769,6 +14907,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsCorrectValueForSpecificNumbers(15, FizzBuzz)
+
 </pre>
 </div>
 </div>
@@ -14776,6 +14915,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsEmptyListForZero
+
 </pre>
 </div>
 </div>
@@ -14783,6 +14923,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ThrowsArgumentExceptionForNegativeNumber
+
 </pre>
 </div>
 </div>
@@ -14790,6 +14931,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] GenerateFizzBuzz_ReturnsCorrectSequenceFor100
+
 </pre>
 </div>
 </div>
@@ -14797,6 +14939,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] PrintFizzBuzz_WritesToProvidedTextWriter
+
 </pre>
 </div>
 </div>
@@ -14804,6 +14947,7 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 9, Passed: 9, Failed: 0
+
 </pre>
 </div>
 </div>

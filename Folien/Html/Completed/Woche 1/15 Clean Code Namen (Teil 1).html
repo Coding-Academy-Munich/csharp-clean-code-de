@@ -13404,108 +13404,210 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+<div id="dotnet-interactive-this-cell-75508.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+
         The below script needs to be able to find the current output cell; this is an easy method to get it.
+
     </div>
 <script type="text/javascript">
+
 async function probeAddresses(probingAddresses) {
+
     function timeout(ms, promise) {
+
         return new Promise(function (resolve, reject) {
+
             setTimeout(function () {
+
                 reject(new Error('timeout'))
+
             }, ms)
+
             promise.then(resolve, reject)
+
         })
+
     }
 
+
+
     if (Array.isArray(probingAddresses)) {
+
         for (let i = 0; i < probingAddresses.length; i++) {
+
+
 
             let rootUrl = probingAddresses[i];
 
+
+
             if (!rootUrl.endsWith('/')) {
+
                 rootUrl = `${rootUrl}/`;
+
             }
+
+
 
             try {
+
                 let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+
                     method: 'POST',
+
                     cache: 'no-cache',
+
                     mode: 'cors',
+
                     timeout: 1000,
+
                     headers: {
+
                         'Content-Type': 'text/plain'
+
                     },
+
                     body: probingAddresses[i]
+
                 }));
 
+
+
                 if (response.status == 200) {
+
                     return rootUrl;
+
                 }
+
             }
+
             catch (e) { }
+
         }
+
     }
+
 }
 
+
+
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.10:2048/"])
+
+    probeAddresses(["http://192.168.178.24:2048/", "http://169.254.203.116:2048/", "http://169.254.194.28:2048/", "http://172.16.0.1:2048/", "http://172.23.192.1:2048/", "http://172.23.176.1:2048/", "http://127.0.0.1:2048/"])
+
         .then((root) => {
+
         // use probing to find host url and api resources
+
         // load interactive helpers and language services
+
         let dotnetInteractiveRequire = require.config({
-        context: '1007.Microsoft.DotNet.Interactive.Http.HttpPort',
+
+        context: '75508.Microsoft.DotNet.Interactive.Http.HttpPort',
+
                 paths:
+
             {
+
                 'dotnet-interactive': `${root}resources`
+
                 }
+
         }) || require;
+
+
 
             window.dotnetInteractiveRequire = dotnetInteractiveRequire;
 
+
+
             window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+
                 let paths = {};
+
                 paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+
                 
+
                 let internalRequire = require.config({
+
                     context: extensionCacheBuster,
+
                     paths: paths,
+
                     urlArgs: `cacheBuster=${extensionCacheBuster}`
+
                     }) || require;
 
+
+
                 return internalRequire
+
             };
+
         
+
             dotnetInteractiveRequire([
+
                     'dotnet-interactive/dotnet-interactive'
+
                 ],
+
                 function (dotnet) {
+
                     dotnet.init(window);
+
                 },
+
                 function (error) {
+
                     console.log(error);
+
                 }
+
             );
+
         })
+
         .catch(error => {console.log(error);});
+
     }
 
+
+
 // ensure `require` is available globally
+
 if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+
     let require_script = document.createElement('script');
+
     require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+
     require_script.setAttribute('type', 'text/javascript');
+
     
+
     
+
     require_script.onload = function() {
+
         loadDotnetInteractiveApi();
+
     };
 
+
+
     document.getElementsByTagName('head')[0].appendChild(require_script);
+
 }
+
 else {
+
     loadDotnetInteractiveApi();
+
 }
+
+
 
     </script>
 </div></div>
@@ -13546,36 +13648,67 @@ else {
 <div class="output_area">
 <div class="prompt output_prompt">Out[3]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>1810</pre></div><style>
+
 .dni-code-hint {
+
     font-style: italic;
+
     overflow: hidden;
+
     white-space: nowrap;
+
 }
+
 .dni-treeview {
+
     white-space: nowrap;
+
 }
+
 .dni-treeview td {
+
     vertical-align: top;
+
     text-align: start;
+
 }
+
 details.dni-treeview {
+
     padding-left: 1em;
+
 }
+
 table td {
+
     text-align: start;
+
 }
+
 table tr { 
+
     vertical-align: top; 
+
     margin: 0em 0px;
+
 }
+
 table tr td pre 
+
 { 
+
     vertical-align: top !important; 
+
     margin: 0em 0px !important;
+
 } 
+
 table th {
+
     text-align: start;
+
 }
+
 </style></div>
 </div>
 </div>
@@ -13629,36 +13762,67 @@ table th {
 <div class="output_area">
 <div class="prompt output_prompt">Out[6]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>1810</pre></div><style>
+
 .dni-code-hint {
+
     font-style: italic;
+
     overflow: hidden;
+
     white-space: nowrap;
+
 }
+
 .dni-treeview {
+
     white-space: nowrap;
+
 }
+
 .dni-treeview td {
+
     vertical-align: top;
+
     text-align: start;
+
 }
+
 details.dni-treeview {
+
     padding-left: 1em;
+
 }
+
 table td {
+
     text-align: start;
+
 }
+
 table tr { 
+
     vertical-align: top; 
+
     margin: 0em 0px;
+
 }
+
 table tr td pre 
+
 { 
+
     vertical-align: top !important; 
+
     margin: 0em 0px !important;
+
 } 
+
 table th {
+
     text-align: start;
+
 }
+
 </style></div>
 </div>
 </div>
@@ -13690,36 +13854,67 @@ table th {
 <div class="output_area">
 <div class="prompt output_prompt">Out[8]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result"><div class="dni-plaintext"><pre>30</pre></div><style>
+
 .dni-code-hint {
+
     font-style: italic;
+
     overflow: hidden;
+
     white-space: nowrap;
+
 }
+
 .dni-treeview {
+
     white-space: nowrap;
+
 }
+
 .dni-treeview td {
+
     vertical-align: top;
+
     text-align: start;
+
 }
+
 details.dni-treeview {
+
     padding-left: 1em;
+
 }
+
 table td {
+
     text-align: start;
+
 }
+
 table tr { 
+
     vertical-align: top; 
+
     margin: 0em 0px;
+
 }
+
 table tr td pre 
+
 { 
+
     vertical-align: top !important; 
+
     margin: 0em 0px !important;
+
 } 
+
 table th {
+
     text-align: start;
+
 }
+
 </style></div>
 </div>
 </div>
@@ -13834,36 +14029,67 @@ table th {
 <div class="output_area">
 <div class="prompt output_prompt">Out[14]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>(5, Generally positive)</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Item1</td><td><div class="dni-plaintext"><pre>5</pre></div></td></tr><tr><td>Item2</td><td><div class="dni-plaintext"><pre>Generally positive</pre></div></td></tr></tbody></table></div></details><style>
+
 .dni-code-hint {
+
     font-style: italic;
+
     overflow: hidden;
+
     white-space: nowrap;
+
 }
+
 .dni-treeview {
+
     white-space: nowrap;
+
 }
+
 .dni-treeview td {
+
     vertical-align: top;
+
     text-align: start;
+
 }
+
 details.dni-treeview {
+
     padding-left: 1em;
+
 }
+
 table td {
+
     text-align: start;
+
 }
+
 table tr { 
+
     vertical-align: top; 
+
     margin: 0em 0px;
+
 }
+
 table tr td pre 
+
 { 
+
     vertical-align: top !important; 
+
     margin: 0em 0px !important;
+
 } 
+
 table th {
+
     text-align: start;
+
 }
+
 </style></div>
 </div>
 </div>
@@ -13922,6 +14148,7 @@ table th {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Score: 5, Sentiment: Overall positive
+
 </pre>
 </div>
 </div>
@@ -13997,36 +14224,67 @@ table th {
 <div class="output_area">
 <div class="prompt output_prompt">Out[21]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result"><details class="dni-treeview" open="open"><summary><span class="dni-code-hint"><code>Score: ModeratelyHigh, Sentiment: Overall positive</code></span></summary><div><table><thead><tr></tr></thead><tbody><tr><td>Score</td><td><span>ModeratelyHigh</span></td></tr><tr><td>Sentiment</td><td><div class="dni-plaintext"><pre>Overall positive</pre></div></td></tr></tbody></table></div></details><style>
+
 .dni-code-hint {
+
     font-style: italic;
+
     overflow: hidden;
+
     white-space: nowrap;
+
 }
+
 .dni-treeview {
+
     white-space: nowrap;
+
 }
+
 .dni-treeview td {
+
     vertical-align: top;
+
     text-align: start;
+
 }
+
 details.dni-treeview {
+
     padding-left: 1em;
+
 }
+
 table td {
+
     text-align: start;
+
 }
+
 table tr { 
+
     vertical-align: top; 
+
     margin: 0em 0px;
+
 }
+
 table tr td pre 
+
 { 
+
     vertical-align: top !important; 
+
     margin: 0em 0px !important;
+
 } 
+
 table th {
+
     text-align: start;
+
 }
+
 </style></div>
 </div>
 </div>
