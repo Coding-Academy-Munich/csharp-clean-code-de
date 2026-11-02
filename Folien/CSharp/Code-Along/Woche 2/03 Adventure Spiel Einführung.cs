@@ -7,6 +7,7 @@
 // <br/>
 // <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 // <br/>
+//
 // <div style="text-align:center;">Coding-Akademie München</div>
 // <br/>
 
@@ -37,6 +38,7 @@
 // %% [markdown]
 // <img src="img/adv-domain-01.png"
 //      style="display:block;margin:auto;width:50%"/>
+
 // %% [markdown]
 // <img src="img/adv-domain-02.png"
 //      style="display:block;margin:auto;width:50%"/>

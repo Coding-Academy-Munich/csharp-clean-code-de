@@ -7,6 +7,7 @@
 // <br/>
 // <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 // <br/>
+//
 // <div style="text-align:center;">Coding-Akademie München</div>
 // <br/>
 
@@ -491,7 +492,6 @@
 // }
 // ```
 
-
 // %% [markdown]
 //
 // ### 8. Zyklus: Design durch eine neue Anforderung treiben
@@ -679,7 +679,6 @@
 
 // %%
 using System.Collections.Generic;
-
 
 // %%
 #r "nuget: xunit, *"

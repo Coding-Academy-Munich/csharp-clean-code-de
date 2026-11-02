@@ -7,6 +7,7 @@
 // <br/>
 // <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 // <br/>
+//
 // <div style="text-align:center;">Coding-Akademie München</div>
 // <br/>
 
@@ -52,6 +53,7 @@
 //
 // An die Klasse, die die meisten Informationen hat, die für die Erfüllung der
 // Verantwortung notwendig sind.
+
 // %% [markdown]
 //
 // ## Wer ist der Informationsexperte?

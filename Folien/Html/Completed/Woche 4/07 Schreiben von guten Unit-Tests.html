@@ -4,7 +4,8 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -13087,7 +13088,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=5d54fc0c1f08669a"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=0196ee8d37b5231d"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13369,12 +13370,12 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div style="text-align:center; font-size:200%;">
 <b>Schreiben von guten Unit-Tests</b>
 </div>
-<br>
+<br/>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 <br/>
 <div style="text-align:center;">Coding-Akademie München</div>
 <br/>
-</br></div>
+</div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=bb43569e638566b4"><div class="prompt input_prompt">
@@ -13446,210 +13447,108 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-105968.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
-
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
-
     </div>
 <script type="text/javascript">
-
 async function probeAddresses(probingAddresses) {
-
     function timeout(ms, promise) {
-
         return new Promise(function (resolve, reject) {
-
             setTimeout(function () {
-
                 reject(new Error('timeout'))
-
             }, ms)
-
             promise.then(resolve, reject)
-
         })
-
     }
 
-
-
     if (Array.isArray(probingAddresses)) {
-
         for (let i = 0; i < probingAddresses.length; i++) {
-
-
 
             let rootUrl = probingAddresses[i];
 
-
-
             if (!rootUrl.endsWith('/')) {
-
                 rootUrl = `${rootUrl}/`;
-
             }
-
-
 
             try {
-
                 let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-
                     method: 'POST',
-
                     cache: 'no-cache',
-
                     mode: 'cors',
-
                     timeout: 1000,
-
                     headers: {
-
                         'Content-Type': 'text/plain'
-
                     },
-
                     body: probingAddresses[i]
-
                 }));
 
-
-
                 if (response.status == 200) {
-
                     return rootUrl;
-
                 }
-
             }
-
             catch (e) { }
-
         }
-
     }
-
 }
 
-
-
 function loadDotnetInteractiveApi() {
-
-    probeAddresses(["http://192.168.178.24:2050/", "http://169.254.203.116:2050/", "http://169.254.194.28:2050/", "http://172.16.0.1:2050/", "http://172.23.192.1:2050/", "http://172.23.176.1:2050/", "http://127.0.0.1:2050/"])
-
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.7:2048/"])
         .then((root) => {
-
         // use probing to find host url and api resources
-
         // load interactive helpers and language services
-
         let dotnetInteractiveRequire = require.config({
-
-        context: '105968.Microsoft.DotNet.Interactive.Http.HttpPort',
-
+        context: '1540.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
-
             {
-
                 'dotnet-interactive': `${root}resources`
-
                 }
-
         }) || require;
-
-
 
             window.dotnetInteractiveRequire = dotnetInteractiveRequire;
 
-
-
             window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-
                 let paths = {};
-
                 paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-
                 
-
                 let internalRequire = require.config({
-
                     context: extensionCacheBuster,
-
                     paths: paths,
-
                     urlArgs: `cacheBuster=${extensionCacheBuster}`
-
                     }) || require;
 
-
-
                 return internalRequire
-
             };
-
         
-
             dotnetInteractiveRequire([
-
                     'dotnet-interactive/dotnet-interactive'
-
                 ],
-
                 function (dotnet) {
-
                     dotnet.init(window);
-
                 },
-
                 function (error) {
-
                     console.log(error);
-
                 }
-
             );
-
         })
-
         .catch(error => {console.log(error);});
-
     }
 
-
-
 // ensure `require` is available globally
-
 if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-
     let require_script = document.createElement('script');
-
     require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-
     require_script.setAttribute('type', 'text/javascript');
-
     
-
     
-
     require_script.onload = function() {
-
         loadDotnetInteractiveApi();
-
     };
 
-
-
     document.getElementsByTagName('head')[0].appendChild(require_script);
-
 }
-
 else {
-
     loadDotnetInteractiveApi();
-
 }
-
-
 
     </script>
 </div></div>
@@ -13738,7 +13637,6 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestTheAddRangeMethodOfTheBuiltInListType
-
 </pre>
 </div>
 </div>
@@ -13746,7 +13644,6 @@ else {
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 1, Passed: 1, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -13934,7 +13831,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestStack
-
 </pre>
 </div>
 </div>
@@ -13942,7 +13838,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 1, Passed: 1, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -14018,7 +13913,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestPushAndPopReturnsCorrectValue
-
 </pre>
 </div>
 </div>
@@ -14026,7 +13920,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestPushAndPopWithMultipleElements
-
 </pre>
 </div>
 </div>
@@ -14034,7 +13927,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestPopWithEmptyStack
-
 </pre>
 </div>
 </div>
@@ -14042,7 +13934,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestPushPushesOnlyASingleElement
-
 </pre>
 </div>
 </div>
@@ -14050,7 +13941,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 4, Passed: 4, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -14124,7 +14014,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestAdd
-
 </pre>
 </div>
 </div>
@@ -14132,7 +14021,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 1, Passed: 1, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -14198,7 +14086,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestAdder
-
 </pre>
 </div>
 </div>
@@ -14206,7 +14093,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 1, Passed: 1, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -14320,7 +14206,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestAdderWithSpy
-
 </pre>
 </div>
 </div>
@@ -14328,7 +14213,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 1, Passed: 1, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -14377,7 +14261,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Result: 3
-
 </pre>
 </div>
 </div>
@@ -14463,7 +14346,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[PASS] TestAddAndPrint
-
 </pre>
 </div>
 </div>
@@ -14471,7 +14353,6 @@ Fehler enthalten kann</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total tests: 1, Passed: 1, Failed: 0
-
 </pre>
 </div>
 </div>
@@ -14572,7 +14453,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0
-
 </pre>
 </div>
 </div>
@@ -14580,7 +14460,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1
-
 </pre>
 </div>
 </div>
@@ -14588,7 +14467,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>2
-
 </pre>
 </div>
 </div>
@@ -14638,7 +14516,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0
-
 </pre>
 </div>
 </div>
@@ -14646,7 +14523,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1
-
 </pre>
 </div>
 </div>
@@ -14654,7 +14530,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>2
-
 </pre>
 </div>
 </div>
@@ -14722,7 +14597,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14730,7 +14604,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is OFF
-
 </pre>
 </div>
 </div>
@@ -14738,7 +14611,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14794,7 +14666,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14802,7 +14673,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is OFF
-
 </pre>
 </div>
 </div>
@@ -14810,7 +14680,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14833,7 +14702,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14907,7 +14775,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14915,7 +14782,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is OFF
-
 </pre>
 </div>
 </div>
@@ -14923,7 +14789,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Switch is ON
-
 </pre>
 </div>
 </div>
@@ -14966,7 +14831,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(0) = 1
-
 </pre>
 </div>
 </div>
@@ -14974,7 +14838,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(1) = 1
-
 </pre>
 </div>
 </div>
@@ -14982,7 +14845,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(2) = 2
-
 </pre>
 </div>
 </div>
@@ -14990,7 +14852,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(3) = 3
-
 </pre>
 </div>
 </div>
@@ -14998,7 +14859,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(4) = 5
-
 </pre>
 </div>
 </div>
@@ -15056,7 +14916,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(0) = 1
-
 </pre>
 </div>
 </div>
@@ -15064,7 +14923,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(1) = 1
-
 </pre>
 </div>
 </div>
@@ -15072,7 +14930,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(2) = 2
-
 </pre>
 </div>
 </div>
@@ -15080,7 +14937,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(3) = 3
-
 </pre>
 </div>
 </div>
@@ -15088,7 +14944,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(4) = 5
-
 </pre>
 </div>
 </div>
@@ -15147,7 +15002,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(0) = 1
-
 </pre>
 </div>
 </div>
@@ -15155,7 +15009,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(1) = 1
-
 </pre>
 </div>
 </div>
@@ -15163,7 +15016,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(2) = 2
-
 </pre>
 </div>
 </div>
@@ -15171,7 +15023,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(3) = 3
-
 </pre>
 </div>
 </div>
@@ -15179,7 +15030,6 @@ testbar zu machen?</li>
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fib(4) = 5
-
 </pre>
 </div>
 </div>

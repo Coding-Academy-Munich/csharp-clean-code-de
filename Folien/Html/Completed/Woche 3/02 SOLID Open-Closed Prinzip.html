@@ -4,7 +4,8 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -13087,7 +13088,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=ee001dd0714a6e61"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=00fe4cf4fc7229ac"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13369,12 +13370,12 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div style="text-align:center; font-size:200%;">
 <b>SOLID: Open-Closed Prinzip</b>
 </div>
-<br>
+<br/>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 <br/>
 <div style="text-align:center;">Coding-Akademie München</div>
 <br/>
-</br></div>
+</div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=6d6d0c3384564cee"><div class="prompt input_prompt">
@@ -13409,210 +13410,108 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-49188.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
-
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
-
     </div>
 <script type="text/javascript">
-
 async function probeAddresses(probingAddresses) {
-
     function timeout(ms, promise) {
-
         return new Promise(function (resolve, reject) {
-
             setTimeout(function () {
-
                 reject(new Error('timeout'))
-
             }, ms)
-
             promise.then(resolve, reject)
-
         })
-
     }
 
-
-
     if (Array.isArray(probingAddresses)) {
-
         for (let i = 0; i < probingAddresses.length; i++) {
-
-
 
             let rootUrl = probingAddresses[i];
 
-
-
             if (!rootUrl.endsWith('/')) {
-
                 rootUrl = `${rootUrl}/`;
-
             }
-
-
 
             try {
-
                 let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-
                     method: 'POST',
-
                     cache: 'no-cache',
-
                     mode: 'cors',
-
                     timeout: 1000,
-
                     headers: {
-
                         'Content-Type': 'text/plain'
-
                     },
-
                     body: probingAddresses[i]
-
                 }));
 
-
-
                 if (response.status == 200) {
-
                     return rootUrl;
-
                 }
-
             }
-
             catch (e) { }
-
         }
-
     }
-
 }
 
-
-
 function loadDotnetInteractiveApi() {
-
-    probeAddresses(["http://192.168.178.24:2048/", "http://169.254.203.116:2048/", "http://169.254.194.28:2048/", "http://172.16.0.1:2048/", "http://172.23.192.1:2048/", "http://172.23.176.1:2048/", "http://127.0.0.1:2048/"])
-
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://172.17.0.4:2048/"])
         .then((root) => {
-
         // use probing to find host url and api resources
-
         // load interactive helpers and language services
-
         let dotnetInteractiveRequire = require.config({
-
-        context: '49188.Microsoft.DotNet.Interactive.Http.HttpPort',
-
+        context: '820.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
-
             {
-
                 'dotnet-interactive': `${root}resources`
-
                 }
-
         }) || require;
-
-
 
             window.dotnetInteractiveRequire = dotnetInteractiveRequire;
 
-
-
             window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-
                 let paths = {};
-
                 paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-
                 
-
                 let internalRequire = require.config({
-
                     context: extensionCacheBuster,
-
                     paths: paths,
-
                     urlArgs: `cacheBuster=${extensionCacheBuster}`
-
                     }) || require;
 
-
-
                 return internalRequire
-
             };
-
         
-
             dotnetInteractiveRequire([
-
                     'dotnet-interactive/dotnet-interactive'
-
                 ],
-
                 function (dotnet) {
-
                     dotnet.init(window);
-
                 },
-
                 function (error) {
-
                     console.log(error);
-
                 }
-
             );
-
         })
-
         .catch(error => {console.log(error);});
-
     }
 
-
-
 // ensure `require` is available globally
-
 if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-
     let require_script = document.createElement('script');
-
     require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-
     require_script.setAttribute('type', 'text/javascript');
-
     
-
     
-
     require_script.onload = function() {
-
         loadDotnetInteractiveApi();
-
     };
 
-
-
     document.getElementsByTagName('head')[0].appendChild(require_script);
-
 }
-
 else {
-
     loadDotnetInteractiveApi();
-
 }
-
-
 
     </script>
 </div></div>
@@ -13684,16 +13583,14 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Casablanca costs 4,99
-
+<pre>Casablanca costs 4.99
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Shrek costs 5,99
-
+<pre>Shrek costs 5.99
 </pre>
 </div>
 </div>
@@ -13797,16 +13694,14 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Casablanca costs 4,99
-
+<pre>Casablanca costs 4.99
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Shrek costs 5,99
-
+<pre>Shrek costs 5.99
 </pre>
 </div>
 </div>
@@ -13954,24 +13849,21 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Casablanca costs 4,99
-
+<pre>Casablanca costs 4.99
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Shrek costs 5,99
-
+<pre>Shrek costs 5.99
 </pre>
 </div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Brand New costs 6,99
-
+<pre>Brand New costs 6.99
 </pre>
 </div>
 </div>
@@ -14020,371 +13912,6 @@ Klasse anzuwenden</li>
 <li>Aber je kleiner und lokaler wir unsere Vererbungshierarchien halten, desto
 besser</li>
 </ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=5d2cb61027867302"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workshop:-Smart-Home-Device-Control-System">Workshop: Smart Home Device Control System<a class="anchor-link" href="#Workshop:-Smart-Home-Device-Control-System">¶</a></h2><p>In diesem Workshop arbeiten wir mit einem Szenario, das ein Smart Home
-Gerätesteuerungssystem betrifft. Leider verletzt das vorhandene System
-das Open-Closed-Prinzip.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=c98a54bc44cdb397"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Szenario">Szenario<a class="anchor-link" href="#Szenario">¶</a></h3><p>Wir haben ein Smart-Home-System. Dieses System steuert verschiedene
-Geräte: Lichter, Thermostate, Sicherheitskameras und intelligente Schlösser.
-Jeder Gerätetyp benötigt einen eigenen Steuerungsmechanismus und eigene
-Automatisierungsregeln.</p>
-<p>Nun muss das Steuerungssystem des Smart Homes diese Geräte verwalten. Das
-Problem mit dem aktuellen System ist die Verwendung eines Enums zur Bestimmung
-des Gerätetyps und basierend darauf seiner Steuermethode. Dieser Ansatz ist
-nicht skalierbar und verletzt das OCP.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=42945fb3c75b8f36">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=0c419d479ca8c6d3">
-<div class="input">
-<div class="prompt input_prompt">In [16]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">DeviceType</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Light</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Thermostat</span><span class="p">,</span>
-<span class="w">    </span><span class="n">SecurityCamera</span><span class="p">,</span>
-<span class="w">    </span><span class="n">SmartLock</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=f57576bf8a6d359f">
-<div class="input">
-<div class="prompt input_prompt">In [17]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DeviceV0</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="w"> </span><span class="n">type</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">switch</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Turning light on/off."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Adjusting temperature."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Activating motion detection."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SmartLock</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Locking/Unlocking door."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Unknown device control!"</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">switch</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Light is on/off."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Current temperature: 22°C."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Camera is active/inactive."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SmartLock</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Door is locked/unlocked."</span><span class="p">,</span>
-<span class="w">            </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">"Unknown device status!"</span>
-<span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">DeviceType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep celltag_subslide" id="cell-id=c91ef880ee963019">
-<div class="input">
-<div class="prompt input_prompt">In [18]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devicesOriginal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Light</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">Thermostat</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">DeviceV0</span><span class="p">(</span><span class="n">DeviceType</span><span class="p">.</span><span class="n">SecurityCamera</span><span class="p">)</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=9a6d22c245e21506">
-<div class="input">
-<div class="prompt input_prompt">In [19]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ManageDevices</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">DeviceV0</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">DeviceV0</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">Control</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">GetStatus</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_keep" id="cell-id=553a8a41552c684b">
-<div class="input">
-<div class="prompt input_prompt">In [20]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">ManageDevices</span><span class="p">(</span><span class="n">devicesOriginal</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Turning light on/off. Light is on/off.
-
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Adjusting temperature. Current temperature: 22°C.
-
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Activating motion detection. Camera is active/inactive.
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=536ed71511162336"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Beseitigen Sie das Problem mit der OCP-Verletzung im vorhandenen Code</li>
-<li>Sie können entweder den vorhandenen Code ändern oder eine neue Lösung von
-Grund auf neu erstellen</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=32e9edca76670f9d">
-<div class="input">
-<div class="prompt input_prompt">In [21]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=d1aca5dd5f1a48ed">
-<div class="input">
-<div class="prompt input_prompt">In [22]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IDevice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">();</span>
-<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=0af4f7e970690e91">
-<div class="input">
-<div class="prompt input_prompt">In [23]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Light</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDevice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Turning light on/off."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Light is on/off."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=f6399a45d4f15956">
-<div class="input">
-<div class="prompt input_prompt">In [24]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Thermostat</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDevice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Adjusting temperature."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Current temperature: 22°C."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=273c5257913fb180">
-<div class="input">
-<div class="prompt input_prompt">In [25]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SecurityCamera</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDevice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Activating motion detection."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Camera is active/inactive."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=c874fc2f8ac78830">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SmartLock</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDevice</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">Control</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Locking/Unlocking door."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">GetStatus</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Door is locked/unlocked."</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt celltag_subslide" id="cell-id=526b5820b5b3ebd0">
-<div class="input">
-<div class="prompt input_prompt">In [27]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">IDevice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devicesRefactored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">IDevice</span><span class="o">&gt;</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">Light</span><span class="p">(),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">Thermostat</span><span class="p">(),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">SecurityCamera</span><span class="p">()</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=96ab4e2b50322f25">
-<div class="input">
-<div class="prompt input_prompt">In [28]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ManageDevices</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">IDevice</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">IDevice</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">Control</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">GetStatus</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered celltag_alt" id="cell-id=3ebe144158ed64d3">
-<div class="input">
-<div class="prompt input_prompt">In [29]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="n">ManageDevices</span><span class="p">(</span><span class="n">devicesRefactored</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Turning light on/off. Light is on/off.
-
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Adjusting temperature. Current temperature: 22°C.
-
-</pre>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Activating motion detection. Camera is active/inactive.
-
-</pre>
-</div>
-</div>
 </div>
 </div>
 </div>

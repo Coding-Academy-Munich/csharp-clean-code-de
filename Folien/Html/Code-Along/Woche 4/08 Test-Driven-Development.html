@@ -4,7 +4,8 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs';
+  
   mermaid.initialize({ startOnLoad: true });
 </script>
 <style type="text/css">
@@ -13087,7 +13088,7 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=f4a34bcf2cd278dc"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_slide" id="cell-id=4a4d857feffb4e71"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img alt="C# Logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEgCAYAAABb3q1QAAAEuGlUWHRYTUw6Y29tLmFkb2JlLnht
@@ -13369,12 +13370,12 @@ wVgkEiEgwL/Pz8+vy8fHu9nLy7va19fn5y+LHsoiqZ3ieqgB8JRl07PTzGbzVLFYdEIkEh+lWXn8
 <div style="text-align:center; font-size:200%;">
 <b>Test-Driven-Development</b>
 </div>
-<br>
+<br/>
 <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 <br/>
 <div style="text-align:center;">Coding-Akademie München</div>
 <br/>
-</br></div>
+</div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=6c5e89df1b7cff46"><div class="prompt input_prompt">
@@ -13458,10 +13459,10 @@ anpassen</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=59b3df4b563a8607"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8a5a34d6c00989e1"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Der-TDD-Zyklus">Der TDD-Zyklus<a class="anchor-link" href="#Der-TDD-Zyklus">¶</a></h2><ul>
+<h2 id="Der-TDD-Zyklus-(1/2)">Der TDD-Zyklus (1/2)<a class="anchor-link" href="#Der-TDD-Zyklus-(1/2)">¶</a></h2><ul>
 <li>Schreibe einen (minimalen) Test<ul>
 <li>Der Test testet nur ein einziges neues (Teil-)Feature: <strong>Baby Steps</strong></li>
 <li>Dieser Test schlägt fehl</li>
@@ -13472,6 +13473,14 @@ anpassen</li>
 <li>Aber: <strong>Solve Simply</strong></li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=8cc2675e1a95f60d"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Der-TDD-Zyklus-(2/2)">Der TDD-Zyklus (2/2)<a class="anchor-link" href="#Der-TDD-Zyklus-(2/2)">¶</a></h2><ul>
 <li>Verbessere den Code<ul>
 <li>Entferne die unsauberen Konstrukte, die im vorhergehenden Schritt eingefügt wurden</li>
 <li>Generalisiere die Implementierung, wenn zu viel Wiederholung entstanden ist</li>
@@ -13505,49 +13514,42 @@ baubar, testbar oder ausführbar ist</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=be80b4c3f0c253e0"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=446e4104bd296f61"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Warum-Solve-Simply?">Warum Solve Simply?<a class="anchor-link" href="#Warum-Solve-Simply?">¶</a></h2><ul>
-<li>Eine flexible, generische Lösung erhöht oft die Komplexität des Systems</li>
-<li>Das lohnt sich nur, wenn die Flexibilität auch benötigt wird</li>
-<li>Entwickler können meist schlecht vorhersehen, an welchen Stellen
-Flexibilität/Erweiterbarkeit benötigt wird</li>
-<li>Eine flexible, generische Lösung ist oft sehr viel schwerer zu implementieren
-als eine einfache Lösung für einen spezielleren Anwendungsfall</li>
-<li>Die naheliegendste flexible, generische Lösung ist oft nicht der sauberste und
-wartbare Code</li>
+<li>Flexible, generische Lösungen erhöhen Komplexität</li>
+<li>Lohnt sich nur bei tatsächlichem Bedarf</li>
+<li>Flexibilitätsbedarf schwer vorhersagbar</li>
+<li>Generische Lösungen schwerer zu implementieren</li>
+<li>Naheliegende generische Lösung oft nicht wartbar</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=dcb02115140c8b63"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=059e96b378ff5824"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Annahmen-von-Solve-Simply">Annahmen von Solve Simply<a class="anchor-link" href="#Annahmen-von-Solve-Simply">¶</a></h2><ul>
-<li>Es ist durch Refactoring möglich, Code in einen sauberen, wartbaren Zustand zu
-bekommen, ohne dadurch die Funktionalität zu verändern</li>
-<li>Es ist möglich, Code iterativ zu erweitern und flexibler zu machen,
-wenn das erforderlich ist</li>
-<li>Es ist einfacher, die Refactoring- und Iterations-Schritte durchzuführen, als
-gleich die endgültige Lösung zu entwickeln</li>
-<li>Diese Annahmen sind nur dann erfüllt, wenn hinreichend viele, gute
-Unit-Tests vorliegen</li>
+<li>Refactoring kann Code sauber machen, ohne Funktionalität zu ändern</li>
+<li>Iterative Erweiterung und Flexibilisierung möglich</li>
+<li>Refactoring-Schritte einfacher als direkte endgültige Lösung</li>
+<li>Voraussetzung: hinreichend viele, gute Unit-Tests</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=deac7cb941ddd8b9"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered celltag_subslide" id="cell-id=063f5c89ac017a2c"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Noch-besser:-TDD-+-Vorbereitungsschritt">Noch besser: TDD + Vorbereitungsschritt<a class="anchor-link" href="#Noch-besser:-TDD-+-Vorbereitungsschritt">¶</a></h2><ul>
-<li>Refactore den Code, sodass die Änderung einfach wird<ul>
-<li>Das ist oft nicht so einfach…</li>
-<li>Wenn beim Refactoring klar wird, dass Tests fehlen, so werden diese hinzugefügt</li>
+<li>Refactoring, damit die Änderung einfach wird<ul>
+<li>Oft nicht trivial</li>
+<li>Fehlende Tests werden dabei ergänzt</li>
 </ul>
 </li>
-<li>Führe die einfache Änderung mit dem TDD-Zyklus durch</li>
-<li>Wiederhole diese Schritte immer wieder</li>
+<li>Einfache Änderung mit TDD-Zyklus durchführen</li>
+<li>Schritte wiederholen</li>
 </ul>
 </div>
 </div>

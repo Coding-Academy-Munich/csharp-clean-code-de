@@ -7,6 +7,7 @@
 // <br/>
 // <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 // <br/>
+//
 // <div style="text-align:center;">Coding-Akademie München</div>
 // <br/>
 
@@ -20,7 +21,6 @@
 //   - Testen einzelne Komponenten in Isolation
 // - End-to-End/Systemtests:
 //   - Testen das komplette System.
-
 
 // %% [markdown]
 //

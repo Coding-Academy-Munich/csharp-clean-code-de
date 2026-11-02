@@ -7,6 +7,7 @@
 // <br/>
 // <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 // <br/>
+//
 // <div style="text-align:center;">Coding-Akademie München</div>
 // <br/>
 
@@ -203,7 +204,6 @@ public class StackTests_Good
     }
 }
 
-
 // %%
 RunTests<StackTests_Good>();
 
@@ -248,7 +248,6 @@ public class StackTests_PushPopOnly
         Assert.Throws<InvalidOperationException>(() => myStack.Pop());
     }
 }
-
 
 // %%
 RunTests<StackTests_PushPopOnly>();

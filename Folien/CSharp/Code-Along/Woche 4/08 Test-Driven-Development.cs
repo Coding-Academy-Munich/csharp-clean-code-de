@@ -7,6 +7,7 @@
 // <br/>
 // <div style="text-align:center; font-size:120%;">Dr. Matthias Hölzl</div>
 // <br/>
+//
 // <div style="text-align:center;">Coding-Akademie München</div>
 // <br/>
 
@@ -57,7 +58,6 @@
 // <img src="img/dev-velocity.png"
 //      style="display:block;margin:auto;width:70%"/>
 
-
 // %% [markdown]
 //
 // ## Test-Driven Development
@@ -72,7 +72,7 @@
 
 // %% [markdown]
 //
-// ## Der TDD-Zyklus
+// ## Der TDD-Zyklus (1/2)
 //
 // - Schreibe einen (minimalen) Test
 //   - Der Test testet nur ein einziges neues (Teil-)Feature: **Baby Steps**
@@ -80,6 +80,11 @@
 // - Implementiere die minimale Funktionalität, um den Test zum Laufen zu bringen
 //   - Dabei muss man nicht auf sauberen Code oder gutes Design achten
 //   - Aber: **Solve Simply**
+
+// %% [markdown]
+//
+// ## Der TDD-Zyklus (2/2)
+//
 // - Verbessere den Code
 //   - Entferne die unsauberen Konstrukte, die im vorhergehenden Schritt eingefügt wurden
 //   - Generalisiere die Implementierung, wenn zu viel Wiederholung entstanden ist
@@ -106,34 +111,27 @@
 //
 // ## Warum Solve Simply?
 //
-// - Eine flexible, generische Lösung erhöht oft die Komplexität des Systems
-// - Das lohnt sich nur, wenn die Flexibilität auch benötigt wird
-// - Entwickler können meist schlecht vorhersehen, an welchen Stellen
-//   Flexibilität/Erweiterbarkeit benötigt wird
-// - Eine flexible, generische Lösung ist oft sehr viel schwerer zu implementieren
-//   als eine einfache Lösung für einen spezielleren Anwendungsfall
-// - Die naheliegendste flexible, generische Lösung ist oft nicht der sauberste und
-//   wartbare Code
+// - Flexible, generische Lösungen erhöhen Komplexität
+// - Lohnt sich nur bei tatsächlichem Bedarf
+// - Flexibilitätsbedarf schwer vorhersagbar
+// - Generische Lösungen schwerer zu implementieren
+// - Naheliegende generische Lösung oft nicht wartbar
 
 // %% [markdown]
 //
 // ## Annahmen von Solve Simply
 //
-// - Es ist durch Refactoring möglich, Code in einen sauberen, wartbaren Zustand zu
-//   bekommen, ohne dadurch die Funktionalität zu verändern
-// - Es ist möglich, Code iterativ zu erweitern und flexibler zu machen,
-//   wenn das erforderlich ist
-// - Es ist einfacher, die Refactoring- und Iterations-Schritte durchzuführen, als
-//   gleich die endgültige Lösung zu entwickeln
-// - Diese Annahmen sind nur dann erfüllt, wenn hinreichend viele, gute
-//   Unit-Tests vorliegen
+// - Refactoring kann Code sauber machen, ohne Funktionalität zu ändern
+// - Iterative Erweiterung und Flexibilisierung möglich
+// - Refactoring-Schritte einfacher als direkte endgültige Lösung
+// - Voraussetzung: hinreichend viele, gute Unit-Tests
 
 // %% [markdown]
 //
 // ## Noch besser: TDD + Vorbereitungsschritt
 //
-// - Refactore den Code, sodass die Änderung einfach wird
-//   - Das ist oft nicht so einfach…
-//   - Wenn beim Refactoring klar wird, dass Tests fehlen, so werden diese hinzugefügt
-// - Führe die einfache Änderung mit dem TDD-Zyklus durch
-// - Wiederhole diese Schritte immer wieder
+// - Refactoring, damit die Änderung einfach wird
+//   - Oft nicht trivial
+//   - Fehlende Tests werden dabei ergänzt
+// - Einfache Änderung mit TDD-Zyklus durchführen
+// - Schritte wiederholen
