@@ -13418,7 +13418,7 @@ Schnittstellen.</li>
 <div class="prompt"></div>
 <div class="output_html rendered_html output_subarea">
 <div>
-<div id="dotnet-interactive-this-cell-44540.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
+<div id="dotnet-interactive-this-cell-53788.Microsoft.DotNet.Interactive.Http.HttpPort" style="display: none">
         The below script needs to be able to find the current output cell; this is an easy method to get it.
     </div>
 <script type="text/javascript">
@@ -13463,12 +13463,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://192.168.178.24:2048/", "http://192.168.240.1:2048/", "http://172.23.176.1:2048/", "http://127.0.0.1:2048/"])
+    probeAddresses(["http://192.168.178.24:2051/", "http://192.168.240.1:2051/", "http://172.23.176.1:2051/", "http://127.0.0.1:2051/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '44540.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '53788.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
